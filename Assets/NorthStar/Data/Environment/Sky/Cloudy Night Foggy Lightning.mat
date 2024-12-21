@@ -1,0 +1,114 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Cloudy Night Foggy Lightning
+  m_Shader: {fileID: -6465566751694194690, guid: 818046b3161aedc4281bd266e54b7264,
+    type: 3}
+  m_Parent: {fileID: 2100000, guid: 907cd1c9d82c10a4c83184fc49699705, type: 2}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords:
+  - _IS_STORMY_SKY
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap:
+    RenderType: Opaque
+  disabledShaderPasses:
+  - SHADOWCASTER
+  m_LockedProperties: _Back_Scatter_Power _Cloud_Ambient _Cloud_Back_Color _Cloud_Blend_Offset
+    _Cloud_Blend_Power _Cloud_Direction _Cloud_Offset _Cloud_Opacity_Offset _Cloud_Scale
+    _Cloud_Speed _Cloud_Sun_Color _Fog_Offset _Fog_Power _Front_Scatter_Power _Ground_Color
+    _Scatter_Blend _Sky_Blend_Offset _Sky_Blend_Power _Sky_Horizon_Color _Sky_Zenith_Color
+    _Star_Color _Star_Power _Star_Scale
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Cloud_Normal:
+        m_Texture: {fileID: 2800000, guid: aa7fad00ef53abb4eb106b4dfc9c8350, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Cloud_Texture:
+        m_Texture: {fileID: 2800000, guid: bda44bdd4ea0cab41a3962d7fd581bb1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Star_Texture:
+        m_Texture: {fileID: 2800000, guid: d948c0863b3caa94ab5c1fe19bc9cf32, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Back_Scatter_Power: 0.333
+    - _Cloud_Blend_Offset: 0.19
+    - _Cloud_Blend_Power: 5.33
+    - _Cloud_Direction: 0.049
+    - _Cloud_Offset: 0.999
+    - _Cloud_Opacity_Offset: 0
+    - _Cloud_Opacity_Scale: 5
+    - _Cloud_Scale: 25
+    - _Cloud_Speed: 0.00004
+    - _Fog_Offset: 0.25
+    - _Fog_Power: 1.31
+    - _Front_Scatter_Power: 0.656
+    - _IS_CELESTIAL_OBJECT: 0
+    - _IS_STORMY_SKY: 1
+    - _Scatter_Blend: 0.656
+    - _SkyCloudEdge: 0.1
+    - _SkyCloudHeight: 0
+    - _SkyCloudOpacity: 1
+    - _SkyFogHeight: 2.72
+    - _SkyGradientOffset: 0.119
+    - _SkyGradientScale: 0.429
+    - _SkyHorizonHeight: 0.48
+    - _SkyStarDensity: 40
+    - _SkyStarOpacity: 1
+    - _SkySunSize: 0.0484
+    - _SkySunSmoothStep: 0.053
+    - _Sky_Blend_Offset: 0.07
+    - _Sky_Blend_Power: 3.28
+    - _Star_Power: 0.86
+    - _Star_Scale: 4.8
+    - _Sun_Size: 0.004
+    - _Sun_Softness: 0.99625
+    m_Colors:
+    - _Cloud_Ambient: {r: 0.36084908, g: 0.40094343, b: 0.4811321, a: 1}
+    - _Cloud_Back_Color: {r: 0.54666865, g: 0.57985353, b: 0.91254926, a: 1}
+    - _Cloud_Speed: {r: 0.003, g: 0.00405, b: 0, a: 0}
+    - _Cloud_Sun_Color: {r: 2.4310875, g: 3.2866375, b: 5.5418344, a: 1}
+    - _Ground_Color: {r: 0.008289473, g: 0.008026315, b: 0.01, a: 1}
+    - _SkyBaseColor: {r: 0.16288115, g: 0.10415198, b: 0.376, a: 1}
+    - _SkyCloudDarkColor: {r: 0.08816327, g: 0.097806126, b: 0.135, a: 1}
+    - _SkyCloudLightColor: {r: 0.11009803, g: 0.17076229, b: 0.65926963, a: 1}
+    - _SkyCloudMidColor: {r: 0.15738776, g: 0.17460203, b: 0.241, a: 1}
+    - _SkyCloudTiling01: {r: 0.68, g: 0.53, b: 0, a: 0}
+    - _SkyCloudTiling02: {r: 6, g: 3.86, b: 0, a: 0}
+    - _SkyHighColor: {r: 0, g: 0.003607876, b: 0.092, a: 1}
+    - _SkyHorizonColor: {r: 0, g: 0.14117648, b: 0.27450982, a: 1}
+    - _SkyMidHorizonColor: {r: 0, g: 0.007843138, b: 0.16862746, a: 1}
+    - _SkySunColor: {r: 0.42418918, g: 0.5694595, b: 0.645, a: 1}
+    - _SkyWindSpeed: {r: 2, g: 0.56, b: 0, a: 0}
+    - _Sky_Horizon_Color: {r: 0.09352062, g: 0, b: 0.18867922, a: 1}
+    - _Sky_Zenith_Color: {r: 0.08546063, g: 0.046858322, b: 0.254717, a: 1}
+    - _Star_Color: {r: 0.42326003, g: 0.21106265, b: 0.4811321, a: 1}
+    - _Sun_Color: {r: 0.2549423, g: 0.66096157, b: 0.982, a: 1}
+  m_BuildTextureStacks: []
+--- !u!114 &1130983063974069177
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 7

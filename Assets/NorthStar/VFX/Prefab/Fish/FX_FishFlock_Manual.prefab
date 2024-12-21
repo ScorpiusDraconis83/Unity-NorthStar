@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4098082512802146221
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6440854656849510443}
+  - component: {fileID: 3274161370765873383}
+  m_Layer: 0
+  m_Name: FX_FishFlock_Manual
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6440854656849510443
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4098082512802146221}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.122013, y: -32.841007, z: -22.404774}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3274161370765873383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4098082512802146221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf0e0eb57713e34cbdcf9e63498d3f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnArea: 1
+  minMaxSpeed: {x: 1, y: 2}
+  minMaxRotationSpeed: {x: 4, y: 6}
+  directionChangeFrequency: 15
+  groupingDistance: 2
+  avoidanceDistance: 0.2
+  manualWaypoints:
+  - m_waypointObject: {fileID: 0}
+    m_waypointPosition: {x: 2.18, y: 2.77, z: -2.14}
+  - m_waypointObject: {fileID: 0}
+    m_waypointPosition: {x: 1.57, y: -1.93, z: 1.23}
+  - m_waypointObject: {fileID: 0}
+    m_waypointPosition: {x: -2.1, y: -0.3, z: -2.04}
+  - m_waypointObject: {fileID: 0}
+    m_waypointPosition: {x: 0, y: 0, z: 0}
+  prefabGroups:
+  - m_prefabName: Trout
+    m_prefab: {fileID: 919132149155446097, guid: 18ab5511fab461946bd7b74a712157cc,
+      type: 3}
+    m_count: 5
+    m_scale: {x: 0.5, y: 1}
+    m_material: {fileID: 0}
+  - m_prefabName: Surgeon Fish
+    m_prefab: {fileID: 919132149155446097, guid: adc7108ac72bf224c8265161052ee733,
+      type: 3}
+    m_count: 5
+    m_scale: {x: 0.5, y: 1}
+    m_material: {fileID: 0}
+  - m_prefabName: Goby Fish
+    m_prefab: {fileID: 919132149155446097, guid: 81511fccb34da4e4684b9091826f1785,
+      type: 3}
+    m_count: 5
+    m_scale: {x: 0.5, y: 1}
+    m_material: {fileID: 0}
+  - m_prefabName: Damsel Fish
+    m_prefab: {fileID: 919132149155446097, guid: ecd49211199875340a45d2fb2bd725f8,
+      type: 3}
+    m_count: 5
+    m_scale: {x: 0.5, y: 1}
+    m_material: {fileID: 0}
+  - m_prefabName: Clown Fish
+    m_prefab: {fileID: 919132149155446097, guid: 7b5bc18b6cfdee44c9cc72c156a21339,
+      type: 3}
+    m_count: 5
+    m_scale: {x: 0.5, y: 1}
+    m_material: {fileID: 0}
+  - m_prefabName: Butterfly Fish
+    m_prefab: {fileID: 919132149155446097, guid: f763b2d0e160e2f4f96396b1400e3a0c,
+      type: 3}
+    m_count: 5
+    m_scale: {x: 0.5, y: 1}
+    m_material: {fileID: 0}
+  visualiseSpawnArea: 1
+  visualiseManualWaypoints: 1

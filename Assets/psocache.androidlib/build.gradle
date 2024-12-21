@@ -1,0 +1,30 @@
+// Copyright (c) Meta Platforms, Inc. and affiliates.
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath "com.android.tools.build:gradle:7.1.2"
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            assets.srcDirs = ['assets']
+            java.srcDirs = ['src']
+        }
+    }
+
+    compileSdkVersion 29
+    defaultConfig {
+        targetSdk 33
+        minSdk 29
+    }
+}

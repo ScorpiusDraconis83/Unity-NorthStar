@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4897442383572562290
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 7
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_WaterArc_Base Variant
+  m_Shader: {fileID: -6465566751694194690, guid: 2a05abcc07b9bf34b840663948ee4a54,
+    type: 3}
+  m_Parent: {fileID: 2100000, guid: 7f55d9c856fcadc42acfabc3b28c18a4, type: 2}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - _ALPHATEST_ON
+  - _B_UNLOAD_ROT_TEX
+  - _SURFACE_TYPE_TRANSPARENT
+  - _USE_VERTEX_ANIMATED_TEXTURES
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap:
+    RenderType: Transparent
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_3449ceac7550445ab7147121e9c2dda7:
+        m_Texture: {fileID: 2800000, guid: 1ff892200d74f1e419746b77aaeb543c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaClip: 1
+    - _GradientIntensity: 0.37
+    - _GradientMaskStrength: 0
+    - _MaskPower: 1
+    - _Mask_Smoothstep_Offset: 0.54
+    - _Mask_Smoothstep_Transition: 0.7
+    - _WarpIntesnity: 0.1
+    m_Colors:
+    - _BaseOffset: {r: 0, g: 0.5, b: 0, a: 0}
+    - _Highlight_Color: {r: 0.33333337, g: 0.94992685, b: 1, a: 0}
+    - _Mask_Direction: {r: 0, g: -1, b: 0, a: 0}
+    - _Mask_Direction_1: {r: 0, g: 0, b: 0, a: 0}
+    - _Mask_Tiling: {r: 0.65, g: 4, b: 0, a: 0}
+  m_BuildTextureStacks: []

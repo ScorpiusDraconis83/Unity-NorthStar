@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8339388205514159745
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 639247ca83abc874e893eb93af2b5e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 0
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_InnerOrb 2
+  m_Shader: {fileID: -6465566751694194690, guid: b8aae66f82c266e44acf1625b25a2d40,
+    type: 3}
+  m_Parent: {fileID: 2100000, guid: 0d71cc1ad971143418622aa5df116b51, type: 2}
+  m_ModifiedSerializedProperties: 16
+  m_ValidKeywords: []
+  m_InvalidKeywords:
+  - _SURFACE_TYPE_TRANSPARENT
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _CenterTexture:
+        m_Texture: {fileID: 2800000, guid: 441d8bb42833455b8b10dd26ce59fffd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DistortionTexture:
+        m_Texture: {fileID: 2800000, guid: b85d4fb2a25e432db829a643ba843ce3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _PatternTexture:
+        m_Texture: {fileID: 2800000, guid: 534be26d6c43c4a4cbd5e4ac167106dd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_5430919abf824c5f8f140a35357130d4_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 165ec26174a75cb4cbbe80b03d838645, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AnimationSpeed: 0.6
+    - _DstBlend: 10
+    - _PanningSpeed: 0.13
+    - _SrcBlend: 5
+    - _Surface: 1
+    - _ZWrite: 0
+    m_Colors:
+    - _DarkColor: {r: 1.5920168, g: 2.4452333, b: 10.680627, a: 0}
+    - _LightColor: {r: 0.18039216, g: 0.38032004, b: 0.7490196, a: 0}
+  m_BuildTextureStacks: []
+--- !u!114 &6665014178361459055
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 7

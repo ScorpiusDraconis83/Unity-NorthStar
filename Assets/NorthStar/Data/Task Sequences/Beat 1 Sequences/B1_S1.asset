@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207342ab1dff44a43beb8b2847655585, type: 3}
+  m_Name: B1_S1
+  m_EditorClassIdentifier: 
+  TaskDefinitions:
+  - ID: B1_StartPanel
+    Sequence: {fileID: 11400000}
+    m_startingPrerequisites: []
+    m_completionPrerequisites: []
+  - ID: B1_S1
+    Sequence: {fileID: 11400000}
+    m_startingPrerequisites:
+    - id: B1_StartPanel
+    m_completionPrerequisites: []
+  - ID: B1_S1_2
+    Sequence: {fileID: 11400000}
+    m_startingPrerequisites:
+    - id: B1_S1
+    m_completionPrerequisites: []
+  NextSequence: {fileID: 11400000, guid: 1ab716e3bc37798478b5f72fd3a926e6, type: 2}
+  Index: 3

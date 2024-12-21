@@ -1,0 +1,319 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d8a6e295fed2594193671e813ed70b0, type: 3}
+  m_Name: CollisionMaterialPairs
+  m_EditorClassIdentifier: 
+  m_defaultEffect: {fileID: 11400000, guid: cb92b67ea972b324b8febca6c30e51d5, type: 2}
+  m_velocityInstensityCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.0217508
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 5
+      value: 1
+      inSlope: -0.00007771639
+      outSlope: -0.00007771639
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.07705173
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_collisionPairs:
+  - A: {fileID: 13400000, guid: 36b5dbc3a9ad456469956a55dd2fef84, type: 2}
+    B: {fileID: 13400000, guid: 348fc768062fc244cac65cbb3f509168, type: 2}
+    Effect: {fileID: 11400000, guid: 9e323d49f8840ff4b9044860fffb42b1, type: 2}
+    VolumeCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1.0217508
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 5
+        value: 1
+        inSlope: -0.00007771639
+        outSlope: -0.00007771639
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.07705173
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  - A: {fileID: 13400000, guid: 348fc768062fc244cac65cbb3f509168, type: 2}
+    B: {fileID: 13400000, guid: 348fc768062fc244cac65cbb3f509168, type: 2}
+    Effect: {fileID: 11400000, guid: 75c794441de01954bb270a79f3c65783, type: 2}
+    VolumeCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1.0217508
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 5
+        value: 1
+        inSlope: -0.00007771639
+        outSlope: -0.00007771639
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.07705173
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  - A: {fileID: 13400000, guid: 67d3d43641d14014da6bcaa2508b785c, type: 2}
+    B: {fileID: 13400000, guid: 36b5dbc3a9ad456469956a55dd2fef84, type: 2}
+    Effect: {fileID: 11400000, guid: 558d2fbce76d2b04b9abd9b94174756e, type: 2}
+    VolumeCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0.25017548
+        value: 0
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  - A: {fileID: 13400000, guid: 67d3d43641d14014da6bcaa2508b785c, type: 2}
+    B: {fileID: 13400000, guid: 707d08878a4c45947917af5e74d46484, type: 2}
+    Effect: {fileID: 11400000, guid: 558d2fbce76d2b04b9abd9b94174756e, type: 2}
+    VolumeCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  - A: {fileID: 13400000, guid: 36b5dbc3a9ad456469956a55dd2fef84, type: 2}
+    B: {fileID: 13400000, guid: f5589469f728e184a99df442b6ac10cd, type: 2}
+    Effect: {fileID: 11400000, guid: ec0b2020201db0546a6e215a36c04252, type: 2}
+    VolumeCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1.0217508
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 5
+        value: 1
+        inSlope: -0.00007771639
+        outSlope: -0.00007771639
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.07705173
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  - A: {fileID: 13400000, guid: 2699b42b8afe880469d354c9278bdcd8, type: 2}
+    B: {fileID: 13400000, guid: 348fc768062fc244cac65cbb3f509168, type: 2}
+    Effect: {fileID: 11400000, guid: 9006fdefe0198be45ae00efbfebe5adb, type: 2}
+    VolumeCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1.0217508
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 5
+        value: 1
+        inSlope: -0.00007771639
+        outSlope: -0.00007771639
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.07705173
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  - A: {fileID: 13400000, guid: 2699b42b8afe880469d354c9278bdcd8, type: 2}
+    B: {fileID: 13400000, guid: f5589469f728e184a99df442b6ac10cd, type: 2}
+    Effect: {fileID: 11400000, guid: 8a4b7d0b8661eeb49ae7bac449c5504c, type: 2}
+    VolumeCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1.0217508
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 5
+        value: 1
+        inSlope: -0.00007771639
+        outSlope: -0.00007771639
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.07705173
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  - A: {fileID: 13400000, guid: 348fc768062fc244cac65cbb3f509168, type: 2}
+    B: {fileID: 13400000, guid: f5589469f728e184a99df442b6ac10cd, type: 2}
+    Effect: {fileID: 11400000, guid: cb92b67ea972b324b8febca6c30e51d5, type: 2}
+    VolumeCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1.0217508
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 5
+        value: 1
+        inSlope: -0.00007771639
+        outSlope: -0.00007771639
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.07705173
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4

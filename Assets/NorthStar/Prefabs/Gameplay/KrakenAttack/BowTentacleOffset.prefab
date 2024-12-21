@@ -1,0 +1,967 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &9034314511597334716
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5016262974163310993}
+  m_Layer: 0
+  m_Name: BowTentacleOffset
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &5016262974163310993
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9034314511597334716}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: -4.17, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8304295098614906671}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!1001 &2335488577797335208
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4109961054069256650}
+    m_Modifications:
+    - target: {fileID: 249608010878060367, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_Name
+      value: TentacleHarpoonTarget_Bow
+      objectReference: {fileID: 0}
+    - target: {fileID: 249608010878060367, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7450109057382370822, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_id
+      value: BowTentacleHit
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7450109057382370822, guid: d857aad612600fd468b8bf0d5ded5ed2, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d857aad612600fd468b8bf0d5ded5ed2, type: 3}
+--- !u!4 &4265229008007236343 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2335488577797335208}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6490718582018804500 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8825639467681686460, guid: d857aad612600fd468b8bf0d5ded5ed2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2335488577797335208}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21f533390cf5aac40a333c81b6b89e06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &3938045260810497431
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4244455768201982828}
+    m_Modifications:
+    - target: {fileID: 249608010878060367, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_Name
+      value: TentacleHarpoonTarget_Bow
+      objectReference: {fileID: 0}
+    - target: {fileID: 249608010878060367, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 800579746737855692, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7450109057382370822, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_id
+      value: BowTentacleHit
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7450109057382370822, guid: d857aad612600fd468b8bf0d5ded5ed2, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d857aad612600fd468b8bf0d5ded5ed2, type: 3}
+--- !u!4 &3314313009461202888 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+    type: 3}
+  m_PrefabInstance: {fileID: 3938045260810497431}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5538379815445368363 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8825639467681686460, guid: d857aad612600fd468b8bf0d5ded5ed2,
+    type: 3}
+  m_PrefabInstance: {fileID: 3938045260810497431}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21f533390cf5aac40a333c81b6b89e06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &5798082887895687646
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8340132199195472830}
+    m_Modifications:
+    - target: {fileID: 249608010878060367, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_Name
+      value: TentacleHarpoonTarget_Bow
+      objectReference: {fileID: 0}
+    - target: {fileID: 249608010878060367, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 800579746737855692, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_Height
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 800579746737855692, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7450109057382370822, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_id
+      value: BowTentacleHit
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7450109057382370822, guid: d857aad612600fd468b8bf0d5ded5ed2, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d857aad612600fd468b8bf0d5ded5ed2, type: 3}
+--- !u!114 &3029820835710796386 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8825639467681686460, guid: d857aad612600fd468b8bf0d5ded5ed2,
+    type: 3}
+  m_PrefabInstance: {fileID: 5798082887895687646}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21f533390cf5aac40a333c81b6b89e06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &5417439995775026049 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+    type: 3}
+  m_PrefabInstance: {fileID: 5798082887895687646}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6078538090900334777
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8336304921416512160}
+    m_Modifications:
+    - target: {fileID: 249608010878060367, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_Name
+      value: TentacleHarpoonTarget_Bow
+      objectReference: {fileID: 0}
+    - target: {fileID: 249608010878060367, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 800579746737855692, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7450109057382370822, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_id
+      value: BowTentacleHit
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7450109057382370822, guid: d857aad612600fd468b8bf0d5ded5ed2, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d857aad612600fd468b8bf0d5ded5ed2, type: 3}
+--- !u!114 &3324138548224723717 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8825639467681686460, guid: d857aad612600fd468b8bf0d5ded5ed2,
+    type: 3}
+  m_PrefabInstance: {fileID: 6078538090900334777}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21f533390cf5aac40a333c81b6b89e06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &5693464051559598822 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+    type: 3}
+  m_PrefabInstance: {fileID: 6078538090900334777}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6252280412899694403
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 713042470163737033}
+    m_Modifications:
+    - target: {fileID: 249608010878060367, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_Name
+      value: TentacleHarpoonTarget_Bow
+      objectReference: {fileID: 0}
+    - target: {fileID: 249608010878060367, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 800579746737855692, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7450109057382370822, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_id
+      value: BowTentacleHit
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7450109057382370822, guid: d857aad612600fd468b8bf0d5ded5ed2, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d857aad612600fd468b8bf0d5ded5ed2, type: 3}
+--- !u!114 &3224146037913515263 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8825639467681686460, guid: d857aad612600fd468b8bf0d5ded5ed2,
+    type: 3}
+  m_PrefabInstance: {fileID: 6252280412899694403}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21f533390cf5aac40a333c81b6b89e06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &5592624917547185436 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+    type: 3}
+  m_PrefabInstance: {fileID: 6252280412899694403}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6466042616614622048
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3092816425566074749}
+    m_Modifications:
+    - target: {fileID: 249608010878060367, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_Name
+      value: TentacleHarpoonTarget_Bow
+      objectReference: {fileID: 0}
+    - target: {fileID: 249608010878060367, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 800579746737855692, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_Height
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 800579746737855692, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7450109057382370822, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_id
+      value: BowTentacleHit
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7450109057382370822, guid: d857aad612600fd468b8bf0d5ded5ed2, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d857aad612600fd468b8bf0d5ded5ed2, type: 3}
+--- !u!114 &2576349076380430556 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8825639467681686460, guid: d857aad612600fd468b8bf0d5ded5ed2,
+    type: 3}
+  m_PrefabInstance: {fileID: 6466042616614622048}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21f533390cf5aac40a333c81b6b89e06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &4819853066372854079 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+    type: 3}
+  m_PrefabInstance: {fileID: 6466042616614622048}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6846273148007850827
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8826395749763604249}
+    m_Modifications:
+    - target: {fileID: 249608010878060367, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_Name
+      value: TentacleHarpoonTarget_Bow
+      objectReference: {fileID: 0}
+    - target: {fileID: 249608010878060367, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 800579746737855692, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7450109057382370822, guid: d857aad612600fd468b8bf0d5ded5ed2,
+        type: 3}
+      propertyPath: m_id
+      value: BowTentacleHit
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7450109057382370822, guid: d857aad612600fd468b8bf0d5ded5ed2, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d857aad612600fd468b8bf0d5ded5ed2, type: 3}
+--- !u!114 &2699944751269413111 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8825639467681686460, guid: d857aad612600fd468b8bf0d5ded5ed2,
+    type: 3}
+  m_PrefabInstance: {fileID: 6846273148007850827}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21f533390cf5aac40a333c81b6b89e06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &4925434359679058196 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1970449440743432799, guid: d857aad612600fd468b8bf0d5ded5ed2,
+    type: 3}
+  m_PrefabInstance: {fileID: 6846273148007850827}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8409470758950541508
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5016262974163310993}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 78e80e392ffecb146a4dbb3026c81369,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.74
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 78e80e392ffecb146a4dbb3026c81369,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.73
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 78e80e392ffecb146a4dbb3026c81369,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 21.58
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 78e80e392ffecb146a4dbb3026c81369,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.14541624
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 78e80e392ffecb146a4dbb3026c81369,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.002240472
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 78e80e392ffecb146a4dbb3026c81369,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.9892141
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 78e80e392ffecb146a4dbb3026c81369,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.017449297
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 78e80e392ffecb146a4dbb3026c81369,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 78e80e392ffecb146a4dbb3026c81369,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 78e80e392ffecb146a4dbb3026c81369,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 78e80e392ffecb146a4dbb3026c81369,
+        type: 3}
+      propertyPath: m_Name
+      value: Tentacle_Grab_Bow
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 78e80e392ffecb146a4dbb3026c81369,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 78e80e392ffecb146a4dbb3026c81369,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 0062fd5e0f267cf4390a1de98730395f, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 78e80e392ffecb146a4dbb3026c81369,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 507335648129051514, guid: 78e80e392ffecb146a4dbb3026c81369,
+        type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 5417439995775026049}
+    - targetCorrespondingSourceObject: {fileID: 6800318058173034425, guid: 78e80e392ffecb146a4dbb3026c81369,
+        type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 4819853066372854079}
+    - targetCorrespondingSourceObject: {fileID: 5643897715764063144, guid: 78e80e392ffecb146a4dbb3026c81369,
+        type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 3314313009461202888}
+    - targetCorrespondingSourceObject: {fileID: -193288367974616819, guid: 78e80e392ffecb146a4dbb3026c81369,
+        type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 5592624917547185436}
+    - targetCorrespondingSourceObject: {fileID: 505793151753464420, guid: 78e80e392ffecb146a4dbb3026c81369,
+        type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 5693464051559598822}
+    - targetCorrespondingSourceObject: {fileID: -8157750440832448547, guid: 78e80e392ffecb146a4dbb3026c81369,
+        type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 4925434359679058196}
+    - targetCorrespondingSourceObject: {fileID: -3621471532918445810, guid: 78e80e392ffecb146a4dbb3026c81369,
+        type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 4265229008007236343}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 78e80e392ffecb146a4dbb3026c81369,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8376761976858743482}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 78e80e392ffecb146a4dbb3026c81369,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1457734143985858791}
+  m_SourcePrefab: {fileID: 100100000, guid: 78e80e392ffecb146a4dbb3026c81369, type: 3}
+--- !u!4 &713042470163737033 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -193288367974616819, guid: 78e80e392ffecb146a4dbb3026c81369,
+    type: 3}
+  m_PrefabInstance: {fileID: 8409470758950541508}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3092816425566074749 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6800318058173034425, guid: 78e80e392ffecb146a4dbb3026c81369,
+    type: 3}
+  m_PrefabInstance: {fileID: 8409470758950541508}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4109961054069256650 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -3621471532918445810, guid: 78e80e392ffecb146a4dbb3026c81369,
+    type: 3}
+  m_PrefabInstance: {fileID: 8409470758950541508}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4244455768201982828 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5643897715764063144, guid: 78e80e392ffecb146a4dbb3026c81369,
+    type: 3}
+  m_PrefabInstance: {fileID: 8409470758950541508}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8304295098614906671 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 78e80e392ffecb146a4dbb3026c81369,
+    type: 3}
+  m_PrefabInstance: {fileID: 8409470758950541508}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8336304921416512160 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 505793151753464420, guid: 78e80e392ffecb146a4dbb3026c81369,
+    type: 3}
+  m_PrefabInstance: {fileID: 8409470758950541508}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8340132199195472830 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 507335648129051514, guid: 78e80e392ffecb146a4dbb3026c81369,
+    type: 3}
+  m_PrefabInstance: {fileID: 8409470758950541508}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8679871106183931285 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 78e80e392ffecb146a4dbb3026c81369,
+    type: 3}
+  m_PrefabInstance: {fileID: 8409470758950541508}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8376761976858743482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8679871106183931285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81739e7241452814c9b27749a40092f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_harpoonTargets:
+  - {fileID: 3029820835710796386}
+  - {fileID: 2576349076380430556}
+  - {fileID: 5538379815445368363}
+  - {fileID: 3224146037913515263}
+  - {fileID: 3324138548224723717}
+  - {fileID: 2699944751269413111}
+  - {fileID: 6490718582018804500}
+  OnHitAny:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1457734143985858791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8679871106183931285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b0ae6eab9ea61b4fa96ea8b5ee6b667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_id: BowTentacleHit
+  m_link:
+    m_targetObject: {fileID: 8376761976858743482}
+    m_fieldName: OnHitAny
+    m_kind: 2
+    m_isSubscribed: 0
+--- !u!4 &8826395749763604249 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8157750440832448547, guid: 78e80e392ffecb146a4dbb3026c81369,
+    type: 3}
+  m_PrefabInstance: {fileID: 8409470758950541508}
+  m_PrefabAsset: {fileID: 0}

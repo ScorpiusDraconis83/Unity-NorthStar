@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &156793052464102235
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7416187588825607772}
+  - component: {fileID: 2956783367123106135}
+  m_Layer: 0
+  m_Name: FX_BirdFlock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7416187588825607772
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156793052464102235}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 245.3, y: 95.5, z: -57.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2956783367123106135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156793052464102235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df28f8d1f5497843990e78154e447b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnArea: {x: 10, y: 5, z: 10}
+  traversalArea: {x: 20, y: 10, z: 20}
+  minMaxSpeed: {x: 4, y: 6}
+  minMaxRotationSpeed: {x: 0.5, y: 1}
+  flockAroundOrigin: 0
+  directionChangeFrequency: 50
+  groupingDistance: 0.75
+  avoidanceDistance: 0.4
+  prefabGroups:
+  - m_prefabName: Bird
+    m_prefab: {fileID: 919132149155446097, guid: 6f3ddf5fa993b2c48aaaa957e3a09ee5,
+      type: 3}
+    m_count: 10
+    m_scale: {x: 1, y: 2}
+    m_material: {fileID: 0}
+  visualiseSpawnArea: 0
+  visualiseTraversalArea: 1
+  visualiseWaypoint: 0

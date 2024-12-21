@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6509809166785918265
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 7
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_TopSail
+  m_Shader: {fileID: -6465566751694194690, guid: 14c2f1d283c829c42b0418b720cd3e5e,
+    type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _ColorTexture:
+        m_Texture: {fileID: 2800000, guid: 41ccbfc12246a74409fee29d2525cd98, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal:
+        m_Texture: {fileID: 2800000, guid: aa7fad00ef53abb4eb106b4dfc9c8350, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalTexture:
+        m_Texture: {fileID: 2800000, guid: 152dc849bc5787b46baa1d90d88a6fd2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_495c48142d794f178f20f0faf4a31eff_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: c601f30301f0dd44aa7a32c4ed5a39ed, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _VertexDisplacement:
+        m_Texture: {fileID: 2800000, guid: c601f30301f0dd44aa7a32c4ed5a39ed, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Amplitude: 1
+    - _Billow: 0
+    - _BillowLength: 1
+    - _BillowPower: 2
+    - _Height: 1
+    - _HorizontalScaleFactor: 1
+    - _MinHeight: 0.153
+    - _NormalStrength: 0.3
+    - _Normal_Scale: 1
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _SailDirection: 1
+    - _TimeOffset: 5
+    - _TranslucencyIntensity: 0.5
+    m_Colors:
+    - _Amplitude: {r: 3.81, g: 1, b: 0.81, a: 0.78}
+    - _BillowDir: {r: 1, g: 0, b: 0, a: 0}
+    - _Colour: {r: 0.9245283, g: 0.89551175, b: 0.8329477, a: 0}
+    - _Frequncey: {r: 0.85, g: 0.31, b: -0.8, a: -1}
+    - _Normal_Dir: {r: -0.7, g: 0.8, b: 0, a: 0}
+    - _TilingScaleColour: {r: 1, g: 1, b: 0, a: 0}
+    - _TopBottomDistance: {r: 5, g: 5, b: 0, a: 0}
+  m_BuildTextureStacks: []

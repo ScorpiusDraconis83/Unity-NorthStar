@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Docks_Middle 1
+  m_Shader: {fileID: -6465566751694194690, guid: 818046b3161aedc4281bd266e54b7264,
+    type: 3}
+  m_Parent: {fileID: 2100000, guid: 907cd1c9d82c10a4c83184fc49699705, type: 2}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap:
+    RenderType: Opaque
+  disabledShaderPasses:
+  - SHADOWCASTER
+  m_LockedProperties: _Back_Scatter_Power _Cloud_Ambient _Cloud_Back_Color _Cloud_Blend_Offset
+    _Cloud_Blend_Power _Cloud_Direction _Cloud_Offset _Cloud_Opacity_Offset _Cloud_Opacity_Scale
+    _Cloud_Scale _Cloud_Speed _Cloud_Sun_Color _Fog_Offset _Fog_Power _Front_Scatter_Power
+    _Ground_Color _Scatter_Blend _SkyFogOpacity _Sky_Blend_Offset _Sky_Blend_Power
+    _Sky_Horizon_Color _Sky_Zenith_Color _Star_Color _Star_Power _Star_Scale
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Star_Texture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Back_Scatter_Power: 0.4
+    - _Cloud_Blend_Offset: 0.27
+    - _Cloud_Blend_Power: 2.33
+    - _Cloud_Direction: 0.247
+    - _Cloud_Offset: 0.915
+    - _Cloud_Opacity_Offset: -0.07
+    - _Cloud_Opacity_Scale: 1.27
+    - _Cloud_Scale: 1.82
+    - _Fog_Offset: 0
+    - _Fog_Power: 8
+    - _Front_Scatter_Power: 0.692
+    - _SkyCloudEdge: 0.82
+    - _SkyCloudHeight: -0.08
+    - _SkyCloudOpacity: 0.7
+    - _SkyFogHeight: 34.3
+    - _SkyGradientOffset: -0.25
+    - _SkyGradientScale: 1
+    - _SkyHorizonHeight: 0.223
+    - _SkyStarDensity: 19.85
+    - _SkyStarOpacity: 0.293
+    - _SkySunSize: 0.0303
+    - _SkySunSmoothStep: 0.046
+    - _Sky_Blend_Offset: 0.2
+    - _Sky_Blend_Power: 2.86
+    - _Star_Power: 1
+    - _Sun_Softness: 0.99875
+    m_Colors:
+    - _Cloud_Ambient: {r: 0.6792453, g: 0.34010324, b: 0.21466713, a: 1}
+    - _Cloud_Back_Color: {r: 0.9150943, g: 0.6643067, b: 0.55682623, a: 1}
+    - _Cloud_Speed: {r: -0.002, g: 0, b: 0, a: 0}
+    - _Cloud_Sun_Color: {r: 0.7310888, g: 0.4847831, b: 0.40347832, a: 1}
+    - _Ground_Color: {r: 0.16841987, g: 0.13082945, b: 0.18867922, a: 1}
+    - _SkyBaseColor: {r: 0.16941082, g: 0.4889988, b: 0.764151, a: 1}
+    - _SkyCloudDarkColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SkyCloudLightColor: {r: 0.036311854, g: 0.052985515, b: 0.1509434, a: 1}
+    - _SkyCloudMidColor: {r: 1, g: 0.107282, b: 0, a: 1}
+    - _SkyCloudTiling01: {r: 6, g: 6, b: 0, a: 0}
+    - _SkyCloudTiling02: {r: 8, g: 3, b: 0, a: 0}
+    - _SkyHighColor: {r: 0.362, g: 0.5754614, b: 1, a: 1}
+    - _SkyHorizonColor: {r: 0.7830189, g: 0.23635201, b: 0.15143289, a: 1}
+    - _SkyMidHorizonColor: {r: 0.9716981, g: 0.6591326, b: 0.28875935, a: 1}
+    - _SkySunColor: {r: 1, g: 0.7843138, b: 0, a: 1}
+    - _SkyWindSpeed: {r: 0.2, g: 0, b: 0, a: 0}
+    - _Sky_Horizon_Color: {r: 1, g: 0.7368141, b: 0.7019608, a: 1}
+    - _Sky_Zenith_Color: {r: 0.31510323, g: 0.60936624, b: 0.9150943, a: 1}
+    - _Sun_Color: {r: 9.425325, g: 6.493643, b: 0, a: 1}
+  m_BuildTextureStacks: []
+--- !u!114 &1130983063974069177
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 7

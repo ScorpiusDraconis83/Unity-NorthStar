@@ -1,0 +1,1540 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &267269325362511320
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2311107380359169527}
+  - component: {fileID: 4885752195728814560}
+  m_Layer: 0
+  m_Name: 5_Preload_Beat_5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2311107380359169527
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267269325362511320}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2586679564225100108}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4885752195728814560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267269325362511320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 898664a0263337f4c972f1a88b2cf48d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TaskID:
+    id: GF_S5_Preload_Beat_5
+  PlayerTransform: {fileID: 0}
+  PlayerGazeCamera: {fileID: 0}
+  m_completeWhen: 1
+  CompletionConditions: []
+  m_onTaskStarted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8826445310967154616}
+        m_TargetAssemblyTypeName: NorthStar.GameFlowController, Assembly-CSharp
+        m_MethodName: PreloadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Beat5
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_onTaskCompleted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 57fad0abf2d8aae458a37580a5c44e51, type: 2}
+        m_TargetAssemblyTypeName: NorthStar.TaskManager, Assembly-CSharp
+        m_MethodName: RefreshAll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_reminderInterval: 0
+  m_onReminder:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!1 &423276931175225723
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 375836932603069997}
+  - component: {fileID: 1630880778120610819}
+  m_Layer: 0
+  m_Name: 4_Load_Beat_4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &375836932603069997
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423276931175225723}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2586679564225100108}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1630880778120610819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423276931175225723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 898664a0263337f4c972f1a88b2cf48d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TaskID:
+    id: GF_S4_Load_Beat_4
+  PlayerTransform: {fileID: 0}
+  PlayerGazeCamera: {fileID: 0}
+  m_completeWhen: 1
+  CompletionConditions:
+  - rid: 8157615625407037441
+  m_onTaskStarted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8826445310967154616}
+        m_TargetAssemblyTypeName: NorthStar.GameFlowController, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Beat3and4
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_onTaskCompleted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 57fad0abf2d8aae458a37580a5c44e51, type: 2}
+        m_TargetAssemblyTypeName: NorthStar.TaskManager, Assembly-CSharp
+        m_MethodName: RefreshAll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_reminderInterval: 0
+  m_onReminder:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 8157615625407037441
+      type: {class: WaitForEventCondition, ns: NorthStar, asm: Assembly-CSharp}
+      data:
+        m_index: 0
+        EventLink:
+          m_targetObject: {fileID: 8826445310967154616}
+          m_fieldName: SceneChangeComplete
+          m_kind: 2
+          m_isSubscribed: 0
+--- !u!1 &1457212719209491442
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2095918509658830394}
+  - component: {fileID: 8826445310967154616}
+  - component: {fileID: 4733442392417234540}
+  - component: {fileID: 8650573684595063696}
+  - component: {fileID: 4496631461496998357}
+  - component: {fileID: 6378661676456178904}
+  m_Layer: 0
+  m_Name: Game Flow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2095918509658830394
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457212719209491442}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2586679564225100108}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8826445310967154616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457212719209491442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 085ee8401fa54c64b7e3f0f03c5a1778, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_sceneTasks:
+  - id: GF_S1_Load_Beat_1
+  - id: GF_S2_Load_Beat_2
+  - id: GF_S3_Load_Beat_3
+  - id: GF_S5_Load_Beat_5
+  - id: GF_S6_Load_Beat_6
+  - id: GF_S7_Load_Beat_7
+  SceneChangeComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  RestartGameRequested:
+    m_PersistentCalls:
+      m_Calls: []
+  GameOverRequested:
+    m_PersistentCalls:
+      m_Calls: []
+  firstTask:
+    id: GF_S0_Init
+  startAutomatically: 1
+--- !u!114 &4733442392417234540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457212719209491442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef2b57339091fb54e94913f4f9124d8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_id: 
+  m_event:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &8650573684595063696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457212719209491442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6823dc4c1ad1e45bf5437acd89fd05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4496631461496998357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457212719209491442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e282798944023f4cbd57e20d08050e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6378661676456178904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457212719209491442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e93693880b3b22e499c2d9aa93c3407d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_disabledObjectsToWarmUp: []
+--- !u!1 &2310678303441750047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1282889893737688702}
+  - component: {fileID: 2015723510906889034}
+  - component: {fileID: 1719818932837945855}
+  m_Layer: 0
+  m_Name: 3_Load_Beat_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1282889893737688702
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2310678303441750047}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2586679564225100108}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2015723510906889034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2310678303441750047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 898664a0263337f4c972f1a88b2cf48d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TaskID:
+    id: GF_S3_Load_Beat_3
+  PlayerTransform: {fileID: 0}
+  PlayerGazeCamera: {fileID: 0}
+  m_completeWhen: 1
+  CompletionConditions:
+  - rid: 8157615625407037441
+  m_onTaskStarted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1719818932837945855}
+        m_TargetAssemblyTypeName: NorthStar.EndSceneLoadAfterTime, Assembly-CSharp
+        m_MethodName: Trigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_onTaskCompleted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 57fad0abf2d8aae458a37580a5c44e51, type: 2}
+        m_TargetAssemblyTypeName: NorthStar.TaskManager, Assembly-CSharp
+        m_MethodName: RefreshAll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_reminderInterval: 0
+  m_onReminder:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 8157615625407037441
+      type: {class: WaitForEventCondition, ns: NorthStar, asm: Assembly-CSharp}
+      data:
+        m_index: 0
+        EventLink:
+          m_targetObject: {fileID: 8826445310967154616}
+          m_fieldName: SceneChangeComplete
+          m_kind: 2
+          m_isSubscribed: 0
+--- !u!114 &1719818932837945855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2310678303441750047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492f3aa9fe5e769469cf9174e1f61b5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_fadeTime: 0.2
+  m_fadeHoldTime: 2
+  m_sceneName: Beat3and4
+--- !u!1 &3020317822109290685
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3781531402447418322}
+  - component: {fileID: 1609385151687318475}
+  - component: {fileID: 1604309169600599271}
+  m_Layer: 0
+  m_Name: 2_Load_Beat_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3781531402447418322
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3020317822109290685}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2586679564225100108}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1609385151687318475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3020317822109290685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 898664a0263337f4c972f1a88b2cf48d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TaskID:
+    id: GF_S2_Load_Beat_2
+  PlayerTransform: {fileID: 0}
+  PlayerGazeCamera: {fileID: 0}
+  m_completeWhen: 1
+  CompletionConditions:
+  - rid: 8157615625407037441
+  m_onTaskStarted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1604309169600599271}
+        m_TargetAssemblyTypeName: NorthStar.EndSceneLoadAfterTime, Assembly-CSharp
+        m_MethodName: Trigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Beat2
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_onTaskCompleted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 57fad0abf2d8aae458a37580a5c44e51, type: 2}
+        m_TargetAssemblyTypeName: NorthStar.TaskManager, Assembly-CSharp
+        m_MethodName: RefreshAll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_reminderInterval: 0
+  m_onReminder:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 8157615625407037441
+      type: {class: WaitForEventCondition, ns: NorthStar, asm: Assembly-CSharp}
+      data:
+        m_index: 0
+        EventLink:
+          m_targetObject: {fileID: 8826445310967154616}
+          m_fieldName: SceneChangeComplete
+          m_kind: 2
+          m_isSubscribed: 0
+--- !u!114 &1604309169600599271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3020317822109290685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492f3aa9fe5e769469cf9174e1f61b5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_fadeTime: 0.2
+  m_fadeHoldTime: 2
+  m_sceneName: Beat2
+--- !u!1 &3482112929714652586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2586679564225100108}
+  m_Layer: 0
+  m_Name: Narrative
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2586679564225100108
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3482112929714652586}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4158964267501451732}
+  - {fileID: 6623633168679008655}
+  - {fileID: 1361972224761215963}
+  - {fileID: 3781531402447418322}
+  - {fileID: 7265869242618247571}
+  - {fileID: 1282889893737688702}
+  - {fileID: 375836932603069997}
+  - {fileID: 2311107380359169527}
+  - {fileID: 2876908180116359197}
+  - {fileID: 4408184358595402812}
+  - {fileID: 860675629468808921}
+  - {fileID: 1371889495570599562}
+  - {fileID: 4267494115231131818}
+  - {fileID: 1372702307140993883}
+  m_Father: {fileID: 2095918509658830394}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5344635278106904482
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7265869242618247571}
+  - component: {fileID: 7180913188379056638}
+  m_Layer: 0
+  m_Name: 3_Preload_Beat_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7265869242618247571
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5344635278106904482}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2586679564225100108}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7180913188379056638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5344635278106904482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 898664a0263337f4c972f1a88b2cf48d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TaskID:
+    id: GF_S3_Preload_Beat_3
+  PlayerTransform: {fileID: 0}
+  PlayerGazeCamera: {fileID: 0}
+  m_completeWhen: 1
+  CompletionConditions: []
+  m_onTaskStarted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8826445310967154616}
+        m_TargetAssemblyTypeName: NorthStar.GameFlowController, Assembly-CSharp
+        m_MethodName: PreloadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Beat3and4
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_onTaskCompleted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 57fad0abf2d8aae458a37580a5c44e51, type: 2}
+        m_TargetAssemblyTypeName: NorthStar.TaskManager, Assembly-CSharp
+        m_MethodName: RefreshAll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_reminderInterval: 0
+  m_onReminder:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!1 &5380957027720808637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4408184358595402812}
+  - component: {fileID: 2593477154145722457}
+  m_Layer: 0
+  m_Name: 6_Preload_Beat_6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4408184358595402812
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5380957027720808637}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2586679564225100108}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2593477154145722457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5380957027720808637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 898664a0263337f4c972f1a88b2cf48d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TaskID:
+    id: GF_S6_Preload_Beat_6
+  PlayerTransform: {fileID: 0}
+  PlayerGazeCamera: {fileID: 0}
+  m_completeWhen: 1
+  CompletionConditions: []
+  m_onTaskStarted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8826445310967154616}
+        m_TargetAssemblyTypeName: NorthStar.GameFlowController, Assembly-CSharp
+        m_MethodName: PreloadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Beat6
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_onTaskCompleted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 57fad0abf2d8aae458a37580a5c44e51, type: 2}
+        m_TargetAssemblyTypeName: NorthStar.TaskManager, Assembly-CSharp
+        m_MethodName: RefreshAll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_reminderInterval: 0
+  m_onReminder:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!1 &6017489307392004201
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 860675629468808921}
+  - component: {fileID: 668065592538408900}
+  - component: {fileID: 2954621079105256061}
+  m_Layer: 0
+  m_Name: 6_Load_Beat_6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &860675629468808921
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6017489307392004201}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2586679564225100108}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &668065592538408900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6017489307392004201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 898664a0263337f4c972f1a88b2cf48d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TaskID:
+    id: GF_S6_Load_Beat_6
+  PlayerTransform: {fileID: 0}
+  PlayerGazeCamera: {fileID: 0}
+  m_completeWhen: 1
+  CompletionConditions:
+  - rid: 8157615625407037441
+  m_onTaskStarted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2954621079105256061}
+        m_TargetAssemblyTypeName: NorthStar.EndSceneLoadAfterTime, Assembly-CSharp
+        m_MethodName: Trigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_onTaskCompleted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 57fad0abf2d8aae458a37580a5c44e51, type: 2}
+        m_TargetAssemblyTypeName: NorthStar.TaskManager, Assembly-CSharp
+        m_MethodName: RefreshAll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_reminderInterval: 0
+  m_onReminder:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 8157615625407037441
+      type: {class: WaitForEventCondition, ns: NorthStar, asm: Assembly-CSharp}
+      data:
+        m_index: 0
+        EventLink:
+          m_targetObject: {fileID: 8826445310967154616}
+          m_fieldName: SceneChangeComplete
+          m_kind: 2
+          m_isSubscribed: 0
+--- !u!114 &2954621079105256061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6017489307392004201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492f3aa9fe5e769469cf9174e1f61b5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_fadeTime: 0.2
+  m_fadeHoldTime: 2
+  m_sceneName: Beat6
+--- !u!1 &6926050309757003903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1361972224761215963}
+  - component: {fileID: 2912488314233349842}
+  m_Layer: 0
+  m_Name: 2_Preload_Beat_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1361972224761215963
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6926050309757003903}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2586679564225100108}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2912488314233349842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6926050309757003903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 898664a0263337f4c972f1a88b2cf48d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TaskID:
+    id: GF_S2_Preload_Beat_2
+  PlayerTransform: {fileID: 0}
+  PlayerGazeCamera: {fileID: 0}
+  m_completeWhen: 1
+  CompletionConditions: []
+  m_onTaskStarted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8826445310967154616}
+        m_TargetAssemblyTypeName: NorthStar.GameFlowController, Assembly-CSharp
+        m_MethodName: PreloadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Beat2
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_onTaskCompleted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 57fad0abf2d8aae458a37580a5c44e51, type: 2}
+        m_TargetAssemblyTypeName: NorthStar.TaskManager, Assembly-CSharp
+        m_MethodName: RefreshAll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_reminderInterval: 0
+  m_onReminder:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!1 &7162215277524070584
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6623633168679008655}
+  - component: {fileID: 3770042172716261411}
+  m_Layer: 0
+  m_Name: 1_Load_Beat_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6623633168679008655
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7162215277524070584}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2586679564225100108}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3770042172716261411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7162215277524070584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 898664a0263337f4c972f1a88b2cf48d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TaskID:
+    id: GF_S1_Load_Beat_1
+  PlayerTransform: {fileID: 0}
+  PlayerGazeCamera: {fileID: 0}
+  m_completeWhen: 1
+  CompletionConditions:
+  - rid: 8157615625407037441
+  m_onTaskStarted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8826445310967154616}
+        m_TargetAssemblyTypeName: NorthStar.GameFlowController, Assembly-CSharp
+        m_MethodName: CompleteSceneLoad
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Beat1
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_onTaskCompleted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 57fad0abf2d8aae458a37580a5c44e51, type: 2}
+        m_TargetAssemblyTypeName: NorthStar.TaskManager, Assembly-CSharp
+        m_MethodName: RefreshAll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_reminderInterval: 0
+  m_onReminder:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 8157615625407037441
+      type: {class: WaitForEventCondition, ns: NorthStar, asm: Assembly-CSharp}
+      data:
+        m_index: 0
+        EventLink:
+          m_targetObject: {fileID: 8826445310967154616}
+          m_fieldName: SceneChangeComplete
+          m_kind: 2
+          m_isSubscribed: 0
+--- !u!1 &7678416762364490049
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1371889495570599562}
+  - component: {fileID: 6176032517586810580}
+  m_Layer: 0
+  m_Name: 7_Preload_Beat_7
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1371889495570599562
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7678416762364490049}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2586679564225100108}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6176032517586810580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7678416762364490049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 898664a0263337f4c972f1a88b2cf48d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TaskID:
+    id: GF_S7_Preload_Beat_7
+  PlayerTransform: {fileID: 0}
+  PlayerGazeCamera: {fileID: 0}
+  m_completeWhen: 1
+  CompletionConditions: []
+  m_onTaskStarted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8826445310967154616}
+        m_TargetAssemblyTypeName: NorthStar.GameFlowController, Assembly-CSharp
+        m_MethodName: PreloadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Beat7
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_onTaskCompleted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 57fad0abf2d8aae458a37580a5c44e51, type: 2}
+        m_TargetAssemblyTypeName: NorthStar.TaskManager, Assembly-CSharp
+        m_MethodName: RefreshAll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_reminderInterval: 0
+  m_onReminder:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!1 &8016776558716623041
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1372702307140993883}
+  - component: {fileID: 5919301409906696784}
+  m_Layer: 0
+  m_Name: 8_Game_Over
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1372702307140993883
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8016776558716623041}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2586679564225100108}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5919301409906696784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8016776558716623041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 898664a0263337f4c972f1a88b2cf48d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TaskID:
+    id: GF_S7_Game_Over
+  PlayerTransform: {fileID: 0}
+  PlayerGazeCamera: {fileID: 0}
+  m_completeWhen: 0
+  CompletionConditions:
+  - rid: 8157615941694521464
+  - rid: 3545628607226576896
+  m_onTaskStarted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8826445310967154616}
+        m_TargetAssemblyTypeName: NorthStar.GameFlowController, Assembly-CSharp
+        m_MethodName: GoToCredits
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_onTaskCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  m_reminderInterval: 0
+  m_onReminder:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 3545628607226576896
+      type: {class: TimeDelayCondition, ns: NorthStar, asm: Assembly-CSharp}
+      data:
+        m_index: 1
+        DelayInSeconds: 5
+    - rid: 8157615941694521464
+      type: {class: WaitForEventCondition, ns: NorthStar, asm: Assembly-CSharp}
+      data:
+        m_index: 0
+        EventLink:
+          m_targetObject: {fileID: 8826445310967154616}
+          m_fieldName: RestartGameRequested
+          m_kind: 2
+          m_isSubscribed: 0
+--- !u!1 &8503423095693077635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2876908180116359197}
+  - component: {fileID: 2952016713891847526}
+  - component: {fileID: 1909454683373009276}
+  m_Layer: 0
+  m_Name: 5_Load_Beat_5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2876908180116359197
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8503423095693077635}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2586679564225100108}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2952016713891847526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8503423095693077635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 898664a0263337f4c972f1a88b2cf48d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TaskID:
+    id: GF_S5_Load_Beat_5
+  PlayerTransform: {fileID: 0}
+  PlayerGazeCamera: {fileID: 0}
+  m_completeWhen: 1
+  CompletionConditions:
+  - rid: 8157615625407037441
+  m_onTaskStarted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1909454683373009276}
+        m_TargetAssemblyTypeName: NorthStar.EndSceneLoadAfterTime, Assembly-CSharp
+        m_MethodName: Trigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Beat5
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_onTaskCompleted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 57fad0abf2d8aae458a37580a5c44e51, type: 2}
+        m_TargetAssemblyTypeName: NorthStar.TaskManager, Assembly-CSharp
+        m_MethodName: RefreshAll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_reminderInterval: 0
+  m_onReminder:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 8157615625407037441
+      type: {class: WaitForEventCondition, ns: NorthStar, asm: Assembly-CSharp}
+      data:
+        m_index: 0
+        EventLink:
+          m_targetObject: {fileID: 8826445310967154616}
+          m_fieldName: SceneChangeComplete
+          m_kind: 2
+          m_isSubscribed: 0
+--- !u!114 &1909454683373009276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8503423095693077635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492f3aa9fe5e769469cf9174e1f61b5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_fadeTime: 0.2
+  m_fadeHoldTime: 2
+  m_sceneName: Beat5
+--- !u!1 &8763562590821594812
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4267494115231131818}
+  - component: {fileID: 2959589413158954540}
+  - component: {fileID: 3216202428350151301}
+  m_Layer: 0
+  m_Name: 7_Load_Beat_7
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4267494115231131818
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8763562590821594812}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2586679564225100108}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2959589413158954540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8763562590821594812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 898664a0263337f4c972f1a88b2cf48d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TaskID:
+    id: GF_S7_Load_Beat_7
+  PlayerTransform: {fileID: 0}
+  PlayerGazeCamera: {fileID: 0}
+  m_completeWhen: 1
+  CompletionConditions:
+  - rid: 8157615625407037441
+  m_onTaskStarted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3216202428350151301}
+        m_TargetAssemblyTypeName: NorthStar.EndSceneLoadAfterTime, Assembly-CSharp
+        m_MethodName: Trigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Beat7
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_onTaskCompleted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 57fad0abf2d8aae458a37580a5c44e51, type: 2}
+        m_TargetAssemblyTypeName: NorthStar.TaskManager, Assembly-CSharp
+        m_MethodName: RefreshAll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_reminderInterval: 0
+  m_onReminder:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 8157615625407037441
+      type: {class: WaitForEventCondition, ns: NorthStar, asm: Assembly-CSharp}
+      data:
+        m_index: 0
+        EventLink:
+          m_targetObject: {fileID: 8826445310967154616}
+          m_fieldName: SceneChangeComplete
+          m_kind: 2
+          m_isSubscribed: 0
+--- !u!114 &3216202428350151301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8763562590821594812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492f3aa9fe5e769469cf9174e1f61b5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_fadeTime: 0.2
+  m_fadeHoldTime: 2
+  m_sceneName: Beat7
+--- !u!1 &8793569925274194239
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4158964267501451732}
+  - component: {fileID: 7459703893103483852}
+  m_Layer: 0
+  m_Name: 0_Init
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4158964267501451732
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8793569925274194239}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2586679564225100108}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7459703893103483852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8793569925274194239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 898664a0263337f4c972f1a88b2cf48d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TaskID:
+    id: GF_S0_Init
+  PlayerTransform: {fileID: 0}
+  PlayerGazeCamera: {fileID: 0}
+  m_completeWhen: 1
+  CompletionConditions: []
+  m_onTaskStarted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8826445310967154616}
+        m_TargetAssemblyTypeName: NorthStar.GameFlowController, Assembly-CSharp
+        m_MethodName: Init
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8826445310967154616}
+        m_TargetAssemblyTypeName: NorthStar.GameFlowController, Assembly-CSharp
+        m_MethodName: PreloadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Beat1
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_onTaskCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  m_reminderInterval: 0
+  m_onReminder:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds: []

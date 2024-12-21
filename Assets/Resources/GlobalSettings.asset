@@ -1,0 +1,120 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b11443a2cf47e0a43a5b23846fe95d98, type: 3}
+  m_Name: GlobalSettings
+  m_EditorClassIdentifier: 
+  m_playerSettings:
+    PlayerConfigs:
+      Seated: 0
+      Height: 168.85487
+      SeatedHeight: 120
+      ComfortLevel: 1
+      MuteMusic: 0
+      MuteVoices: 0
+      DisableCaptions: 0
+    ComfortPresets:
+    - ReorientPlayerStrength: 1
+      BoatMovementStrength: 1
+      BoatReactionStrength: 1
+    - ReorientPlayerStrength: 1
+      BoatMovementStrength: 0.75
+      BoatReactionStrength: 0.75
+    - ReorientPlayerStrength: 1
+      BoatMovementStrength: 0.5
+      BoatReactionStrength: 0.5
+    - ReorientPlayerStrength: 1
+      BoatMovementStrength: 0.25
+      BoatReactionStrength: 0.5
+    MovementEnabled: 0
+    PlayerMovementSpring: 1000
+    PlayerMovementDamper: 150
+    PlayerMovementMaxForce: 1000
+    TeleportHandMovementTriggerDistance: 0
+    TeleportHandTriggerDelay: 0.6
+    TeleporterToCloseDespawnDistance: 2
+    TeleportRotationRotatesHead: 0
+    TeleportCenteredOnHead: 0
+    TeleporterHeadAngleMin: 0.4
+    TeleporterArmAngleMin: 0.575
+    TeleporterHeadAngleBreak: 0.4
+    TeleporterArmAngleBreak: 0.575
+    TeleporterPalmAngleBreak: 0.2
+    TeleporterLayers:
+      serializedVersion: 2
+      m_Bits: 64
+    DefaultPalmGrabRule:
+      _thumbRequirement: 1
+      _indexRequirement: 1
+      _middleRequirement: 2
+      _ringRequirement: 2
+      _pinkyRequirement: 1
+      _unselectMode: 0
+    HandMovementStrength: 750
+    HandsMovementSpring: 1
+    HandsMovementDamper: 0.032
+    HandsMovementMaxForce: 2
+    HandsUseAccelerationMovement: 1
+    HandRotationStrength: 2000
+    HandsRotationSpring: 10
+    HandsRotationDamper: 0.01
+    HandsRotationMaxForce: 5
+    HandsUseAccelerationRotation: 0
+    HandsReleaseOnInvalidPosition: 1
+    AllowForcedHandBreak: 1
+    MaxHandDistance: 1
+    WristLowerAngularLimits: {x: -120, y: -120, z: -120}
+    WristUpperAngularLimits: {x: 120, y: 120, z: 120}
+    HandBreakTimeout: 0.1
+    ArmStretchLimit: 0.1
+    ResetBodyTrackingOnWake: 1
+    ReorientPlayerStrength: 1
+    BoatMovementStrength: 0.75
+    BoatReactionStrength: 0.75
+    m_audioMixer: {fileID: 24100000, guid: 03d4f07283ae4307b8c7a2ea7ad08068, type: 2}
+  m_screenSettings:
+    ScreenMinBounds: {x: 0.25, y: 0.2}
+    ScreenMaxBounds: {x: 0.75, y: 0.7}
+    ScreenRadius: 0.25
+    TextFadeTime: 0.1
+    TextShowTime: 4
+    SubtitleUpOffset: 200
+  m_ftueSettings:
+    PulseDelay: 0.5
+    PulseStrength: 0
+    PulseTint: {r: 0.8490566, g: 0.506876, b: 0.11614456, a: 1}
+    PulseGlowPower: 0
+    PulseSpeed: 3.5
+    EasingCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    FadeInTime: 0.1

@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SimpleSkyboxFoggyDawn
+  m_Shader: {fileID: -6465566751694194690, guid: 818046b3161aedc4281bd266e54b7264,
+    type: 3}
+  m_Parent: {fileID: 2100000, guid: 907cd1c9d82c10a4c83184fc49699705, type: 2}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap:
+    RenderType: Opaque
+  disabledShaderPasses:
+  - SHADOWCASTER
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Cloud_Normal:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Cloud_Texture:
+        m_Texture: {fileID: 2800000, guid: c09fcf801596e484c9319f91335ea237, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Star_Texture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Back_Scatter_Power: 0.3
+    - _Cloud_Blend_Offset: 0
+    - _Cloud_Blend_Power: 1
+    - _Cloud_Direction: 0.1
+    - _Cloud_Offset: 0.75
+    - _Cloud_Opacity_Offset: 0
+    - _Cloud_Opacity_Scale: 1
+    - _Cloud_Scale: 1
+    - _Fog_Offset: 0.68
+    - _Fog_Power: 1
+    - _Front_Scatter_Power: 0.85
+    - _Sky_Blend_Offset: 0
+    - _Star_Power: 1
+    m_Colors:
+    - _Cloud_Ambient: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+    - _Cloud_Back_Color: {r: 0.03, g: 0.03, b: 0.03, a: 1}
+    - _Cloud_Sun_Color: {r: 0.05, g: 0.05, b: 0.05, a: 1}
+    - _Ground_Color: {r: 0.24528292, g: 0.24528292, b: 0.24528292, a: 0}
+    - _Sky_Horizon_Color: {r: 0.26666668, g: 0.32156864, b: 0.34901962, a: 1}
+    - _Sky_Zenith_Color: {r: 0.26508543, g: 0.32146263, b: 0.3490566, a: 1}
+    - _Star_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_BuildTextureStacks: []
+--- !u!114 &2095729047505769588
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 7
