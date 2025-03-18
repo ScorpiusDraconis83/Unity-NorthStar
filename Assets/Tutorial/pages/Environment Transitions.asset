@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4510294d23d964fe59443526f1ca7c4b, type: 3}
+  m_Name: Environment Transitions
+  m_EditorClassIdentifier: 
+  m_displayName: Environment Transitions
+  m_hierarchyName: Environment Transitions
+  m_context: {fileID: 11400000, guid: ff4555072d80cd748acc8ec51a4a47e5, type: 2}
+  m_markdownFile: {fileID: 0}
+  m_priority: 1005
+  m_overrideMarkdownText: "# Implementing Environment Transitions \n\n## Overview
+    \n\nScenes may require environment transitions to reflect changes in time of
+    day, such as from midnight to late morning. Each transition uses a new Environment
+    Profile and can be either instantaneous (within 0.01 seconds) or longform (5\u201350
+    seconds). \n\nMost transitions occur on teleport warps, limiting the number of
+    transitions per scene. We carefully manage transitions to shift from one extreme
+    weather and time profile to another smoothly. \n\n## Managing Transitions\n\nSometimes,
+    duplicate Environment Profiles are needed with minor variations (e.g., different
+    cloud textures or ocean wind speeds) to ensure natural-looking transitions. This
+    prevents clouds and oceans from appearing like an unnatural timelapse. \n\n**Example
+    Scenes:** \n\n- Beat6 \u2013 Rapid time-of-day shifts within 5 teleport warps.
+    \n- Beat3and4 \u2013 Transitioning from clear day to stormy night. \n\n## Environment
+    Profile \n\nEnvironment Profiles are data assets which consist of several parameters
+    allowing us to create varying environmental, ocean and weather changes throughout
+    a scene, see below for a screenshot of the data asset. \n\n![](./Images/EnvImplementation/Fig4.png)\n\n
+    ## Beat6 Scene: Example of Environment Profile Transitions \n\nThe Transitions
+    in the Beat6 scene were a challenge to implement as the time of day changes rapidly
+    which is difficult to convey in less than a few minutes and within 5 teleport
+    warps.  The requirements for Beat 6 were to transition from the end of the stormy
+    dark weather in Beat 5 into a late morning profile by the end of Beat 6. \n\nThere
+    are 6 Environment Profiles for Beat 6 where the starting profile is nearly identical
+    to the stormy night environment profile that Beat 5 ends with. A few key changes
+    were crucial for setting up seamless transitions from the dark storm profile
+    into late morning profiles in Beat 6.  \n\n  - The Skybox \n\n    - In order
+    to create seamless transitions, the skybox had to be updated so that the clouds
+    had the same values set as the rest of the transitions in the scene. These include;
+    \n\n      - Cloud Offset \n\n      - Cloud Scale \n\n      - Cloud Speed \n\n     
+    - Cloud Direction \n\n    - If these values vary drastically between profiles
+    it can cause unintended results where the clouds look like they are lowering
+    in the sky, and/or they move across the sky at an unnatural speed. \n\n     
+    - You can get away with different cloud textures however, so long as these values
+    are the same, it will reduce any unintended effects, but it is preferable to
+    have the same cloud texture as there will be less chance of problems occurring
+    during a longer transition. \n\n![](./Images/EnvImplementation/Fig6.gif)\n\n-
+    The Ocean\n\n  - The ocean at the end of Beat 5 is quite choppy with a very large
+    patch size and high wind speed, but the weather by the end of Beat 6 needs to
+    be calmer and sunnier. The following had to be tweaked in order to create seamless
+    transitions: \n\n    - Parameters on the Environment Profile: \n\n      - Wind
+    Speed \n\n      - Directionality \n\n      - Patch Size \n\n        - Big changes
+    in patch size for the ocean were hidden behind instant transitions. \n\n     
+    - Ocean Material \n\n        - Ocean Normal Map texture \n\n        - Normals
+    parameters \n\n        - Smoothness \n\n        - Displacement noise \n\nBy changing
+    the parameters above, more consistency can be achieved between Beat 4 and 5\u2019s
+    stormy weather, while also setting it up for the following Beat 6 transitions
+    in a way which doesn\u2019t feel jarring to the player as they teleport across
+    the boat. \n\nFor the night time and stormy environment profiles, we set the
+    Sun Disk Material to be the Moon material so that the light reflections on the
+    water are from the moon instead of the sun. \n\n  - This means that when we transition
+    into or out of these environment profiles we need to create instant transitions
+    where we swap the moon and sun.  \n\n    - If it were a long transition the player
+    would see the moon\u2019s position rapidly change like a timelapse.\n\n     -
+    We hide this in Beat 6 between the second and third environment transitions,
+    and this technique can also be seen in the Beat 3 and 4 scene where we transition
+    from a clear day into the stormy night. \n\nTo check how transitions are going
+    to flow into one another we can drag different environment profiles onto the
+    **\u2018Target Profile\u2019** on the Environment prefab in a scene, in this
+    case Beat 6, and adjust the Transition Time so we can get a feel for which transitions
+    need to be instant vs longform, and how long those transitions should go for. 
+    \n\n![](./Images/EnvImplementation/Fig5.gif)\n\nWe set up the transitions using
+    Unity Event Receivers on the Environment Profile prefab and assign them to Event
+    Broadcasters on the Teleport Warps in the scene. Once the Receivers are set up,
+    we add which Environment Profile the transition will use, how long the transition
+    will be, and skybox updaters to make sure the transition is as smooth as possible.
+    See below for an example of what the Transitions in Beat6 look like on the Environment
+    Prefab. \n\n**Starting Environment Profile in Beat 6:**\n\n![](./Images/EnvImplementation/Fig2.png)\n\n**Final
+    Environment Profile in Beat 6:**\n\n![](./Images/EnvImplementation/Fig1.png)\n
+    \n**Example of the Beat 6 Environment Transitions Setup in Scene**\n\n![](./Images/EnvImplementation/Fig0.png)\n 
+    \n![](./Images/EnvImplementation/Fig3.png)\n\n\n\n# Summary of Things to Look
+    Out For \n\n### Sun and Moon positions  \n\n- Higher or lower in the Sky \n\n 
+    - Small changes in position can be used in an instant or long transition (5 -
+    30 seconds) \n\n  - Large changes in position can be used in an instant or long
+    transition (20 - 50 seconds)  \n\n    - NOTE: a large change in position needs
+    to occur over a significant amount of time, otherwise the sun/moon will lerp
+    quickly between the environment profiles and look unnatural to the player. \n\n-
+    Swapping Moon and Sun \n\n    - Must only be done via an instant transition \n\n-
+    Try to keep the sun and moon changes on the X axis only, so it\u2019s only going
+    up or down and not moving horizontally across the sky (can get away with Y axis
+    changes between scenes if you really had to). \n\n### Ocean Patch sizes \n\n-
+    Longer transitions require the same patch size because the patch size limits
+    the max wave size, if the patch sizes are different it can cause visual inconsistencies
+    when the transitions try to convert the ocean\u2019s patch size, i.e. noticeable
+    shifting / scrolling as the ocean patch size lerps to the new size. \n\n### Same
+    skybox cloud values for longer transitions \n\n- Cloud Offset should be the same
+    since this moves the height of the clouds up and down. \n\n- Cloud Speed should
+    be the same otherwise there will be noticeable scrolling as the clouds shift
+    to their new position \n\n- Cloud Scaling is similar to Cloud Speed, it can cause
+    noticeable scrolling if they are different between environment profiles\u2019
+    skyboxes. \n\n- NOTE: You don\u2019t always have to set the clouds to the same
+    values, this is only necessary when creating transitions which occur over an
+    extended period of time. \n\n### Colours \n\n- It can be difficult to work out
+    how to manage the colour changes between profiles, especially when the time of
+    day is changing rapidly throughout the scene. \n\n- Making smaller changes earlier
+    on in either instant or very short transitions (3 - 5 seconds) can help a great
+    deal to get closer to some colour values which transition nicely over a longer
+    period of time. \n\n- In a Beat 6 environment profile when the moon was in the
+    \u2018sun\u2019 position on the environment profile, I had to make it seem like
+    the sun was about to crest the ocean. To do that, I edited the Skybox \u2018Cloud
+    Back Color\u2019 to look more orange, when typically that\u2019s a darker version
+    of the \u2018Cloud Sun Color\u2019.  \n\n    - Considering tricks like this can
+    be helpful when trying to create transitions between very different environment
+    profile setups. \n\n- Experimenting with Post Processing profiles can also help
+    to make the colours transition nicely between environment profiles. \n\n### Relevant
+    Files\n- [EnvironmentSystem.cs](../Packages/com.meta.utilities.environment/Runtime/Scripts/Environment/EnvironmentSystem.cs)\n-
+    [EnvironmentProfile.cs](../Packages/com.meta.utilities.environment/Runtime/Scripts/Water/EnvironmentProfile.cs)\n"
+  m_overrideMarkdownRoot: .\Documentation/

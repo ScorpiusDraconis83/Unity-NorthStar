@@ -669,6 +669,7 @@ MonoBehaviour:
   m_playOnAwake: 0
   m_oneShotMode: 0
   BaseVolume: 0
+  m_allowOverlap: 0
 --- !u!82 &1183395911076121249
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1666,6 +1667,7 @@ MonoBehaviour:
   m_playOnAwake: 0
   m_oneShotMode: 1
   BaseVolume: 0
+  m_allowOverlap: 0
 --- !u!82 &6308508879816754743
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1868,7 +1870,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_sailHeightKey: SailProgress
   m_sailProgress: 0
   RopeTightPercentage: 0
   BoomSwingPoint: 0.1
@@ -1933,7 +1934,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_sailHeightKey: SailProgress
   m_sailProgress: 0
   RopeTightPercentage: 0
   BoomSwingPoint: 0.1
@@ -5425,7 +5425,7 @@ PrefabInstance:
     - target: {fileID: 8969929792515654200, guid: 5b16bd0499e37634cb14553c9b365550,
         type: 3}
       propertyPath: m_onRopeSpooled.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: NorthStar.RopeTextureScroller, Assembly-CSharp
+      value: Meta.Utilities.Ropes.RopeTextureScroller, Meta.Utilities.Ropes
       objectReference: {fileID: 0}
     - target: {fileID: 8969929792515654200, guid: 5b16bd0499e37634cb14553c9b365550,
         type: 3}

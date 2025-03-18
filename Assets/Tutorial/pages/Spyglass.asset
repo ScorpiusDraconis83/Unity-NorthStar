@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4510294d23d964fe59443526f1ca7c4b, type: 3}
+  m_Name: Spyglass
+  m_EditorClassIdentifier: 
+  m_displayName: Spyglass
+  m_hierarchyName: Spyglass
+  m_context: {fileID: 11400000, guid: 87f11e1c7753cd242b2c673090d8513b, type: 2}
+  m_markdownFile: {fileID: 0}
+  m_priority: 1014
+  m_overrideMarkdownText: "## Spyglass\n\nIn NorthStar a telescope allows players
+    to see farther distances through the dense fog. It achieves this by using an
+    adjusted projection matrix to magnify objects and reduce fog density allowing
+    the player to see distant objects. It is opened by pulling on the eyeglass, extending
+    the length of the telescope.\n\n![](./Images/Eyeglass/Fig1.png)\n\n### Interactions\n\nThe
+    telescope is separated into 2 objects, a Front and a Back, each with a Rigidbody
+    and containing many grab points. A joint holds the two parts together. A script
+    monitors the separation between these Rigidbodies and will update the telecope
+    state (open or closed) based on this separation. Upon state change, the joint
+    targetPosition is adjusted to hold the telescope open or closed, and eyeglass
+    rendering is enabled or disabled.\n\nWhen the telescope is placed up to the user\u2019s
+    eye, any jitter becomes very apparent and can make the telescope difficult or
+    sickening to use. To combat this, the telescope will use another joint to attach
+    itself to the nearest eye for stabilization.\n\n![](./Images/Eyeglass/Fig2.png)\n\n###
+    Rendering\n\nInitially this system rendered the world to a RenderTexture and
+    composited this texture over the eyeglass. However this technique proved to be
+    too slow for real-time rendering. To reduce processing costs, a ScriptableRenderPass
+    renders the visible world directly to the screen with adjusted projection matrices,
+    viewport, and stenciled to only render inside the eyeglass. It uses the same
+    culling as the main scene.\n\nFirst the lens is drawn, writing a stencil bit
+    to mark pixels of the eyeglass that are visible. This ensures that the magnified
+    world is only visible through the eyeglass, and any objects obscuring the eyeglass
+    will also obscure the magnified world.\n\nA screen rect is then calculated for
+    each eye based on the bounds of the lens mesh. Because of the separation of eyes,
+    the screen-space bounds of the lens can be significantly different for each eye.
+    These rects are combined to construct a screen-space viewport containing the
+    lens for both eyes and used to adjust the projection matrix of each eye. The
+    projection matrix is also skewed by the relative telescope orientation multiplied
+    by a \u201CtrackingFactor\u201D.\n\nFog density is adjusted by overwriting the
+    FogParams vector, and control is passed to the base DrawObjectsPass to render
+    the game scene, before restoring everything to its initial state.\n\nFinally
+    the lens is drawn again with a smooth transparent material to give the lens a
+    glassy look.\n\n### Relevant Files\n- [Telescope.cs](../Assets/NorthStar/Scripts/Items/Telescope.cs)\n-
+    [ViewportRenderer.cs](../Packages/com.meta.utilities.viewport-renderer/Scripts/ViewportRenderer.cs)\n-
+    [EyeStencilWrite.shader](../Packages/com.meta.utilities.viewport-renderer/Materials/EyeStencilWrite.shader)\n"
+  m_overrideMarkdownRoot: .\Documentation/

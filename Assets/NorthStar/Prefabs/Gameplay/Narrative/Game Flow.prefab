@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TaskID:
-    id: GF_S5_Preload_Beat_5
+    ID: GF_S5_Preload_Beat_5
   PlayerTransform: {fileID: 0}
   PlayerGazeCamera: {fileID: 0}
   m_completeWhen: 1
@@ -69,7 +69,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 57fad0abf2d8aae458a37580a5c44e51, type: 2}
-        m_TargetAssemblyTypeName: NorthStar.TaskManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: Meta.Utilities.Narrative.TaskManager, Meta.Utilities.Narrative
         m_MethodName: RefreshAll
         m_Mode: 1
         m_Arguments:
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TaskID:
-    id: GF_S4_Load_Beat_4
+    ID: GF_S4_Load_Beat_4
   PlayerTransform: {fileID: 0}
   PlayerGazeCamera: {fileID: 0}
   m_completeWhen: 1
@@ -157,7 +157,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 57fad0abf2d8aae458a37580a5c44e51, type: 2}
-        m_TargetAssemblyTypeName: NorthStar.TaskManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: Meta.Utilities.Narrative.TaskManager, Meta.Utilities.Narrative
         m_MethodName: RefreshAll
         m_Mode: 1
         m_Arguments:
@@ -176,7 +176,7 @@ MonoBehaviour:
     version: 2
     RefIds:
     - rid: 8157615625407037441
-      type: {class: WaitForEventCondition, ns: NorthStar, asm: Assembly-CSharp}
+      type: {class: WaitForEventCondition, ns: Meta.Utilities.Narrative, asm: Meta.Utilities.Narrative}
       data:
         m_index: 0
         EventLink:
@@ -196,7 +196,6 @@ GameObject:
   - component: {fileID: 8826445310967154616}
   - component: {fileID: 4733442392417234540}
   - component: {fileID: 8650573684595063696}
-  - component: {fileID: 4496631461496998357}
   - component: {fileID: 6378661676456178904}
   m_Layer: 0
   m_Name: Game Flow
@@ -234,12 +233,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_sceneTasks:
-  - id: GF_S1_Load_Beat_1
-  - id: GF_S2_Load_Beat_2
-  - id: GF_S3_Load_Beat_3
-  - id: GF_S5_Load_Beat_5
-  - id: GF_S6_Load_Beat_6
-  - id: GF_S7_Load_Beat_7
+  - ID: GF_S1_Load_Beat_1
+  - ID: GF_S2_Load_Beat_2
+  - ID: GF_S3_Load_Beat_3
+  - ID: GF_S5_Load_Beat_5
+  - ID: GF_S6_Load_Beat_6
+  - ID: GF_S7_Load_Beat_7
   SceneChangeComplete:
     m_PersistentCalls:
       m_Calls: []
@@ -249,9 +248,10 @@ MonoBehaviour:
   GameOverRequested:
     m_PersistentCalls:
       m_Calls: []
-  firstTask:
-    id: GF_S0_Init
-  startAutomatically: 1
+  FirstTask:
+    ID: GF_S0_Init
+  StartAutomatically: 1
+  <GameCompleteOnce>k__BackingField: 0
 --- !u!114 &4733442392417234540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,18 +278,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f6823dc4c1ad1e45bf5437acd89fd05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4496631461496998357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1457212719209491442}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e282798944023f4cbd57e20d08050e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &6378661676456178904
@@ -351,7 +339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TaskID:
-    id: GF_S3_Load_Beat_3
+    ID: GF_S3_Load_Beat_3
   PlayerTransform: {fileID: 0}
   PlayerGazeCamera: {fileID: 0}
   m_completeWhen: 1
@@ -376,7 +364,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 57fad0abf2d8aae458a37580a5c44e51, type: 2}
-        m_TargetAssemblyTypeName: NorthStar.TaskManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: Meta.Utilities.Narrative.TaskManager, Meta.Utilities.Narrative
         m_MethodName: RefreshAll
         m_Mode: 1
         m_Arguments:
@@ -395,7 +383,7 @@ MonoBehaviour:
     version: 2
     RefIds:
     - rid: 8157615625407037441
-      type: {class: WaitForEventCondition, ns: NorthStar, asm: Assembly-CSharp}
+      type: {class: WaitForEventCondition, ns: Meta.Utilities.Narrative, asm: Meta.Utilities.Narrative}
       data:
         m_index: 0
         EventLink:
@@ -464,7 +452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TaskID:
-    id: GF_S2_Load_Beat_2
+    ID: GF_S2_Load_Beat_2
   PlayerTransform: {fileID: 0}
   PlayerGazeCamera: {fileID: 0}
   m_completeWhen: 1
@@ -489,7 +477,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 57fad0abf2d8aae458a37580a5c44e51, type: 2}
-        m_TargetAssemblyTypeName: NorthStar.TaskManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: Meta.Utilities.Narrative.TaskManager, Meta.Utilities.Narrative
         m_MethodName: RefreshAll
         m_Mode: 1
         m_Arguments:
@@ -508,7 +496,7 @@ MonoBehaviour:
     version: 2
     RefIds:
     - rid: 8157615625407037441
-      type: {class: WaitForEventCondition, ns: NorthStar, asm: Assembly-CSharp}
+      type: {class: WaitForEventCondition, ns: Meta.Utilities.Narrative, asm: Meta.Utilities.Narrative}
       data:
         m_index: 0
         EventLink:
@@ -621,7 +609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TaskID:
-    id: GF_S3_Preload_Beat_3
+    ID: GF_S3_Preload_Beat_3
   PlayerTransform: {fileID: 0}
   PlayerGazeCamera: {fileID: 0}
   m_completeWhen: 1
@@ -645,7 +633,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 57fad0abf2d8aae458a37580a5c44e51, type: 2}
-        m_TargetAssemblyTypeName: NorthStar.TaskManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: Meta.Utilities.Narrative.TaskManager, Meta.Utilities.Narrative
         m_MethodName: RefreshAll
         m_Mode: 1
         m_Arguments:
@@ -708,7 +696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TaskID:
-    id: GF_S6_Preload_Beat_6
+    ID: GF_S6_Preload_Beat_6
   PlayerTransform: {fileID: 0}
   PlayerGazeCamera: {fileID: 0}
   m_completeWhen: 1
@@ -732,7 +720,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 57fad0abf2d8aae458a37580a5c44e51, type: 2}
-        m_TargetAssemblyTypeName: NorthStar.TaskManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: Meta.Utilities.Narrative.TaskManager, Meta.Utilities.Narrative
         m_MethodName: RefreshAll
         m_Mode: 1
         m_Arguments:
@@ -796,7 +784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TaskID:
-    id: GF_S6_Load_Beat_6
+    ID: GF_S6_Load_Beat_6
   PlayerTransform: {fileID: 0}
   PlayerGazeCamera: {fileID: 0}
   m_completeWhen: 1
@@ -821,7 +809,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 57fad0abf2d8aae458a37580a5c44e51, type: 2}
-        m_TargetAssemblyTypeName: NorthStar.TaskManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: Meta.Utilities.Narrative.TaskManager, Meta.Utilities.Narrative
         m_MethodName: RefreshAll
         m_Mode: 1
         m_Arguments:
@@ -840,7 +828,7 @@ MonoBehaviour:
     version: 2
     RefIds:
     - rid: 8157615625407037441
-      type: {class: WaitForEventCondition, ns: NorthStar, asm: Assembly-CSharp}
+      type: {class: WaitForEventCondition, ns: Meta.Utilities.Narrative, asm: Meta.Utilities.Narrative}
       data:
         m_index: 0
         EventLink:
@@ -908,7 +896,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TaskID:
-    id: GF_S2_Preload_Beat_2
+    ID: GF_S2_Preload_Beat_2
   PlayerTransform: {fileID: 0}
   PlayerGazeCamera: {fileID: 0}
   m_completeWhen: 1
@@ -932,7 +920,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 57fad0abf2d8aae458a37580a5c44e51, type: 2}
-        m_TargetAssemblyTypeName: NorthStar.TaskManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: Meta.Utilities.Narrative.TaskManager, Meta.Utilities.Narrative
         m_MethodName: RefreshAll
         m_Mode: 1
         m_Arguments:
@@ -995,7 +983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TaskID:
-    id: GF_S1_Load_Beat_1
+    ID: GF_S1_Load_Beat_1
   PlayerTransform: {fileID: 0}
   PlayerGazeCamera: {fileID: 0}
   m_completeWhen: 1
@@ -1020,7 +1008,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 57fad0abf2d8aae458a37580a5c44e51, type: 2}
-        m_TargetAssemblyTypeName: NorthStar.TaskManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: Meta.Utilities.Narrative.TaskManager, Meta.Utilities.Narrative
         m_MethodName: RefreshAll
         m_Mode: 1
         m_Arguments:
@@ -1039,7 +1027,7 @@ MonoBehaviour:
     version: 2
     RefIds:
     - rid: 8157615625407037441
-      type: {class: WaitForEventCondition, ns: NorthStar, asm: Assembly-CSharp}
+      type: {class: WaitForEventCondition, ns: Meta.Utilities.Narrative, asm: Meta.Utilities.Narrative}
       data:
         m_index: 0
         EventLink:
@@ -1092,7 +1080,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TaskID:
-    id: GF_S7_Preload_Beat_7
+    ID: GF_S7_Preload_Beat_7
   PlayerTransform: {fileID: 0}
   PlayerGazeCamera: {fileID: 0}
   m_completeWhen: 1
@@ -1116,7 +1104,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 57fad0abf2d8aae458a37580a5c44e51, type: 2}
-        m_TargetAssemblyTypeName: NorthStar.TaskManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: Meta.Utilities.Narrative.TaskManager, Meta.Utilities.Narrative
         m_MethodName: RefreshAll
         m_Mode: 1
         m_Arguments:
@@ -1179,7 +1167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TaskID:
-    id: GF_S7_Game_Over
+    ID: GF_S7_Game_Over
   PlayerTransform: {fileID: 0}
   PlayerGazeCamera: {fileID: 0}
   m_completeWhen: 0
@@ -1191,7 +1179,19 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8826445310967154616}
         m_TargetAssemblyTypeName: NorthStar.GameFlowController, Assembly-CSharp
-        m_MethodName: GoToCredits
+        m_MethodName: CompleteSceneLoad
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Beat1
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8826445310967154616}
+        m_TargetAssemblyTypeName: NorthStar.GameFlowController, Assembly-CSharp
+        m_MethodName: SetGameComplete
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1212,12 +1212,12 @@ MonoBehaviour:
     version: 2
     RefIds:
     - rid: 3545628607226576896
-      type: {class: TimeDelayCondition, ns: NorthStar, asm: Assembly-CSharp}
+      type: {class: TimeDelayCondition, ns: Meta.Utilities.Narrative, asm: Meta.Utilities.Narrative}
       data:
         m_index: 1
         DelayInSeconds: 5
     - rid: 8157615941694521464
-      type: {class: WaitForEventCondition, ns: NorthStar, asm: Assembly-CSharp}
+      type: {class: WaitForEventCondition, ns: Meta.Utilities.Narrative, asm: Meta.Utilities.Narrative}
       data:
         m_index: 0
         EventLink:
@@ -1271,7 +1271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TaskID:
-    id: GF_S5_Load_Beat_5
+    ID: GF_S5_Load_Beat_5
   PlayerTransform: {fileID: 0}
   PlayerGazeCamera: {fileID: 0}
   m_completeWhen: 1
@@ -1296,7 +1296,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 57fad0abf2d8aae458a37580a5c44e51, type: 2}
-        m_TargetAssemblyTypeName: NorthStar.TaskManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: Meta.Utilities.Narrative.TaskManager, Meta.Utilities.Narrative
         m_MethodName: RefreshAll
         m_Mode: 1
         m_Arguments:
@@ -1315,7 +1315,7 @@ MonoBehaviour:
     version: 2
     RefIds:
     - rid: 8157615625407037441
-      type: {class: WaitForEventCondition, ns: NorthStar, asm: Assembly-CSharp}
+      type: {class: WaitForEventCondition, ns: Meta.Utilities.Narrative, asm: Meta.Utilities.Narrative}
       data:
         m_index: 0
         EventLink:
@@ -1384,7 +1384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TaskID:
-    id: GF_S7_Load_Beat_7
+    ID: GF_S7_Load_Beat_7
   PlayerTransform: {fileID: 0}
   PlayerGazeCamera: {fileID: 0}
   m_completeWhen: 1
@@ -1409,7 +1409,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 57fad0abf2d8aae458a37580a5c44e51, type: 2}
-        m_TargetAssemblyTypeName: NorthStar.TaskManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: Meta.Utilities.Narrative.TaskManager, Meta.Utilities.Narrative
         m_MethodName: RefreshAll
         m_Mode: 1
         m_Arguments:
@@ -1428,7 +1428,7 @@ MonoBehaviour:
     version: 2
     RefIds:
     - rid: 8157615625407037441
-      type: {class: WaitForEventCondition, ns: NorthStar, asm: Assembly-CSharp}
+      type: {class: WaitForEventCondition, ns: Meta.Utilities.Narrative, asm: Meta.Utilities.Narrative}
       data:
         m_index: 0
         EventLink:
@@ -1496,7 +1496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TaskID:
-    id: GF_S0_Init
+    ID: GF_S0_Init
   PlayerTransform: {fileID: 0}
   PlayerGazeCamera: {fileID: 0}
   m_completeWhen: 1

@@ -1,0 +1,129 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4510294d23d964fe59443526f1ca7c4b, type: 3}
+  m_Name: Ocean shader_Parameter Overview
+  m_EditorClassIdentifier: 
+  m_displayName: Parameter Overview
+  m_hierarchyName: Ocean Shader/Parameter Overview
+  m_context: {fileID: 11400000, guid: 95a8f8372a6947e40ad18fcd4817087a, type: 2}
+  m_markdownFile: {fileID: 0}
+  m_priority: 1004
+  m_overrideMarkdownText: "# Parameter Overview \n\n- **Albedo:** The general color
+    of the water, this functions the same as albedo in any regular PBR shader, except
+    it may be modified by the foam amount if enabled. \n \n**Foam** \n\n- **Enable
+    Shore Foam:** This enables the shore foam effect where objects intersecting the
+    water plane will create a line of foam. However this requires the depth texture
+    to be available. \n- **Foam Texture:** This is the texture used for foam. Only
+    the red channel is used, to save bandwidth, but a full color texture with an
+    alpha could be used if required, but minor shader changes would be needed. \n-
+    **Foam Scale:** The world space tiling of the foam. Larger numbers will make
+    the foam smaller and more detailed, but more repetitive. \n- **Foam Scroll:**
+    This applies a world space panning effect to the foam to add extra visual interest.
+    However in practice, the movement of the ocean often makes this unnoticeable,
+    so may not be required for most situations. \n- **Foam Color:** Color tint that
+    is applied to the foam texture. This is used as a lerp parameter instead of a
+    multiply, to avoid ending up with blue-white foam that can\u2019t ever reach
+    fully-white. \n- **Foam Strength:** Multiplier for the foam texture strength.
+    Higher values produce more foam but may remove some soft gradients/fading at
+    edges which may occur. \n- **Foam Threshold:** Higher values will create foam
+    in more areas, whereas lower values mean foam will only appear at the very peaks
+    of high waves. \n- **Foam Aeration Color:** This was used to provide additional
+    detail to the foam calculations and make use of additional texture channels,
+    however the effect is currently disabled for performance reasons. \n- **Foam
+    Aeration Threshold:** Similar to above, this would control the secondary foam
+    texture details, however it is currently not enabled. \n\n**Scatter** \n\n- **Enable
+    Subsurface:** Enables or disables the effect which produces extra light scattering
+    from tall waves. In very gentle seas or certain lighting situations, the effect
+    may not be noticeable or desired, so it can be disabled to slightly improve performance.\n-
+    **Scattering Color:** This is the color and intensity applied to the effect.
+    The best values will depend on the environment and ocean itself, and is largely
+    a matter of opinion. Often, a blue-green or even green value looks best, as red
+    light is quickly absorbed as it travels through water, and blue light is mostly
+    scattered as albedo, so green is generally the strongest remaining color for
+    secondary lighting effects. \n- **Forward Scatter:** This controls the sharpness
+    of the scattering along the light direction. A high value will give a small but
+    bright, focused highlight, but produce no scattering across the rest of the water.
+    Smaller values spread the effect out for a uniform look. Higher values generally
+    work best here to provide a noticeable, dynamic effect. \n- **Back Scatter:**
+    This produces extra scattering when looking away from the light source. Larger
+    values will produce a more focused highlight as above. A smaller value such as
+    0.3 generally works better here, as back-scattering is usually more diffused. 
+    \n- **Scatter Blend:** This controls the contribution of the two above factors.
+    A value of 0.5 provides an equal combination of both, and is generally the best
+    balance. \n- **Scatter Displacement Power:** The strength of the scatter effect
+    is affected by how much horizontal displacement the current vertex has been moved
+    by, with larger displacements providing stronger scattering. A power function
+    is used to vary the effect from a simple linear increase to a more sharp dramatic
+    change for more enhanced visuals. The best value will depend on the sea state
+    and ocean parameters. \n- **Scatter Displacement Factor:** This is a simple multiplier
+    for the amount of scatter that is added compared to the ocean\u2019s displacement.
+    It is combined with the power function above to control the overall effect. \n\n**Normals**
+    \n\n- **Normal Map:** This is the secondary normal map that is combined with
+    the base ocean normals that are produced from the simulation. Any normal map
+    can be used, however a normal map that is baked from the ocean simulation, using
+    the \u201CBake Normal Map\u201D context menu on the Ocean Simulation component
+    is a good way to achieve high quality results.  \n- **Normal Map Size:** This
+    is the area that the normal map covers in world space. Should be several times
+    smaller than the ocean profile\u2019s patch size, to provide a  range of detail
+    at different scales and reduce tiling. \n- **Normal Map Scroll:** Offset over
+    time applied to the normal map, should be in a similar direction to the wind
+    direction so that the ocean simulation and normal map move in similar directions.
+    Avoid making the direction match exactly, as having slight interference between
+    the ocean simulation and normal map creates more interesting interactions and
+    results. \n- **Normal Map Strength:** Scales the strength of the detail normal
+    map. \n- **Normal Rotation:** Rotates the normal map UVs. \n\n**Displacement
+    Noise** \n\n- **Noise Scroll:** Scrolls the displacement noise texture, similar
+    to normals and foam. In practice, a small amount of scrolling, or no scrolling
+    is often fine. \n- **Noise Texture:** The noise texture to use. It should tile
+    seamlessly, and contain a mix of light and dark areas, so that the ocean displacement
+    will be reduced in some areas but not others. This will break up the repetition
+    of the ocean simulation at a distance, without unnecessarily reducing the ocean
+    displacement elsewhere. \n- **Noise Strength:** Controls how strongly the ocean
+    displacement will get attenuated by the noise texture. A strength of 0 will completely
+    disable the noise texture effect. \n- **Noise Scale:** Controls the size of the
+    noise texture in world space. Should be set to a value larger than the ocean
+    patch size, so that the effect of the noise texture does not noticably repeat
+    in the same way as the ocean. The best value will depend on ocean patch size
+    and the noise texture contents. \n\n**Smoothness** \n\n- **Smoothness Close:**
+    The smoothness value to use for the ocean. Previously there was a \u201CSmoothness
+    Far\u201D slider which would be used at a distance, to reduce harsh sun/environment
+    reflections in the distance, however this data is now baked into the mip maps
+    of the normal/foam/smoothness texture, as it is automatically generated/filtered
+    based on the normal maps. \n\n**Shore** \n\n- **Enable Refraction:** This enables
+    the underwater refraction effect, but requires the Camera Opaque Texture to be
+    enabled which has a performance cost. \n- **Refraction Offset:** This controls
+    how much the refraction effect is offset based on the normal map. \n- **Shore
+    Foam Strength:** Controls intensity of the shore foam effect.\n- **Shore Foam
+    Threhsold:** Controls how quickly the shore foam fades in at the edge of objects
+    intersecting the water. \n- **Shore Foam Fade:** Controls how quickly the shore
+    foam fades out as the distance increases to the background object. \n- **Depth
+    Threshold:** Controls the distance at which an underwater object will be fully
+    tinted by the depth color. \n- **Depth Color:** The color which an underwater
+    object will be tinted by at the \u201Cdepth threshold\u201D value. \n\n**Giant
+    Wave** \n\nThe following settings are generally set from C# code, but can be
+    used to control or debug some aspects: \n- **Giant Wave Height:** The peak height
+    of the giant wave.\n- **Giant Wave Width:** The length along the wave at which
+    the effect will be calculated. \n- **Giant Wave Length:** The wavelength of the
+    giant wave, this controls how wide the wave looks and how fast it moves. \n-
+    **Giant Wave Angle:** This controls the angle at which the wave will move towards
+    the center location. \n- **Center:** This is the location that the wave will
+    move towards. \n- **Falloff:** Controls how gradual the slope along the sides
+    of the wave will be, which fades in the wave. \n- **Phase:** Mostly a debug option,
+    this is the \u201Cprogress\u201D of the wave towards the target location. \n-
+    **Giant Wave Steepness:** Controls the steepness of the gerstner wave which is
+    used to calculate the giant wave. \n- **Giant Wave Curve Strength:** Controls
+    how strongly the peak of the wave \u201Ccurves\u201D towards its target direction
+    for a more dramatic effect. \n- **Giant Wave Enabled:** Controls if the giant
+    wave is enabled or not, saving some calculations when disabled. \n\n\n### Relevant
+    Files\n- <a href=\"./Packages/com.meta.utilities.environment/Runtime/Shaders/Water/Water
+    Realistic.shadergraph\">Water Realistic.shadergraph</a>\n- <a href=\"./Assets/NorthStar/Shaders/Water/UnderwaterShader.shader\">UnderwaterShader.shader</a>\n"
+  m_overrideMarkdownRoot: .\Documentation/

@@ -27,12 +27,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3525180273388270163}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0.000000014901163, z: -0.000000014901163, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.6532815, y: 0.27059805, z: 0.27059805, w: 0.6532815}
+  m_LocalPosition: {x: 0.16499159, y: 0, z: 0.16499159}
+  m_LocalScale: {x: 0.6666667, y: 0.66666675, z: 0.6666666}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2934617401823431425}
+  m_Father: {fileID: 7366224615053432675}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!198 &4954390632588619238
 ParticleSystem:
@@ -1414,10 +1414,10 @@ ParticleSystem:
         m_NumAlphaKeys: 2
   UVModule:
     serializedVersion: 2
-    enabled: 0
+    enabled: 1
     mode: 0
-    timeMode: 0
-    fps: 30
+    timeMode: 2
+    fps: 8
     frameOverTime:
       serializedVersion: 2
       minMaxState: 1
@@ -1525,8 +1525,8 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     speedRange: {x: 0, y: 1}
-    tilesX: 1
-    tilesY: 1
+    tilesX: 2
+    tilesY: 2
     animationType: 0
     rowIndex: 0
     cycles: 1
@@ -5020,7 +5020,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7366224615053432675}
-  - {fileID: 2086278170031649815}
   - {fileID: 4128891720254504150}
   - {fileID: 19118989669816339}
   m_Father: {fileID: 0}
@@ -5259,17 +5258,17 @@ PrefabInstance:
     - target: {fileID: 4742473837712756890, guid: 4fc212c98d7f82645980208a1f04d702,
         type: 3}
       propertyPath: m_LODs.Array.data[0].screenRelativeHeight
-      value: 0.9155307
+      value: 0.44890106
       objectReference: {fileID: 0}
     - target: {fileID: 4742473837712756890, guid: 4fc212c98d7f82645980208a1f04d702,
         type: 3}
       propertyPath: m_LODs.Array.data[1].screenRelativeHeight
-      value: 0.47624823
+      value: 0.051388882
       objectReference: {fileID: 0}
     - target: {fileID: 4742473837712756890, guid: 4fc212c98d7f82645980208a1f04d702,
         type: 3}
       propertyPath: m_LODs.Array.data[2].screenRelativeHeight
-      value: 0.2091509
+      value: 0.025500812
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5278,6 +5277,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 832884172230952200}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4fc212c98d7f82645980208a1f04d702,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2086278170031649815}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4fc212c98d7f82645980208a1f04d702,
         type: 3}

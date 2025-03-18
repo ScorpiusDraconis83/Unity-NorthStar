@@ -386,8 +386,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6455c8d138b1c8f4298efb6ea8bc02e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: {x: 0.7, y: 0, z: 0}
-  b: {x: 0.1, y: 0, z: 0}
+  m_a: {x: 0.7, y: 0, z: 0}
+  m_b: {x: 0.1, y: 0, z: 0}
 --- !u!1 &667257552320272922
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,8 +436,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6455c8d138b1c8f4298efb6ea8bc02e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: {x: 0.7, y: 0, z: 0}
-  b: {x: 0.1, y: 0, z: 0}
+  m_a: {x: 0.7, y: 0, z: 0}
+  m_b: {x: 0.1, y: 0, z: 0}
 --- !u!1 &982848892087667536
 GameObject:
   m_ObjectHideFlags: 0
@@ -511,6 +511,7 @@ MonoBehaviour:
   m_playOnAwake: 0
   m_oneShotMode: 0
   BaseVolume: 0
+  m_allowOverlap: 0
 --- !u!82 &8550319542003242771
 AudioSource:
   m_ObjectHideFlags: 0
@@ -672,8 +673,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6455c8d138b1c8f4298efb6ea8bc02e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: {x: 0.7, y: 0, z: 0}
-  b: {x: 0.1, y: 0, z: 0}
+  m_a: {x: 0.7, y: 0, z: 0}
+  m_b: {x: 0.1, y: 0, z: 0}
 --- !u!1 &1049898887636654343
 GameObject:
   m_ObjectHideFlags: 0
@@ -812,8 +813,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6455c8d138b1c8f4298efb6ea8bc02e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: {x: 0.7, y: 0, z: 0}
-  b: {x: 0.1, y: 0, z: 0}
+  m_a: {x: 0.7, y: 0, z: 0}
+  m_b: {x: 0.1, y: 0, z: 0}
 --- !u!1 &1194918427744098631
 GameObject:
   m_ObjectHideFlags: 0
@@ -3431,8 +3432,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6455c8d138b1c8f4298efb6ea8bc02e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: {x: 0.7, y: 0, z: 0}
-  b: {x: 0.1, y: 0, z: 0}
+  m_a: {x: 0.7, y: 0, z: 0}
+  m_b: {x: 0.1, y: 0, z: 0}
 --- !u!1 &4438971935119610146
 GameObject:
   m_ObjectHideFlags: 0
@@ -4544,8 +4545,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6455c8d138b1c8f4298efb6ea8bc02e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: {x: 0.7, y: 0, z: 0}
-  b: {x: 0.1, y: 0, z: 0}
+  m_a: {x: 0.7, y: 0, z: 0}
+  m_b: {x: 0.1, y: 0, z: 0}
 --- !u!1 &5987572396822086688
 GameObject:
   m_ObjectHideFlags: 0
@@ -4765,6 +4766,8 @@ MonoBehaviour:
   m_softGrabTime: 0.2
   m_bonusBreakTimer: 0
   m_toggleIntertiaTensorOnGrab: 0
+  m_throwVelocityPercent: 0
+  m_velocityHistoryCapacity: 20
 --- !u!114 &6178262118685020667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4807,7 +4810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 223fc7c454fdb0346a322b7ba3a81386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  physicsTransformer: {fileID: 457675342306492832}
+  m_physicsTransformer: {fileID: 457675342306492832}
   OnGrab:
     m_PersistentCalls:
       m_Calls:
@@ -6009,8 +6012,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6455c8d138b1c8f4298efb6ea8bc02e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: {x: 0.7, y: 0, z: 0}
-  b: {x: 0.1, y: 0, z: 0}
+  m_a: {x: 0.7, y: 0, z: 0}
+  m_b: {x: 0.1, y: 0, z: 0}
 --- !u!1 &8482433105584305479
 GameObject:
   m_ObjectHideFlags: 0
@@ -6847,8 +6850,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6455c8d138b1c8f4298efb6ea8bc02e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: {x: 0.7, y: 0, z: 0}
-  b: {x: 0.1, y: 0, z: 0}
+  m_a: {x: 0.7, y: 0, z: 0}
+  m_b: {x: 0.1, y: 0, z: 0}
 --- !u!1 &8740848622984522428
 GameObject:
   m_ObjectHideFlags: 0
@@ -7085,6 +7088,7 @@ MonoBehaviour:
   m_playOnAwake: 0
   m_oneShotMode: 0
   BaseVolume: 0
+  m_allowOverlap: 0
 --- !u!82 &9060388215899687425
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7277,6 +7281,7 @@ MonoBehaviour:
   m_startAtHalfway: 1
   m_ratchet: 0
   m_step: 15
+  m_clapRotations: 0
   m_onRatchet:
     m_PersistentCalls:
       m_Calls: []
@@ -7345,6 +7350,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_interactable: {fileID: 6329752190119290409}
   OverideValue: 0
+  MinValue: -1
+  MaxValue: 1
   UseOverride: 0
 --- !u!1 &8887882610435504197
 GameObject:

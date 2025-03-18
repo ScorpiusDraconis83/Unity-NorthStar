@@ -13,9 +13,9 @@ namespace NorthStar
         private AudioSource m_audioSource;
 
         [Tooltip("For now just a basic sound, later we'll want a fancier solution")]
-        public AudioClip basicInteractionSound;
+        public AudioClip BasicInteractionSound;
 
-        public float timeBetweenSoundTriggers = 1f;
+        public float TimeBetweenSoundTriggers = 1f;
 
         private float m_lastTriggerTime = 0f;
 
@@ -28,9 +28,9 @@ namespace NorthStar
         {
             //We'll want the type of sound made by the lever to change based on the interaction the player is having with it, playing the whole time the player is moving it
             //For now as a basic first pass this just plays the full audioclip if it's been more than the set limit time since the last interaction
-            if (Time.time - m_lastTriggerTime >= timeBetweenSoundTriggers && basicInteractionSound != null)
+            if (Time.time - m_lastTriggerTime >= TimeBetweenSoundTriggers && BasicInteractionSound != null)
             {
-                m_audioSource.clip = basicInteractionSound;
+                m_audioSource.clip = BasicInteractionSound;
                 m_audioSource.Play();
                 m_lastTriggerTime = Time.time;
             }

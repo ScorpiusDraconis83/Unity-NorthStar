@@ -1,4 +1,5 @@
 // Copyright (c) Meta Platforms, Inc. and affiliates.
+using Meta.Utilities;
 using UnityEngine;
 
 namespace NorthStar
@@ -18,7 +19,7 @@ namespace NorthStar
         [SerializeField, Tooltip("Defines how many degrees between ratchet steps")]
         private float m_step = 15;
 
-        private void Update()
+        protected override void Update()
         {
             if (!m_jointRigidbody.IsSleeping())
             {

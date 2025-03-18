@@ -25,10 +25,13 @@ namespace NorthStar
             m_ppVolume.weight = Mathf.Clamp01(HeadFadeValue + TeleportFadeValue + TimedFadeValue);
         }
 
-        public Tween DoFadeOut(float duration)
+        public Tween DoFadeOut(float duration, float fade = 1.0f)
         {
-            return DOTween.To(() => TimedFadeValue, x => TimedFadeValue = x, 1.0f, duration);
+            return DOTween.To(() => TimedFadeValue, x => TimedFadeValue = x, fade, duration);
         }
+
+        public void DoFadeOutNoReturn(float duration) => DoFadeOut(duration);
+
 
         public static ScreenFader Instance;
     }

@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using JigglePhysics;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace NorthStar
 {
@@ -27,44 +26,44 @@ namespace NorthStar
 
         // User defined
         [Tooltip("Enables interpolation for the simulation, this should be enabled unless you *really* need the simulation to only update on FixedUpdate.")]
-        public bool interpolate = true;
+        public bool Interpolate = true;
         protected List<KrakenBone> m_krakenBones;
-        public List<KrakenRig> krakenRigs;
+        public List<KrakenRig> KrakenRigs;
         public LevelOfDetailValues LevelOfDetailSettings;
         private bool m_debugDraw;
 
         [SerializeField]
         [Tooltip("An air force that is applied to the entire rig, this is useful to plug in some wind volumes from external sources.")]
-        public Vector3 wind;
+        public Vector3 Wind;
         [Range(0f, 2f)]
-        public float gravityMultiplier = 1f;
+        public float GravityMultiplier = 1f;
         [Range(0f, 1f)]
-        public float friction = 0.5f;
+        public float Friction = 0.5f;
         [Range(0f, 1f)]
-        public float elasticity;
+        public float Elasticity;
         [Range(0f, 1f)]
-        public float angleElasticity = 0.5f;
+        public float AngleElasticity = 0.5f;
         [Range(0f, 1f)]
-        public float blend = 0.9f;
+        public float Blend = 0.9f;
         [Range(0f, 1f)]
-        public float airDrag = 0.4f;
+        public float AirDrag = 0.4f;
         [Range(0f, 1f)]
-        public float lengthElasticity = 0.6f;
+        public float LengthElasticity = 0.6f;
         [Range(0f, 1f)]
-        public float elasticitySoften = 0.5f;
+        public float ElasticitySoften = 0.5f;
         [Range(0f, 2f)]
-        public float radiusMultiplier = 1;
-        public AnimationCurve radiusCurve = new(new Keyframe(0f, 1f), new Keyframe(1f, 0f));
+        public float RadiusMultiplier = 1;
+        public AnimationCurve RadiusCurve = new(new Keyframe(0f, 1f), new Keyframe(1f, 0f));
 
         // LOD values dropdown
         [Serializable]
         public class LevelOfDetailValues
         {
             [SerializeField]
-            public bool useLevelOfDetail = false;
+            public bool UseLevelOfDetail = false;
             [Tooltip("The distance from the camera at which the simulation is disabled.")]
             public float Distance;
-            public float blend;
+            public float Blend;
 
             private Transform m_cameraTransform;
             private Camera m_currentCamera;
@@ -95,9 +94,9 @@ namespace NorthStar
             {
                 if (!TryGetCamera(out var camera))
                 {
-                    if (useLevelOfDetail)
+                    if (UseLevelOfDetail)
                     {
-                        var newBlend = (Vector3.Distance(camera.transform.position, position) - Distance + blend) / blend;
+                        var newBlend = (Vector3.Distance(camera.transform.position, position) - Distance + Blend) / Blend;
                         newBlend = Mathf.Clamp01(1f - newBlend);
                         return newBlend;
                     }
@@ -114,27 +113,26 @@ namespace NorthStar
             // User defined
             [SerializeField]
             [Tooltip("The root bone from which an individual KrakenRig will be constructed. The rig encompasses all children of the specified root.")]
-            [FormerlySerializedAs("target")]
-            public Transform rootBone;
+            public Transform RootBone;
             [SerializeField]
             [Tooltip("The list of bones to ignore during the simulation. Each bone listed will also ignore all the children of the specified bone.")]
             private List<Transform> m_ignoredBones;
-            public List<Collider> collisionObjects;
-            public bool useKeyedBlend = true;
+            public List<Collider> CollisionObjects;
+            public bool UseKeyedBlend = true;
 
-            public Transform GetRootTransform() => rootBone;
+            public Transform GetRootTransform() => RootBone;
             public KrakenRig(Transform rootTransform,
                 ICollection<Transform> ignoredBones, ICollection<Collider> collisionObjects)
             {
-                rootBone = rootTransform;
+                RootBone = rootTransform;
                 m_ignoredBones = new List<Transform>(ignoredBones);
-                this.collisionObjects = new List<Collider>(collisionObjects);
+                CollisionObjects = new List<Collider>(collisionObjects);
                 Initialize();
             }
 
             // Private
             private bool m_initialized;
-            private bool NeedsCollisions => collisionObjects.Count != 0;
+            private bool NeedsCollisions => CollisionObjects.Count != 0;
 
             protected List<KrakenBone> m_krakenBones;
 
@@ -158,12 +156,12 @@ namespace NorthStar
             {
                 m_krakenBones = new List<KrakenBone>();
 
-                if (rootBone == null)
+                if (RootBone == null)
                 {
                     return;
                 }
 
-                CreateSimulatedPoints(m_krakenBones, m_ignoredBones, rootBone, null);
+                CreateSimulatedPoints(m_krakenBones, m_ignoredBones, RootBone, null);
 
                 foreach (var bone in m_krakenBones)
                 {
@@ -179,9 +177,9 @@ namespace NorthStar
                 // Create an extra purely virtual point if we have no children.
                 if (currentTransform.childCount == 0)
                 {
-                    if (newKrakenBone.parent == null)
+                    if (newKrakenBone.Parent == null)
                     {
-                        if (newKrakenBone.transform.parent == null)
+                        if (newKrakenBone.Transform.parent == null)
                         {
                             throw new UnityException("Can't have a singular Kraken bone with no parents. That doesn't even make sense!");
                         }
@@ -216,7 +214,7 @@ namespace NorthStar
             public void DeriveFinalSolve()
             {
                 var virtualPosition = m_krakenBones[0].DeriveFinalSolvePosition(Vector3.zero);
-                var offset = m_krakenBones[0].transform.position - virtualPosition;
+                var offset = m_krakenBones[0].Transform.position - virtualPosition;
                 foreach (var bone in m_krakenBones)
                 {
                     _ = bone.DeriveFinalSolvePosition(offset);
@@ -263,7 +261,7 @@ namespace NorthStar
                 {
                     foreach (var bone in m_krakenBones)
                     {
-                        bone.CollisionPass(radiusMultiplier, radiusCurve, collisionObjects);
+                        bone.CollisionPass(radiusMultiplier, radiusCurve, CollisionObjects);
                     }
                 }
 
@@ -279,7 +277,7 @@ namespace NorthStar
                 DeriveFinalSolve();
                 foreach (var bone in m_krakenBones)
                 {
-                    bone.PoseBone(blend, useKeyedBlend, staticBlend);
+                    bone.PoseBone(blend, UseKeyedBlend, staticBlend);
                     if (debugDraw)
                     {
                         bone.DebugDraw(Color.red, Color.blue, true);
@@ -303,43 +301,43 @@ namespace NorthStar
         // Bone creator
         public partial class KrakenBone
         {
-            private readonly bool hasTransform;
-            private readonly PositionSignal targetAnimatedBoneSignal;
-            private Vector3 currentFixedAnimatedBonePosition;
+            private readonly bool m_hasTransform;
+            private readonly PositionSignal m_targetAnimatedBoneSignal;
+            private Vector3 m_currentFixedAnimatedBonePosition;
 
-            public readonly KrakenBone parent;
-            private KrakenBone child;
-            private Quaternion boneRotationChangeCheck;
-            private Vector3 bonePositionChangeCheck;
-            private Quaternion lastValidPoseBoneRotation;
-            private float projectionAmount;
+            public readonly KrakenBone Parent;
+            private KrakenBone m_child;
+            private Quaternion m_boneRotationChangeCheck;
+            private Vector3 m_bonePositionChangeCheck;
+            private Quaternion m_lastValidPoseBoneRotation;
+            private float m_projectionAmount;
 
-            private Vector3 lastValidPoseBoneLocalPosition;
-            private float normalizedIndex;
+            private Vector3 m_lastValidPoseBoneLocalPosition;
+            private float m_normalizedIndex;
 
-            public readonly Transform transform;
+            public readonly Transform Transform;
 
-            private readonly PositionSignal particleSignal;
-            private Vector3 workingPosition;
-            private Vector3? preTeleportPosition;
-            private Vector3 extrapolatedPosition;
+            private readonly PositionSignal m_particleSignal;
+            private Vector3 m_workingPosition;
+            private Vector3? m_preTeleportPosition;
+            private Vector3 m_extrapolatedPosition;
 
             private float GetLengthToParent()
             {
-                return parent == null ? 0.1f : Vector3.Distance(currentFixedAnimatedBonePosition, parent.currentFixedAnimatedBonePosition);
+                return Parent == null ? 0.1f : Vector3.Distance(m_currentFixedAnimatedBonePosition, Parent.m_currentFixedAnimatedBonePosition);
             }
 
             public KrakenBone(Transform transform, KrakenBone parent, float projectionAmount = 1f)
             {
-                this.transform = transform;
-                this.parent = parent;
-                this.projectionAmount = projectionAmount;
+                Transform = transform;
+                Parent = parent;
+                m_projectionAmount = projectionAmount;
 
                 Vector3 position;
                 if (transform != null)
                 {
-                    lastValidPoseBoneRotation = transform.localRotation;
-                    lastValidPoseBoneLocalPosition = transform.localPosition;
+                    m_lastValidPoseBoneRotation = transform.localRotation;
+                    m_lastValidPoseBoneLocalPosition = transform.localPosition;
                     position = transform.position;
                 }
                 else
@@ -347,72 +345,72 @@ namespace NorthStar
                     position = GetProjectedPosition();
                 }
 
-                targetAnimatedBoneSignal = new PositionSignal(position, Time.timeAsDouble);
-                particleSignal = new PositionSignal(position, Time.timeAsDouble);
+                m_targetAnimatedBoneSignal = new PositionSignal(position, Time.timeAsDouble);
+                m_particleSignal = new PositionSignal(position, Time.timeAsDouble);
 
-                hasTransform = transform != null;
+                m_hasTransform = transform != null;
                 if (parent == null)
                 {
                     return;
                 }
-                this.parent.child = this;
+                Parent.m_child = this;
             }
 
             public void CalculateNormalizedIndex()
             {
                 var distanceToRoot = 0;
                 var test = this;
-                while (test.parent != null)
+                while (test.Parent != null)
                 {
-                    test = test.parent;
+                    test = test.Parent;
                     distanceToRoot++;
                 }
 
                 var distanceToChild = 0;
                 test = this;
-                while (test.child != null)
+                while (test.m_child != null)
                 {
-                    test = test.child;
+                    test = test.m_child;
                     distanceToChild++;
                 }
 
                 var max = distanceToRoot + distanceToChild;
                 var frac = (float)distanceToRoot / max;
-                normalizedIndex = frac;
+                m_normalizedIndex = frac;
             }
 
             public void VerletPass(Vector3 wind, float gravityMultiplier, float friction, float airDrag, double time)
             {
-                currentFixedAnimatedBonePosition = targetAnimatedBoneSignal.SamplePosition(time);
-                if (parent == null)
+                m_currentFixedAnimatedBonePosition = m_targetAnimatedBoneSignal.SamplePosition(time);
+                if (Parent == null)
                 {
-                    workingPosition = currentFixedAnimatedBonePosition;
-                    particleSignal.SetPosition(workingPosition, time);
+                    m_workingPosition = m_currentFixedAnimatedBonePosition;
+                    m_particleSignal.SetPosition(m_workingPosition, time);
                     return;
                 }
-                var localSpaceVelocity = particleSignal.GetCurrent() - particleSignal.GetPrevious() - (parent.particleSignal.GetCurrent() - parent.particleSignal.GetPrevious());
-                workingPosition = NextPhysicsPosition(
-                    particleSignal.GetCurrent(), particleSignal.GetPrevious(), localSpaceVelocity, VERLET_TIME_STEP,
+                var localSpaceVelocity = m_particleSignal.GetCurrent() - m_particleSignal.GetPrevious() - (Parent.m_particleSignal.GetCurrent() - Parent.m_particleSignal.GetPrevious());
+                m_workingPosition = NextPhysicsPosition(
+                    m_particleSignal.GetCurrent(), m_particleSignal.GetPrevious(), localSpaceVelocity, VERLET_TIME_STEP,
                     gravityMultiplier,
                     friction,
                     airDrag
                 );
-                workingPosition += wind * (VERLET_TIME_STEP * airDrag);
+                m_workingPosition += wind * (VERLET_TIME_STEP * airDrag);
             }
 
             public void CollisionPreparePass(float lengthElasticity)
             {
-                workingPosition = ConstrainLengthBackwards(workingPosition, lengthElasticity * lengthElasticity * 0.5f);
+                m_workingPosition = ConstrainLengthBackwards(m_workingPosition, lengthElasticity * lengthElasticity * 0.5f);
             }
 
             public void ConstraintPass(float angleElasticity, float elasticitySoften, float lengthElasticity)
             {
-                if (parent == null)
+                if (Parent == null)
                 {
                     return;
                 }
-                workingPosition = ConstrainAngle(workingPosition, angleElasticity * angleElasticity, elasticitySoften);
-                workingPosition = ConstrainLength(workingPosition, lengthElasticity * lengthElasticity);
+                m_workingPosition = ConstrainAngle(m_workingPosition, angleElasticity * angleElasticity, elasticitySoften);
+                m_workingPosition = ConstrainLength(m_workingPosition, lengthElasticity * lengthElasticity);
             }
 
             public void CollisionPass(float radiusMultiplier, AnimationCurve radiusCurve, List<Collider> colliders)
@@ -428,17 +426,17 @@ namespace NorthStar
                 }
                 foreach (var collider in colliders)
                 {
-                    sphereCollider.radius = radiusMultiplier * radiusCurve.Evaluate(normalizedIndex);
+                    sphereCollider.radius = radiusMultiplier * radiusCurve.Evaluate(m_normalizedIndex);
                     if (sphereCollider.radius <= 0)
                     {
                         continue;
                     }
 
-                    if (Physics.ComputePenetration(sphereCollider, workingPosition, Quaternion.identity,
+                    if (Physics.ComputePenetration(sphereCollider, m_workingPosition, Quaternion.identity,
                             collider, collider.transform.position, collider.transform.rotation,
                             out var dir, out var dist))
                     {
-                        workingPosition += dir * dist;
+                        m_workingPosition += dir * dist;
                     }
                 }
             }
@@ -446,72 +444,72 @@ namespace NorthStar
 
             public void SignalWritePosition(double time)
             {
-                particleSignal.SetPosition(workingPosition, time);
+                m_particleSignal.SetPosition(m_workingPosition, time);
             }
 
 
             private Vector3 GetProjectedPosition()
             {
-                var parentTransformPosition = parent.transform.position;
-                return parent.transform.TransformPoint(parent.GetParentTransform().InverseTransformPoint(parentTransformPosition) * projectionAmount);
+                var parentTransformPosition = Parent.Transform.position;
+                return Parent.Transform.TransformPoint(Parent.GetParentTransform().InverseTransformPoint(parentTransformPosition) * m_projectionAmount);
             }
 
             private Vector3 GetTransformPosition()
             {
-                return !hasTransform ? GetProjectedPosition() : transform.position;
+                return !m_hasTransform ? GetProjectedPosition() : Transform.position;
             }
 
             private Transform GetParentTransform()
             {
-                return parent != null ? parent.transform : transform.parent;
+                return Parent != null ? Parent.Transform : Transform.parent;
             }
 
             private void CacheAnimationPosition()
             {
-                if (!hasTransform)
+                if (!m_hasTransform)
                 {
-                    targetAnimatedBoneSignal.SetPosition(GetProjectedPosition(), Time.timeAsDouble);
+                    m_targetAnimatedBoneSignal.SetPosition(GetProjectedPosition(), Time.timeAsDouble);
                     return;
                 }
-                targetAnimatedBoneSignal.SetPosition(transform.position, Time.timeAsDouble);
-                lastValidPoseBoneRotation = transform.localRotation;
-                lastValidPoseBoneLocalPosition = transform.localPosition;
+                m_targetAnimatedBoneSignal.SetPosition(Transform.position, Time.timeAsDouble);
+                m_lastValidPoseBoneRotation = Transform.localRotation;
+                m_lastValidPoseBoneLocalPosition = Transform.localPosition;
             }
 
             private Vector3 ConstrainLengthBackwards(Vector3 newPosition, float elasticity)
             {
-                if (child == null)
+                if (m_child == null)
                 {
                     return newPosition;
                 }
-                var diff = newPosition - child.workingPosition;
+                var diff = newPosition - m_child.m_workingPosition;
                 var dir = diff.normalized;
-                return Vector3.Lerp(newPosition, child.workingPosition + dir * child.GetLengthToParent(), elasticity);
+                return Vector3.Lerp(newPosition, m_child.m_workingPosition + dir * m_child.GetLengthToParent(), elasticity);
             }
 
             private Vector3 ConstrainLength(Vector3 newPosition, float elasticity)
             {
-                var diff = newPosition - parent.workingPosition;
+                var diff = newPosition - Parent.m_workingPosition;
                 var dir = diff.normalized;
-                return Vector3.Lerp(newPosition, parent.workingPosition + dir * GetLengthToParent(), elasticity);
+                return Vector3.Lerp(newPosition, Parent.m_workingPosition + dir * GetLengthToParent(), elasticity);
             }
 
             public void SampleAndReset()
             {
                 var time = Time.timeAsDouble;
                 var position = GetTransformPosition();
-                particleSignal.FlattenSignal(time, position);
-                if (!hasTransform) return;
-                transform.localPosition = bonePositionChangeCheck;
-                transform.localRotation = boneRotationChangeCheck;
+                m_particleSignal.FlattenSignal(time, position);
+                if (!m_hasTransform) return;
+                Transform.localPosition = m_bonePositionChangeCheck;
+                Transform.localRotation = m_boneRotationChangeCheck;
             }
 
             public void MatchAnimationInstantly()
             {
                 var time = Time.timeAsDouble;
                 var position = GetTransformPosition();
-                targetAnimatedBoneSignal.FlattenSignal(time, position);
-                particleSignal.FlattenSignal(time, position);
+                m_targetAnimatedBoneSignal.FlattenSignal(time, position);
+                m_particleSignal.FlattenSignal(time, position);
             }
 
             /// <summary>
@@ -520,7 +518,7 @@ namespace NorthStar
             /// </summary>
             public void PrepareTeleport()
             {
-                preTeleportPosition = GetTransformPosition();
+                m_preTeleportPosition = GetTransformPosition();
             }
 
             /// <summary>
@@ -528,62 +526,62 @@ namespace NorthStar
             /// </summary>
             public void FinishTeleport()
             {
-                if (!preTeleportPosition.HasValue)
+                if (!m_preTeleportPosition.HasValue)
                 {
                     MatchAnimationInstantly();
                     return;
                 }
 
                 var position = GetTransformPosition();
-                var diff = position - preTeleportPosition.Value;
-                targetAnimatedBoneSignal.FlattenSignal(Time.timeAsDouble, position);
-                particleSignal.OffsetSignal(diff);
-                workingPosition += diff;
+                var diff = position - m_preTeleportPosition.Value;
+                m_targetAnimatedBoneSignal.FlattenSignal(Time.timeAsDouble, position);
+                m_particleSignal.OffsetSignal(diff);
+                m_workingPosition += diff;
             }
 
             private Vector3 ConstrainAngleBackward(Vector3 newPosition, float elasticity, float elasticitySoften)
             {
-                if (child == null || child.child == null)
+                if (m_child == null || m_child.m_child == null)
                 {
                     return newPosition;
                 }
-                var cToDTargetPose = child.child.currentFixedAnimatedBonePosition - child.currentFixedAnimatedBonePosition;
-                var cToD = child.child.workingPosition - child.workingPosition;
+                var cToDTargetPose = m_child.m_child.m_currentFixedAnimatedBonePosition - m_child.m_currentFixedAnimatedBonePosition;
+                var cToD = m_child.m_child.m_workingPosition - m_child.m_workingPosition;
                 var neededRotation = Quaternion.FromToRotation(cToDTargetPose, cToD);
-                var cToB = newPosition - child.workingPosition;
+                var cToB = newPosition - m_child.m_workingPosition;
                 var constraintTarget = neededRotation * cToB;
 
-                Debug.DrawLine(newPosition, child.workingPosition + constraintTarget, Color.cyan);
-                var error = Vector3.Distance(newPosition, child.workingPosition + constraintTarget);
-                error /= child.GetLengthToParent();
+                Debug.DrawLine(newPosition, m_child.m_workingPosition + constraintTarget, Color.cyan);
+                var error = Vector3.Distance(newPosition, m_child.m_workingPosition + constraintTarget);
+                error /= m_child.GetLengthToParent();
                 error = Mathf.Clamp01(error);
                 error = Mathf.Pow(error, elasticitySoften * 2f);
-                return Vector3.Lerp(newPosition, child.workingPosition + constraintTarget, elasticity * error);
+                return Vector3.Lerp(newPosition, m_child.m_workingPosition + constraintTarget, elasticity * error);
             }
 
             private Vector3 ConstrainAngle(Vector3 newPosition, float elasticity, float elasticitySoften)
             {
-                if (!hasTransform && projectionAmount == 0f)
+                if (!m_hasTransform && m_projectionAmount == 0f)
                 {
                     return newPosition;
                 }
                 Vector3 parentParentPosition;
                 Vector3 poseParentParent;
-                if (parent.parent == null)
+                if (Parent.Parent == null)
                 {
-                    poseParentParent = parent.currentFixedAnimatedBonePosition + (parent.currentFixedAnimatedBonePosition - currentFixedAnimatedBonePosition);
+                    poseParentParent = Parent.m_currentFixedAnimatedBonePosition + (Parent.m_currentFixedAnimatedBonePosition - m_currentFixedAnimatedBonePosition);
                     parentParentPosition = poseParentParent;
                 }
                 else
                 {
-                    parentParentPosition = parent.parent.workingPosition;
-                    poseParentParent = parent.parent.currentFixedAnimatedBonePosition;
+                    parentParentPosition = Parent.Parent.m_workingPosition;
+                    poseParentParent = Parent.Parent.m_currentFixedAnimatedBonePosition;
                 }
-                var parentAimTargetPose = parent.currentFixedAnimatedBonePosition - poseParentParent;
-                var parentAim = parent.workingPosition - parentParentPosition;
-                var TargetPoseToPose = Quaternion.FromToRotation(parentAimTargetPose, parentAim);
-                var currentPose = currentFixedAnimatedBonePosition - poseParentParent;
-                var constraintTarget = TargetPoseToPose * currentPose;
+                var parentAimTargetPose = Parent.m_currentFixedAnimatedBonePosition - poseParentParent;
+                var parentAim = Parent.m_workingPosition - parentParentPosition;
+                var targetPoseToPose = Quaternion.FromToRotation(parentAimTargetPose, parentAim);
+                var currentPose = m_currentFixedAnimatedBonePosition - poseParentParent;
+                var constraintTarget = targetPoseToPose * currentPose;
                 var error = Vector3.Distance(newPosition, parentParentPosition + constraintTarget);
                 error /= GetLengthToParent();
                 error = Mathf.Clamp01(error);
@@ -600,37 +598,37 @@ namespace NorthStar
 
             public void DebugDraw(Color simulateColor, Color targetColor, bool interpolated)
             {
-                if (parent == null) return;
+                if (Parent == null) return;
                 if (interpolated)
                 {
-                    Debug.DrawLine(extrapolatedPosition, parent.extrapolatedPosition, simulateColor, 0, false);
+                    Debug.DrawLine(m_extrapolatedPosition, Parent.m_extrapolatedPosition, simulateColor, 0, false);
                 }
                 else
                 {
-                    Debug.DrawLine(workingPosition, parent.workingPosition, simulateColor, 0, false);
+                    Debug.DrawLine(m_workingPosition, Parent.m_workingPosition, simulateColor, 0, false);
                 }
-                Debug.DrawLine(currentFixedAnimatedBonePosition, parent.currentFixedAnimatedBonePosition, targetColor, 0, false);
+                Debug.DrawLine(m_currentFixedAnimatedBonePosition, Parent.m_currentFixedAnimatedBonePosition, targetColor, 0, false);
             }
             public Vector3 DeriveFinalSolvePosition(Vector3 offset)
             {
-                extrapolatedPosition = offset + particleSignal.SamplePosition(Time.timeAsDouble);
-                return extrapolatedPosition;
+                m_extrapolatedPosition = offset + m_particleSignal.SamplePosition(Time.timeAsDouble);
+                return m_extrapolatedPosition;
             }
 
-            public Vector3 GetCachedSolvePosition() => extrapolatedPosition;
+            public Vector3 GetCachedSolvePosition() => m_extrapolatedPosition;
 
             public void PrepareBone()
             {
                 // If bone is not animated, return to last unadulterated pose
-                if (hasTransform)
+                if (m_hasTransform)
                 {
-                    if (boneRotationChangeCheck == transform.localRotation)
+                    if (m_boneRotationChangeCheck == Transform.localRotation)
                     {
-                        transform.localRotation = lastValidPoseBoneRotation;
+                        Transform.localRotation = m_lastValidPoseBoneRotation;
                     }
-                    if (bonePositionChangeCheck == transform.localPosition)
+                    if (m_bonePositionChangeCheck == Transform.localPosition)
                     {
-                        transform.localPosition = lastValidPoseBoneLocalPosition;
+                        Transform.localPosition = m_lastValidPoseBoneLocalPosition;
                     }
                 }
                 CacheAnimationPosition();
@@ -638,12 +636,12 @@ namespace NorthStar
 
             public void OnDrawGizmos(float radiusMultiplier, AnimationCurve radiusCurve)
             {
-                var pos = particleSignal.SamplePosition(Time.timeAsDouble);
-                if (child != null)
+                var pos = m_particleSignal.SamplePosition(Time.timeAsDouble);
+                if (m_child != null)
                 {
-                    Gizmos.DrawLine(pos, child.particleSignal.SamplePosition(Time.timeAsDouble));
+                    Gizmos.DrawLine(pos, m_child.m_particleSignal.SamplePosition(Time.timeAsDouble));
                 }
-                var radius = radiusMultiplier * radiusCurve.Evaluate(normalizedIndex);
+                var radius = radiusMultiplier * radiusCurve.Evaluate(m_normalizedIndex);
                 Gizmos.DrawWireSphere(pos, radius);
             }
 
@@ -651,31 +649,31 @@ namespace NorthStar
             {
                 var poseBlend = blend;
 
-                if (keyed == false)
+                if (!keyed)
                 {
                     poseBlend = staticBlend;
                 }
 
 
-                if (child != null)
+                if (m_child != null)
                 {
-                    var positionBlend = Vector3.Lerp(targetAnimatedBoneSignal.SamplePosition(Time.timeAsDouble), extrapolatedPosition, poseBlend);
-                    var childPositionBlend = Vector3.Lerp(child.targetAnimatedBoneSignal.SamplePosition(Time.timeAsDouble), child.extrapolatedPosition, poseBlend);
+                    var positionBlend = Vector3.Lerp(m_targetAnimatedBoneSignal.SamplePosition(Time.timeAsDouble), m_extrapolatedPosition, poseBlend);
+                    var childPositionBlend = Vector3.Lerp(m_child.m_targetAnimatedBoneSignal.SamplePosition(Time.timeAsDouble), m_child.m_extrapolatedPosition, poseBlend);
 
-                    if (parent != null)
+                    if (Parent != null)
                     {
-                        transform.position = positionBlend;
+                        Transform.position = positionBlend;
                     }
-                    var childPosition = child.GetTransformPosition();
-                    var cachedAnimatedVector = childPosition - transform.position;
+                    var childPosition = m_child.GetTransformPosition();
+                    var cachedAnimatedVector = childPosition - Transform.position;
                     var simulatedVector = childPositionBlend - positionBlend;
                     var animPoseToPhysicsPose = Quaternion.FromToRotation(cachedAnimatedVector, simulatedVector);
-                    transform.rotation = animPoseToPhysicsPose * transform.rotation;
+                    Transform.rotation = animPoseToPhysicsPose * Transform.rotation;
                 }
-                if (hasTransform)
+                if (m_hasTransform)
                 {
-                    boneRotationChangeCheck = transform.localRotation;
-                    bonePositionChangeCheck = transform.localPosition;
+                    m_boneRotationChangeCheck = Transform.localRotation;
+                    m_bonePositionChangeCheck = Transform.localPosition;
                 }
             }
         }
@@ -686,8 +684,8 @@ namespace NorthStar
         {
             private struct Frame
             {
-                public Vector3 position;
-                public double time;
+                public Vector3 Position;
+                public double Time;
             }
 
             private Frame m_previousFrame;
@@ -697,8 +695,8 @@ namespace NorthStar
             {
                 m_currentFrame = m_previousFrame = new Frame
                 {
-                    position = startPosition,
-                    time = time
+                    Position = startPosition,
+                    Time = time
                 };
             }
 
@@ -707,8 +705,8 @@ namespace NorthStar
                 m_previousFrame = m_currentFrame;
                 m_currentFrame = new Frame
                 {
-                    position = position,
-                    time = time,
+                    Position = position,
+                    Time = time,
                 };
             }
 
@@ -716,13 +714,13 @@ namespace NorthStar
             {
                 m_previousFrame = new Frame
                 {
-                    position = m_previousFrame.position + offset,
-                    time = m_previousFrame.time,
+                    Position = m_previousFrame.Position + offset,
+                    Time = m_previousFrame.Time,
                 };
                 m_currentFrame = new Frame
                 {
-                    position = m_currentFrame.position + offset,
-                    time = m_previousFrame.time,
+                    Position = m_currentFrame.Position + offset,
+                    Time = m_previousFrame.Time,
                 };
             }
 
@@ -730,30 +728,30 @@ namespace NorthStar
             {
                 m_previousFrame = new Frame
                 {
-                    position = position,
-                    time = time - MAX_CATCHUP_TIME * 2f,
+                    Position = position,
+                    Time = time - MAX_CATCHUP_TIME * 2f,
                 };
 
                 m_currentFrame = new Frame
                 {
-                    position = position,
-                    time = time - MAX_CATCHUP_TIME,
+                    Position = position,
+                    Time = time - MAX_CATCHUP_TIME,
                 };
             }
 
-            public Vector3 GetCurrent() => m_currentFrame.position;
-            public Vector3 GetPrevious() => m_previousFrame.position;
+            public Vector3 GetCurrent() => m_currentFrame.Position;
+            public Vector3 GetPrevious() => m_previousFrame.Position;
 
             public Vector3 SamplePosition(double time)
             {
-                var diff = m_currentFrame.time - m_previousFrame.time;
+                var diff = m_currentFrame.Time - m_previousFrame.Time;
                 if (diff > 0)
                 {
-                    return m_previousFrame.position;
+                    return m_previousFrame.Position;
                 }
 
-                var t = ((double)time - m_previousFrame.time) / (double)diff;
-                return Vector3.Lerp(m_previousFrame.position, m_currentFrame.position, (float)t);
+                var t = ((double)time - m_previousFrame.Time) / (double)diff;
+                return Vector3.Lerp(m_previousFrame.Position, m_currentFrame.Position, (float)t);
             }
         }
 
@@ -862,13 +860,13 @@ namespace NorthStar
 
         public void Initialize()
         {
-            if (krakenRigs[0].rootBone != null)
+            if (KrakenRigs[0].RootBone != null)
             {
                 m_accumulation = 0f;
-                m_dynamicBlend = blend;
-                m_staticBlend = blend;
-                krakenRigs ??= new List<KrakenRig>();
-                foreach (var rig in krakenRigs)
+                m_dynamicBlend = Blend;
+                m_staticBlend = Blend;
+                KrakenRigs ??= new List<KrakenRig>();
+                foreach (var rig in KrakenRigs)
                 {
                     rig.Initialize();
                 }
@@ -881,7 +879,7 @@ namespace NorthStar
 
         private void OnEnable()
         {
-            if (krakenRigs[0].rootBone != null)
+            if (KrakenRigs[0].RootBone != null)
             {
                 CachedSphereCollider.AddBuilder(this);
                 m_dirtyFromEnable = true;
@@ -890,10 +888,10 @@ namespace NorthStar
 
         private void OnDisable()
         {
-            if (krakenRigs[0].rootBone != null)
+            if (KrakenRigs[0].RootBone != null)
             {
                 CachedSphereCollider.RemoveBuilder(this);
-                foreach (var rig in krakenRigs)
+                foreach (var rig in KrakenRigs)
                 {
                     rig.PrepareTeleport();
                 }
@@ -902,7 +900,7 @@ namespace NorthStar
 
         public KrakenRig GetKrakenRig(Transform rootTransform)
         {
-            foreach (var rig in krakenRigs)
+            foreach (var rig in KrakenRigs)
             {
                 if (rig.GetRootTransform() == rootTransform)
                 {
@@ -915,7 +913,7 @@ namespace NorthStar
         //UPDATE
         public virtual void Advance(float deltaTime)
         {
-            if (LevelOfDetailSettings.useLevelOfDetail != false && !LevelOfDetailSettings.CheckActive(transform.position))
+            if (LevelOfDetailSettings.UseLevelOfDetail && !LevelOfDetailSettings.CheckActive(transform.position))
             {
                 if (m_wasLODActive) PrepareTeleport();
                 CachedSphereCollider.StartPass();
@@ -925,14 +923,14 @@ namespace NorthStar
             }
             if (!m_wasLODActive) FinishTeleport();
             CachedSphereCollider.StartPass();
-            foreach (var rig in krakenRigs)
+            foreach (var rig in KrakenRigs)
             {
                 rig.PrepareBone(transform.position, m_dynamicBlend, LevelOfDetailSettings);
             }
 
             if (m_dirtyFromEnable)
             {
-                foreach (var rig in krakenRigs)
+                foreach (var rig in KrakenRigs)
                 {
                     rig.FinishTeleport();
                 }
@@ -944,15 +942,15 @@ namespace NorthStar
             {
                 m_accumulation -= JiggleRigBuilder.VERLET_TIME_STEP;
                 var time = Time.timeAsDouble - m_accumulation;
-                foreach (var rig in krakenRigs)
+                foreach (var rig in KrakenRigs)
                 {
-                    rig.Update(wind, gravityMultiplier, friction, airDrag, lengthElasticity, angleElasticity, elasticitySoften, radiusMultiplier, radiusCurve, time);
+                    rig.Update(Wind, GravityMultiplier, Friction, AirDrag, LengthElasticity, AngleElasticity, ElasticitySoften, RadiusMultiplier, RadiusCurve, time);
                 }
             }
 
-            foreach (var rig in krakenRigs)
+            foreach (var rig in KrakenRigs)
             {
-                rig.Pose(m_debugDraw, blend, m_staticBlend);
+                rig.Pose(m_debugDraw, Blend, m_staticBlend);
             }
             CachedSphereCollider.FinishedPass();
             m_wasLODActive = true;
@@ -960,9 +958,9 @@ namespace NorthStar
 
         private void LateUpdate()
         {
-            if (krakenRigs[0].rootBone != null)
+            if (KrakenRigs[0].RootBone != null)
             {
-                if (!interpolate)
+                if (!Interpolate)
                 {
                     return;
                 }
@@ -972,9 +970,9 @@ namespace NorthStar
 
         private void FixedUpdate()
         {
-            if (krakenRigs[0].rootBone != null)
+            if (KrakenRigs[0].RootBone != null)
             {
-                if (interpolate)
+                if (Interpolate)
                 {
                     return;
                 }
@@ -985,7 +983,7 @@ namespace NorthStar
         //TELEPORT
         public void PrepareTeleport()
         {
-            foreach (var rig in krakenRigs)
+            foreach (var rig in KrakenRigs)
             {
                 rig.PrepareTeleport();
             }
@@ -993,7 +991,7 @@ namespace NorthStar
 
         public void FinishTeleport()
         {
-            foreach (var rig in krakenRigs)
+            foreach (var rig in KrakenRigs)
             {
                 rig.FinishTeleport();
             }
@@ -1001,20 +999,20 @@ namespace NorthStar
 
         private void OnDrawGizmos()
         {
-            if (krakenRigs == null)
+            if (KrakenRigs == null)
             {
                 return;
             }
-            foreach (var rig in krakenRigs)
+            foreach (var rig in KrakenRigs)
             {
-                rig.OnDrawGizmos(radiusMultiplier, radiusCurve);
+                rig.OnDrawGizmos(RadiusMultiplier, RadiusCurve);
             }
         }
 
         private void OnValidate()
         {
-            if (Application.isPlaying || krakenRigs == null) return;
-            foreach (var rig in krakenRigs)
+            if (Application.isPlaying || KrakenRigs == null) return;
+            foreach (var rig in KrakenRigs)
             {
                 rig.Initialize();
             }

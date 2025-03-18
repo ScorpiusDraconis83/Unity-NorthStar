@@ -441,6 +441,8 @@ MonoBehaviour:
   m_softGrabTime: 0.2
   m_bonusBreakTimer: 0
   m_toggleIntertiaTensorOnGrab: 1
+  m_throwVelocityPercent: 0
+  m_velocityHistoryCapacity: 20
 --- !u!65 &8478412555677503867
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -498,6 +500,7 @@ MonoBehaviour:
   OnPlaySound:
     m_PersistentCalls:
       m_Calls: []
+  m_collsionDelayTime: 0
 --- !u!1 &4505289332251145536
 GameObject:
   m_ObjectHideFlags: 0

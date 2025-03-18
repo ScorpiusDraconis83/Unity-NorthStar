@@ -72,8 +72,7 @@ MonoBehaviour:
   OnRearm:
     m_PersistentCalls:
       m_Calls: []
-  m_fireInteractable: {fileID: 8508271899818210710}
-  m_fireThreshold: 1
+  m_fireButton: {fileID: 0}
   OnFire:
     m_PersistentCalls:
       m_Calls:
@@ -95,6 +94,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_lockingTransform: {fileID: 157974437862990930}
+  m_stringBone: {fileID: 0}
   m_harpoonPrefab: {fileID: 5413336541209535529, guid: 5038d9468dde1644c8c8f71bc5560806,
     type: 3}
   BoltSpawnPoint: {fileID: 1948908695436303061}
@@ -102,18 +102,20 @@ MonoBehaviour:
   m_state: 1
   m_harpoonModelDisarmedPos: {x: 0, y: 0.1799999, z: 0.268}
   m_harpoonModelArmedPos: {x: 0, y: 0.1799999, z: -0.671}
+  m_stringBoneArmedPos: 0
+  m_stringBoneDisarmedPos: 0
   m_firingForce: 100
   m_lineRenderer: {fileID: 187524278658781463}
   m_showLineRenderer: 0
-  m_forceFactor: 70.8
-  m_timingFactor: 35
-  m_ratio: 90
-  m_gravity: -9.8
-  m_offset: 1
   m_simulationTime: 10
+  m_ropeWheel: {fileID: 0}
   m_reelRope: {fileID: 2670573235767122022}
   m_fakeArrowBinder: {fileID: 2630144404314092602}
   m_baseNodeDistance: 0.05
+  m_ropeWheelRotationDegreesPerSecond: -720
+  m_skipReload: 0
+  m_useAimAssist: 0
+  m_minAimAsstDirectionValue: 0.75
 --- !u!120 &187524278658781463
 LineRenderer:
   serializedVersion: 2
@@ -337,6 +339,10 @@ MonoBehaviour:
   m_moveStrengthModifier: -0.824
   m_rotationStrengthModifier: -0.986
   m_softGrabTime: 0.2
+  m_bonusBreakTimer: 0
+  m_toggleIntertiaTensorOnGrab: 0
+  m_throwVelocityPercent: 0
+  m_velocityHistoryCapacity: 20
 --- !u!54 &8930426044276828187
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -522,6 +528,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  m_checkXAxis: 1
+  m_checkYAxis: 1
+  m_checkZAxis: 1
   Vector: 0
 --- !u!1 &895307694452909919
 GameObject:
@@ -567,8 +576,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6455c8d138b1c8f4298efb6ea8bc02e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: {x: 0, y: 0.17, z: -0.91}
-  b: {x: 0, y: 0.03, z: -1}
+  m_a: {x: 0, y: 0.17, z: -0.91}
+  m_b: {x: 0, y: 0.03, z: -1}
 --- !u!1 &1363933924699194307
 GameObject:
   m_ObjectHideFlags: 0
@@ -924,7 +933,8 @@ MonoBehaviour:
   NodeIndex: 0
   BindIndex: 0
   m_rope: {fileID: 2670573235767122022}
-  useBoatSpace: 0
+  m_lateUpdate: 0
+  UseBoatSpace: 0
 --- !u!1 &2165742858521116184
 GameObject:
   m_ObjectHideFlags: 0
@@ -2732,7 +2742,8 @@ MonoBehaviour:
   NodeIndex: 39
   BindIndex: 1
   m_rope: {fileID: 2670573235767122022}
-  useBoatSpace: 0
+  m_lateUpdate: 0
+  UseBoatSpace: 0
 --- !u!1 &8080583269766360411
 GameObject:
   m_ObjectHideFlags: 0
@@ -3308,12 +3319,12 @@ PrefabInstance:
     - target: {fileID: 1870210010113577761, guid: 2de371d119558bc47ab84e3c2dee0737,
         type: 3}
       propertyPath: m_onValueChange.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: NorthStar.TestHarpoon, Assembly-CSharp
+      value: NorthStar.Harpoon, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1870210010113577761, guid: 2de371d119558bc47ab84e3c2dee0737,
         type: 3}
       propertyPath: m_onValueChange.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: NorthStar.TestHarpoon, Assembly-CSharp
+      value: NorthStar.Harpoon, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1870210010113577761, guid: 2de371d119558bc47ab84e3c2dee0737,
         type: 3}
@@ -3510,6 +3521,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_jointInteractable: {fileID: 2497385321546435974}
+  m_useAbsValue: 0
 --- !u!114 &7088226843200480097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3531,6 +3543,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_jointInteractable: {fileID: 2497385321546435974}
+  m_useAbsValue: 0
 --- !u!1001 &4806279111965478615
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3688,7 +3701,7 @@ PrefabInstance:
     - target: {fileID: 1870210010113577761, guid: a25376939517e7a4ca9485f1cb804d2b,
         type: 3}
       propertyPath: m_onValueChange.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: NorthStar.TestHarpoon, Assembly-CSharp
+      value: NorthStar.Harpoon, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2613656909057412716, guid: a25376939517e7a4ca9485f1cb804d2b,
         type: 3}
@@ -3842,6 +3855,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_jointInteractable: {fileID: 5483336997462032144}
+  m_useAbsValue: 0
 --- !u!82 &2780214293587166988
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4018,8 +4032,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6455c8d138b1c8f4298efb6ea8bc02e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: {x: 0.2, y: 0, z: 0}
-  b: {x: -0.2, y: 0, z: 0}
+  m_a: {x: 0.2, y: 0, z: 0}
+  m_b: {x: -0.2, y: 0, z: 0}
 --- !u!114 &5483336997462032144 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1870210010113577761, guid: a25376939517e7a4ca9485f1cb804d2b,
@@ -4250,7 +4264,7 @@ PrefabInstance:
     - target: {fileID: 1384252625071211972, guid: 2e3ba45d50419f24581adc66a86b41e8,
         type: 3}
       propertyPath: m_onValueChange.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: NorthStar.TestHarpoon, Assembly-CSharp
+      value: NorthStar.Harpoon, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1384252625071211972, guid: 2e3ba45d50419f24581adc66a86b41e8,
         type: 3}
@@ -4431,18 +4445,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27f47fdde046c4d468e75d4381b9d116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8508271899818210710 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1384252625071211972, guid: 2e3ba45d50419f24581adc66a86b41e8,
-    type: 3}
-  m_PrefabInstance: {fileID: 7288704754922795090}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1610912202817424015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33d8cb94e0067e3498086511e44f9755, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &7869883885596659076
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4579,12 +4581,12 @@ PrefabInstance:
     - target: {fileID: 3917376447766763301, guid: 636bb9025945ba44899ea2b5d8f1bae0,
         type: 3}
       propertyPath: m_onValueChange.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: NorthStar.TestHarpoon, Assembly-CSharp
+      value: NorthStar.Harpoon, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3917376447766763301, guid: 636bb9025945ba44899ea2b5d8f1bae0,
         type: 3}
       propertyPath: m_onValueChange.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: NorthStar.TestHarpoon, Assembly-CSharp
+      value: NorthStar.Harpoon, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3917376447766763301, guid: 636bb9025945ba44899ea2b5d8f1bae0,
         type: 3}
@@ -4784,7 +4786,7 @@ PrefabInstance:
     - target: {fileID: 8833607995518117744, guid: cd9562be00e294942b7155c93faeddb9,
         type: 3}
       propertyPath: m_onValueChange.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: NorthStar.TestHarpoon, Assembly-CSharp
+      value: NorthStar.Harpoon, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8833607995518117744, guid: cd9562be00e294942b7155c93faeddb9,
         type: 3}
@@ -4853,6 +4855,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_jointInteractable: {fileID: 329723894685909226}
+  m_useAbsValue: 0
 --- !u!82 &4225365160575153011
 AudioSource:
   m_ObjectHideFlags: 0

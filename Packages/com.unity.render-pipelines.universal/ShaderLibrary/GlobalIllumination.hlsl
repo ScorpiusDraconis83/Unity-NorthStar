@@ -138,28 +138,30 @@ half3 SampleLightmap(float2 staticLightmapUV, half3 normalWS)
 #define SAMPLE_GI(staticLmName, shName, normalWSName) SampleSHPixel(shName, normalWSName)
 #endif
 
-matrix _ProbeReorientation;
+// Meta change : Rotate box projected reflection probes by this matrix
+half4x4 _ProbeReorientation;
 
 half3 BoxProjectedCubemapDirection(half3 reflectionWS, float3 positionWS, float4 cubemapPositionWS, float4 boxMin, float4 boxMax)
 {
     // Is this probe using box projection?
+    [branch]
     if (cubemapPositionWS.w > 0.0f)
     {
         // Apply rotation to direction vector
-        reflectionWS = mul((float3x3) _ProbeReorientation, reflectionWS);
+        reflectionWS = mul((half3x3)_ProbeReorientation, reflectionWS);
         
-        float3 boxMinMax = (reflectionWS > 0.0f) ? boxMax.xyz : boxMin.xyz;
+        float3 boxMinMax = (reflectionWS > 0.0h) ? boxMax.xyz : boxMin.xyz;
         
-        // Make everything else box-relative
+        // Make everything box-relative
         positionWS -= cubemapPositionWS.xyz;
-        boxMinMax.xyz -= cubemapPositionWS.xyz;
-        positionWS = mul((float3x3) _ProbeReorientation, positionWS);
+        boxMinMax -= cubemapPositionWS.xyz;
+        half3 positionWSH = mul((half3x3)_ProbeReorientation, (half3)positionWS);
         
-        half3 rbMinMax = half3(boxMinMax - positionWS) / reflectionWS;
-
+        // Ray box intersection
+        half3 rbMinMax = ((half3)boxMinMax - positionWSH) / reflectionWS;
         half fa = half(min(min(rbMinMax.x, rbMinMax.y), rbMinMax.z));
 
-        half3 result = positionWS + reflectionWS * fa;
+        half3 result = positionWSH + reflectionWS * fa;
         return result;
     }
     else

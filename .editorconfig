@@ -121,7 +121,7 @@ dotnet_diagnostic.IDE0031.severity = none # don't check, because Unity
 # dotnet_style_null_propagation
 
 # Use auto property
-dotnet_diagnostic.IDE0032.severity = warning
+dotnet_diagnostic.IDE0032.severity = suggestion
 # dotnet_style_prefer_auto_properties
 
 # Use explicitly provdotnet_diagnostic.ided.severity = warning # tuple name
@@ -174,7 +174,7 @@ dotnet_diagnostic.IDE0045.severity = warning
 # dotnet_style_prefer_conditional_expression_over_assignment
 
 # Use conditional expression for return
-dotnet_diagnostic.IDE0046.severity = warning
+dotnet_diagnostic.IDE0046.severity = suggestion
 # dotnet_style_prefer_conditional_expression_over_return
 
 # Remove unnecessary parentheses
@@ -274,14 +274,14 @@ dotnet_diagnostic.IDE0072.severity = none
 
 # Use file header
 dotnet_diagnostic.IDE0073.severity = warning
-# file_header_template
+file_header_template = Copyright (c) Meta Platforms, Inc. and affiliates.
 
 # Use coalesce compound assignment
 dotnet_diagnostic.IDE0074.severity = warning
 # dotnet_style_prefer_compound_assignment
 
 # Simplify conditional expression
-dotnet_diagnostic.IDE0075.severity = warning
+dotnet_diagnostic.IDE0075.severity = suggestion
 # dotnet_style_prefer_simplified_boolean_expressions
 
 # Remove invalid global SuppressMessageAttribute
@@ -402,6 +402,17 @@ dotnet_naming_rule.instance_fields_should_be_camel_case.symbols = instance_field
 dotnet_naming_rule.instance_fields_should_be_camel_case.style = instance_field_style
 
 dotnet_naming_symbols.instance_fields.applicable_kinds = field
+dotnet_naming_symbols.instance_fields.applicable_accessibilities = internal, private, protected, protected_internal, private_protected
+dotnet_naming_symbols.instance_fields.resharper_applicable_kinds=field, unity_serialised_field, readonly_field
+dotnet_naming_symbols.instance_fields.resharper_required_modifiers=instance
+
+dotnet_naming_rule.readonly_instance_fields_should_be_camel_case.severity = suggestion
+dotnet_naming_rule.readonly_instance_fields_should_be_camel_case.symbols = readonly_instance_fields
+dotnet_naming_rule.readonly_instance_fields_should_be_camel_case.style = instance_field_style
+dotnet_naming_symbols.readonly_instance_fields.applicable_kinds = field
+dotnet_naming_symbols.readonly_instance_fields.applicable_accessibilities = internal, private, protected, protected_internal, private_protected
+dotnet_naming_symbols.readonly_instance_fields.resharper_applicable_kinds=readonly_field
+dotnet_naming_symbols.readonly_instance_fields.resharper_required_modifiers=instance
 
 dotnet_naming_style.instance_field_style.capitalization = camel_case
 dotnet_naming_style.instance_field_style.required_prefix = m_
@@ -413,6 +424,8 @@ dotnet_naming_rule.instance_public_fields_should_be_pascal_case.style = instance
 
 dotnet_naming_symbols.instance_public_fields.applicable_kinds = field
 dotnet_naming_symbols.instance_public_fields.applicable_accessibilities = public
+dotnet_naming_symbols.instance_public_fields.resharper_applicable_kinds=field, unity_serialised_field, readonly_field
+dotnet_naming_symbols.instance_public_fields.resharper_required_modifiers=instance
 
 dotnet_naming_style.instance_public_field_style.capitalization = pascal_case
 
@@ -442,6 +455,9 @@ dotnet_naming_rule.members_should_be_pascal_case.style = pascal_case_style
 dotnet_naming_symbols.all_members.applicable_kinds = *
 
 dotnet_naming_style.pascal_case_style.capitalization = pascal_case
+
+# Ignore enum naming
+resharper_csharp_naming_rule.enum_member = AA_BB:do_not_check
 
 # CSharp code style settings:
 # Newline settings
@@ -543,12 +559,24 @@ generated_code = true
 [Assets/Oculus/**]
 generated_code = true
 
-[Packages/**]
+[Packages/com.unity.render-pipelines.universal/**]
 generated_code = true
-dotnet_diagnostic.IDE0005.severity = none
+
+[Packages/com.meta.tutorial.framework/**]
+generated_code = true
 
 [Library/**]
 generated_code = true
 
-[ThirdParty/**]
+[**/ThirdParty/**]
+generated_code = true
+
+[Assets/ThirdParty/**]
+generated_code = true
+
+[Assets/NorthStar/Scripts/Player/CustomRetargetingProcessorCorrectHand.cs]
+generated_code = true
+[Assets/NorthStar/Shaders/Editor/ShaderGraph/Targets/UniversalCustomLitSubTarget.cs]
+generated_code = true
+[Packages/com.meta.utilities.environment/Runtime/ShaderIncludes/Includes/UniversalOceanSubTarget.cs]
 generated_code = true

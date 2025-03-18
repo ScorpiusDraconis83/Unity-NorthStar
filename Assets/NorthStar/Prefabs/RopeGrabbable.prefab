@@ -87,7 +87,6 @@ GameObject:
   - component: {fileID: 8279545155601643234}
   - component: {fileID: 6102405230072790596}
   - component: {fileID: 5298512221716537663}
-  - component: {fileID: 3014973550816265816}
   m_Layer: 13
   m_Name: Grab (1)
   m_TagString: Untagged
@@ -181,29 +180,9 @@ MonoBehaviour:
   m_rotationStrengthModifier: 0
   m_softGrabTime: 0.2
   m_bonusBreakTimer: 0
---- !u!114 &3014973550816265816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2893611111570670199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e1acf3589fae364c972ab06dbe248d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_leftHand: 0
-  m_rope: {fileID: 3728551169718573111}
-  m_transform: {fileID: 5298512221716537663}
-  m_body: {fileID: 8279545155601643234}
-  BindingPointIndex: 2
-  TargetIndex: 0
-  m_useLimit: 0
-  m_jointSpringForce: 1000
-  m_jointLeniency: 1.5
-  m_allowSlipping: 0
-  m_slipForce: 1500
+  m_toggleIntertiaTensorOnGrab: 0
+  m_throwVelocityPercent: 0
+  m_velocityHistoryCapacity: 20
 --- !u!1 &3621061691513180792
 GameObject:
   m_ObjectHideFlags: 0
@@ -967,7 +946,6 @@ GameObject:
   - component: {fileID: 2281599997606872292}
   - component: {fileID: 3222768706626453906}
   - component: {fileID: 2213350197011760529}
-  - component: {fileID: 6930045453939528089}
   m_Layer: 13
   m_Name: Grab
   m_TagString: Untagged
@@ -1061,29 +1039,9 @@ MonoBehaviour:
   m_rotationStrengthModifier: 0
   m_softGrabTime: 0.2
   m_bonusBreakTimer: 0
---- !u!114 &6930045453939528089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8313486706556751168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e1acf3589fae364c972ab06dbe248d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_leftHand: 0
-  m_rope: {fileID: 3728551169718573111}
-  m_transform: {fileID: 2213350197011760529}
-  m_body: {fileID: 2281599997606872292}
-  BindingPointIndex: 1
-  TargetIndex: 0
-  m_useLimit: 1
-  m_jointSpringForce: 1000
-  m_jointLeniency: 1.5
-  m_allowSlipping: 0
-  m_slipForce: 1500
+  m_toggleIntertiaTensorOnGrab: 0
+  m_throwVelocityPercent: 0
+  m_velocityHistoryCapacity: 20
 --- !u!1001 &6053652495257095814
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1276,15 +1234,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6053652495257095814}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3728551169718573111 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7475022475571861169, guid: cedfc90d47d349148b46c1d0d9e13ae6,
-    type: 3}
-  m_PrefabInstance: {fileID: 6053652495257095814}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1961a540f04e504ca1f0e7b32b3e965, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

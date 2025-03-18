@@ -3504,11 +3504,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_handAnchor: {fileID: 2347474412908403865}
+  m_bone: 0
   m_boundToParent: 0
   m_parent: {fileID: 0}
   m_handObject: {fileID: 4881518883475098395}
+  LocalMovementStrengthModifier: 1
+  LocalRotationStrengthModifier: 1
+  DampendSpringJoint: {fileID: 0}
   m_jointAnchor: {x: -0.06, y: -0.04, z: 0}
   m_jointAnchorRotation: {x: 0, y: -55, z: 90}
+  m_interactor: {fileID: 0}
+  ExcessBreakTimer: 0
 --- !u!114 &6185721723076407703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3672,8 +3678,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae21d7ae6fe56b4387bc7ca4642772d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateMode: 2
-  parentMethod: 0
+  m_updateMode: 2
+  m_parentMethod: 0
   Body: {fileID: 2767873498098682521}
   Registered: 0
   RegisteredTo: {fileID: 0}
@@ -4182,7 +4188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4e300344d580fd48809a8d16ca90d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hand: {fileID: 2722314519576387989}
+  m_hand: {fileID: 2722314519576387989}
 --- !u!1 &1513891857036966295
 GameObject:
   m_ObjectHideFlags: 0
@@ -5782,12 +5788,12 @@ MonoBehaviour:
   m_RequiresColorTexture: 0
   m_Version: 2
   m_TaaSettings:
-    m_Quality: 3
-    m_FrameInfluence: 0.1
-    m_JitterScale: 1
-    m_MipBias: 0
-    m_VarianceClampScale: 0.9
-    m_ContrastAdaptiveSharpening: 0
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!1 &2032459326580874368
 GameObject:
   m_ObjectHideFlags: 0
@@ -10155,8 +10161,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae21d7ae6fe56b4387bc7ca4642772d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateMode: 0
-  parentMethod: 1
+  m_updateMode: 0
+  m_parentMethod: 1
   Body: {fileID: 3688604402406223074}
   Registered: 0
   RegisteredTo: {fileID: 0}
@@ -10492,11 +10498,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_handAnchor: {fileID: 8090995220596452703}
+  m_bone: 0
   m_boundToParent: 0
   m_parent: {fileID: 0}
   m_handObject: {fileID: 9119431035947188778}
+  LocalMovementStrengthModifier: 1
+  LocalRotationStrengthModifier: 1
+  DampendSpringJoint: {fileID: 0}
   m_jointAnchor: {x: 0.06, y: 0.04, z: 0}
   m_jointAnchorRotation: {x: 180, y: -55, z: -90}
+  m_interactor: {fileID: 0}
+  ExcessBreakTimer: 0
 --- !u!114 &8713405601322282085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10660,8 +10672,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae21d7ae6fe56b4387bc7ca4642772d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateMode: 2
-  parentMethod: 0
+  m_updateMode: 2
+  m_parentMethod: 0
   Body: {fileID: 2400773668542684230}
   Registered: 0
   RegisteredTo: {fileID: 0}
@@ -18509,7 +18521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4e300344d580fd48809a8d16ca90d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hand: {fileID: 3446239931761668130}
+  m_hand: {fileID: 3446239931761668130}
 --- !u!1 &5763183930420099350
 GameObject:
   m_ObjectHideFlags: 0
@@ -19717,8 +19729,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae21d7ae6fe56b4387bc7ca4642772d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateMode: 0
-  parentMethod: 1
+  m_updateMode: 0
+  m_parentMethod: 1
   Body: {fileID: 8071832830645437777}
   Registered: 0
   RegisteredTo: {fileID: 0}
@@ -20573,8 +20585,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae21d7ae6fe56b4387bc7ca4642772d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateMode: 3
-  parentMethod: 0
+  m_updateMode: 3
+  m_parentMethod: 0
   Body: {fileID: 3759275491369548336}
   Registered: 0
   RegisteredTo: {fileID: 0}
@@ -20601,10 +20613,32 @@ MonoBehaviour:
   m_rightAnchor: {fileID: 9047331793301820137}
   m_leftEye: {fileID: 3084992821423354984}
   m_rightEye: {fileID: 3144309965262459206}
-  m_layerMask:
+  LastTeleport: {fileID: 0}
+  m_bodyPositions: {fileID: 0}
+  m_controllerMappings: {fileID: 0}
+  m_lineRenderer: {fileID: 0}
+  m_curveSegments: 10
+  m_curvePointDistribution:
     serializedVersion: 2
-    m_Bits: 115
-  m_hotspotCollection: {fileID: 0}
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_warpDelay: 1
+  m_screenFader: {fileID: 0}
+  m_teleportSound: {fileID: 0}
+  m_sphereMaskRenderer: {fileID: 0}
+  m_criticalDistanceMin: 2
+  m_criticalDistanceMax: 3
+  <OnLeftHandTimerUpdate>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <OnRightHandTimerUpdate>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <OnTeleport>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
   m_state: 0
 --- !u!1 &6386569260435103933
 GameObject:

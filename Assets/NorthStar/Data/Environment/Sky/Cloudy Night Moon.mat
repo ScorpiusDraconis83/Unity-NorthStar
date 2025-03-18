@@ -13,6 +13,7 @@ Material:
   m_Parent: {fileID: 2100000, guid: 7f3bebcf9f5caab4ab9e75241c55bc74, type: 2}
   m_ModifiedSerializedProperties: 16
   m_ValidKeywords:
+  - _ENABLESTARS
   - _IS_CELESTIAL_OBJECT
   - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords:
@@ -46,17 +47,18 @@ Material:
     m_Floats:
     - _AlphaClip: 1
     - _AlphaToMask: 0
+    - _Blend: 2
     - _CastShadows: 1
-    - _Celestial_Edge_Fade: 0.21
+    - _Celestial_Edge_Fade: 0.189
     - _Celestial_Light_Pitch: 119.8
     - _Celestial_Light_Yaw: 65
-    - _DstBlend: 10
+    - _DstBlend: 1
     - _IS_CELESTIAL_OBJECT: 1
     - _SrcBlend: 5
     - _Surface: 1
     - _ZWrite: 0
     m_Colors:
-    - _Celestial_Color: {r: 0.106294125, g: 0.1500066, b: 0.25490198, a: 1}
+    - _Celestial_Color: {r: 221.45963, g: 325.13852, b: 579.6227, a: 1}
     - _Celestial_Light_Color: {r: 29.73517, g: 31.418291, b: 53.57941, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &1130983063974069177

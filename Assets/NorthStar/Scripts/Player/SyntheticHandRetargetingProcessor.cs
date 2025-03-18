@@ -73,27 +73,9 @@ namespace NorthStar
         private void RetargetHand(RetargetingLayer retargetingLayer, HandVisual hand, Tuple<HumanBodyBones, HandJointId>[] handBonePairs)
         {
             var left = hand == LeftHandVisual;
-
             var animator = retargetingLayer.GetAnimatorTargetSkeleton();
-            var targetWrist = hand.GetTransformByHandJointId(HandJointId.HandWristRoot);
+            var targetWrist = hand.GetTransformByHandJointId(HandJointId.HandStart);
             var visualWrist = animator.GetBoneTransform(left ? HumanBodyBones.LeftHand : HumanBodyBones.RightHand);
-
-            var arm = animator.GetBoneTransform(left ? HumanBodyBones.LeftUpperArm : HumanBodyBones.RightUpperArm);
-            var elbow = animator.GetBoneTransform(left ? HumanBodyBones.LeftLowerArm : HumanBodyBones.RightLowerArm);
-            var elbowTwist = elbow.GetChild(0);
-
-            // For some reason the hand retargeting has some drift, so here we correct the elbow, twist and wrist bones to their correct locations NO MATTER WHAT
-            var visualWristOriginalRotation = visualWrist.rotation;
-
-            var elbowCorrectionQuaternion = Quaternion.Euler(-90, left ? 90 : -90, 0);
-
-            var elbowToWrist = (elbow.position - targetWrist.position).normalized;
-
-            elbow.rotation = Quaternion.LookRotation(elbowToWrist, arm.forward) * elbowCorrectionQuaternion;
-            elbowTwist.rotation = Quaternion.LookRotation(elbowToWrist, Vector3.Lerp(arm.forward, targetWrist.up, 0.5f)) * elbowCorrectionQuaternion;
-
-            visualWrist.position = targetWrist.position;
-            visualWrist.rotation = visualWristOriginalRotation;
 
             // Retarget finger bones to match synthetic hand visuals
             foreach (var pair in handBonePairs)

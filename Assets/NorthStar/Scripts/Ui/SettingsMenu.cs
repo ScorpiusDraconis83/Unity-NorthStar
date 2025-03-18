@@ -1,5 +1,4 @@
 // Copyright (c) Meta Platforms, Inc. and affiliates.
-using System.Transactions;
 using TMPro;
 using UnityEngine;
 
@@ -77,7 +76,7 @@ namespace NorthStar
             if (m_heightLabel)
             {
                 var heightCm = GlobalSettings.PlayerSettings.Height + EYES_TO_HEAD_CM;
-                var feet = (heightCm / 100) / METERS_TO_FEET;
+                var feet = heightCm / 100 / METERS_TO_FEET;
                 var wholeFeet = (int)feet;
                 var inches = (feet - System.Math.Truncate(feet)) / FEET_TO_INCHES;
 
@@ -93,23 +92,11 @@ namespace NorthStar
             {
                 height = Mathf.Clamp(height, MINIMUM_CALIBRATED_HEIGHT * SEATED_HEIGHT_RATIO, MAXIMUM_CALIBRATED_HEIGHT * SEATED_HEIGHT_RATIO);
                 GlobalSettings.PlayerSettings.SeatedHeight = height;
-
-                var ratio = GlobalSettings.PlayerSettings.SeatedHeight / GlobalSettings.PlayerSettings.Height;
-                if (ratio > CORRECTIVE_HEIGHT_RATIO_THRESHOLD)
-                {
-                    GlobalSettings.PlayerSettings.Height = GlobalSettings.PlayerSettings.SeatedHeight / SEATED_HEIGHT_RATIO;
-                }
             }
             else
             {
                 height = Mathf.Clamp(height, MINIMUM_CALIBRATED_HEIGHT, MAXIMUM_CALIBRATED_HEIGHT);
                 GlobalSettings.PlayerSettings.Height = height;
-
-                var ratio = GlobalSettings.PlayerSettings.SeatedHeight / GlobalSettings.PlayerSettings.Height;
-                if (ratio > CORRECTIVE_HEIGHT_RATIO_THRESHOLD)
-                {
-                    GlobalSettings.PlayerSettings.SeatedHeight = GlobalSettings.PlayerSettings.Height * SEATED_HEIGHT_RATIO;
-                }
             }
 
             GlobalSettings.PlayerSettings.PlayerCalibrationChanged();
@@ -156,6 +143,11 @@ namespace NorthStar
         {
             GlobalSettings.PlayerSettings.ReorientStrength = reorient ? 1 : 0;
             GlobalSettings.Save();
+        }
+
+        public void OpenCredits()
+        {
+            GameFlowController.Instance.GoToCredits();
         }
     }
 }

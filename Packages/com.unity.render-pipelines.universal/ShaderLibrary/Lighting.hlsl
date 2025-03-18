@@ -41,7 +41,7 @@ half3 LightingPhysicallyBased(BRDFData brdfData, BRDFData brdfDataClearCoat,
     half3 normalWS, half3 viewDirectionWS,
     half clearCoatMask, bool specularHighlightsOff)
 {
-    // Tantalus edit, exit if NdotL or light attenuation are 0 to save unneccessary lighting calculations
+    // Meta edit, exit if NdotL or light attenuation are 0 to save unneccessary lighting calculations
     half NdotL = dot(normalWS, lightDirectionWS);
     lightAttenuation *= NdotL;
     [branch]
@@ -278,6 +278,7 @@ half4 UniversalFragmentPBR(InputData inputData, SurfaceData surfaceData)
     AmbientOcclusionFactor aoFactor = CreateAmbientOcclusionFactor(inputData, surfaceData);
     uint meshRenderingLayers = GetMeshRenderingLayer();
     
+    // Meta change : Avoid sampling shadows for unlit faces
     // Set shadows to 0 if NdotL <= 0, this will avoid lighting/sampling shadows in this case
     if (dot(GetMainLight().direction, inputData.normalWS) <= 0.0)
     {

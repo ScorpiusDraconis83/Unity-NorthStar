@@ -9,9 +9,9 @@ namespace NorthStar
     [RequireComponent(typeof(Rigidbody))]
     public class LocalPositionConstraints : MonoBehaviour
     {
-        public bool freezeXPosition = false;
-        public bool freezeYPosition = false;
-        public bool freezeZPosition = false;
+        public bool FreezeXPosition = false;
+        public bool FreezeYPosition = false;
+        public bool FreezeZPosition = false;
 
         private Vector3 m_initialLocalPosition;
         private Vector3 m_frozenPosition;
@@ -24,17 +24,17 @@ namespace NorthStar
         private void FixedUpdate()
         {
             m_frozenPosition = transform.localPosition;
-            if (freezeXPosition)
+            if (FreezeXPosition)
             {
                 m_frozenPosition.x = m_initialLocalPosition.x;
             }
 
-            if (freezeYPosition)
+            if (FreezeYPosition)
             {
                 m_frozenPosition.y = m_initialLocalPosition.y;
             }
 
-            if (freezeZPosition)
+            if (FreezeZPosition)
             {
                 m_frozenPosition.z = m_initialLocalPosition.z;
             }

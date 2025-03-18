@@ -28,8 +28,7 @@ namespace NorthStar
 
         public override void ProcessFrame(Playable playable, FrameData info, object playerData)
         {
-            var controller = playerData as BoatController;
-            if (controller is null) return;
+            if (playerData is not BoatController controller) return;
 
             var inputCount = playable.GetInputCount();
 

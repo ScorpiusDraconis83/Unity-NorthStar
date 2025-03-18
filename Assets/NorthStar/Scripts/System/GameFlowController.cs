@@ -1,5 +1,6 @@
 // Copyright (c) Meta Platforms, Inc. and affiliates.
 using System.Collections;
+using Meta.Utilities.Narrative;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -19,14 +20,16 @@ namespace NorthStar
         public UnityEvent RestartGameRequested;
         public UnityEvent GameOverRequested;
 
-        public TaskID firstTask = TaskID.None;
-        public bool startAutomatically = false;
+        public TaskID FirstTask = TaskID.None;
+        public bool StartAutomatically = false;
 
         private AsyncOperation m_loadOperation;
         public bool IsLoading { get; private set; }
         private string m_loadingSceneName;
 
-        private static bool m_firstLaunch = true;
+        [field: SerializeField] public bool GameCompleteOnce { get; private set; }
+
+        private static bool s_firstLaunch = true;
 
         private void Awake()
         {
@@ -44,16 +47,16 @@ namespace NorthStar
         {
             if (!Application.isPlaying) return;
 
-            if (m_firstLaunch && ProfilingSystem.SceneName != null)
+            if (s_firstLaunch && ProfilingSystem.SceneName != null)
             {
                 LoadScene(ProfilingSystem.SceneName);
             }
             else
             {
-                TaskManager.StartNarrativeFromTaskID(firstTask);
+                TaskManager.StartNarrativeFromTaskID(FirstTask);
             }
 
-            m_firstLaunch = false;
+            s_firstLaunch = false;
         }
 
         private void OnDestroy()
@@ -71,6 +74,12 @@ namespace NorthStar
         public void GoToCredits()
         {
             LoadScreen.Instance.GoToCredits();
+        }
+
+        public void SetGameComplete()
+        {
+            GameCompleteOnce = true;
+            TaskManager.StartNarrative();
         }
 
         public void LoadScene(string sceneName)
@@ -115,11 +124,17 @@ namespace NorthStar
 
         public void PreloadScene(string sceneName)
         {
+            var buildIndex = SceneUtility.GetBuildIndexByScenePath(sceneName);
+            if (buildIndex == -1)
+            {
+                Debug.LogError($"Error pre-loading scene: {sceneName}, not in build");
+                return;
+            }
             Debug.Assert(!IsLoading, "Trying to load 2 scenes at once");
             var activeScene = SceneManager.GetActiveScene();
             Debug.Assert(sceneName != activeScene.name, $"Scene: {sceneName} already loaded");
 
-            m_loadOperation = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
+            m_loadOperation = SceneManager.LoadSceneAsync(buildIndex, LoadSceneMode.Single);
             Application.backgroundLoadingPriority = ThreadPriority.Low;
             m_loadOperation.priority = (int)ThreadPriority.Low;
             m_loadOperation.allowSceneActivation = false;

@@ -42,13 +42,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 543824498780163690}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 898664a0263337f4c972f1a88b2cf48d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TaskID:
-    id: B1_S1_2
+    ID: B1_S1_2
   PlayerTransform: {fileID: 0}
   PlayerGazeCamera: {fileID: 0}
   m_completeWhen: 1
@@ -92,7 +92,7 @@ MonoBehaviour:
     version: 2
     RefIds:
     - rid: 2998200051118112806
-      type: {class: WaitForPlayableCondition, ns: NorthStar, asm: Assembly-CSharp}
+      type: {class: WaitForPlayableCondition, ns: Meta.Utilities.Narrative, asm: Meta.Utilities.Narrative}
       data:
         m_index: 0
         Director: {fileID: 4518045153095552380}
@@ -126,7 +126,7 @@ PlayableDirector:
   - key: {fileID: -1708016273650461343, guid: 6fccda5e3fd0e1743b2fdf48d8fcfad7, type: 2}
     value: {fileID: 6179211830244593305}
   - key: {fileID: -6952744427869966659, guid: 6fccda5e3fd0e1743b2fdf48d8fcfad7, type: 2}
-    value: {fileID: 4510464380203616033}
+    value: {fileID: 0}
   - key: {fileID: -8171962706003337639, guid: 6fccda5e3fd0e1743b2fdf48d8fcfad7, type: 2}
     value: {fileID: 0}
   - key: {fileID: -2289067024241727855, guid: 6fccda5e3fd0e1743b2fdf48d8fcfad7, type: 2}
@@ -142,6 +142,20 @@ PlayableDirector:
   - key: {fileID: -6712105018253176199, guid: 6fccda5e3fd0e1743b2fdf48d8fcfad7, type: 2}
     value: {fileID: 0}
   - key: {fileID: 2457980275934370899, guid: 6fccda5e3fd0e1743b2fdf48d8fcfad7, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 4627957440155918387, guid: 6fccda5e3fd0e1743b2fdf48d8fcfad7, type: 2}
+    value: {fileID: 6179211830244593305}
+  - key: {fileID: 7187761747119789036, guid: 6fccda5e3fd0e1743b2fdf48d8fcfad7, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -7158559603503663288, guid: 6fccda5e3fd0e1743b2fdf48d8fcfad7, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -2738491021665827919, guid: 6fccda5e3fd0e1743b2fdf48d8fcfad7, type: 2}
+    value: {fileID: 6179211830244593305}
+  - key: {fileID: -2605567911282573077, guid: 6fccda5e3fd0e1743b2fdf48d8fcfad7, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -6286025605205388716, guid: 6fccda5e3fd0e1743b2fdf48d8fcfad7, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 7987843955032709736, guid: 6fccda5e3fd0e1743b2fdf48d8fcfad7, type: 2}
     value: {fileID: 0}
   m_ExposedReferences:
     m_References:
@@ -165,7 +179,6 @@ MonoBehaviour:
   OnCompleteSection:
     m_PersistentCalls:
       m_Calls: []
-  m_characterManager: {fileID: 0}
 --- !u!114 &1929093150592268726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,6 +195,7 @@ MonoBehaviour:
     m_Signals:
     - {fileID: 11400000, guid: 32b1dd72873b60247b9badd2e25dfa13, type: 2}
     - {fileID: 11400000, guid: d53c079139211e641bf5696c939a8322, type: 2}
+    - {fileID: 11400000, guid: 58cbeaad267b2e542bbd6382f0df1ebb, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -199,6 +213,20 @@ MonoBehaviour:
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls: []
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
 --- !u!1 &871856233165097188
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,7 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TaskID:
-    id: B1_S1
+    ID: B1_S1
   PlayerTransform: {fileID: 0}
   PlayerGazeCamera: {fileID: 0}
   m_completeWhen: 1
@@ -279,7 +307,7 @@ MonoBehaviour:
     version: 2
     RefIds:
     - rid: 3728078183366656084
-      type: {class: WaitForPlayableCondition, ns: NorthStar, asm: Assembly-CSharp}
+      type: {class: WaitForPlayableCondition, ns: Meta.Utilities.Narrative, asm: Meta.Utilities.Narrative}
       data:
         m_index: 0
         Director: {fileID: 2105193656904893424}
@@ -314,6 +342,8 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: -2617859651251347468, guid: f302f6b52b54625428860591e8850434, type: 2}
     value: {fileID: 0}
+  - key: {fileID: 8328059571569308813, guid: f302f6b52b54625428860591e8850434, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References:
     - 847fe122af165ca4293a23d472ba68f5: {fileID: 0}
@@ -337,7 +367,6 @@ MonoBehaviour:
   OnCompleteSection:
     m_PersistentCalls:
       m_Calls: []
-  m_characterManager: {fileID: 0}
 --- !u!114 &2708401547008334634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -558,7 +587,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2709379384691455011
 RectTransform:
   m_ObjectHideFlags: 0
@@ -771,135 +800,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &5870200375555120670
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 744010144606446223}
-  - component: {fileID: 3617397384958384311}
-  m_Layer: 0
-  m_Name: SinkingBoatAudio
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &744010144606446223
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5870200375555120670}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.38, y: 0, z: 9.98}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4585854503251753708}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &3617397384958384311
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5870200375555120670}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300001, guid: 03d4f07283ae4307b8c7a2ea7ad08068,
-    type: 2}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 1
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 16.68
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &6345928330065803591
 GameObject:
   m_ObjectHideFlags: 0
@@ -1061,7 +961,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1033032382523377735}
-  - {fileID: 744010144606446223}
   m_Father: {fileID: 2250806926045026063}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!320 &3534659019908475975
@@ -1080,9 +979,9 @@ PlayableDirector:
   m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: 0}
-    value: {fileID: 3617397384958384311}
+    value: {fileID: 0}
   - key: {fileID: -3721125267568586084, guid: de3b49ec072610e45b2ac4eafad5cd1e, type: 2}
-    value: {fileID: 3617397384958384311}
+    value: {fileID: 1842303931713436180}
   - key: {fileID: 1354994084459027724, guid: de3b49ec072610e45b2ac4eafad5cd1e, type: 2}
     value: {fileID: 0}
   - key: {fileID: -6389050483911221776, guid: de3b49ec072610e45b2ac4eafad5cd1e, type: 2}
@@ -1279,14 +1178,18 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: 7455631537845206623, guid: fb34fde0340c4c343bbb5c1e9d15d54a, type: 2}
     value: {fileID: 0}
-  - key: {fileID: 803685472778960159, guid: fb34fde0340c4c343bbb5c1e9d15d54a, type: 2}
-    value: {fileID: 0}
   - key: {fileID: -2149702537473808962, guid: fb34fde0340c4c343bbb5c1e9d15d54a, type: 2}
     value: {fileID: 0}
   - key: {fileID: -6383639980628785678, guid: fb34fde0340c4c343bbb5c1e9d15d54a, type: 2}
     value: {fileID: 0}
   - key: {fileID: -7589135732133740403, guid: fb34fde0340c4c343bbb5c1e9d15d54a, type: 2}
     value: {fileID: 2002800520811198144}
+  - key: {fileID: 7796777719917023574, guid: fb34fde0340c4c343bbb5c1e9d15d54a, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 996191786186828990, guid: fb34fde0340c4c343bbb5c1e9d15d54a, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 4565507733724640960, guid: fb34fde0340c4c343bbb5c1e9d15d54a, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References:
     - cab7b978e8b30004da9d517e71576c57: {fileID: 0}
@@ -1308,6 +1211,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 58cbeaad267b2e542bbd6382f0df1ebb, type: 2}
     - {fileID: 11400000, guid: dbcf787bbb606094291729f0d14b93fd, type: 2}
     - {fileID: 11400000, guid: 76f65e3ddf01b644b855222effd459ab, type: 2}
+    - {fileID: 0}
+    - {fileID: 11400000, guid: 0eabf8f9b9dc34b4c997ea9c51468884, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -1365,6 +1270,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls: []
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: NorthStar.NarrativeSailSetter, Assembly-CSharp
+          m_MethodName: Trigger
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &7981785784217570776
 GameObject:
   m_ObjectHideFlags: 0
@@ -1411,7 +1332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TaskID:
-    id: B1_StartPanel
+    ID: B1_StartPanel
   PlayerTransform: {fileID: 0}
   PlayerGazeCamera: {fileID: 0}
   m_completeWhen: 1
@@ -1572,7 +1493,8 @@ AudioSource:
   m_GameObject: {fileID: 8367506003750234198}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 10383948418446199, guid: 03d4f07283ae4307b8c7a2ea7ad08068,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 7ea6ba0c636e6f5478d82ef106f42ba6, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1694,6 +1616,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_audioSource: {fileID: 0}
   m_volumeOnFadeIn: 0
+  m_destroyAfterFadeOut: 0
+  m_fadeInAudioOnStart: 0
+  m_startFadeInTime: 1
 --- !u!114 &3867713689695781516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1814,6 +1739,12 @@ PrefabInstance:
 --- !u!4 &1033032382523377735 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8131339456818417933, guid: e06fedf33d39e1841ac4d01b7212cb64,
+    type: 3}
+  m_PrefabInstance: {fileID: 9119300366311070026}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1842303931713436180 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7430779920744850270, guid: e06fedf33d39e1841ac4d01b7212cb64,
     type: 3}
   m_PrefabInstance: {fileID: 9119300366311070026}
   m_PrefabAsset: {fileID: 0}

@@ -31,6 +31,12 @@
       },
       "hash": "950cfc3f6b2068b5ec4f886cfcae2595d070a5b5"
     },
+    "com.meta.tutorial.framework": {
+      "version": "file:com.meta.tutorial.framework",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "com.meta.utilities": {
       "version": "file:com.meta.utilities",
       "depth": 0,
@@ -39,11 +45,32 @@
         "com.unity.collections": "2.4.2"
       }
     },
-    "com.meta.utilities.shader-graph-targets": {
-      "version": "file:com.meta.utilities.shader-graph-targets",
+    "com.meta.utilities.environment": {
+      "version": "file:com.meta.utilities.environment",
       "depth": 0,
       "source": "embedded",
-      "dependencies": {}
+      "dependencies": {
+        "com.meta.utilities": "1.1.1",
+        "com.meta.xr.sdk.core": "66.0.0"
+      }
+    },
+    "com.meta.utilities.narrative": {
+      "version": "file:com.meta.utilities.narrative",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.meta.utilities": "1.1.1"
+      }
+    },
+    "com.meta.utilities.ropes": {
+      "version": "file:com.meta.utilities.ropes",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.meta.utilities": "1.1.1",
+        "com.meta.xr.sdk.interaction": "66.0.0",
+        "com.vvrvvd.spline-editor": "2.2.4"
+      }
     },
     "com.meta.utilities.viewport-renderer": {
       "version": "file:com.meta.utilities.viewport-renderer",
@@ -52,7 +79,7 @@
       "dependencies": {}
     },
     "com.meta.xr.sdk.audio": {
-      "version": "67.0.0",
+      "version": "71.0.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {},

@@ -33,9 +33,6 @@ namespace NorthStar
         [Tooltip("How fast to blend the spine into the look at constraint")]
         [SerializeField] private float m_spineLookLerpSpeed = 5;
 
-        [Tooltip("How fast to blend the arms into the look at constraint")]
-        [SerializeField] private float m_armLookLerpSpeed = 5;
-
         [Tooltip("How fast to blend the head and spine into the look at constraint")]
         [SerializeField] private float m_headLookLerpSpeed = 5;
 
@@ -44,9 +41,6 @@ namespace NorthStar
 
         [SerializeField] private float m_trackTargetLerpSpeed = 5;
 
-
-        [Tooltip("Reduce influence by this factor (Multiply next link in chain by this amount)")]
-        private float m_chainInfluenceFactor = 0.5f;
 
         #region Eye Wander
         [Header("Eye wander")]
@@ -97,10 +91,6 @@ namespace NorthStar
         private float m_targetSpineLookWeight = 0; // The goal weight of the look at constraint
         private float m_spineLookCap = 1; //Whether spine look-at is enabled, controlled through timelines
 
-        private float m_currentArmLookWeight = 0; // The current weight of the look at constraint - lerps towards target weight
-        private float m_targetArmLookWeight = 0; // The goal weight of the look at constraint
-        private float m_armLookCap = 1; //Whether arm look-at is enabled, controlled through timelines
-
         private float m_currentHeadLookWeight = 0; // The current weight of the look at constraint - lerps towards target weight
         private float m_targetHeadLookWeight = 0; // The goal weight of the look at constraint
         private float m_headLookCap = 1; //Whether head look-at is enabled, controlled through timelines
@@ -109,10 +99,7 @@ namespace NorthStar
         private float m_targetEyeLookWeight = 0; // The goal weight of the look at constraint
         private float m_eyeLookCap = 1; //The max value that the weight can go, used by timelines to control strength
 
-        private Transform m_prevLookAtTarget;
         private Transform m_lookAtTarget;
-        private MultiAimConstraint[] m_headLookConstraints;
-        private MultiAimConstraint[] m_eyeLookConstraints;
 
         private TwoBoneIKConstraint m_leftArmIk;
         private TwoBoneIKConstraint m_rightArmIk;
@@ -127,31 +114,22 @@ namespace NorthStar
             {
                 if (m_lookAtTarget != value)
                 {
-                    m_prevLookAtTarget = m_lookAtTarget;
                     m_lookAtTarget = value;
 
                     if (m_lookAtTarget != null)
                     {
                         m_targetSpineLookWeight = 1;
-                        m_targetArmLookWeight = 1;
                         m_targetHeadLookWeight = 1;
                         m_targetEyeLookWeight = 1;
                     }
                     else
                     {
                         m_targetSpineLookWeight = 0;
-                        m_targetArmLookWeight = 0;
                         m_targetHeadLookWeight = 0;
                         m_targetEyeLookWeight = 0;
                     }
                 }
             }
-        }
-
-        private void Awake()
-        {
-            m_headLookConstraints = m_headLookRig.GetComponentsInChildren<MultiAimConstraint>();
-            m_eyeLookConstraints = m_eyeLookRig.GetComponentsInChildren<MultiAimConstraint>();
         }
 
         private void Start()
@@ -238,10 +216,6 @@ namespace NorthStar
             if (rig.HasFlag(IKRig.Spine))
             {
                 m_spineLookCap = weight;
-            }
-            if (rig.HasFlag(IKRig.Arm))
-            {
-                m_armLookCap = weight;
             }
             if (rig.HasFlag(IKRig.Head))
             {

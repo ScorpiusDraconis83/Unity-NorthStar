@@ -125,8 +125,8 @@ namespace NorthStar
             var newShaders = new List<ShaderData>();
             foreach (var variant in Shaders)
             {
-                var expKW = variant.Keywords.IndexOf("FOG_EXP") ?? -1;
-                if (expKW >= 0) variant.Keywords[expKW] = "FOG_EXP2";
+                var expKw = variant.Keywords.IndexOf("FOG_EXP") ?? -1;
+                if (expKw >= 0) variant.Keywords[expKw] = "FOG_EXP2";
                 var material = variant.Material;
                 var shader = material.shader;
                 if (!variant.Keywords.Contains("STEREO_MULTIVIEW_ON"))
@@ -287,13 +287,12 @@ namespace NorthStar
             // Breakpoint and inspect this for more information on which
             // vertex layouts are used by which meshes/shaders/objects
             var sortedSet = allVertDescriptors
-                .OrderByDescending(kv => kv.Value.Item1)
-                .Select(kv => (
-                    Count: kv.Value.Item1,
+                .OrderByDescending(kv => kv.Value.Count)
+                .Select(kv => (kv.Value.Count,
                     Descriptor: kv.Key,
-                    Meshes: kv.Value.Item2.ToArray(),
-                    Shaders: kv.Value.Item3.ToArray(),
-                    GONames: kv.Value.Item4.ToArray()
+                    Meshes: kv.Value.Meshes.ToArray(),
+                    Shaders: kv.Value.Shaders.ToArray(),
+                    GONames: kv.Value.Names.ToArray()
                 ))
                 .ToArray();
 

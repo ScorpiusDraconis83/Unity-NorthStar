@@ -1,6 +1,8 @@
 // Copyright (c) Meta Platforms, Inc. and affiliates.
 using System;
 using System.Collections.Generic;
+using Meta.Utilities;
+using Meta.Utilities.Ropes;
 using Oculus.Interaction.HandGrab;
 using UnityEngine;
 using UnityEngine.Events;
@@ -33,12 +35,12 @@ namespace NorthStar
         private PhysicsTransformer m_jointTransformer;
         public UnityEvent OnGrabbed;
 
-        [Space(10), SerializeField, FormerlySerializedAs("m_harpoonBolt")]
+        [Space(10), SerializeField]
         private Transform m_lockingTransform; // Transform that moves when locking the harpoon
         [SerializeField] private Transform m_stringBone;
         [SerializeField]
         private GameObject m_harpoonPrefab;
-        [SerializeField, FormerlySerializedAs("m_boltSpawnPoint")]
+        [SerializeField]
         public Transform BoltSpawnPoint;
         [SerializeField]
         private Rigidbody m_baseRigidbody;
@@ -75,16 +77,6 @@ namespace NorthStar
         private LineRenderer m_lineRenderer;
         [Space(5), SerializeField]
         private bool m_showLineRenderer;
-        [Space(5), SerializeField]
-        private float m_forceFactor = 5;
-        [SerializeField]
-        private float m_timingFactor = 5;
-        [Space(5), SerializeField]
-        private float m_ratio = 90;
-        [SerializeField]
-        private float m_gravity = -9.8f;
-        [SerializeField]
-        private float m_offset = 0;
         [SerializeField] private float m_simulationTime = 10f;
 
         private Vector3[] m_points = new Vector3[100];
@@ -435,7 +427,7 @@ namespace NorthStar
                 bolt = Instantiate(m_harpoonPrefab, spawnPosition, spawnRotation);
             }
             var binder = bolt.GetComponentInChildren<RopeTransformBinder>();
-            binder.m_rope = m_reelRope;
+            binder.Rope = m_reelRope;
             binder.NodeIndex = m_reelRope.NodeCount - 1;
             binder.BindIndex = 1;
             binder.Enable();
@@ -444,7 +436,15 @@ namespace NorthStar
             m_bolt = bolt.GetComponent<HarpoonBolt>();
 
             var spawnDir = GetTargetVector(spawnPosition, spawnRotation * Vector3.forward, m_useAimAssist);
-            m_bolt.m_rigidbody.AddForce(spawnDir * m_firingForce, ForceMode.VelocityChange);
+
+            var estimatedHitTime = 0.0f;
+            if (Physics.Raycast(spawnPosition, spawnDir, out var hit))
+            {
+                estimatedHitTime = hit.distance / m_firingForce;
+            }
+
+
+            m_bolt.Fire(spawnDir, spawnRotation * Vector3.forward, m_firingForce, estimatedHitTime);
         }
 
         private void OnDrawGizmosSelected()

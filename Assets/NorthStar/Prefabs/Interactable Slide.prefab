@@ -582,8 +582,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae21d7ae6fe56b4387bc7ca4642772d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateMode: 3
-  parentMethod: 1
+  m_updateMode: 3
+  m_parentMethod: 1
   Body: {fileID: 7193657769445779770}
   Registered: 0
   RegisteredTo: {fileID: 0}
@@ -1405,6 +1405,11 @@ MonoBehaviour:
   m_additionalAngularDragOnGrab: 0
   m_moveStrengthModifier: 0
   m_rotationStrengthModifier: 0
+  m_softGrabTime: 0.2
+  m_bonusBreakTimer: 0
+  m_toggleIntertiaTensorOnGrab: 0
+  m_throwVelocityPercent: 0
+  m_velocityHistoryCapacity: 20
 --- !u!114 &1406994926913228202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1417,8 +1422,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae21d7ae6fe56b4387bc7ca4642772d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateMode: 0
-  parentMethod: 0
+  m_updateMode: 0
+  m_parentMethod: 0
   Body: {fileID: 3302556431514714545}
   Registered: 0
   RegisteredTo: {fileID: 0}
@@ -1763,16 +1768,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  m_onGrabChange:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onReleased:
+    m_PersistentCalls:
+      m_Calls: []
   m_joint: {fileID: 2613656909057412716}
   m_jointRigidbody: {fileID: 3302556431514714545}
   m_clampValues: 0
   m_grabbable: {fileID: 7869100610024167765}
+  m_grabbables: []
   m_requireGrabbing: 1
   m_minOutput: 0
   m_maxOutput: 1
+  m_snapToStart: 0.05
+  m_snapToEnd: 0.95
   m_ratchet: 0
   m_step: 0.15
-  stepOut: 0
+  StepOut: 0
 --- !u!1 &6743880226226889520
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,16 +21,18 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_Grate_Space
-  m_Shader: {fileID: -6465566751694194690, guid: db850ae27352aea4c9be90d10cd3ad78,
+  m_Shader: {fileID: -6465566751694194690, guid: 297b59a324d25f447889ca97cef5c9ba,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
+  m_ValidKeywords:
+  - _RECEIVE_SHADOWS_OFF
+  m_InvalidKeywords:
+  - _SURFACE_TYPE_OPAQUE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2000
   stringTagMap:
     RenderType: Opaque
   disabledShaderPasses: []
@@ -82,6 +84,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 6c1c1caa9570da448956690652d291d9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _NorthStarDefaultShader_952e65a0d4b846298a67998e438fdf46_ParallaxTexture_2611314226_Texture2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -91,6 +97,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Parallax_Map:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Parallax_Texture:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -135,6 +145,7 @@ Material:
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DirtMaskStrength: 1
+    - _Disable_Rain_Override: 0
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EmissiveMaskValue: 0
@@ -143,17 +154,19 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _IS_STANDARD_NORMAL_TEXTURE: 0
+    - _Is_Standard_Normal_Texture: 0
     - _Metallic: 0
     - _MetallicValue: 1
     - _OcclusionStrength: 1
     - _OpacityValue: 1
     - _Parallax: 0.005
+    - _Parallax_Amplitude: 1
     - _Parallax_Strength: 0.05
     - _Pulse_Opacity: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _RENDERINGMODE: 0
-    - _ReceiveShadows: 1
+    - _ReceiveShadows: 0
     - _SPECULAR_FILTERING: 0
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
@@ -174,6 +187,7 @@ Material:
     - _UseMetallicMap: 0
     - _UseOpacityMap: 0
     - _UseSmoothnessMap: 0
+    - _Use_Parallax: 0
     - _WetnessSmoothingFactor: 1
     - _WetnessSpreadMax: 1
     - _WetnessSpreadMin: 0
@@ -188,6 +202,7 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 0}
     - _NormalValue: {r: 0, g: 0, b: 1, a: 0}
+    - _Offset: {r: 0, g: 0, b: 0, a: 0}
     - _Pulse_Tint: {r: 4, g: 1.381703, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _Tiling: {r: 1, g: 1, b: 0, a: 0}

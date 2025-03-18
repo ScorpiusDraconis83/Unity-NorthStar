@@ -637,7 +637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cb161379ae0361489a0f09c2566a0af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pd: {fileID: 8211970400298622509}
+  Director: {fileID: 8211970400298622509}
   m_overrideTimelineSpeed: 0
   m_timelineSpeed: 1
 --- !u!114 &1849487729455421320
@@ -2140,6 +2140,11 @@ PrefabInstance:
     - target: {fileID: 3237554302491130456, guid: b540ea97742d4f84794b2cc0e772dfac,
         type: 3}
       propertyPath: b.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3237554302491130456, guid: b540ea97742d4f84794b2cc0e772dfac,
+        type: 3}
+      propertyPath: m_b.y
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4782420708518681538, guid: b540ea97742d4f84794b2cc0e772dfac,

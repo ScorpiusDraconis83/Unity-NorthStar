@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4510294d23d964fe59443526f1ca7c4b, type: 3}
+  m_Name: Ocean shader_Subsurface Scattering
+  m_EditorClassIdentifier: 
+  m_displayName: Subsurface Scattering
+  m_hierarchyName: Ocean Shader/Subsurface Scattering
+  m_context: {fileID: 11400000, guid: 95a8f8372a6947e40ad18fcd4817087a, type: 2}
+  m_markdownFile: {fileID: 0}
+  m_priority: 1004
+  m_overrideMarkdownText: "# Subsurface Scattering \n\n![](./Images/OceanShader/Fig0.png)
+    \n\nThe subsurface scattering effect adds an extra amount of tinting/highlights
+    inside of steep/tall waves. This is implemented by using the length of the horizontal
+    displacement from the vertex shader, as tall waves appear where there is notable
+    horizontal displacement, and where the subsurface scattering is most noticeable.
+    The effect uses a two-lobe phase function, which allows for an configurable amount
+    of forward and backward scattering. The result is multiplied by a configurable
+    color. While the effect is not physically based, it works reasonably well in
+    practice and can add some convincing extra detail to larger waves and help break
+    up the uniform look of the ocean. \n\n"
+  m_overrideMarkdownRoot: .\Documentation/

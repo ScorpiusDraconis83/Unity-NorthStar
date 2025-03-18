@@ -13,55 +13,55 @@ namespace NorthStar
     /// </summary>
     public class BarrelRolling : MonoBehaviour
     {
-        public Vector3 StartPosition { get { return m_startPosition; } set { m_startPosition = value; } }
+        public Vector3 StartPosition { get => m_startPosition; set => m_startPosition = value; }
         [SerializeField]
         private Vector3 m_startPosition = new(1f, 0, 0);
-        public AnimationCurve m_startToEndForceCurve;
-        public Vector3 EndPosition { get { return m_endPosition; } set { m_endPosition = value; } }
+        [SerializeField] private AnimationCurve m_startToEndForceCurve;
+        public Vector3 EndPosition { get => m_endPosition; set => m_endPosition = value; }
         [SerializeField]
         private Vector3 m_endPosition = new(1f, 0, 0);
-        public Rigidbody m_barrelRigidBody;
+        [SerializeField] private Rigidbody m_barrelRigidBody;
         [Range(0f, 100f)]
-        public float m_barrelMaxForce = 5.0f;
+        [SerializeField] private float m_barrelMaxForce = 5.0f;
         private Vector3 m_forceToAdd;
         [Tooltip("Adding a slight vertical offset to the position where force is added will make the barrel roll better rather than trying to slide it along the ground")]
-        public Vector3 m_barrelForcePositionOffset = new(0f, 0.4f, 0f);
-        public bool m_flipForceDirection = false;
-        public bool m_moveBarrelToStartPos = true;
+        [SerializeField] private Vector3 m_barrelForcePositionOffset = new(0f, 0.4f, 0f);
+        [SerializeField] private bool m_flipForceDirection = false;
+        [SerializeField] private bool m_moveBarrelToStartPos = true;
         [Tooltip("To avoid a snap/drop when switching between the animated barrel and a physics version, we will ramp up to full gravity over a few frames")]
-        public bool m_useGravityWarmup = true;
+        [SerializeField] private bool m_useGravityWarmup = true;
         [Range(0.01f, 1f)]
-        public float m_gravityWarumpTime = 0.5f;
+        [SerializeField] private float m_gravityWarumpTime = 0.5f;
 
         [Header("Start Speed will give velocity in units/sec from start to end points")]
         [Range(0f, 10f)]
-        public float m_startSpeed = 3f;
-        public bool m_useStartSpeed = true;
+        [SerializeField] private float m_startSpeed = 3f;
+        [SerializeField] private bool m_useStartSpeed = true;
 
         [Header("Optional: If set will adopt this transforms position and rotation on Awake")]
-        public Transform m_startTransformRef;
+        [SerializeField] private Transform m_startTransformRef;
 
         [Header("Gizmo Options")]
-        public bool m_drawGizmos = true;
-        public Mesh m_barrelGizmoMesh;
+        [SerializeField] private bool m_drawGizmos = true;
+        [SerializeField] private Mesh m_barrelGizmoMesh;
 
         [Header("End Event Options")]
         [Tooltip("If selected, an event will be fired when the barrel is further from the start than the total start to end distance")]
-        public bool m_useFinishEvent = false;
+        [SerializeField] private bool m_useFinishEvent = false;
         private bool m_hasFinished = false;
-        public UnityEvent onFinishEvent;
+        public UnityEvent OnFinishEvent;
 
         [Header("Debug Options")]
         [Tooltip("In editor, have a minimum level of force applied regardless of the force curve")]
         [Range(0f, 100f)]
-        public float m_debugMinForce = 2f;
+        [SerializeField] private float m_debugMinForce = 2f;
 
-        public bool m_rotateOtherObjectsToMatch = true;
-        public GameObject[] m_objectsToRotate;
+        [SerializeField] private bool m_rotateOtherObjectsToMatch = true;
+        [SerializeField] private GameObject[] m_objectsToRotate;
 
         [Range(0f, 1f)]
-        public float m_interactionSuccessfulDistance = 0.65f;
-        public UnityEvent m_onInteractionSuccessfulEvent;
+        [SerializeField] private float m_interactionSuccessfulDistance = 0.65f;
+        [SerializeField] private UnityEvent m_onInteractionSuccessfulEvent;
         private bool m_hasTriggeredInteractionSuccessfulEvents = false;
 
 
@@ -143,7 +143,7 @@ namespace NorthStar
                 }
                 if (m_useFinishEvent)
                 {
-                    onFinishEvent.Invoke();
+                    OnFinishEvent.Invoke();
                 }
                 m_hasFinished = true;
             }

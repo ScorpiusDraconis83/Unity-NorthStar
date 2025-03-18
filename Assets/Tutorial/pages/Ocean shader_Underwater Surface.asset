@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4510294d23d964fe59443526f1ca7c4b, type: 3}
+  m_Name: Ocean shader_Underwater Surface
+  m_EditorClassIdentifier: 
+  m_displayName: Underwater Surface
+  m_hierarchyName: Ocean Shader/Underwater Surface
+  m_context: {fileID: 11400000, guid: 95a8f8372a6947e40ad18fcd4817087a, type: 2}
+  m_markdownFile: {fileID: 0}
+  m_priority: 1004
+  m_overrideMarkdownText: "# Underwater Surface \n\n![](./Images/OceanShader/Fig3.png) 
+    \n\nIn the final part of the game where the player is underwater, a duplicate
+    of the water shader is used with double-sided rendering enabled, and some extra
+    logic for the backfaces of the water. A custom fog function is used to apply
+    a tint to the underwater surface as it gets further away from the player. \n\nIn
+    addition to this, the environment reflection lookup is modified to use a refracted,
+    instead of reflected direction. This produces the \u201Csnells window\u201D effect
+    that is observed when looking up at an underwater surface where parts of the
+    sky are visible in a circle above the viewer. Using the existing environment
+    cubemap means this does not require a copy of the scene texture, so the performance
+    overhead is minimal, as it is simply replacing the sky reflection lookup that
+    would otherwise be done in a regular PBR shader. The downside is that above water
+    objects such as the ship are not visible, however a similar effect could be achieved
+    with alpha blending if desired. \n\n"
+  m_overrideMarkdownRoot: .\Documentation/

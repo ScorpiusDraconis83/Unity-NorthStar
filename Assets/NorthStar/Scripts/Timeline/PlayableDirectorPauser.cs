@@ -9,11 +9,13 @@ namespace NorthStar
         [SerializeField] private PlayableDirector m_playableDirector;
         private bool m_playing;
 
+        [ContextMenu("Play")]
         public void Play()
         {
             m_playing = true;
         }
 
+        [ContextMenu("Pause")]
         public void Pause()
         {
             m_playing = false;

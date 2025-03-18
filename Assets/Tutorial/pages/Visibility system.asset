@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4510294d23d964fe59443526f1ca7c4b, type: 3}
+  m_Name: Visibility system
+  m_EditorClassIdentifier: 
+  m_displayName: Visibility System
+  m_hierarchyName: Visibility System
+  m_context: {fileID: 11400000, guid: 77856a62df0edd54b9f1618d069ac2fb, type: 2}
+  m_markdownFile: {fileID: 0}
+  m_priority: 1016
+  m_overrideMarkdownText: "# Visibility Set System \n\n## Overview\n\n![](./Images/VisibilitySet/Fig0.png)\n\nDuring
+    development, we found that only a small portion of the boat and surrounding environment
+    was fully visible at any given time. Additionally, various elements\u2014such
+    as the boat\u2019s interior and the island in Beat 2\u2014were often only partially
+    visible or required lower levels of detail. \n\nWhile LOD (Level of Detail) groups
+    are typically used for this purpose, LOD transitions were highly noticeable in
+    VR due to frequent head movement during gameplay. Since we could not set precise
+    LOD transition points to eliminate this effect, we developed a custom solution
+    to dynamically manage object visibility and LOD activation and improve performance
+    across the entire experience. \n\nThis became known as the Visibility Set System\u2014a
+    toolset that allows designers to define and manage named object groups within
+    a scene, enabling and disabling them as needed. \n\n## How the Visibility Set
+    System Works \n\n1. Named Visibility Sets \n\n    - Designers can define multiple
+    \"sets\" in a scene, each grouping related objects. \n    - These sets can be
+    enabled or disabled dynamically, optimizing rendering and performance. \n\n2.
+    Multi-Level Detail Management \n\n    - Each set supports multiple LOD levels,
+    including a fully disabled state. \n    - Sets can be linked, allowing objects
+    to dynamically adjust visibility based on narrative events or scene interactions.
+    \n\n3. Example: Boat Cabin System \n\n    - The boat was split into multiple
+    visibility sets, including a dedicated set for the cabin interior. \n    - The
+    cabin door had two visibility states: \n        - Closed: The system activates
+    the cabin_interior_door_closed set, applying a high LOD factor (9999) to disable
+    unnecessary objects. \n        - Open: A narrative trigger switches to the cabin_interior_door_open
+    set, revealing parts of the island visible through the door. \n\n4. Seamless
+    Transitions \n\n    - Visibility transitions occur during teleports, helping
+    mask any performance spikes caused by activating objects. \n    - This approach
+    was critical in Beat 2, where rendering the cabin interior, boat exterior, port,
+    and island simultaneously was too expensive. \n\n5. Performance Optimizations
+    \n\n    - Entire sections of the level\u2014including physics, logic, and scripts\u2014are
+    disabled when not needed, improving both CPU and GPU performance. \n    - On
+    scene load, all objects are enabled for the first frame to ensure that Awake()
+    / Start() methods execute properly. This prevents lag spikes when enabling large
+    scene sections later. \n\n### Relevant Files\n- [ActiveVisibilitySetLevelData.cs](../Packages/com.meta.utilities.environment/Runtime/Scripts/Environment/ActiveVisibilitySetLevelData.cs)\n-
+    [VisibilitySet.cs](../Packages/com.meta.utilities.environment/Runtime/Scripts/Environment/VisibilitySet.cs)\n-
+    [VisibilitySetData.cs](../Packages/com.meta.utilities.environment/Runtime/Scripts/Environment/VisibilitySetData.cs)\n\n##
+    Editor Support \n\nWhile the Visibility Set System was highly effective, managing
+    multiple overlapping sets could be difficult to visualize. \n\nTo assist designers
+    and artists: \n- We implemented a context menu tool to automatically convert
+    LOD groups into Visibility Set items. \n- The tool could rearrange object hierarchies
+    if the original LOD group was misconfigured. \n\nThis allowed artists to continue
+    using familiar workflows while benefiting from the system\u2019s optimizations.\n\n##
+    Further Improvements \n\nThere are opportunities to further improve the Visibility
+    Set System, particularly in editor usability: \n- Custom inspectors for better
+    visualization of active/culled objects. \n- In-editor previews to show which
+    objects are disabled under specific set conditions. \n\nThese enhancements would
+    make the system more intuitive and reduce iteration time when working with complex
+    scenes. \n\n## Conclusion\nThe Visibility Set System significantly optimized
+    performance and rendering efficiency in NorthStar, particularly for VR gameplay.
+    By dynamically managing visibility and LOD levels, we eliminated LOD popping,
+    improved scene transitions, and enabled large-scale optimizations without sacrificing
+    visual quality. \n\nWith further editor enhancements, the system could become
+    even more powerful, providing better visual debugging tools and workflow improvements
+    for designers. \n"
+  m_overrideMarkdownRoot: .\Documentation/

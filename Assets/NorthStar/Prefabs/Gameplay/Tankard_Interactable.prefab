@@ -1767,6 +1767,8 @@ MonoBehaviour:
   m_softGrabTime: 0.2
   m_bonusBreakTimer: 0
   m_toggleIntertiaTensorOnGrab: 1
+  m_throwVelocityPercent: 0
+  m_velocityHistoryCapacity: 20
 --- !u!114 &2132868104322171552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1782,6 +1784,7 @@ MonoBehaviour:
   OnPlaySound:
     m_PersistentCalls:
       m_Calls: []
+  m_collsionDelayTime: 0
 --- !u!4 &7789414229960438656 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b092ba66a6903a04da74093c8b016c79,

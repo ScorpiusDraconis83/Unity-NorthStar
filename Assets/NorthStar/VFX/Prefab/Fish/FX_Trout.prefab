@@ -44,24 +44,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1df28f8d1f5497843990e78154e447b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnArea: {x: 1, y: 1, z: 1}
-  traversalArea: {x: 3, y: 3, z: 3}
-  minMaxSpeed: {x: 1, y: 1.5}
-  variationSpeed: 0.3
-  variationMagnitude: 1
-  minMaxRotationSpeed: {x: 3, y: 4}
-  flockAroundOrigin: 0
-  directionChangeFrequency: 70
-  groupingDistance: 2
-  avoidanceDistance: 0.8
-  prefabGroups:
+  SpawnArea: {x: 1, y: 1, z: 1}
+  TraversalArea: {x: 3, y: 3, z: 3}
+  MinMaxSpeed: {x: 1, y: 1.5}
+  VariationSpeed: 0.3
+  VariationMagnitude: 1
+  MinMaxRotationSpeed: {x: 3, y: 4}
+  FlockAroundOrigin: 0
+  DirectionChangeFrequency: 70
+  GroupingDistance: 2
+  AvoidanceDistance: 0.8
+  PrefabGroups:
   - m_prefabName: Trout
     m_prefab: {fileID: 919132149155446097, guid: 18ab5511fab461946bd7b74a712157cc,
       type: 3}
     m_count: 8
     m_scale: {x: 0.5, y: 1}
     m_material: {fileID: 0}
-  animationSpeed: 6
-  visualiseSpawnArea: 0
-  visualiseTraversalArea: 1
-  visualiseWaypoint: 0
+  AnimationSpeed: 6
+  VisualiseSpawnArea: 0
+  VisualiseTraversalArea: 1
+  VisualiseWaypoint: 0

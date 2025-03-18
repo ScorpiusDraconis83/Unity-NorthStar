@@ -8,42 +8,38 @@ public class BasicIdlerTrigger : MonoBehaviour
     [Header("then plays a one off animation before transitioning back into idle")]
     [Space(25)]
     //DEBUG
-    public bool showDebug = false;
-    public TextMesh debugText;
+    public bool ShowDebug;
+    public TextMesh DebugText;
 
     //
 
     private enum AnimState { Idling, Active }
 
     private AnimState m_animState = AnimState.Idling;
-    private NPC_IKController m_nPCController;
-    [Tooltip("Use distance from NPC to trigger")]
-    public bool triggerByDistance = true;
-    public float triggerDistance = 5f;
-    [Tooltip("Use cone of vision angle from NPC to trigger")]
-    public bool triggerByAngle = true;
-    public float triggerAngle = 60f;
+    private NPC_IKController m_npcController;
+    public float TriggerDistance = 5f;
+    public float TriggerAngle = 60f;
 
 
     [Tooltip("How many times can the animation be triggered? Negative numbers means no limit")]
-    public int triggercount = 1;
-    private bool isTriggerValid = true;
+    public int TriggerCount = 1;
+    private bool m_isTriggerValid = true;
 
     [Tooltip("Does the trigger animation reset to idle when you leave the trigger area")]
-    public bool useExitTriggerToReset = true;
+    public bool UseExitTriggerToReset = true;
 
     [Tooltip("Does the trigger animation have a cool down before you can trigger it again? Negative number = no cooldown")]
-    public float activeTriggerCooldown = 15;
-    private float activeCooldownCounter = 0;
+    public float ActiveTriggerCooldown = 15;
+    private float m_activeCooldownCounter;
 
     private void Start()
     {
-        m_nPCController = GetComponent<NPC_IKController>();
+        m_npcController = GetComponent<NPC_IKController>();
     }
 
     private void SwitchAnimState(AnimState nextState)
     {
-        if (showDebug) Debug.Log("Entered state: " + nextState + " from: " + m_animState);
+        if (ShowDebug) Debug.Log("Entered state: " + nextState + " from: " + m_animState);
 
         switch (nextState)
         {
@@ -53,8 +49,8 @@ public class BasicIdlerTrigger : MonoBehaviour
                 break;
 
             case AnimState.Active:
-                activeCooldownCounter = 0;
-                triggercount--;
+                m_activeCooldownCounter = 0;
+                TriggerCount--;
                 GetComponent<Animator>().SetTrigger("TriggerActiveClip");
                 GetComponent<Animator>().ResetTrigger("TriggerIdling");
                 break;
@@ -70,12 +66,12 @@ public class BasicIdlerTrigger : MonoBehaviour
                 break;
 
             case AnimState.Active:
-                if (activeTriggerCooldown > 0) //if using timer to return to start, then count down
+                if (ActiveTriggerCooldown > 0) //if using timer to return to start, then count down
                     ActiveCounter(); //if using cool down counter
                 break;
         }
 
-        if (isTriggerValid)
+        if (m_isTriggerValid)
             CheckForTrigger();
         else
             CheckForTriggerReset(); //Check to see if you have exited the trigger area before trying to trigger the animation again
@@ -83,8 +79,8 @@ public class BasicIdlerTrigger : MonoBehaviour
 
     private void ActiveCounter()
     {
-        if (activeCooldownCounter < activeTriggerCooldown)
-            activeCooldownCounter += Time.deltaTime;
+        if (m_activeCooldownCounter < ActiveTriggerCooldown)
+            m_activeCooldownCounter += Time.deltaTime;
         else
         {
             SwitchAnimState(AnimState.Idling);
@@ -93,13 +89,13 @@ public class BasicIdlerTrigger : MonoBehaviour
 
     private void CheckForTrigger()
     {
-        if (triggercount > 0) //if can trigger the animation 
+        if (TriggerCount > 0) //if can trigger the animation 
         {
-            if (m_nPCController.IsWithinDistance(triggerDistance) && m_nPCController.IsWithinAngle(triggerAngle)) //if within trigger
+            if (m_npcController.IsWithinDistance(TriggerDistance) && m_npcController.IsWithinAngle(TriggerAngle)) //if within trigger
             {
-                if (showDebug) Debug.Log("Trigger zone entered");
+                if (ShowDebug) Debug.Log("Trigger zone entered");
 
-                isTriggerValid = false; //Set this false to prevent animation triggering immediately after ending
+                m_isTriggerValid = false; //Set this false to prevent animation triggering immediately after ending
                 SwitchAnimState(AnimState.Active);
             }
         }
@@ -107,12 +103,12 @@ public class BasicIdlerTrigger : MonoBehaviour
 
     private void CheckForTriggerReset()
     {
-        if (!m_nPCController.IsWithinDistance(triggerDistance) || !m_nPCController.IsWithinAngle(triggerAngle)) //if not in trigger zone
+        if (!m_npcController.IsWithinDistance(TriggerDistance) || !m_npcController.IsWithinAngle(TriggerAngle)) //if not in trigger zone
         {
-            if (showDebug) Debug.Log("Trigger Zone Exited");
-            if (useExitTriggerToReset)
+            if (ShowDebug) Debug.Log("Trigger Zone Exited");
+            if (UseExitTriggerToReset)
             {
-                isTriggerValid = true;
+                m_isTriggerValid = true;
                 SwitchAnimState(AnimState.Idling);
             }
         }
@@ -120,7 +116,7 @@ public class BasicIdlerTrigger : MonoBehaviour
 
     public void TransitionEnded() //Called by the Transition state in the Animation State machine
     {
-        if (showDebug) Debug.Log("State Machine : ActiveEnded");
+        if (ShowDebug) Debug.Log("State Machine : ActiveEnded");
         SwitchAnimState(AnimState.Idling);
     }
 }

@@ -17,7 +17,7 @@ namespace NorthStar
         public ReflectionProbe[] ReflectionProbes;
 
         [Tooltip("If setting this, ensure you do not also alter the intensity of the probe used for world reflection intensity")]
-        public bool updateGlobalReflectionIntensity = true;
+        public bool UpdateGlobalReflectionIntensity = true;
 
         public void SetReflectionIntensityChangeTime(float duration)
         {
@@ -36,7 +36,7 @@ namespace NorthStar
             while (Time.time < m_changeStartTime + m_changeDuration)
             {
                 var newIntensity = Mathf.Lerp(m_originalIntensity, m_targetIntensity, (Time.time - m_changeStartTime) / m_changeDuration);
-                if (updateGlobalReflectionIntensity)
+                if (UpdateGlobalReflectionIntensity)
                 {
                     RenderSettings.reflectionIntensity = newIntensity;
                 }
@@ -47,7 +47,7 @@ namespace NorthStar
                 }
                 yield return new WaitForEndOfFrame();
             }
-            if (updateGlobalReflectionIntensity)
+            if (UpdateGlobalReflectionIntensity)
             {
                 RenderSettings.reflectionIntensity = m_targetIntensity;
             }

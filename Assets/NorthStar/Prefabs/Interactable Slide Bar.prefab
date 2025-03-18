@@ -288,8 +288,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae21d7ae6fe56b4387bc7ca4642772d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateMode: 3
-  parentMethod: 1
+  m_updateMode: 3
+  m_parentMethod: 1
   Body: {fileID: 7193657769445779770}
   Registered: 0
   RegisteredTo: {fileID: 0}
@@ -974,6 +974,9 @@ MonoBehaviour:
   m_rotationStrengthModifier: 0
   m_softGrabTime: 0.2
   m_bonusBreakTimer: 0
+  m_toggleIntertiaTensorOnGrab: 0
+  m_throwVelocityPercent: 0
+  m_velocityHistoryCapacity: 20
 --- !u!114 &1406994926913228202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -986,8 +989,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae21d7ae6fe56b4387bc7ca4642772d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateMode: 0
-  parentMethod: 0
+  m_updateMode: 0
+  m_parentMethod: 0
   Body: {fileID: 3302556431514714545}
   Registered: 0
   RegisteredTo: {fileID: 0}
@@ -1225,7 +1228,7 @@ MonoBehaviour:
   m_snapToEnd: 0.9
   m_ratchet: 0
   m_step: 0.15
-  stepOut: 0
+  StepOut: 0
 --- !u!1 &7365301452374536841
 GameObject:
   m_ObjectHideFlags: 0

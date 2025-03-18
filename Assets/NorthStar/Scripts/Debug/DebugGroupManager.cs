@@ -7,19 +7,19 @@ namespace NorthStar.DebugUtilities
     public class DebugGroupManager : MonoBehaviour
     {
         [SerializeField, Interface(typeof(IInteractableView))]
-        private UnityEngine.Object m_decrementInteractableView;
-        private IInteractableView m_DecrementInteractableView { get; set; }
+        private Object m_decrementInteractableView;
+        private IInteractableView DecrementInteractableView { get; set; }
 
         [SerializeField, Interface(typeof(IInteractableView))]
-        private UnityEngine.Object m_incrementInteractableView;
-        private IInteractableView m_IncrementInteractableView { get; set; }
+        private Object m_incrementInteractableView;
+        private IInteractableView IncrementInteractableView { get; set; }
 
         protected bool m_started = false;
 
         protected virtual void Awake()
         {
-            m_DecrementInteractableView = m_decrementInteractableView as IInteractableView;
-            m_IncrementInteractableView = m_incrementInteractableView as IInteractableView;
+            DecrementInteractableView = m_decrementInteractableView as IInteractableView;
+            IncrementInteractableView = m_incrementInteractableView as IInteractableView;
 
             //Disable all groups barring the first
             for (var i = 1; i < m_groups.Length; i++)
@@ -32,8 +32,8 @@ namespace NorthStar.DebugUtilities
         {
             this.BeginStart(ref m_started);
 
-            this.AssertField(m_DecrementInteractableView, nameof(m_DecrementInteractableView));
-            this.AssertField(m_IncrementInteractableView, nameof(m_IncrementInteractableView));
+            this.AssertField(DecrementInteractableView, nameof(DecrementInteractableView));
+            this.AssertField(IncrementInteractableView, nameof(IncrementInteractableView));
 
             this.EndStart(ref m_started);
         }
@@ -42,8 +42,8 @@ namespace NorthStar.DebugUtilities
         {
             if (m_started)
             {
-                m_DecrementInteractableView.WhenStateChanged += DecrementOnStateChange;
-                m_IncrementInteractableView.WhenStateChanged += IncrementOnStateChange;
+                DecrementInteractableView.WhenStateChanged += DecrementOnStateChange;
+                IncrementInteractableView.WhenStateChanged += IncrementOnStateChange;
             }
         }
 
@@ -51,8 +51,8 @@ namespace NorthStar.DebugUtilities
         {
             if (m_started)
             {
-                m_DecrementInteractableView.WhenStateChanged -= DecrementOnStateChange;
-                m_IncrementInteractableView.WhenStateChanged -= IncrementOnStateChange;
+                DecrementInteractableView.WhenStateChanged -= DecrementOnStateChange;
+                IncrementInteractableView.WhenStateChanged -= IncrementOnStateChange;
             }
         }
 

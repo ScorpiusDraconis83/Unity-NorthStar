@@ -9,12 +9,12 @@ namespace NorthStar
     /// </summary>
     public class CollidersDontCollideWith : MonoBehaviour
     {
-        [SerializeField] private List<Collider> others;
+        [SerializeField] private List<Collider> m_others;
         private void Start()
         {
             foreach (var collider in GetComponents<Collider>())
             {
-                foreach (var collider2 in others)
+                foreach (var collider2 in m_others)
                 {
                     Physics.IgnoreCollision(collider, collider2);
                 }

@@ -317,7 +317,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8880096563688499341}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.044161808, y: 0.45925662, z: -0.017515946, w: 0.88703233}
+  m_LocalRotation: {x: 0.04416308, y: 0.4592556, z: -0.017517673, w: 0.88703275}
   m_LocalPosition: {x: -0.3693, y: 0.114463806, z: -0.2558}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
@@ -445,6 +445,8 @@ MonoBehaviour:
   m_softGrabTime: 0.2
   m_bonusBreakTimer: 0
   m_toggleIntertiaTensorOnGrab: 1
+  m_throwVelocityPercent: 0
+  m_velocityHistoryCapacity: 20
 --- !u!114 &1079849215946577191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,6 +462,7 @@ MonoBehaviour:
   OnPlaySound:
     m_PersistentCalls:
       m_Calls: []
+  m_collsionDelayTime: 0
 --- !u!65 &7481035395213030888
 BoxCollider:
   m_ObjectHideFlags: 0

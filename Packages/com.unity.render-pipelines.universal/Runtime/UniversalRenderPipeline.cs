@@ -203,7 +203,11 @@ namespace UnityEngine.Rendering.Universal
             // Initial state of the RTHandle system.
             // We initialize to screen width/height to avoid multiple realloc that can lead to inflated memory usage (as releasing of memory is delayed).
             RTHandles.Initialize(Screen.width, Screen.height);
+
+            // Meta change : Without this call, RTHandles will never use dynamic scaling, preventing dynamic resolution
+            // from functioning. Newer versions of URP (as in Unity 2022+) correctly set this flag.
             RTHandles.SetHardwareDynamicResolutionState(true);
+            // Change end
 
             GraphicsSettings.useScriptableRenderPipelineBatching = asset.useSRPBatcher;
 
@@ -908,6 +912,7 @@ namespace UnityEngine.Rendering.Universal
             }
             baseCameraData.cameraTargetDescriptor.msaaSamples = originalTargetDesc.msaaSamples;
 
+            // Meta change : As suggested by https://developers.meta.com/horizon/documentation/unity/dynamic-resolution-unity/
             if (baseCameraData.isDefaultViewport)
             {
                 // When viewport is default, intermediate textures created with this descriptor will have dynamic resolution enabled.
@@ -924,6 +929,7 @@ namespace UnityEngine.Rendering.Universal
                 Math.Abs(xrViewport.width) < xr.renderTargetDesc.width ||
                 Math.Abs(xrViewport.height) < xr.renderTargetDesc.height));
             baseCameraData.isDefaultViewport = baseCameraData.isDefaultViewport && isDefaultXRViewport;
+            // Change end
         }
 
         static void UpdateVolumeFramework(Camera camera, UniversalAdditionalCameraData additionalCameraData)

@@ -447,6 +447,8 @@ MonoBehaviour:
   m_softGrabTime: 0.2
   m_bonusBreakTimer: 0
   m_toggleIntertiaTensorOnGrab: 0
+  m_throwVelocityPercent: 0
+  m_velocityHistoryCapacity: 20
 --- !u!114 &8296468728911985815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -494,7 +496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 223fc7c454fdb0346a322b7ba3a81386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  physicsTransformer: {fileID: 8563063665041964918}
+  m_physicsTransformer: {fileID: 8563063665041964918}
   OnGrab:
     m_PersistentCalls:
       m_Calls:
@@ -776,8 +778,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6455c8d138b1c8f4298efb6ea8bc02e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: {x: 0, y: 0, z: 0}
-  b: {x: 0, y: -0.05, z: 0}
+  m_a: {x: 0, y: 0, z: 0}
+  m_b: {x: 0, y: -0.05, z: 0}
 --- !u!1 &6301370312801844325
 GameObject:
   m_ObjectHideFlags: 0
@@ -1184,7 +1186,8 @@ MonoBehaviour:
   NodeIndex: 9
   BindIndex: 1
   m_rope: {fileID: 1822093712294124879}
-  useBoatSpace: 0
+  m_lateUpdate: 0
+  UseBoatSpace: 0
 --- !u!114 &373107790545215542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1212,6 +1215,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  m_collsionDelayTime: 0.2
 --- !u!114 &7011933039076300947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1380,7 +1384,8 @@ MonoBehaviour:
   NodeIndex: 4
   BindIndex: 1
   m_rope: {fileID: 485209693569867131}
-  useBoatSpace: 0
+  m_lateUpdate: 0
+  UseBoatSpace: 0
 --- !u!1001 &6991648150453439434
 PrefabInstance:
   m_ObjectHideFlags: 0

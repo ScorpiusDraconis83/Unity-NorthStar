@@ -7,11 +7,11 @@ namespace NorthStar.DebugUtilities
     public class ButtonGroup : MonoBehaviour
     {
         [SerializeField, Interface(typeof(IInteractableView))]
-        private UnityEngine.Object m_decrementInteractableView;
+        private Object m_decrementInteractableView;
         private IInteractableView DecrementInteractableView { get; set; }
 
         [SerializeField, Interface(typeof(IInteractableView))]
-        private UnityEngine.Object m_incrementInteractableView;
+        private Object m_incrementInteractableView;
         private IInteractableView IncrementInteractableView { get; set; }
 
         protected bool m_started = false;

@@ -1,0 +1,6366 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1417acb9273a44e4196b5692fc87ae19, type: 3}
+  m_Name: ShaderData_Quest2
+  m_EditorClassIdentifier: 
+  Shaders:
+  - Name: Interaction/OculusHandCursor
+    Pass: 'Interaction/OculusHandCursor: <Unnamed Pass 0>'
+    PassType: 0
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+  - Name: Interaction/MetaHand
+    Pass: Depth
+    PassType: 0
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+  - Name: Interaction/MetaHand
+    Pass: HandFillURP
+    PassType: 0
+    Keywords:
+    - DIRECTIONAL
+    - LIGHTPROBE_SH
+    - STEREO_MULTIVIEW_ON
+  - Name: Interaction/MetaHand
+    Pass: HandOutlineURP
+    PassType: 0
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+  - Name: Legacy Shaders/VertexLit
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - SHADOWS_DEPTH
+  - Name: NorthStar/Characters/PBR_Character_Cloth
+    Pass: MotionVectors
+    PassType: 12
+    Keywords: []
+  - Name: NorthStar/Characters/PBR_Character_Cloth
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+  - Name: NorthStar/Characters/PBR_Character_Cloth
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords: []
+  - Name: NorthStar/Characters/PBR_Character_Cloth
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+  - Name: NorthStar/Characters/PBR_Character_Cloth
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+  - Name: NorthStar/Characters/PBR_Character_Cloth
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+  - Name: NorthStar/Characters/PBR_Character_Cloth
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+  - Name: NorthStar/Characters/PBR_Character_Cloth
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+  - Name: NorthStar/Characters/PBR_Character_Eye
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+  - Name: NorthStar/Characters/PBR_Character_Eye
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords: []
+  - Name: NorthStar/Characters/PBR_Character_Eye
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/Characters/PBR_Character_Eye
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: NorthStar/Characters/PBR_Character_Eye
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/Characters/PBR_Character_Eye
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: NorthStar/Characters/PBR_Character_Eye
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/Characters/PBR_Character_Eye
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/Characters/PBR_Character_Hair
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - _LIGHT_COOKIES
+  - Name: NorthStar/Characters/PBR_Character_Hair
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _LIGHT_COOKIES
+  - Name: NorthStar/Characters/PBR_Character_Hair
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+  - Name: NorthStar/Characters/PBR_Character_Hair
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+  - Name: NorthStar/Characters/PBR_Character_Skin
+    Pass: MotionVectors
+    PassType: 12
+    Keywords: []
+  - Name: NorthStar/Characters/PBR_Character_Skin
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+  - Name: NorthStar/Characters/PBR_Character_Skin
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords: []
+  - Name: NorthStar/Characters/PBR_Character_Skin
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+  - Name: NorthStar/Characters/PBR_Character_Skin
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+  - Name: NorthStar/Characters/PBR_Character_Skin
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+  - Name: NorthStar/Characters/PBR_Character_Skin
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+  - Name: NorthStar/Characters/PBR_Character_Skin
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+  - Name: NorthStar/Characters/PBR_Character_Skin_SilverCurse
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - _USESILVERCURSE
+  - Name: NorthStar/Characters/PBR_Character_Skin_SilverCurse
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - _USESILVERCURSE
+  - Name: NorthStar/Characters/PBR_Character_Skin_SilverCurse
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _USESILVERCURSE
+  - Name: NorthStar/Characters/PBR_Character_Skin_SilverCurse
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _USESILVERCURSE
+  - Name: NorthStar/Characters/PBR_Character_Skin_SilverCurse
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _USESILVERCURSE
+  - Name: NorthStar/Characters/PBR_Underwater_Kraken
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - _USE_UNDERWATER_FOG
+  - Name: NorthStar/Characters/PBR_Underwater_Kraken
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _USE_UNDERWATER_FOG
+  - Name: NorthStar/Characters/PBR_Underwater_Kraken
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _USE_UNDERWATER_FOG
+  - Name: NorthStar/Environment/PBR_Terrain
+    Pass: MotionVectors
+    PassType: 12
+    Keywords: []
+  - Name: NorthStar/Environment/PBR_Terrain
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+  - Name: NorthStar/Environment/PBR_Terrain
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/Environment/PBR_Terrain
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/Environment/PBR_Terrain
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/Environment/PBR_Terrain
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/Environment/PBR_TerrainUnderwater
+    Pass: MotionVectors
+    PassType: 12
+    Keywords: []
+  - Name: NorthStar/Environment/PBR_TerrainUnderwater
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - _USE_CAUSTICS
+  - Name: NorthStar/Environment/PBR_TerrainUnderwater
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+  - Name: NorthStar/Environment/PBR_TerrainUnderwater
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - _USE_CAUSTICS
+  - Name: NorthStar/Environment/PBR_TerrainUnderwater
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords: []
+  - Name: NorthStar/Environment/PBR_TerrainUnderwater
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _USE_CAUSTICS
+  - Name: NorthStar/Environment/PBR_TerrainUnderwater
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - LIGHTMAP_ON
+  - Name: NorthStar/Environment/PBR_TerrainUnderwater
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - _USE_CAUSTICS
+  - Name: NorthStar/Environment/PBR_TerrainUnderwater
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - STEREO_MULTIVIEW_ON
+  - Name: NorthStar/Environment/PBR_TerrainUnderwater
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - STEREO_MULTIVIEW_ON
+    - _USE_CAUSTICS
+  - Name: NorthStar/Particles/FX_DustCloud
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+  - Name: NorthStar/PBR/Foliage/PBR_Foliage
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - _ALPHATEST_ON
+    - _DISABLENORMALTEXTURE
+  - Name: NorthStar/PBR/Foliage/PBR_Foliage
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - _ALPHATEST_ON
+    - _USE_FAKE_SUBSURFACESCATTERING
+  - Name: NorthStar/PBR/Foliage/PBR_Foliage
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - _ALPHATEST_ON
+    - _DISABLENORMALTEXTURE
+  - Name: NorthStar/PBR/Foliage/PBR_Foliage
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - _ALPHATEST_ON
+    - _USE_FAKE_SUBSURFACESCATTERING
+  - Name: NorthStar/PBR/Foliage/PBR_Foliage
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _ALPHATEST_ON
+    - _DISABLENORMALTEXTURE
+  - Name: NorthStar/PBR/Foliage/PBR_Foliage
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _ALPHATEST_ON
+    - _USE_FAKE_SUBSURFACESCATTERING
+  - Name: NorthStar/PBR/Foliage/PBR_Foliage
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHATEST_ON
+    - _DISABLENORMALTEXTURE
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/Foliage/PBR_Foliage
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHATEST_ON
+    - _DISABLENORMALTEXTURE
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/Foliage/PBR_Foliage
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHATEST_ON
+    - _DISABLENORMALTEXTURE
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/Foliage/PBR_Foliage
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHATEST_ON
+    - _DISABLENORMALTEXTURE
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/Foliage/PBR_Foliage
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHATEST_ON
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _USE_FAKE_SUBSURFACESCATTERING
+  - Name: NorthStar/PBR/Foliage/PBR_Foliage
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHATEST_ON
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _USE_FAKE_SUBSURFACESCATTERING
+  - Name: NorthStar/PBR/Foliage/PBR_Foliage
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHATEST_ON
+    - _DISABLENORMALTEXTURE
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/Foliage/PBR_Foliage
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHATEST_ON
+    - _DISABLENORMALTEXTURE
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/Foliage/PBR_Foliage
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHATEST_ON
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _USE_FAKE_SUBSURFACESCATTERING
+  - Name: NorthStar/PBR/Foliage/PBR_Foliage
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHATEST_ON
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _USE_FAKE_SUBSURFACESCATTERING
+  - Name: NorthStar/PBR/Foliage/PBR_FoliageUnderwater
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - _DISABLENORMALTEXTURE
+    - _USE_WIND
+  - Name: NorthStar/PBR/Foliage/PBR_FoliageUnderwater
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - _ALPHATEST_ON
+    - _USE_WIND
+  - Name: NorthStar/PBR/Foliage/PBR_FoliageUnderwater
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - _DISABLENORMALTEXTURE
+    - _USE_WIND
+  - Name: NorthStar/PBR/Foliage/PBR_FoliageUnderwater
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - _HAS_TRUNK
+    - _USE_WIND
+  - Name: NorthStar/PBR/Foliage/PBR_FoliageUnderwater
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _ALPHATEST_ON
+    - _USE_WIND
+  - Name: NorthStar/PBR/Foliage/PBR_FoliageUnderwater
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _DISABLENORMALTEXTURE
+    - _USE_WIND
+  - Name: NorthStar/PBR/Foliage/PBR_FoliageUnderwater
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _HAS_TRUNK
+    - _USE_WIND
+  - Name: NorthStar/PBR/Foliage/PBR_FoliageUnderwater
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _DISABLENORMALTEXTURE
+    - _USE_WIND
+  - Name: NorthStar/PBR/Foliage/PBR_FoliageUnderwater
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ALPHATEST_ON
+    - _USE_WIND
+  - Name: NorthStar/PBR/Foliage/PBR_FoliageUnderwater
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _DISABLENORMALTEXTURE
+    - _USE_WIND
+  - Name: NorthStar/PBR/Foliage/PBR_FoliageUnderwater
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _HAS_TRUNK
+    - _USE_WIND
+  - Name: NorthStar/PBR/PBR_Default
+    Pass: MotionVectors
+    PassType: 12
+    Keywords: []
+  - Name: NorthStar/PBR/PBR_Default
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - _DISABLENORMALTEXTURE
+  - Name: NorthStar/PBR/PBR_Default
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+  - Name: NorthStar/PBR/PBR_Default
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - _DISABLENORMALTEXTURE
+  - Name: NorthStar/PBR/PBR_Default
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - _DISABLENORMALTEXTURE
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_Default
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - _DISABLENORMALTEXTURE
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_Default
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_Default
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords: []
+  - Name: NorthStar/PBR/PBR_Default
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _DISABLENORMALTEXTURE
+  - Name: NorthStar/PBR/PBR_Default
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _DISABLENORMALTEXTURE
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_Default
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _DISABLENORMALTEXTURE
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_Default
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_Default
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - DIRLIGHTMAP_COMBINED
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _DISABLENORMALTEXTURE
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_Default
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - DIRLIGHTMAP_COMBINED
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _DISABLENORMALTEXTURE
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_Default
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - DIRLIGHTMAP_COMBINED
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _DISABLENORMALTEXTURE
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_Default
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - DIRLIGHTMAP_COMBINED
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_Default
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - DIRLIGHTMAP_COMBINED
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: NorthStar/PBR/PBR_Default
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _DISABLENORMALTEXTURE
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_Default
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _DISABLENORMALTEXTURE
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_Default
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_Default
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_Default
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _DISABLENORMALTEXTURE
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_Default
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _DISABLENORMALTEXTURE
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_Default
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_Default
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _DISABLENORMALTEXTURE
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_Default
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _DISABLENORMALTEXTURE
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: NorthStar/PBR/PBR_Default
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _DISABLENORMALTEXTURE
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_Default
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _DISABLENORMALTEXTURE
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_Default
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_Default
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: NorthStar/PBR/PBR_Default
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_Default
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_Default
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_Default
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: NorthStar/PBR/PBR_Default
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_N
+    Pass: MotionVectors
+    PassType: 12
+    Keywords: []
+  - Name: NorthStar/PBR/PBR_N
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+  - Name: NorthStar/PBR/PBR_N
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - _ALPHATEST_ON
+  - Name: NorthStar/PBR/PBR_N
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - _ALPHATEST_ON
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_N
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - _DISABLENORMALTEXTURE
+  - Name: NorthStar/PBR/PBR_N
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - _USE_INTERACTION_PULSE
+  - Name: NorthStar/PBR/PBR_N
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_N
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords: []
+  - Name: NorthStar/PBR/PBR_N
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _ALPHATEST_ON
+  - Name: NorthStar/PBR/PBR_N
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _ALPHATEST_ON
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_N
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _DISABLENORMALTEXTURE
+  - Name: NorthStar/PBR/PBR_N
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _USE_INTERACTION_PULSE
+  - Name: NorthStar/PBR/PBR_N
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_N
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_N
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_N
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_N
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: NorthStar/PBR/PBR_N
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_N
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHATEST_ON
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_N
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHATEST_ON
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: NorthStar/PBR/PBR_N
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHATEST_ON
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_N
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHATEST_ON
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_N
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _DISABLENORMALTEXTURE
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_N
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_N
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_N
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: NorthStar/PBR/PBR_N
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_N
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _USE_INTERACTION_PULSE
+  - Name: NorthStar/PBR/PBR_N
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_N
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_N
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHATEST_ON
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: NorthStar/PBR/PBR_N
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHATEST_ON
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_N
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHATEST_ON
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_N
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _DISABLENORMALTEXTURE
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: NorthStar/PBR/PBR_N
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: NorthStar/PBR/PBR_N_Underwater
+    Pass: MotionVectors
+    PassType: 12
+    Keywords: []
+  - Name: NorthStar/PBR/PBR_N_Underwater
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+  - Name: NorthStar/PBR/PBR_N_Underwater
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - _USE_CAUSTICTS
+  - Name: NorthStar/PBR/PBR_N_Underwater
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords: []
+  - Name: NorthStar/PBR/PBR_N_Underwater
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _DISABLENORMALTEXTURE
+  - Name: NorthStar/PBR/PBR_N_Underwater
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _USE_CAUSTICTS
+  - Name: NorthStar/PBR/PBR_N_Underwater
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+  - Name: NorthStar/PBR/PBR_N_Underwater
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - LIGHTMAP_ON
+  - Name: NorthStar/PBR/PBR_N_Underwater
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - STEREO_MULTIVIEW_ON
+  - Name: NorthStar/PBR/PBR_N_Underwater
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - STEREO_MULTIVIEW_ON
+    - _USE_CAUSTICTS
+  - Name: NorthStar/PBR/PBR_N_Underwater
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+  - Name: NorthStar/PBR/PBR_N_Underwater
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _DISABLENORMALTEXTURE
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: MotionVectors
+    PassType: 12
+    Keywords: []
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - _SPECULAR_FILTERING
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - _USE_RAIN
+    - _USE_TRIMSHEET_DETAILS
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - _USE_TRIMSHEET_DETAILS
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - _SPECULAR_FILTERING
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - _USE_INTERACTION_PULSE
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - _USE_RAIN
+    - _USE_TRIMSHEET_DETAILS
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - _USE_TRIMSHEET_DETAILS
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords: []
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _DISABLENORMALTEXTURE
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _SPECULAR_FILTERING
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _USE_INTERACTION_PULSE
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _USE_RAIN
+    - _USE_TRIMSHEET_DETAILS
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _USE_TRIMSHEET_DETAILS
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - DIRLIGHTMAP_COMBINED
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - DIRLIGHTMAP_COMBINED
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - DIRLIGHTMAP_COMBINED
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHAPREMULTIPLY_ON
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SURFACE_TYPE_TRANSPARENT
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _USE_TRIMSHEET_DETAILS
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _USE_RAIN
+    - _USE_TRIMSHEET_DETAILS
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _USE_TRIMSHEET_DETAILS
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _USE_TRIMSHEET_DETAILS
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHAPREMULTIPLY_ON
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SURFACE_TYPE_TRANSPARENT
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SURFACE_TYPE_TRANSPARENT
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _USE_TRIMSHEET_DETAILS
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHAPREMULTIPLY_ON
+    - _DISABLENORMALTEXTURE
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SURFACE_TYPE_TRANSPARENT
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHAPREMULTIPLY_ON
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SURFACE_TYPE_TRANSPARENT
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHAPREMULTIPLY_ON
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SURFACE_TYPE_TRANSPARENT
+    - _USE_INTERACTION_PULSE
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+    - _SURFACE_TYPE_TRANSPARENT
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SURFACE_TYPE_TRANSPARENT
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _USE_TRIMSHEET_DETAILS
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+    - _SURFACE_TYPE_TRANSPARENT
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SURFACE_TYPE_TRANSPARENT
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SURFACE_TYPE_TRANSPARENT
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _USE_INTERACTION_PULSE
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _USE_RAIN
+    - _USE_TRIMSHEET_DETAILS
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _USE_TRIMSHEET_DETAILS
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SPECULAR_FILTERING
+    - _SURFACE_TYPE_TRANSPARENT
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SPECULAR_FILTERING
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SURFACE_TYPE_TRANSPARENT
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SURFACE_TYPE_TRANSPARENT
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _USE_RAIN
+    - _USE_TRIMSHEET_DETAILS
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _USE_TRIMSHEET_DETAILS
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHAPREMULTIPLY_ON
+    - _DISABLENORMALTEXTURE
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SURFACE_TYPE_TRANSPARENT
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHAPREMULTIPLY_ON
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SURFACE_TYPE_TRANSPARENT
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHAPREMULTIPLY_ON
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SURFACE_TYPE_TRANSPARENT
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _USE_INTERACTION_PULSE
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SURFACE_TYPE_TRANSPARENT
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _USE_TRIMSHEET_DETAILS
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SURFACE_TYPE_TRANSPARENT
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _USE_TRIMSHEET_DETAILS
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SURFACE_TYPE_TRANSPARENT
+  - Name: NorthStar/PBR/PBR_NS
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _USE_TRIMSHEET_DETAILS
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: MotionVectors
+    PassType: 12
+    Keywords: []
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - _SPECULAR_FILTERING
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - _ALPHATEST_ON
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - _ALPHATEST_ON
+    - _SPECULAR_FILTERING
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - _SPECULAR_FILTERING
+    - _USE_INTERACTION_PULSE
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - _SPECULAR_FILTERING
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - _USE_INTERACTION_PULSE
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords: []
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _ALPHATEST_ON
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _ALPHATEST_ON
+    - _SPECULAR_FILTERING
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _SPECULAR_FILTERING
+    - _USE_INTERACTION_PULSE
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _SPECULAR_FILTERING
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _USE_INTERACTION_PULSE
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - DIRLIGHTMAP_COMBINED
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHATEST_ON
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - DIRLIGHTMAP_COMBINED
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHATEST_ON
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - DIRLIGHTMAP_COMBINED
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHATEST_ON
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - DIRLIGHTMAP_COMBINED
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - DIRLIGHTMAP_COMBINED
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - DIRLIGHTMAP_COMBINED
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - DIRLIGHTMAP_COMBINED
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - DIRLIGHTMAP_COMBINED
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - DIRLIGHTMAP_COMBINED
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - DIRLIGHTMAP_COMBINED
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - DIRLIGHTMAP_COMBINED
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - DIRLIGHTMAP_COMBINED
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHATEST_ON
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHATEST_ON
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - LIGHTMAP_ON
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHATEST_ON
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHATEST_ON
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHATEST_ON
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHATEST_ON
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+    - _USE_INTERACTION_PULSE
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_SETUP
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_SETUP
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _USE_INTERACTION_PULSE
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SPECULAR_FILTERING
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SPECULAR_SETUP
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _USE_INTERACTION_PULSE
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _USE_RAIN
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _USE_INTERACTION_PULSE
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SPECULAR_FILTERING
+    - _USE_INTERACTION_PULSE
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SPECULAR_SETUP
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_NSM
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SPECULAR_FILTERING
+  - Name: NorthStar/PBR/PBR_Sails
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords: []
+  - Name: NorthStar/PBR/PBR_Sails
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: NorthStar/PBR/PBR_Sails
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: NorthStar/PBR/PBR_Sails
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: Oculus/Unlit Transparent Color
+    Pass: 'Oculus/Unlit Transparent Color: <Unnamed Pass 0>'
+    PassType: 0
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+  - Name: Particles/Standard Unlit
+    Pass: 'Particles/Standard Unlit: <Unnamed Pass 2>'
+    PassType: 0
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ALPHABLEND_ON
+  - Name: Particles/Standard Unlit
+    Pass: 'Particles/Standard Unlit: <Unnamed Pass 2>'
+    PassType: 0
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ALPHABLEND_ON
+    - _COLOROVERLAY_ON
+  - Name: Particles/Standard Unlit
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - PROCEDURAL_INSTANCING_ON
+    - SHADOWS_CUBE
+    - _ALPHABLEND_ON
+  - Name: Shader Graphs/FX_Blood
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords: []
+  - Name: Shader Graphs/FX_Blood
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+    - _SURFACE_TYPE_TRANSPARENT
+  - Name: Shader Graphs/FX_Bubbles
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - INSTANCING_ON
+  - Name: Shader Graphs/FX_Bubbles
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _SURFACE_TYPE_TRANSPARENT
+  - Name: Shader Graphs/FX_Bubbles
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _SURFACE_TYPE_TRANSPARENT
+  - Name: Shader Graphs/FX_Candle
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+  - Name: Shader Graphs/FX_Candle
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+  - Name: Shader Graphs/FX_DivingBell_Water
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords: []
+  - Name: Shader Graphs/FX_DivingBell_Water
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SURFACE_TYPE_TRANSPARENT
+  - Name: Shader Graphs/FX_DivingBell_Water
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SURFACE_TYPE_TRANSPARENT
+  - Name: Shader Graphs/FX_DivingBell_Water
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SURFACE_TYPE_TRANSPARENT
+  - Name: Shader Graphs/FX_Fish
+    Pass: MotionVectors
+    PassType: 12
+    Keywords: []
+  - Name: Shader Graphs/FX_Fish
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+  - Name: Shader Graphs/FX_Fish
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords: []
+  - Name: Shader Graphs/FX_Fish
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+  - Name: Shader Graphs/FX_Fish
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+  - Name: Shader Graphs/FX_Floaters
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords: []
+  - Name: Shader Graphs/FX_Floaters
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+  - Name: Shader Graphs/FX_Floaters
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+  - Name: Shader Graphs/FX_HDR_Colored
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords: []
+  - Name: Shader Graphs/FX_HDR_Colored
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _USE_ALPHA_CHANNEL
+  - Name: Shader Graphs/FX_HDR_Colored
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _USE_DEPTH_FADE
+    - _USE_VERTEX_COLOR
+  - Name: Shader Graphs/FX_HDR_Colored
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _SURFACE_TYPE_TRANSPARENT
+  - Name: Shader Graphs/FX_HDR_Colored
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _SURFACE_TYPE_TRANSPARENT
+    - _USE_ALPHA_CHANNEL
+  - Name: Shader Graphs/FX_HDR_Colored
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _SURFACE_TYPE_TRANSPARENT
+    - _USE_DEPTH_FADE
+    - _USE_VERTEX_COLOR
+  - Name: Shader Graphs/FX_InverseFrensel_SphereLight
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+  - Name: Shader Graphs/FX_InverseFrensel_SphereLight_ColorVar
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+  - Name: Shader Graphs/FX_InverseFrensel_SphereLight_ColorVar
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+  - Name: Shader Graphs/FX_IslandBirds
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+  - Name: Shader Graphs/FX_IslandBirds
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords: []
+  - Name: Shader Graphs/FX_IslandBirds
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: Shader Graphs/FX_LightningStrike
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords: []
+  - Name: Shader Graphs/FX_Particle_Additive
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords: []
+  - Name: Shader Graphs/FX_Particle_Additive
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _SURFACE_TYPE_TRANSPARENT
+  - Name: Shader Graphs/FX_Particle_Additive
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _SURFACE_TYPE_TRANSPARENT
+  - Name: Shader Graphs/FX_PedestalCloud
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords: []
+  - Name: Shader Graphs/FX_PedestalCloud
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+  - Name: Shader Graphs/FX_PedestalCloud
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+  - Name: Shader Graphs/FX_Rain_Particle
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords: []
+  - Name: Shader Graphs/FX_Rain_Particle
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _SURFACE_TYPE_TRANSPARENT
+  - Name: Shader Graphs/FX_SandCloud
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords: []
+  - Name: Shader Graphs/FX_SandCloud
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: Shader Graphs/FX_SandCloud
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: Shader Graphs/FX_SandCloud_Unlit
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords: []
+  - Name: Shader Graphs/FX_SandCloud_Unlit
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+  - Name: Shader Graphs/FX_SandCloud_Unlit
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+  - Name: Shader Graphs/FX_Sunrays
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+  - Name: Shader Graphs/FX_Sunrays
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+  - Name: Shader Graphs/FX_Teleport_Base
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords: []
+  - Name: Shader Graphs/FX_Teleport_Base
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+  - Name: Shader Graphs/FX_Teleport_Line
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+  - Name: Shader Graphs/FX_Time_Vortex
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+  - Name: Shader Graphs/FX_Time_Vortex
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords: []
+  - Name: Shader Graphs/FX_Time_Vortex
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+  - Name: Shader Graphs/FX_UnderwaterSmoke
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: Shader Graphs/FX_UnderwaterSmoke
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: Shader Graphs/FX_UnderwaterSmoke
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: Shader Graphs/FX_UnderwaterSmoke
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: Shader Graphs/FX_UnderwaterSmoke
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: Shader Graphs/FX_Water_Crash
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords: []
+  - Name: Shader Graphs/FX_Water_Crash
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _SOFTPARTICLE
+  - Name: Shader Graphs/FX_Water_Crash
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _SOFTPARTICLE
+    - _SURFACE_TYPE_TRANSPARENT
+  - Name: Shader Graphs/FX_Water_Crash
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _SURFACE_TYPE_TRANSPARENT
+  - Name: Shader Graphs/FX_Water_Drop_Particle
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+  - Name: Shader Graphs/FX_Water_Drop_Particle
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+  - Name: Shader Graphs/FX_Water_Feature
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _ALPHATEST_ON
+    - _B_LOAD_COL_TEX
+  - Name: Shader Graphs/FX_Water_Feature
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _ALPHATEST_ON
+    - _B_UNLOAD_ROT_TEX
+    - _USE_VERTEX_ANIMATED_TEXTURES
+    - _USE_WIND
+  - Name: Shader Graphs/FX_Water_Feature
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _ALPHATEST_ON
+    - _USE_WIND
+  - Name: Shader Graphs/FX_Water_Feature
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _B_UNLOAD_ROT_TEX
+    - _USE_VERTEX_ANIMATED_TEXTURES
+    - _USE_WIND
+  - Name: Shader Graphs/FX_Water_Feature
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _USE_WIND
+  - Name: Shader Graphs/FX_Water_Feature
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ALPHATEST_ON
+    - _B_UNLOAD_ROT_TEX
+    - _SURFACE_TYPE_TRANSPARENT
+    - _USE_VERTEX_ANIMATED_TEXTURES
+    - _USE_WIND
+  - Name: Shader Graphs/FX_Water_Feature
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _B_UNLOAD_ROT_TEX
+    - _SURFACE_TYPE_TRANSPARENT
+    - _USE_VERTEX_ANIMATED_TEXTURES
+    - _USE_WIND
+  - Name: Shader Graphs/FX_Water_Feature
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _SURFACE_TYPE_TRANSPARENT
+    - _USE_WIND
+  - Name: Shader Graphs/FX_Water_Feature
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ALPHATEST_ON
+    - _B_UNLOAD_ROT_TEX
+    - _SURFACE_TYPE_TRANSPARENT
+    - _USE_VERTEX_ANIMATED_TEXTURES
+    - _USE_WIND
+  - Name: Shader Graphs/FX_Water_Feature
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _B_UNLOAD_ROT_TEX
+    - _SURFACE_TYPE_TRANSPARENT
+    - _USE_VERTEX_ANIMATED_TEXTURES
+    - _USE_WIND
+  - Name: Shader Graphs/FX_Water_Feature
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _SURFACE_TYPE_TRANSPARENT
+    - _USE_WIND
+  - Name: Shader Graphs/FX_Water_Ripples
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+  - Name: Shader Graphs/FX_Water_Ripples
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: Shader Graphs/FX_Water_Splash_Dissolve
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+  - Name: Shader Graphs/HandDistanceLine
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords: []
+  - Name: Shader Graphs/HandDistanceLine
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+  - Name: Shader Graphs/Octopus
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - MAIN_LIGHT_CALCULATE_SHADOWS
+    - STEREO_MULTIVIEW_ON
+    - _ALPHATEST_ON
+  - Name: Shader Graphs/Octopus
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - MAIN_LIGHT_CALCULATE_SHADOWS
+    - _ALPHATEST_ON
+  - Name: Shader Graphs/Octopus
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - MAIN_LIGHT_CALCULATE_SHADOWS
+    - STEREO_MULTIVIEW_ON
+    - _ALPHATEST_ON
+  - Name: Shader Graphs/SG_CenterOrb
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+  - Name: Shader Graphs/SG_CenterOrb
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+  - Name: Shader Graphs/SG_InnerOrb
+    Pass: MotionVectors
+    PassType: 12
+    Keywords: []
+  - Name: Shader Graphs/SG_InnerOrb
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+  - Name: Shader Graphs/SG_InnerOrb
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords: []
+  - Name: Shader Graphs/SG_InnerOrb
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+  - Name: Shader Graphs/SG_InnerOrb
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+  - Name: Shader Graphs/SG_SilverCurseOrb
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - _ALPHATEST_ON
+  - Name: Shader Graphs/SG_SilverCurseOrb
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - _ALPHATEST_ON
+  - Name: Shader Graphs/SG_SilverCurseOrb
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _ALPHATEST_ON
+  - Name: Shader Graphs/SG_SilverCurseOrb
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ALPHATEST_ON
+  - Name: Shader Graphs/SG_SilverCurseOrb
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ALPHATEST_ON
+  - Name: Shader Graphs/SG_Skybox_New
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords: []
+  - Name: Shader Graphs/SG_Skybox_New
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _ENABLESTARS
+  - Name: Shader Graphs/SG_Skybox_New
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _ENABLESTARS
+    - _IS_CELESTIAL_OBJECT
+  - Name: Shader Graphs/SG_Skybox_New
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _IS_CELESTIAL_OBJECT
+  - Name: Shader Graphs/SG_Skybox_New
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _USE_UNDERWATER_FOG
+  - Name: Shader Graphs/SG_Skybox_New
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ALPHAMODULATE_ON
+    - _IS_CELESTIAL_OBJECT
+    - _SURFACE_TYPE_TRANSPARENT
+    - _UNDERWATER_FOG
+  - Name: Shader Graphs/SG_Skybox_New
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _ENABLESTARS
+    - _UNDERWATER_FOG
+  - Name: Shader Graphs/SG_Skybox_New
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _UNDERWATER_FOG
+  - Name: Shader Graphs/SG_Skybox_New
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - _UNDERWATER_FOG
+    - _USE_UNDERWATER_FOG
+  - Name: Shader Graphs/SG_Skybox_New
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ALPHAMODULATE_ON
+    - _IS_CELESTIAL_OBJECT
+    - _SURFACE_TYPE_TRANSPARENT
+    - _UNDERWATER_FOG
+  - Name: Shader Graphs/SG_Skybox_New
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ENABLESTARS
+    - _IS_CELESTIAL_OBJECT
+    - _SURFACE_TYPE_TRANSPARENT
+    - _UNDERWATER_FOG
+  - Name: Shader Graphs/SG_Skybox_New
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ENABLESTARS
+    - _UNDERWATER_FOG
+  - Name: Shader Graphs/SG_Skybox_New
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _IS_CELESTIAL_OBJECT
+    - _SURFACE_TYPE_TRANSPARENT
+    - _UNDERWATER_FOG
+  - Name: Shader Graphs/SG_Skybox_New
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _UNDERWATER_FOG
+  - Name: Shader Graphs/SG_Skybox_New
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _UNDERWATER_FOG
+    - _USE_UNDERWATER_FOG
+  - Name: Shader Graphs/SG_Skybox_New
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP2
+    - _UNDERWATER_FOG
+  - Name: Shader Graphs/SG_Skybox_New
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP2
+    - STEREO_MULTIVIEW_ON
+    - _UNDERWATER_FOG
+  - Name: Shader Graphs/ShadowCaster
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords: []
+  - Name: Shader Graphs/Telescope
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+  - Name: Shader Graphs/Telescope
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords: []
+  - Name: Shader Graphs/Telescope
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: Shader Graphs/Telescope
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: Shader Graphs/Telescope
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: Shader Graphs/Underwater Surface
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - INSTANCING_ON
+    - MAIN_LIGHT_CALCULATE_SHADOWS
+    - _USE_UNDERWATER_FOG
+  - Name: Shader Graphs/Underwater Surface
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - INSTANCING_ON
+    - MAIN_LIGHT_CALCULATE_SHADOWS
+    - STEREO_MULTIVIEW_ON
+    - _USE_UNDERWATER_FOG
+  - Name: Shader Graphs/Unlit_NoFog
+    Pass: MotionVectors
+    PassType: 12
+    Keywords: []
+  - Name: Shader Graphs/Unlit_NoFog
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+  - Name: Shader Graphs/Unlit_NoFog
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords: []
+  - Name: Shader Graphs/Unlit_NoFog
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP2
+  - Name: Shader Graphs/Unlit_NoFog
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP2
+    - STEREO_MULTIVIEW_ON
+  - Name: Shader Graphs/Water Realistic
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - INSTANCING_ON
+    - _ENABLE_SUBSURFACE
+    - _GIANT_WAVE_ENABLED
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: Shader Graphs/Water Realistic
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - INSTANCING_ON
+    - _ENABLE_SUBSURFACE
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: Shader Graphs/Water Realistic
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - INSTANCING_ON
+    - STEREO_MULTIVIEW_ON
+    - _ENABLE_SUBSURFACE
+    - _GIANT_WAVE_ENABLED
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: Shader Graphs/Water Realistic
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - INSTANCING_ON
+    - STEREO_MULTIVIEW_ON
+    - _ENABLE_SUBSURFACE
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: Shader Graphs/Water Realistic
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - INSTANCING_ON
+    - STEREO_MULTIVIEW_ON
+    - _ENABLE_SUBSURFACE
+    - _MAIN_LIGHT_SHADOWS
+    - _RECEIVE_SHADOWS_OFF
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SURFACE_TYPE_TRANSPARENT
+  - Name: Shader Graphs/Water Realistic
+    Pass: Universal Forward
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - INSTANCING_ON
+    - STEREO_MULTIVIEW_ON
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: Skybox/Cubemap
+    Pass: 'Skybox/Cubemap: <Unnamed Pass 0>'
+    PassType: 0
+    Keywords: []
+  - Name: Skybox/Cubemap
+    Pass: 'Skybox/Cubemap: <Unnamed Pass 0>'
+    PassType: 0
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+  - Name: Sprites/Default
+    Pass: 'Sprites/Default: <Unnamed Pass 0>'
+    PassType: 0
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+  - Name: Standard
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - SHADOWS_CUBE
+    - _ALPHAPREMULTIPLY_ON
+  - Name: Standard
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - SHADOWS_DEPTH
+  - Name: TextMeshPro/Distance Field Overlay
+    Pass: 'TextMeshPro/Distance Field Overlay: <Unnamed Pass 0>'
+    PassType: 0
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - UNDERLAY_ON
+  - Name: UI/Default (NoDepth)
+    Pass: Default
+    PassType: 0
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+  - Name: UI/Default (NoDepth)
+    Pass: Default
+    PassType: 0
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+    - UNITY_UI_ALPHACLIP
+  - Name: UI/Default Correct
+    Pass: Default
+    PassType: 0
+    Keywords: []
+  - Name: UI/Default
+    Pass: Default
+    PassType: 0
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+  - Name: Universal Render Pipeline/Lit
+    Pass: ForwardLit
+    PassType: 13
+    Keywords:
+    - EVALUATE_SH_VERTEX
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _EMISSION
+    - _MAIN_LIGHT_SHADOWS
+    - _METALLICSPECGLOSSMAP
+    - _NORMALMAP
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: Universal Render Pipeline/Lit
+    Pass: ForwardLit
+    PassType: 13
+    Keywords:
+    - EVALUATE_SH_VERTEX
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: Universal Render Pipeline/Lit
+    Pass: ForwardLit
+    PassType: 13
+    Keywords:
+    - EVALUATE_SH_VERTEX
+    - FOG_EXP
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: Universal Render Pipeline/Lit
+    Pass: ForwardLit
+    PassType: 13
+    Keywords:
+    - EVALUATE_SH_VERTEX
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _EMISSION
+    - _MAIN_LIGHT_SHADOWS
+    - _METALLICSPECGLOSSMAP
+    - _NORMALMAP
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: Universal Render Pipeline/Lit
+    Pass: ForwardLit
+    PassType: 13
+    Keywords:
+    - EVALUATE_SH_VERTEX
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: Universal Render Pipeline/Lit
+    Pass: ForwardLit
+    PassType: 13
+    Keywords:
+    - EVALUATE_SH_VERTEX
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: Universal Render Pipeline/Lit
+    Pass: ForwardLit
+    PassType: 13
+    Keywords:
+    - EVALUATE_SH_VERTEX
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+    - _SHADOWS_SOFT
+  - Name: Universal Render Pipeline/Lit
+    Pass: ForwardLit
+    PassType: 13
+    Keywords:
+    - EVALUATE_SH_VERTEX
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHTS
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _LIGHT_COOKIES
+    - _MAIN_LIGHT_SHADOWS
+    - _REFLECTION_PROBE_BOX_PROJECTION
+  - Name: Universal Render Pipeline/Lit
+    Pass: MotionVectors
+    PassType: 12
+    Keywords: []
+  - Name: Universal Render Pipeline/Lit
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+  - Name: Universal Render Pipeline/Lit
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords: []
+  - Name: Universal Render Pipeline/Particles/Simple Lit
+    Pass: ForwardLit
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHATEST_ON
+    - _COLORADDSUBDIFF_ON
+    - _EMISSION
+    - _MAIN_LIGHT_SHADOWS
+    - _SHADOWS_SOFT
+    - _SURFACE_TYPE_TRANSPARENT
+  - Name: Universal Render Pipeline/Particles/Simple Lit
+    Pass: ForwardLit
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHATEST_ON
+    - _COLORADDSUBDIFF_ON
+    - _EMISSION
+    - _MAIN_LIGHT_SHADOWS
+    - _SURFACE_TYPE_TRANSPARENT
+  - Name: Universal Render Pipeline/Particles/Unlit
+    Pass: ForwardLit
+    PassType: 13
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _SURFACE_TYPE_TRANSPARENT
+  - Name: Universal Render Pipeline/Simple Lit
+    Pass: ForwardLit
+    PassType: 13
+    Keywords:
+    - EVALUATE_SH_VERTEX
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHATEST_ON
+    - _EMISSION
+    - _MAIN_LIGHT_SHADOWS
+  - Name: Universal Render Pipeline/Simple Lit
+    Pass: ForwardLit
+    PassType: 13
+    Keywords:
+    - EVALUATE_SH_VERTEX
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _ADDITIONAL_LIGHT_SHADOWS
+    - _ALPHATEST_ON
+    - _EMISSION
+    - _MAIN_LIGHT_SHADOWS
+    - _SHADOWS_SOFT
+  - Name: Universal Render Pipeline/Simple Lit
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+  - Name: Universal Render Pipeline/Simple Lit
+    Pass: ShadowCaster
+    PassType: 8
+    Keywords:
+    - _ALPHATEST_ON
+  - Name: Universal Render Pipeline/Unlit
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+  - Name: Universal Render Pipeline/Unlit
+    Pass: Unlit
+    PassType: 0
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+  - Name: Universal Render Pipeline/Unlit
+    Pass: Unlit
+    PassType: 0
+    Keywords:
+    - FOG_EXP
+    - STEREO_MULTIVIEW_ON
+    - _SURFACE_TYPE_TRANSPARENT
+  - Name: Unlit/EyeGlass
+    Pass: StencilWrite
+    PassType: 0
+    Keywords: []
+  - Name: Unlit/EyeGlass
+    Pass: StencilWrite
+    PassType: 0
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+  - Name: Unlit/EyeStencilWrite
+    Pass: DepthWrite
+    PassType: 0
+    Keywords: []
+  - Name: Unlit/EyeStencilWrite
+    Pass: DepthWrite
+    PassType: 0
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+  - Name: Unlit/EyeStencilWrite
+    Pass: StencilWrite
+    PassType: 0
+    Keywords: []
+  - Name: Unlit/EyeStencilWrite
+    Pass: StencilWrite
+    PassType: 0
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+  - Name: Unlit/UIMotionProxy
+    Pass: MotionVectors
+    PassType: 12
+    Keywords:
+    - STEREO_MULTIVIEW_ON
+  ShaderAttributes:
+  - Shader: {fileID: 4800000, guid: 650dd9526735d5b46b79224bc6e94025, type: 3}
+    AttributeSets:
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 3
+        Format: 2
+        Dimension: 4
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+  - Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+    AttributeSets:
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 6
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 7
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 3
+        Format: 2
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 3
+        Format: 2
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 1
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 1
+      - Attribute: 13
+        Format: 10
+        Dimension: 1
+        Stream: 2
+  - Shader: {fileID: -6465566751694194690, guid: 297b59a324d25f447889ca97cef5c9ba,
+      type: 3}
+    AttributeSets:
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 6
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 7
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 6
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 3
+        Format: 2
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 3
+        Format: 2
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 3
+        Format: 2
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 6
+        Format: 0
+        Dimension: 2
+        Stream: 0
+  - Shader: {fileID: -6465566751694194690, guid: bc7895cbd7727144ba6c887f02036c92,
+      type: 3}
+    AttributeSets:
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 6
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 7
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 6
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 3
+        Format: 2
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 3
+        Format: 2
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes: []
+  - Shader: {fileID: -6465566751694194690, guid: 096616554ccd66b4bb8989c4c7babe35,
+      type: 3}
+    AttributeSets:
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 6
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 3
+        Format: 2
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 3
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 4
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 4
+        Stream: 0
+  - Shader: {fileID: -6465566751694194690, guid: db850ae27352aea4c9be90d10cd3ad78,
+      type: 3}
+    AttributeSets:
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 6
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 1
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 3
+        Format: 2
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 3
+        Format: 2
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 1
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 1
+      - Attribute: 13
+        Format: 10
+        Dimension: 1
+        Stream: 2
+  - Shader: {fileID: -6465566751694194690, guid: 1e4cd3f9b9fb1ea4e96593cdd4d630ad,
+      type: 3}
+    AttributeSets:
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 6
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 3
+        Format: 2
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 3
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 4
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 4
+        Stream: 0
+  - Shader: {fileID: -6465566751694194690, guid: 23902285b661e8a409519e3d41d3d664,
+      type: 3}
+    AttributeSets:
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 6
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 3
+        Format: 2
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 3
+        Format: 2
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 6
+        Format: 0
+        Dimension: 2
+        Stream: 0
+  - Shader: {fileID: -6465566751694194690, guid: 8e4eaa24c3a9dc24c804105bc3a1d528,
+      type: 3}
+    AttributeSets:
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 3
+        Format: 2
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 3
+        Format: 2
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 3
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 4
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 4
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 3
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 4
+        Stream: 0
+  - Shader: {fileID: -6465566751694194690, guid: e76509c7d34ebf54cbf66122960e31c9,
+      type: 3}
+    AttributeSets:
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+  - Shader: {fileID: -6465566751694194690, guid: 0dd30c5503d3c674ca12d880f3ab4528,
+      type: 3}
+    AttributeSets:
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+  - Shader: {fileID: -6465566751694194690, guid: 5210c76e9db5c0b43878fcf941385c3a,
+      type: 3}
+    AttributeSets:
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 3
+        Format: 2
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 3
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 4
+        Stream: 0
+  - Shader: {fileID: -6465566751694194690, guid: 1dc5c96046cd3fb44b24d088146421b6,
+      type: 3}
+    AttributeSets:
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+  - Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+    AttributeSets:
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+  - Shader: {fileID: 4800000, guid: 57c328e70d404164ab9b23ac6fc12df6, type: 3}
+    AttributeSets:
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+  - Shader: {fileID: 4800000, guid: 3c18609cc3637334d95dc1dd5ee80f56, type: 3}
+    AttributeSets:
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+  - Shader: {fileID: -6465566751694194690, guid: b8aae66f82c266e44acf1625b25a2d40,
+      type: 3}
+    AttributeSets:
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+  - Shader: {fileID: -6465566751694194690, guid: febd6374508498942a206c5a8ba0d7c2,
+      type: 3}
+    AttributeSets:
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+  - Shader: {fileID: -6465566751694194690, guid: a21d5a03178861d48afbc983259983ce,
+      type: 3}
+    AttributeSets:
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+  - Shader: {fileID: -6465566751694194690, guid: 2a0911abb5feea1479ae3ac6ee4d6175,
+      type: 3}
+    AttributeSets:
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+  - Shader: {fileID: -6465566751694194690, guid: 14c2f1d283c829c42b0418b720cd3e5e,
+      type: 3}
+    AttributeSets:
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 3
+        Format: 2
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+  - Shader: {fileID: -6465566751694194690, guid: c794ced6bb7bf8b4cafa78b17e58a37a,
+      type: 3}
+    AttributeSets:
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 3
+        Format: 2
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+  - Shader: {fileID: 4800000, guid: fb5d3f4854ac6054493c2e6d8802ea19, type: 3}
+    AttributeSets:
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 3
+        Format: 2
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+  - Shader: {fileID: 4800000, guid: 2bb37f832a9212447916e26d7a3b6177, type: 3}
+    AttributeSets:
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 3
+        Format: 2
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+  - Shader: {fileID: -6465566751694194690, guid: a189d9191ffca66489b5d2fcf9cceed2,
+      type: 3}
+    AttributeSets:
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 3
+        Format: 2
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+  - Shader: {fileID: -6465566751694194690, guid: 2a05abcc07b9bf34b840663948ee4a54,
+      type: 3}
+    AttributeSets:
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 3
+        Format: 2
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 3
+        Format: 2
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 2
+        Stream: 0
+      - Attribute: 5
+        Format: 0
+        Dimension: 2
+        Stream: 0
+  - Shader: {fileID: -6465566751694194690, guid: 7416057de396c134cb063291fe34307b,
+      type: 3}
+    AttributeSets:
+    - IndexFormat: 0
+      Attributes:
+      - Attribute: 0
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 1
+        Format: 0
+        Dimension: 3
+        Stream: 0
+      - Attribute: 2
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 3
+        Format: 0
+        Dimension: 4
+        Stream: 0
+      - Attribute: 4
+        Format: 0
+        Dimension: 4
+        Stream: 0

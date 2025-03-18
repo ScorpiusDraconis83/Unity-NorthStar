@@ -399,11 +399,6 @@ MonoBehaviour:
   m_firingForce: 100
   m_lineRenderer: {fileID: 187524278658781463}
   m_showLineRenderer: 0
-  m_forceFactor: 70.8
-  m_timingFactor: 35
-  m_ratio: 90
-  m_gravity: -9.8
-  m_offset: 1
   m_simulationTime: 10
   m_ropeWheel: {fileID: 3410364053427375632}
   m_reelRope: {fileID: 2670573235767122022}
@@ -733,6 +728,7 @@ MonoBehaviour:
   m_startAtHalfway: 0
   m_ratchet: 1
   m_step: 15
+  m_clapRotations: 0
   m_onRatchet:
     m_PersistentCalls:
       m_Calls: []
@@ -1299,7 +1295,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1663477909063357446}
-        m_TargetAssemblyTypeName: NorthStar.TestHarpoon, Assembly-CSharp
+        m_TargetAssemblyTypeName: NorthStar.Harpoon, Assembly-CSharp
         m_MethodName: RearmInput
         m_Mode: 1
         m_Arguments:
@@ -1331,7 +1327,7 @@ MonoBehaviour:
   m_snapToEnd: 0.9
   m_ratchet: 0
   m_step: 0.15
-  stepOut: 0
+  StepOut: 0
 --- !u!114 &9142016139866426969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1416,8 +1412,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6455c8d138b1c8f4298efb6ea8bc02e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: {x: 0, y: 0.17, z: -0.91}
-  b: {x: 0, y: 0.03, z: -1}
+  m_a: {x: 0, y: 0.17, z: -0.91}
+  m_b: {x: 0, y: 0.03, z: -1}
 --- !u!1 &920645613809554160
 GameObject:
   m_ObjectHideFlags: 0
@@ -1813,8 +1809,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae21d7ae6fe56b4387bc7ca4642772d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateMode: 4
-  parentMethod: 0
+  m_updateMode: 4
+  m_parentMethod: 0
   Body: {fileID: 5560356228383584261}
   Registered: 0
   RegisteredTo: {fileID: 0}
@@ -2045,8 +2041,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6455c8d138b1c8f4298efb6ea8bc02e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: {x: 0, y: 0.34, z: 0}
-  b: {x: 0, y: -0.06, z: 0}
+  m_a: {x: 0, y: 0.34, z: 0}
+  m_b: {x: 0, y: -0.06, z: 0}
 --- !u!1 &1257065385573074077
 GameObject:
   m_ObjectHideFlags: 0
@@ -2091,8 +2087,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6455c8d138b1c8f4298efb6ea8bc02e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: {x: 0, y: 0.34, z: 0}
-  b: {x: 0, y: -0.06, z: 0}
+  m_a: {x: 0, y: 0.34, z: 0}
+  m_b: {x: 0, y: -0.06, z: 0}
 --- !u!1 &1352959912936055644
 GameObject:
   m_ObjectHideFlags: 0
@@ -2518,8 +2514,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6455c8d138b1c8f4298efb6ea8bc02e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: {x: 0, y: 0, z: 0}
-  b: {x: 0, y: 0.15, z: 0}
+  m_a: {x: 0, y: 0, z: 0}
+  m_b: {x: 0, y: 0.15, z: 0}
 --- !u!1 &1883506550869425089
 GameObject:
   m_ObjectHideFlags: 0
@@ -2567,7 +2563,8 @@ MonoBehaviour:
   NodeIndex: 0
   BindIndex: 0
   m_rope: {fileID: 2670573235767122022}
-  useBoatSpace: 0
+  m_lateUpdate: 0
+  UseBoatSpace: 0
 --- !u!1 &1969300394252965215
 GameObject:
   m_ObjectHideFlags: 0
@@ -2752,8 +2749,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae21d7ae6fe56b4387bc7ca4642772d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateMode: 0
-  parentMethod: 0
+  m_updateMode: 0
+  m_parentMethod: 0
   Body: {fileID: 7262145396038172202}
   Registered: 0
   RegisteredTo: {fileID: 0}
@@ -2782,6 +2779,7 @@ MonoBehaviour:
   m_playOnAwake: 0
   m_oneShotMode: 1
   BaseVolume: 0
+  m_allowOverlap: 0
 --- !u!82 &994819455879797702
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3507,8 +3505,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae21d7ae6fe56b4387bc7ca4642772d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateMode: 0
-  parentMethod: 0
+  m_updateMode: 0
+  m_parentMethod: 0
   Body: {fileID: 8663204370601864576}
   Registered: 0
   RegisteredTo: {fileID: 0}
@@ -3564,6 +3562,7 @@ MonoBehaviour:
   m_playOnAwake: 0
   m_oneShotMode: 1
   BaseVolume: 0
+  m_allowOverlap: 0
 --- !u!82 &692992535643818178
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4647,6 +4646,7 @@ MonoBehaviour:
   m_playOnAwake: 0
   m_oneShotMode: 1
   BaseVolume: 0
+  m_allowOverlap: 0
 --- !u!82 &1817991871305954304
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5817,6 +5817,7 @@ MonoBehaviour:
   m_playOnAwake: 0
   m_oneShotMode: 1
   BaseVolume: 0
+  m_allowOverlap: 0
 --- !u!82 &2224592652660877224
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6204,8 +6205,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6455c8d138b1c8f4298efb6ea8bc02e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: {x: 0.2, y: 0, z: 0}
-  b: {x: -0.2, y: 0, z: 0}
+  m_a: {x: 0.2, y: 0, z: 0}
+  m_b: {x: -0.2, y: 0, z: 0}
 --- !u!1 &5249951192856587447
 GameObject:
   m_ObjectHideFlags: 0
@@ -6303,8 +6304,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae21d7ae6fe56b4387bc7ca4642772d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateMode: 3
-  parentMethod: 1
+  m_updateMode: 3
+  m_parentMethod: 1
   Body: {fileID: 3907411758469563659}
   Registered: 0
   RegisteredTo: {fileID: 0}
@@ -9157,7 +9158,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7602176595987857982}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2dd7b135b8cbac14faafc761004450b8, type: 3}
   m_Name: 
@@ -9165,7 +9166,8 @@ MonoBehaviour:
   NodeIndex: 39
   BindIndex: 1
   m_rope: {fileID: 2670573235767122022}
-  useBoatSpace: 0
+  m_lateUpdate: 0
+  UseBoatSpace: 0
 --- !u!1 &7649288823745746776
 GameObject:
   m_ObjectHideFlags: 0
@@ -9578,8 +9580,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6455c8d138b1c8f4298efb6ea8bc02e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: {x: 0, y: 0, z: 0}
-  b: {x: 0, y: -0.15, z: 0}
+  m_a: {x: 0, y: 0, z: 0}
+  m_b: {x: 0, y: -0.15, z: 0}
 --- !u!1 &8211911445665854635
 GameObject:
   m_ObjectHideFlags: 0
@@ -10105,6 +10107,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 375624625462951738}
     m_Modifications:
+    - target: {fileID: -9203392543943038972, guid: ea2e8721a55436e4ab06f272e91a3f48,
+        type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ea2e8721a55436e4ab06f272e91a3f48,
         type: 3}
       propertyPath: m_LocalPosition.x

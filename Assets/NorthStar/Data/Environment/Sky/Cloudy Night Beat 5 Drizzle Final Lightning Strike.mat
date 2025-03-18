@@ -12,7 +12,8 @@ Material:
     type: 3}
   m_Parent: {fileID: 2100000, guid: 907cd1c9d82c10a4c83184fc49699705, type: 2}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _ENABLESTARS
   m_InvalidKeywords:
   - _IS_STORMY_SKY
   m_LightmapFlags: 4
@@ -23,11 +24,12 @@ Material:
     RenderType: Opaque
   disabledShaderPasses:
   - SHADOWCASTER
+  - DepthOnly
   m_LockedProperties: _Back_Scatter_Power _Cloud_Ambient _Cloud_Back_Color _Cloud_Blend_Offset
     _Cloud_Blend_Power _Cloud_Direction _Cloud_Offset _Cloud_Opacity_Offset _Cloud_Scale
-    _Cloud_Speed _Cloud_Sun_Color _Fog_Offset _Fog_Power _Front_Scatter_Power _Ground_Color
-    _Scatter_Blend _Sky_Blend_Offset _Sky_Blend_Power _Sky_Horizon_Color _Sky_Zenith_Color
-    _Star_Color _Star_Power _Star_Scale
+    _Cloud_Speed _Cloud_Sun_Color _ENABLESTARS _Fog_Offset _Fog_Power _Front_Scatter_Power
+    _Ground_Color _Scatter_Blend _Sky_Blend_Offset _Sky_Blend_Power _Sky_Horizon_Color
+    _Sky_Zenith_Color _Star_Color _Star_Power _Star_Scale
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -55,6 +57,7 @@ Material:
     - _Cloud_Opacity_Scale: 2
     - _Cloud_Scale: 1
     - _Cloud_Speed: 0.001
+    - _ENABLESTARS: 1
     - _Fog_Offset: 0.8
     - _Fog_Power: 1
     - _Front_Scatter_Power: 0.85

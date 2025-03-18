@@ -10,21 +10,21 @@ namespace NorthStar
     [RequireComponent(typeof(PlayableDirector))]
     public class PlayableDirectorSpeedController : MonoBehaviour
     {
-        public PlayableDirector pd;
-        public bool m_overrideTimelineSpeed;
+        public PlayableDirector Director;
+        [SerializeField] private bool m_overrideTimelineSpeed;
 
         [Range(0.0f, 2.0f)]
-        public float m_timelineSpeed = 1.0f;
+        [SerializeField] private float m_timelineSpeed = 1.0f;
 
         private void Start()
         {
-            if (pd == null)
+            if (Director == null)
             {
-                pd = GetComponent<PlayableDirector>();
+                Director = GetComponent<PlayableDirector>();
             }
             if (m_overrideTimelineSpeed)
             {
-                pd.playableGraph.GetRootPlayable(0).SetSpeed(m_timelineSpeed);
+                Director.playableGraph.GetRootPlayable(0).SetSpeed(m_timelineSpeed);
             }
         }
 
@@ -42,7 +42,7 @@ namespace NorthStar
         {
             if (m_overrideTimelineSpeed)
             {
-                pd.playableGraph.GetRootPlayable(0).SetSpeed(m_timelineSpeed);
+                Director.playableGraph.GetRootPlayable(0).SetSpeed(m_timelineSpeed);
             }
 
         }

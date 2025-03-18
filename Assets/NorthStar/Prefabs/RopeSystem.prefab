@@ -670,10 +670,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ropeSystem: {fileID: 8969929792515654200}
-  m_transform: {fileID: 5485080640899524096}
   m_body: {fileID: 7131139049756306272}
   m_gripAxis: {x: 0.05, y: 0, z: 1}
   m_gripWidth: 0.015
+  m_transform: {fileID: 5485080640899524096}
 --- !u!114 &8135102231175505077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -686,7 +686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 223fc7c454fdb0346a322b7ba3a81386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  physicsTransformer: {fileID: 5485080640899524096}
+  m_physicsTransformer: {fileID: 5485080640899524096}
   OnGrab:
     m_PersistentCalls:
       m_Calls:
@@ -1004,6 +1004,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  m_leftHand: {fileID: 0}
+  m_rightHand: {fileID: 0}
 --- !u!120 &3862797240152329497
 LineRenderer:
   serializedVersion: 2
@@ -1560,10 +1562,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ropeSystem: {fileID: 8969929792515654200}
-  m_transform: {fileID: 2661605576664692797}
   m_body: {fileID: 4144960862620528205}
   m_gripAxis: {x: -0.05, y: 0, z: -1}
   m_gripWidth: 0.015
+  m_transform: {fileID: 2661605576664692797}
 --- !u!114 &1037358510972937166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1576,7 +1578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 223fc7c454fdb0346a322b7ba3a81386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  physicsTransformer: {fileID: 2661605576664692797}
+  m_physicsTransformer: {fileID: 2661605576664692797}
   OnGrab:
     m_PersistentCalls:
       m_Calls:
@@ -1779,6 +1781,7 @@ MonoBehaviour:
   m_playOnAwake: 0
   m_oneShotMode: 1
   BaseVolume: 0
+  m_allowOverlap: 0
 --- !u!82 &5468216160400173022
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2076,6 +2079,7 @@ MonoBehaviour:
   m_playOnAwake: 0
   m_oneShotMode: 1
   BaseVolume: 0
+  m_allowOverlap: 0
 --- !u!82 &121804456352677857
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2321,6 +2325,7 @@ MonoBehaviour:
   m_playOnAwake: 0
   m_oneShotMode: 1
   BaseVolume: 0
+  m_allowOverlap: 0
 --- !u!82 &7148351064803985798
 AudioSource:
   m_ObjectHideFlags: 0

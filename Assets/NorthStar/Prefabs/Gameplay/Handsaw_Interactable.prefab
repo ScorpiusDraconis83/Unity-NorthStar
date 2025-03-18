@@ -956,6 +956,21 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 44f99729864e70f40896a92ea0fa8676,
+        type: 3}
+      propertyPath: m_Size
+      value: 0.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 44f99729864e70f40896a92ea0fa8676,
+        type: 3}
+      propertyPath: m_LODs.Array.data[0].screenRelativeHeight
+      value: 0.09742369
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 44f99729864e70f40896a92ea0fa8676,
+        type: 3}
+      propertyPath: m_LODs.Array.data[1].screenRelativeHeight
+      value: 0.022391004
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5307138696790151396, guid: 44f99729864e70f40896a92ea0fa8676, type: 3}
@@ -1079,6 +1094,8 @@ MonoBehaviour:
   m_softGrabTime: 0.2
   m_bonusBreakTimer: 0
   m_toggleIntertiaTensorOnGrab: 1
+  m_throwVelocityPercent: 0
+  m_velocityHistoryCapacity: 20
 --- !u!114 &294349173557602699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1094,3 +1111,4 @@ MonoBehaviour:
   OnPlaySound:
     m_PersistentCalls:
       m_Calls: []
+  m_collsionDelayTime: 0

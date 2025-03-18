@@ -157,6 +157,7 @@ BRDFData CreateClearCoatBRDFData(SurfaceData surfaceData, inout BRDFData brdfDat
     return brdfDataClearCoat;
 }
 
+// Meta change : Improved BRDF function
 // https://www.unrealengine.com/en-US/blog/physically-based-shading-on-mobile
 half3 EnvBRDFApprox( half3 SpecularColor, half Roughness, half NoV )
 {

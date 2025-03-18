@@ -6,15 +6,15 @@ namespace NorthStar
 {
     public class DebugPlatformMovement : MonoBehaviour
     {
-        public float speed;
-        public float rotation;
+        public float Speed;
+        public float Rotation;
 
-        [SerializeField, AutoSet] private Rigidbody rb;
+        [SerializeField, AutoSet] private Rigidbody m_rigidbody;
 
         private void FixedUpdate()
         {
-            rb.position += transform.forward * (speed * Time.fixedDeltaTime);
-            rb.rotation *= Quaternion.Euler(0, rotation * Time.fixedDeltaTime, 0);
+            m_rigidbody.position += transform.forward * (Speed * Time.fixedDeltaTime);
+            m_rigidbody.rotation *= Quaternion.Euler(0, Rotation * Time.fixedDeltaTime, 0);
         }
     }
 }

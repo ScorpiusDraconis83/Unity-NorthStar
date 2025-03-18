@@ -30,7 +30,7 @@ namespace NorthStar
             GlobalSettings.PlayerSettings.OnPlayerCalibrationChange -= SetHeight;
         }
 
-        private void SetHeight()
+        public void SetHeight()
         {
             var offset = m_heightCurve.Evaluate(GlobalSettings.PlayerSettings.Height);
             transform.localPosition = m_originalPosition + Vector3.up * offset;

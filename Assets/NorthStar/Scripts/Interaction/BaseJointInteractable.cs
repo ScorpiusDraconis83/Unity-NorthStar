@@ -14,11 +14,11 @@ namespace NorthStar
     /// <typeparam name="T">The expected type of value the inherited interactable class will output when manipulated</typeparam>
     public abstract class BaseJointInteractable<T> : MonoBehaviour
     {
-        public UnityEvent<T> m_onValueChange;
-        public UnityEvent<bool> m_onGrabChange;
+        [SerializeField] private UnityEvent<T> m_onValueChange;
+        [SerializeField] private UnityEvent<bool> m_onGrabChange;
 
-        public UnityEvent m_onGrabbed;
-        public UnityEvent m_onReleased;
+        [SerializeField] private UnityEvent m_onGrabbed;
+        [SerializeField] private UnityEvent m_onReleased;
 
         [SerializeField]
         protected ConfigurableJoint m_joint;

@@ -9,25 +9,25 @@ namespace NorthStar
     /// </summary>
     public class SimpleOvrCamera : MonoBehaviour
     {
-        public bool useAsw = true;
-        public float framerate = 90;
-        public bool dynamicFoveatedRendering = false;
+        public bool UseAsw = true;
+        public float Framerate = 90;
+        public bool DynamicFoveatedRendering = false;
         public OVRPlugin.FoveatedRenderingLevel FoveatedRenderingLevel = OVRPlugin.FoveatedRenderingLevel.Off;
-        public bool updatePosition = true;
+        public bool UpdatePosition = true;
 
         private void Awake()
         {
             GetComponent<Camera>().depthTextureMode = DepthTextureMode.MotionVectors;
 
-            OVRPlugin.systemDisplayFrequency = framerate;
-            OVRManager.SetSpaceWarp(useAsw);
-            OVRPlugin.useDynamicFoveatedRendering = dynamicFoveatedRendering;
+            OVRPlugin.systemDisplayFrequency = Framerate;
+            OVRManager.SetSpaceWarp(UseAsw);
+            OVRPlugin.useDynamicFoveatedRendering = DynamicFoveatedRendering;
             OVRPlugin.foveatedRenderingLevel = FoveatedRenderingLevel;
         }
 
         private void Update()
         {
-            if (!updatePosition)
+            if (!UpdatePosition)
                 return;
 
             if (OVRNodeStateProperties.GetNodeStatePropertyVector3(Node.CenterEye, NodeStatePropertyType.Position, OVRPlugin.Node.EyeCenter, OVRPlugin.Step.Render, out var centerEyePosition))

@@ -3,17 +3,17 @@
 #ifndef UNDERWATER_REFRACTION_INCLUDED
 #define UNDERWATER_REFRACTION_INCLUDED
 
-void UnderwaterRefraction_float(float3 N, float3 V, float smoothness, bool isFrontFace, out float3 color)
+void UnderwaterRefraction_half(half3 N, half3 V, half smoothness, bool isFrontFace, out half3 color)
 {
     #if SHADERGRAPH_PREVIEW
 	color = 0.0;
 #else
-    float perceptualRoughness = 1.0 - smoothness;
-	float roughness = Sq(perceptualRoughness);
-    float envBrdf;
+    half perceptualRoughness = 1.0 - smoothness;
+    half roughness = Sq(perceptualRoughness);
+    half envBrdf;
     
     // Reflect or refract based on critical angle
-    float3 R;
+    half3 R;
     if(isFrontFace)
     {
         R = reflect(-V, N);
@@ -21,9 +21,9 @@ void UnderwaterRefraction_float(float3 N, float3 V, float smoothness, bool isFro
     }
     else
     {
-        float eta = 2;
-        float NdotI = dot(-N, -V);
-        float k = 1.0 - eta * eta * (1.0 - NdotI * NdotI);
+        half eta = 2;
+        half NdotI = dot(-N, -V);
+        half k = 1.0 - eta * eta * (1.0 - NdotI * NdotI);
         if(k < 0.0)
         {
             envBrdf = EnvBRDFApproxNonmetal(roughness, dot(-N, V));
@@ -36,12 +36,17 @@ void UnderwaterRefraction_float(float3 N, float3 V, float smoothness, bool isFro
         }
     }
     
- 	float mip = PerceptualRoughnessToMipmapLevel(perceptualRoughness);
- 	float4 encodedIrradiance = SAMPLE_TEXTURECUBE_LOD(unity_SpecCube0, samplerunity_SpecCube0, R, 0);
- 	float3 irradiance = DecodeHDREnvironment(encodedIrradiance, unity_SpecCube0_HDR);
+    half mip = PerceptualRoughnessToMipmapLevel(perceptualRoughness);
+    half4 encodedIrradiance = SAMPLE_TEXTURECUBE_LOD(unity_SpecCube0, samplerunity_SpecCube0, R, 0);
+    half3 irradiance = DecodeHDREnvironment(encodedIrradiance, unity_SpecCube0_HDR);
  
  	color = irradiance * envBrdf;
     
 #endif
 }
+void UnderwaterRefraction_float(half3 N, half3 V, half smoothness, bool isFrontFace, out half3 color)
+{
+    UnderwaterRefraction_half(N, V, smoothness, isFrontFace, color);
+}
+
 #endif

@@ -23,10 +23,21 @@ public class VulkanCacheInitializer extends ContentProvider {
     @Override
     public boolean onCreate() {
         Log.d("Unity", "Beginning Vulkan PSO cache initialization...");
+        Log.d("Unity", "Device Info: " + android.os.Build.MODEL + " " + android.os.Build.DEVICE + " " + android.os.Build.PRODUCT);
+
+        String cacheSuffix = "quest3";
+
+        // Detect Quest 2 devices and use alternative cache
+        if (android.os.Build.DEVICE.equals("hollywood"))
+        {
+            cacheSuffix = "quest2";
+        }
+
+        Log.d("Unity", "Using " + cacheSuffix + " variant...");
 
         Path androidFilePath = Paths.get(getContext().getExternalCacheDir().getAbsolutePath(), "vulkan_pso_cache.bin");
 
-        try (InputStream file = getContext().getAssets().open("vulkan_pso_cache.bin")) {
+        try (InputStream file = getContext().getAssets().open("vulkan_pso_cache_" + cacheSuffix + ".bin")) {
             if (Files.exists(androidFilePath)) {
                 Log.d("Unity", "Vulkan PSO cache already exists at " + androidFilePath);
             } else {

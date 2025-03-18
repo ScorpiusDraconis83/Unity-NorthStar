@@ -9,47 +9,47 @@ namespace NorthStar
         //This could be simplified to having fewer variables to manage by using exact values in the animation curves, rather than using them as a multiplier
         //However scaling of animation curves in Unity Editor can be quite frustrating, so individual defined values for the min and max range has been found to
         //allow easier iteration on the effects without needing to change the whole curve.
-        public AudioSource audioSource;
+        public AudioSource AudioSource;
         [Tooltip("Volume of audiosource, sampling curve using the orbAttraction value (0 to 1 range)")]
-        public AnimationCurve audioVolumeCurve;
-        public new Light light;
+        public AnimationCurve AudioVolumeCurve;
+        public Light Light;
         [Range(0f, 10f)]
-        public float lightMinIntensity;
+        public float LightMinIntensity;
         [Range(0f, 100f)]
-        public float lightMaxIntensity;
+        public float LightMaxIntensity;
         [Tooltip("How the light should lerp between min and max intensity, sampling curve using the orbAttraction value")]
-        public AnimationCurve lightIntensityCurve;
+        public AnimationCurve LightIntensityCurve;
         [Range(0f, 20f)]
-        public float lightMinRange;
+        public float LightMinRange;
         [Range(0f, 50f)]
-        public float lightMaxRange;
+        public float LightMaxRange;
         [Tooltip("How the light should lerp between min and max range, sampling curve using the orbAttraction value")]
-        public AnimationCurve lightRangeCurve;
-        public ParticleSystemForceField orbForceField;
+        public AnimationCurve LightRangeCurve;
+        public ParticleSystemForceField OrbForceField;
         [Range(0f, 0.1f)]
-        public float orbForceFieldMinForce = 0.025f;
+        public float OrbForceFieldMinForce = 0.025f;
         [Range(0f, 0.1f)]
-        public float orbForceFieldMaxForce = 0.06f;
-        public AnimationCurve orbForceFieldForceCurve;
+        public float OrbForceFieldMaxForce = 0.06f;
+        public AnimationCurve OrbForceFieldForceCurve;
         [Tooltip("Maximum speed the orb attraction can go up from 0 to 1 (per second value)")]
-        public float attractionWarmUpRate = 1f;
+        public float AttractionWarmUpRate = 1f;
         private float m_attractionWarmUpRateScaled;
         [Tooltip("The maximum change value will be multiplied by this based on what the value currently is (so we can have quick warmup at start, and then gradually creep up as you hold the pose")]
-        public AnimationCurve m_attractionWarmUpCurve;
+        [SerializeField] private AnimationCurve m_attractionWarmUpCurve;
         [Tooltip("Maximum speed the orb attraction can go down from 1 to 0 (per second value)")]
-        public float attractionCooldownRate = 0.5f;
+        public float AttractionCooldownRate = 0.5f;
         //We might not need the curve control on cooldown rate, but if we decide to add it will go here
         private float m_orbAttraction;
         private float m_targetOrbAttraction;
-        public GameObject m_orbGlowMesh;
+        [SerializeField] private GameObject m_orbGlowMesh;
         [Tooltip("Smallest size of the glow surrounding the orb.  Should be just big enough to surround it")]
         [Range(1f, 30f)]
-        public float m_orbGlowMinSize = 1.1f;
+        [SerializeField] private float m_orbGlowMinSize = 1.1f;
         [Tooltip("Largest size of the glow surrounding the orb.  Should be just big enough to surround it")]
         [Range(1f, 30f)]
-        public float m_orbGlowMaxSize = 20f;
+        [SerializeField] private float m_orbGlowMaxSize = 20f;
         [Tooltip("How the size of the orb glow will change in response to the attraction power")]
-        public AnimationCurve m_orbGlowSizeCurve;
+        [SerializeField] private AnimationCurve m_orbGlowSizeCurve;
         //to-do, variables to reduce the scale of the orb glow based on how far it is from the player (since the effect will fall apart if they go inside the particle mesh)
 
         private List<HandOrbEffects> m_handOrbEffectsList = new();
@@ -76,7 +76,7 @@ namespace NorthStar
         private void CalculateOrbAttraction()
         {
             //Calculate a scaled warmup speed based on the current value
-            m_attractionWarmUpRateScaled = Mathf.Lerp(0, attractionWarmUpRate, m_attractionWarmUpCurve.Evaluate(m_orbAttraction));
+            m_attractionWarmUpRateScaled = Mathf.Lerp(0, AttractionWarmUpRate, m_attractionWarmUpCurve.Evaluate(m_orbAttraction));
             //Get the hand power value from all active hands in the scene, then divide by the number to give us a 0 to 1 range
             m_targetOrbAttraction = 0f;
             foreach (var hand in m_handOrbEffectsList)
@@ -95,7 +95,7 @@ namespace NorthStar
             }
             else if (m_orbAttraction > m_targetOrbAttraction)
             {
-                m_orbAttraction -= attractionCooldownRate * Time.deltaTime;
+                m_orbAttraction -= AttractionCooldownRate * Time.deltaTime;
                 if (m_orbAttraction < m_targetOrbAttraction)
                 {
                     m_orbAttraction = m_targetOrbAttraction;
@@ -105,18 +105,18 @@ namespace NorthStar
         private void UpdateOrbEffects()
         {
             //null checks every frame could be bad, need to check performance
-            if (audioSource != null)
+            if (AudioSource != null)
             {
-                audioSource.volume = audioVolumeCurve.Evaluate(m_orbAttraction);
+                AudioSource.volume = AudioVolumeCurve.Evaluate(m_orbAttraction);
             }
-            if (light != null)
+            if (Light != null)
             {
-                light.intensity = Mathf.Lerp(lightMinIntensity, lightMaxIntensity, lightIntensityCurve.Evaluate(m_orbAttraction));
-                light.range = Mathf.Lerp(lightMinRange, lightMaxRange, lightRangeCurve.Evaluate(m_orbAttraction));
+                Light.intensity = Mathf.Lerp(LightMinIntensity, LightMaxIntensity, LightIntensityCurve.Evaluate(m_orbAttraction));
+                Light.range = Mathf.Lerp(LightMinRange, LightMaxRange, LightRangeCurve.Evaluate(m_orbAttraction));
             }
-            if (orbForceField != null)
+            if (OrbForceField != null)
             {
-                orbForceField.gravity = Mathf.Lerp(orbForceFieldMinForce, orbForceFieldMaxForce, orbForceFieldForceCurve.Evaluate(m_orbAttraction));
+                OrbForceField.gravity = Mathf.Lerp(OrbForceFieldMinForce, OrbForceFieldMaxForce, OrbForceFieldForceCurve.Evaluate(m_orbAttraction));
             }
             if (m_orbGlowMesh != null)
             {

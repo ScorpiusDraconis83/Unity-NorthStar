@@ -13,7 +13,8 @@
     <meta-data android:name="unityplayer.SkipPermissionsDialog" android:value="false" />
     <meta-data android:name="com.samsung.android.vr.application.mode" android:value="vr_only" />
     <meta-data android:name="com.oculus.ossplash.background" android:value="black" />
-    <meta-data android:name="com.oculus.supportedDevices" android:value="quest|quest2|questpro" />
+    <meta-data android:name="com.oculus.supportedDevices" android:value="quest|quest2|questpro|quest3" />
+    <meta-data android:name="com.oculus.dualcorecpuset" android:value="true" />
     <receiver android:exported="true" android:name="com.meta.northstar.ProfileCommandReceiver">    
         <intent-filter>
         <action android:name="com.meta.northstar">

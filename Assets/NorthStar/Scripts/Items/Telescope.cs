@@ -1,4 +1,6 @@
 // Copyright (c) Meta Platforms, Inc. and affiliates.
+using Meta.Utilities;
+using Meta.Utilities.ViewportRenderer;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -10,7 +12,7 @@ namespace NorthStar
     /// </summary>
     public class Telescope : Holsterable
     {
-        [Header("Eye Anchors"), SerializeField, FormerlySerializedAs("m_mainCamera")]
+        [Header("Eye Anchors"), SerializeField]
         private Rigidbody m_leftEyeRigidbody;
         [SerializeField]
         private Rigidbody m_rightEyeRigidbody;
@@ -78,18 +80,16 @@ namespace NorthStar
         [SerializeField, Tooltip("The amount of spring applied to the eye joint based on its proximity to the eye")]
         private AnimationCurve m_springTransitionCurve;
 
-        [Header("Camera Dampening"), SerializeField, FormerlySerializedAs("rotationDampening")]
+        [Header("Camera Dampening"), SerializeField]
         private AnimationCurve m_rotationDampening;
 
         private Vector3 m_velocity;
 
-        [FormerlySerializedAs("angularDampiningReadout")]
         public TMP_Text AngularDampiningReadout;
-        [FormerlySerializedAs("linearDampiningReadout")]
         public TMP_Text LinearDampiningReadout;
 
         [SerializeField] // For debug
-        private bool m_ForceRender;
+        private bool m_forceRender;
 
         private RenderTexture m_telescopeRenderTexture;
 
@@ -111,7 +111,7 @@ namespace NorthStar
             //Get the distance between the two grab points to determine how extended the telescope should be
             var val = Vector3.Distance(m_telescopeFront.Transform.position, m_telescopeEnd.Transform.position).Map(CLOSEDDISTANCE, OPENEDDISTANCE, 0f, 1f);
 
-            UpdateState(val > 0.5f || m_ForceRender);
+            UpdateState(val > 0.5f || m_forceRender);
 
             if (m_enabled)
             {
@@ -173,14 +173,14 @@ namespace NorthStar
         /// <param name="value">Extends the telescope when true</param>
         public void UpdateState(bool value)
         {
-            if (value && !IsGrabbed && !m_ForceRender) //Force state false if not grabbed
+            if (value && !IsGrabbed && !m_forceRender) //Force state false if not grabbed
             {
                 value = false;
             }
 
             m_joint.targetPosition = Vector3.right * (value ? -m_joint.linearLimit.limit : m_joint.linearLimit.limit);
 
-            if (value == false)
+            if (!value)
             {
                 SetEyeStability(0);
             }

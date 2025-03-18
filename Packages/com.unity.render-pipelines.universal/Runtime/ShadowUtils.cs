@@ -67,6 +67,7 @@ namespace UnityEngine.Rendering.Universal
     {
         internal static readonly bool m_ForceShadowPointSampling;
 
+        // Meta change : Entrypoint for adjusting the shadow projection and distance
         public delegate void ShadowAdjustmentDelegate(ref CameraData camera, ref ShadowSliceData sliceData, ref float shadowDistance);
         public static ShadowAdjustmentDelegate ShadowAdjustment;
 
@@ -126,6 +127,7 @@ namespace UnityEngine.Rendering.Universal
             shadowSliceData.offsetY = (cascadeIndex / 2) * shadowResolution;
             shadowSliceData.resolution = shadowResolution;
 
+            // Meta change : Allow external code to adjust the shadow projection and distance
             if (ShadowAdjustment != null)
             {
                 shadowSliceData.shadowTransform = default;

@@ -1,5 +1,6 @@
 // Copyright (c) Meta Platforms, Inc. and affiliates.
 using System.Collections.Generic;
+using Meta.Utilities.Environment;
 using UnityEngine;
 
 namespace NorthStar
@@ -10,28 +11,28 @@ namespace NorthStar
     [CreateAssetMenu(fileName = "LightningFlash", menuName = "ScriptableObjects/LightningFlashScriptableObject", order = 1)]
     public class LightningFlashScriptableObject : ScriptableObject
     {
-        public EnvironmentProfile strikeEnvironmentProfile;
-        public EnvironmentProfile postStrikeEnvironmentProfile;
-        [Tooltip("It is recommended to keep this low to avoid visual glitches"), Range(0.01f, 1f)] public float strikeWarmupTime = 0.01f;
-        [Range(0.01f, 2f)] public float strikeCooldownTime = 0.65f;
-        [Tooltip("How long the strike will last at full strength in seconds"), Range(0.1f, 2f)] public float strikeDuration = 1f;
-        [Tooltip("Distance that lightning bolt will strike from boat in Unity units")] public float strikeDistance = 25f;
-        [Tooltip("In degrees, clockwise, from boat forward direction"), Range(0, 359)] public float strikeDirection = 90f;
+        public EnvironmentProfile StrikeEnvironmentProfile;
+        public EnvironmentProfile PostStrikeEnvironmentProfile;
+        public float StrikeWarmupTime = 0.01f;
+        public float StrikeCooldownTime = 0.65f;
+        public float StrikeDuration = 1f;
+        public float StrikeDistance = 25f;
+        public float StrikeDirection = 90f;
 
         [Header("If any of these reflection areas are left empty they will not be updated for this lightning strike")]
-        public ReflectionTextures[] m_reflectionTextures;
-        public AudioClip[] strikeAudioClips;
+        [SerializeField] private ReflectionTextures[] m_reflectionTextures;
+        public AudioClip[] StrikeAudioClips;
         private Dictionary<ReflectionLocation, ReflectionTextures> m_reflectionLocations = new();
 
         public void Setup()
         {
             foreach (var tex in m_reflectionTextures)
             {
-                if (m_reflectionLocations.ContainsKey(tex.reflectionLocation))
+                if (m_reflectionLocations.ContainsKey(tex.ReflectionLocation))
                 {
                     continue;
                 }
-                m_reflectionLocations.Add(tex.reflectionLocation, tex);
+                m_reflectionLocations.Add(tex.ReflectionLocation, tex);
             }
         }
 
@@ -39,7 +40,7 @@ namespace NorthStar
         {
             if (m_reflectionLocations.TryGetValue(location, out var value))
             {
-                if (value.noFlashTexture is not null && value.flashTexture is not null)
+                if (value.NoFlashTexture is not null && value.FlashTexture is not null)
                 {
                     return value;
                 }
@@ -50,9 +51,9 @@ namespace NorthStar
         [System.Serializable]
         public class ReflectionTextures
         {
-            public ReflectionLocation reflectionLocation;
-            public Cubemap noFlashTexture;
-            public Cubemap flashTexture;
+            public ReflectionLocation ReflectionLocation;
+            public Cubemap NoFlashTexture;
+            public Cubemap FlashTexture;
         }
     }
 }

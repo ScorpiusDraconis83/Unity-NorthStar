@@ -1,0 +1,235 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4510294d23d964fe59443526f1ca7c4b, type: 3}
+  m_Name: Optimization
+  m_EditorClassIdentifier: 
+  m_displayName: Optimization
+  m_hierarchyName: Optimization
+  m_context: {fileID: 11400000, guid: 4e52cc0593e52cf48a31fabc7fbf34b0, type: 2}
+  m_markdownFile: {fileID: 0}
+  m_priority: 1017
+  m_overrideMarkdownText: "## Optimizing Framerate \n\nThroughout development, we
+    balanced our framerate targets with visual fidelity, making tradeoffs to meet
+    the project's performance and aesthetic goals. While static environments with
+    baked lighting are typically preferred for performance, the boat's movement and
+    dynamic weather meant we had to focus on optimizing real-time lighting and shadows
+    instead. \n\n## Target Framerate Tradeoffs \n\nWe realized that achieving a native
+    90Hz framerate within our scope would be difficult. A 90Hz target only allows
+    11 milliseconds per frame to process all logic, animation, physics, sound, and
+    rendering. This is something that was exceptionally challenging given our heavy
+    use of dynamic ocean, sky, time of day, lighting, shadows, etc. Instead, we aimed
+    for: \n- 72Hz natively (13.88ms per frame).\n- 90Hz with Application Space Warp
+    (ASW), allowing for improved visual quality, including higher resolution textures,
+    post-processing, and increased MSAA levels.\n\n## Measuring Framerate \n\n###
+    OVR Metrics Tool \n\nA key part of diagnosing and improving framerate issues
+    is gathering performance data. Our first port of call was Meta\u2019s OVR Metrics
+    Tool (available on the Meta Quest store). This allowed us to overlay detailed
+    real time statistics about every aspect of the game\u2019s performance for the
+    initial diagnosis of framerate issues.  \n\n![](./Images//OptimisingFramerate/Fig7.png)\n\nOur
+    process involved creating a daily build from the development branch, which would
+    then be tested by QA the next morning, with the recorded playthrough posted on
+    a dedicated slack channel. With the metrics overlay enabled we were able to see
+    exactly how the framerate fluctuated. With these reports we were able to detect
+    when performance regressions occurred and track down frame spikes \n\n**RenderDoc
+    Meta Fork**\n\nFor diagnosing specific issues related to individual draw calls,
+    we used the Meta fork of RenderDoc to get frame timings directly \n\n![](./Images//OptimisingFramerate/Fig5.png)\n\n**Unity
+    Profiler** \n\nTo diagnose CPU performance, the Unity profiler was invaluable
+    although some calls can be somewhat opaque, making it difficult to tell what
+    the actual problem is \n\n![](./Images//OptimisingFramerate/Fig2.png)\n\n**Frame
+    budget** \n\nWhen originally aiming for the target of 72z refresh rate, this
+    gave us a frame budget of 1000/72 or 13.88ms. It\u2019s crucial to keep the game
+    running within this budget as much as possible to prevent noticeable slowdowns,
+    which are more problematic in VR due to potential comfort issues (i.e. simulator
+    sickness) \n\n**Fixed costs** \n\nThere are some fixed costs per frame that cannot
+    be optimized or removed as they are critical to the game\u2019s functionality.
+    These included the Meta SDK itself, for device management, input and tracking,
+    as well as PhaseSync \n\n**Meta SDK**\n\nCertain features within the Meta SDK
+    are somewhat expensive, such as Inside Out Full Body Tracking and in some cases
+    the use of many grab points on a given object.\n\nIn one case we have a large
+    trigger volume that was intersecting with an object that contained 30 or so grab
+    points (the ship\u2019s steering wheel), each of which had an OnTriggerStay callback,
+    which caused unexpected frame rate drops. To solve this, we removed the large
+    trigger volume around the ship so that there was no intersection between trigger
+    volumes and grab points.\n\n**PhaseSync** \n\nPhaseSync is an automated frame
+    pacing solution, created by Meta that attempts to synchronize frame delivery
+    to reduce latency. This works well when frames are delivered at a steady and
+    predictable rate. However, if framerate is unstable, the prediction often overestimates
+    the amount of wait time that is needed, causing excessive artificial delays before
+    frames can begin processing in Unity, worsening existing frame rate issues.\n\nThe
+    closer you can have your game running consistently at the target refresh rate,
+    the closer PhaseSync will come to estimating the correct frame time, both reducing
+    latency and preventing stale and early frames. Instances of poor performance
+    will be exacerbated by PhaseSync, where as consistently reaching the target refresh
+    wil significantly improve game feel and responsiveness due to less latency between
+    user input and when the frame is rendered.\n\n## Low Framerate Causes and Solutions
+    \n\nWe identified several sources of frame spikes and implemented solutions:
+    \n\n**Asset Loading & Deserialization** \n- Avoided unexpected asset loading
+    by preloading required assets.\n- Used object pooling instead of instantiating
+    prefabs at runtime.\n\n**Expensive Calls** \n- Avoided FindObjectsOfType() and
+    GetComponentsInChildren(), replacing them with Meta\u2019s [AutoSet](../Packages/com.meta.utilities/README.md)
+    attribute for asynchronous component gathering.\n\n**GameObject Activation and
+    Start/Awake callbacks** \nCalled for all objects on activation (first time the
+    object is active in the scene, after scene loads or after object is enabled).
+    These can sometimes be expensive and objects that are disabled to begin with
+    will wait until first activation before calling these, which can cause an in-game
+    slowdown.\n\nThis would often be a problem when using asynchronous scene loading
+    during gameplay. We would pre-load scenes ahead of time so that a transition
+    could be performed during a teleport, however the scene activation would still
+    be quite expensive due to the sheer number of objects / scripts. We were generally
+    able to sidestep the issue with some short fade to black transitions with activation
+    taking place during the screen blackout, conforming to the VRC requirements.\n\n**Expensive
+    calls** \n\nSome seemingly innocent Unity calls can turn out to be relatively
+    expensive and should be avoided. We found that these would sometimes make their
+    way into production code, sometimes in the Meta SDKs \n\n**Examples:** \n\n-
+    FindObjectsOfType()\n- GetComponentsInChildren() \n\nA good way to avoid these
+    can be use the [Meta Utilities Package attribute](../Packages/com.meta.utilities/README.md)
+    `AutoSet`, which gathers components at build time so they can be deserialized
+    asyncronously when scenes are loaded, making activation much cheaper. For `FindObjectsOfType`,
+    we used `Singleton` and `Multiton` from the package.\n\n**GC collection**\nAllocations
+    are relatively expensive compared to other operations and calls and so should
+    be avoided where possible. GC Allocations would spring up in various places.
+    Sometimes we were able to avoid them by rewriting code, while for others the
+    allocation amount was small enough to safely ignore.  \n\nSome common patterns
+    are to use Unity\u2019s built in NonAlloc versions of physics query functions,
+    such as Physics.SphereCastNonAlloc().\n\n**Reflection probes and DynamicGI.UpdateEnvironment()**
+    \n\nTo support dynamic environment profiles, both reflection probes and environment
+    lighting (IBL) need to be updated.\n\nCalls to DynamicGI.UpdateEnvironment()
+    are expensive, since this is calculated on the GPU but then read back synchronously
+    by the CPU, stalling both the CPU and GPU at the same time.\n\nWe decided to
+    create an offline editor tool that goes through all environment profiles in the
+    entire game and generates the 1536 floating point values that amount to a small
+    cubemap of precomputed lighting data. This is fed to DynamicGI.SetEnvironmentData()
+    as needed. As a side-effect we were also able to seamlessly interpolate environmental
+    lighting with this data, rather than only updating it every x number of frames
+    as we did before.\n\nOriginally, we were dynamically updating reflection probes
+    when lighting changed significantly but this also comes at a cost when staggering
+    only multiple frames. \n\nWe ended up creating a probe blending system, which
+    took the start and end environment conditions (pre-baked) and blended smoothly
+    between them.\n\n## Shader Compilation\n\nNear the end of the project once most
+    of the obvious performance bottlenecks had been taken care of, we started to
+    notice frame spikes caused by shader compilation  \n\nAvoiding shader compilation
+    required us to take stock of all possible shader variants used during gameplay
+    and pre-loading them during load time. Unity allows you to track shader variants
+    used in the editor and save these to a ShaderVariantCollection asset. However,
+    there are small differences between editor and build and between different platforms
+    that make it difficult to gather a trust list of shader variants \n\n![](./Images//OptimisingFramerate/Fig0.png)\n\nThere
+    is however another build option that tells unity to log all shader variants that
+    are loaded in a build \n\n![](./Images//OptimisingFramerate/Fig4.png)\n\nAnd
+    then combining this with LogCat after a full playthrough, we were able to get
+    an accurate and definitive list of shader variants used by the game \n\n![](./Images//OptimisingFramerate/Fig6.png)\n\nAnd
+    the raw output looks like this: \n\n![](./Images//OptimisingFramerate/Fig1.png)\n\nWe
+    then wrote an editor script that would process this file and create a ShaderVariantCollection
+    which could be loaded during game initialisation. This, however, did not actually
+    fix the frame spikes... \n\n**PSO creation** \n\nModern graphics APIs, such as
+    Vulkan (which we are using here), are able to render many draw calls with very
+    little overhead. However, each unique combination of shader and graphics state
+    requires some device-specific preprocessing and optimizations that happen at
+    the driver level. In some cases, with complex enough shaders, they can take a
+    significant amount of time. Upward of 500ms in some cases. Even worse, it\u2019s
+    not just each shader variant we have to worry about, but rather the combination
+    of shader variant and pipeline state. This means that vertex attribute layout
+    and render target can also trigger new PSO\u2019s to be created, causing more
+    unexpected frame spikes.\n\nIt turns out that Unity 6 has a feature that can
+    record and cache all PSOs during gameplay and allows them to be distributed with
+    a build and pre-loaded at startup. As of writing this however we were using Unity
+    2022.3, so we had to roll our own solution. We ended up writing a special pre-warmer
+    that would force Unity to generate all required PSO\u2019s by taking the shader
+    variant list and combining it with known mesh attributes, lighting, light-probe
+    and render target combinations and rendering them as a 1-pixel triangle nearly
+    outside the player\u2019s field of view during the loading screen.\n\nThis process
+    was still quite slow, taking around a minute the first time but then being almost
+    instant due to Unity\u2019s own internal PSO cache. We were later able to leverage
+    Unity\u2019s internal cache by bundling it with builds, however this cache may
+    become invalid after firmware updates. \n\n## Sustained Low Framerate \n\nSustained
+    low framerate is caused by exceeding the frame budget by some amount each frame.
+    This can be caused by CPU and/or GPU timings. When caused by excessive CPU time,
+    we call this CPU bound. When caused by the GPU we call is GPU bound. In our case
+    the project has been both CPU and GPU bound at various points depending on the
+    resources required to render a given frame \n\n**Script Callbacks \u2013 CPU**
+    \n\nScript callbacks get called at predefined points during the frame, serially
+    on the main thread. This means that the frame can only be processed as fast as
+    it takes to complete the main thread. Parts of rendering can run in parallel
+    on a separate thread, with multiple frames in flight but they are still going
+    to be forced to wait for the main thread at some point. This means that we had
+    to be careful about our total budget of single-threaded code \n\n_Examples:_
+    \n\nUpdate / LateUpdate \n\nFixedUpdate / OnTriggerStay / OnCollisionEnter \n\n**Physics
+    \u2013 CPU**\n\nPhysics was relatively easy to keep under control by simply avoiding
+    too many complex dynamic objects or dense mesh colliders. Essentially the more
+    simulated objects and colliders are in the scene, the more expensive physics
+    becomes. Collision and trigger script callbacks also have overhead and should
+    be kept to a minimum where possible \n\nSimulation and collision detection is
+    also multi-threaded via PhysX, but queries, such as Physics.SphereCastNonAlloc()
+    still block on the main thread.  \n\nFor the rope system we made use of OverlapSphereCommand
+    to do some work in Burst jobs.\n\n**Burst Jobs - CPU** \n\nWe utilized Unity
+    Burst Jobs to improve performance on several key parts of the game simulation,
+    including both rope physics and the ocean simulation. These jobs were able to
+    run on several worker threads in the background, freeing the main thread to do
+    more work in parallel \n\nTo make the most of the Job System we would typically
+    kick off our jobs at the start of Update() and complete them at the end of LateUpdate().
+    This allows the jobs to run on worker threads for as long as possible without
+    blocking the main thread \n\n**Render Thread - CPU** \n\nFor the most part reducing
+    the amount of active game objects by merging meshes and materials was sufficient
+    to keep the render thread reasonably performant \n\n**Rendering \u2013 GPU**
+    \n\n![](./Images//OptimisingFramerate/Fig8.png)\n![](./Images/OptimisingFramerate/Fig3.png)\n\n*Here
+    is a side-by-side comparison of the same shader before and after optimization.
+    Green is faster* \n\n## Rendering Optimizations\n\nRendering optimizations could
+    be cover an entire article all on its own but here are a few things we did to
+    help: \n\n**Shader Instructions**\n\nThe project benefited from having a central
+    shader node (WavesDefaultShader) responsible for unpacking texture data, applying
+    weather features, object highlights, and other features in a consistent way.
+    This gives us a central place to optimize features or tweak the way scene rendering
+    works, but many shaders do not require all of these features. Several optimized
+    master shaders were created for the most commonly used feature sets, and a Material
+    Editor allows easily switching between shaders so that only the required features
+    are included.\n\n**Reducing Quad Overdraw**\n\nVertex processing represents a
+    small fraction of GPU time in this game. However the small triangles created
+    by highly tessellated meshes, use of MSAA, and each triangle being rendered twice
+    (once for each eye), cause significant quad overdraw. This necessitated reducing
+    triangle counts as much as possible, and ensuring surfaces use an efficient triangulation.
+    This game also employs mesh LODs to reduce quad overdraw by reducing triangle
+    counts of far away meshes. \n\n**[URP Modifications](URPModifications.md)**\n\nIn
+    order to get the most out of the device, we made a few minor modifications to
+    some key areas of URP code. The Unity BRDF has been replaced by a more accurate
+    approximation, improving the lighting response on the ocean and other shiny surfaces.
+    Some shadowing improvements aim to reduce the overhead of receiving shadows on
+    surfaces, as well as improving shadow texel density. Some unnecessary MSAA targets
+    have been switched to non-MSAA to improve efficiency. And support for rotating
+    reflection probes improves the realism of reflections as the ship moves.\n\n**[Ocean
+    LODs](OceanSystemDesignAndImplementation.md)**\n\nA quadtree is generated around
+    the camera with deeper subdivisions near the camera. An 8x8 vertex ocean tile
+    is drawn across each leaf node. In order to stitch each tile with its neighbours,
+    many tiles are generated with varying edge tessellations and selected such that
+    the vertices across each edge match. The oceans displacement is scaled to 0 at
+    the edge of this quadtree, after which an ocean skirting mesh extends the ocean
+    to the horizon.\n\n![](./Images/OptimisingFramerate/Fig9.png)\n\n### Relevant
+    Files\n- [QuadtreeRenderer.cs](../Packages/com.meta.utilities.environment/Runtime/Scripts/Water/QuadtreeRenderer.cs)\n\n**[Shadow
+    Importance Volumes](ShadowImportanceVolumes.md)**\n\nBy default, shadow maps
+    are cast over the camera frustum after pulling the far plane back to match the
+    configured maximum shadow distance. The wide FOV (90 degrees or more) of VR means
+    this range is quite large, with much of this space containing only ocean or sky.
+    Shadow Importance Volumes allow a designer to dictate which surfaces need shadow
+    coverage and will clamp the shadow map projection to only this space. \n\n**URP
+    Configuration**\n\nSome seemly insignificant URP configuration options can have
+    a large impact on scene rendering performance. \n\nTile-based GPU architectures
+    benefit from keeping resources in tile memory for as long as possible. Depth
+    Texture Mode configured as After Opaques will force the render pass to end so
+    that the depth buffer can be copied to main memory. Configuring depth as After
+    Transparents defers the depth resolve until after scene rendering is finished.
+    \n\nConfiguring Post-processing Grading Mode to High Dynamic Range allows Unity
+    to bake tonemapping directly into the Color Grading LUT, eliminating the tonemapper
+    from the post-process pass. \n\nTo improve performance and better control reflection
+    probe sampling, probe blending has been disabled, and probes are manually assigned
+    to meshes. Each deck has its own Reflection Probe, and props on that deck are
+    configured to sample the same probe. \n\nUnity supports Light Layers to allow
+    light filtering within shaders. The cost for this feature is minor, but as it
+    is not required and it increases shader variant counts, it was disabled. \n"
+  m_overrideMarkdownRoot: .\Documentation/

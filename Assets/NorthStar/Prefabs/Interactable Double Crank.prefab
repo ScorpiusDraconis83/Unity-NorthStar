@@ -185,6 +185,10 @@ MonoBehaviour:
   m_moveStrengthModifier: -0.144
   m_rotationStrengthModifier: -0.697
   m_softGrabTime: 0.2
+  m_bonusBreakTimer: 0
+  m_toggleIntertiaTensorOnGrab: 0
+  m_throwVelocityPercent: 0
+  m_velocityHistoryCapacity: 20
 --- !u!114 &7404011401614059985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -572,6 +576,10 @@ MonoBehaviour:
   m_moveStrengthModifier: -0.5
   m_rotationStrengthModifier: -0.9
   m_softGrabTime: 0.2
+  m_bonusBreakTimer: 0
+  m_toggleIntertiaTensorOnGrab: 0
+  m_throwVelocityPercent: 0
+  m_velocityHistoryCapacity: 20
 --- !u!114 &526035745310637129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1593,8 +1601,11 @@ MonoBehaviour:
   m_rotationsTillMax: 5
   m_crankEventDegreesPerSecondThreshold: 15
   m_clockwise: 1
+  m_resetValueOnLock: 1
+  m_startAtHalfway: 0
   m_ratchet: 0
   m_step: 15
+  m_clapRotations: 0
   m_onRatchet:
     m_PersistentCalls:
       m_Calls: []
@@ -1903,8 +1914,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae21d7ae6fe56b4387bc7ca4642772d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateMode: 4
-  parentMethod: 0
+  m_updateMode: 4
+  m_parentMethod: 0
   Body: {fileID: 780658556465979515}
   Registered: 0
   RegisteredTo: {fileID: 0}
@@ -2260,8 +2271,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae21d7ae6fe56b4387bc7ca4642772d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateMode: 0
-  parentMethod: 0
+  m_updateMode: 0
+  m_parentMethod: 0
   Body: {fileID: 2537633904815173204}
   Registered: 0
   RegisteredTo: {fileID: 0}

@@ -17,11 +17,7 @@ namespace NorthStar
 
         private int m_dialogueIndex = 0;
 
-        [SerializeField, HideInInspector] private CharacterManager m_characterManager;
-        private void OnValidate()
-        {
-            m_characterManager = FindAnyObjectByType<CharacterManager>();
-        }
+        private CharacterManager CharacterManager => CharacterManager.Instance;
 
         private void Awake()
         {
@@ -35,7 +31,7 @@ namespace NorthStar
                 m_dialogueIndex = 0;
                 return;
             }
-            m_characterManager.PlayDialogue(m_dialogueSection.TextObjects[m_dialogueIndex].CharacterId, m_dialogueSection.TextObjects[m_dialogueIndex].Text);
+            CharacterManager.PlayDialogue(m_dialogueSection.TextObjects[m_dialogueIndex].CharacterId, m_dialogueSection.TextObjects[m_dialogueIndex].Text);
             m_dialogueIndex++;
         }
 

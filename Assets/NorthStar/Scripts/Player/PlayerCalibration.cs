@@ -34,11 +34,11 @@ namespace NorthStar
 
         private void OnPlayerCalibrationChange()
         {
-            if (!ReferenceEquals(m_cameraRig, null))
+            if (m_cameraRig is not null)
             {
                 var playerSettings = GlobalSettings.PlayerSettings;
                 var yOffset = playerSettings.Seated ? (playerSettings.Height - playerSettings.SeatedHeight) / 100.0f : 0;
-                m_cameraRig.localPosition = Vector3.up * yOffset;
+                m_cameraRig.localPosition = Vector3.up * yOffset * .8f;
 
                 var heightRatio = playerSettings.Height / 100.0f / m_avatarHeight;
                 m_animator.transform.localScale = Vector3.one * heightRatio;
@@ -53,8 +53,8 @@ namespace NorthStar
                 var heightDiff = m_avatarHeight * heightRatio - m_avatarHeight;
                 m_animator.transform.localPosition = new Vector3(0, -heightDiff, 0);
 
-                m_bodyPositions.HandVisuals[0].localScale = Vector3.one * heightRatio;
-                m_bodyPositions.HandVisuals[1].localScale = Vector3.one * heightRatio;
+                //m_bodyPositions.HandVisuals[0].localScale = Vector3.one * heightRatio;
+                //m_bodyPositions.HandVisuals[1].localScale = Vector3.one * heightRatio;
             }
         }
     }

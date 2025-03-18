@@ -25,7 +25,10 @@ namespace NorthStar
             m_sunrayParticleSystem = GetComponent<ParticleSystem>();
             m_meshFilter = GetComponent<MeshFilter>();
             m_meshRenderer = GetComponent<MeshRenderer>();
-            m_meshFilter.mesh = m_spawnMesh;
+            if (m_meshFilter.sharedMesh != m_spawnMesh)
+            {
+                m_meshFilter.sharedMesh = m_spawnMesh;
+            }
 
             var psShape = m_sunrayParticleSystem.shape;
             psShape.enabled = true;

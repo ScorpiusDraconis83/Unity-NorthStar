@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 3053265373446043214}
   - component: {fileID: 2484061273774830917}
   - component: {fileID: 3150273697228808142}
+  - component: {fileID: 8121387143129178214}
   m_Layer: 0
   m_Name: Harpoon Arrow B3
   m_TagString: Untagged
@@ -85,10 +86,10 @@ MonoBehaviour:
   m_rigidbody: {fileID: -4034748165087957208}
   m_lineRenderer: {fileID: 3053265373446043214}
   m_maxAirTime: 5
-  m_airSpeed: 5
   m_colliderDelay: 0.2
   m_collider: {fileID: 0}
   UseVisualOffset: 1
+  m_hideOnHit: 0
   m_visual: {fileID: 3921526671111524870}
   m_tip: {fileID: 7540860557347803313}
   m_end: {fileID: 8536751955440970307}
@@ -120,6 +121,8 @@ MonoBehaviour:
   m_layerMask:
     serializedVersion: 2
     m_Bits: 1
+  m_hitParticles: {fileID: 0}
+  m_trailParticle: {fileID: 0}
 --- !u!54 &-4034748165087957208
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -296,6 +299,21 @@ CapsuleCollider:
   m_Height: 1.7980995
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: -0.22595024}
+--- !u!114 &8121387143129178214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5413336541209535529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1c474b6d9025ba4b8aa577765cbc236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_effectAsset: {fileID: 11400000, guid: 2c01edb72f2a6084bb5b15143a88a79d, type: 2}
+  m_radius: 0.1
+  m_convertFromBoatSpace: 1
 --- !u!1 &7602393758156919228
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,7 +445,8 @@ MonoBehaviour:
   NodeIndex: 0
   BindIndex: 0
   m_rope: {fileID: 0}
-  useBoatSpace: 0
+  m_lateUpdate: 0
+  UseBoatSpace: 0
 --- !u!1 &8465353167228238431
 GameObject:
   m_ObjectHideFlags: 0

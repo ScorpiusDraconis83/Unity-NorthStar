@@ -7,7 +7,7 @@ namespace NorthStar.DebugUtilities
     public class DebugTeleportButton : MonoBehaviour
     {
         [SerializeField, Interface(typeof(IInteractableView))]
-        private Object _interactableView;
+        private Object m_interactableView;
         private IInteractableView InteractableView { get; set; }
 
         private bool m_started;
@@ -19,7 +19,7 @@ namespace NorthStar.DebugUtilities
 
         protected virtual void Awake()
         {
-            InteractableView = _interactableView as IInteractableView;
+            InteractableView = m_interactableView as IInteractableView;
         }
 
         protected virtual void Start()

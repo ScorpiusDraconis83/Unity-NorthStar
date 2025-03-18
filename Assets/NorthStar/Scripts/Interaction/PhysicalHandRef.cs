@@ -8,7 +8,7 @@ namespace NorthStar
     /// </summary>
     public class PhysicalHandRef : MonoBehaviour
     {
-        [SerializeField] private PhysicalHand hand;
-        public PhysicalHand Hand { get => hand; private set { } }
+        [SerializeField] private PhysicalHand m_hand;
+        public PhysicalHand Hand => m_hand;
     }
 }

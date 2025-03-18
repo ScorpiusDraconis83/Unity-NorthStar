@@ -1,7 +1,7 @@
 // Copyright (c) Meta Platforms, Inc. and affiliates.
+using System.Collections;
 using DG.Tweening;
 using UnityEngine;
-using System.Collections;
 
 namespace NorthStar
 {
@@ -13,6 +13,13 @@ namespace NorthStar
         [SerializeField] private AudioSource m_audioSource;
         [SerializeField] private float m_volumeOnFadeIn;
         [SerializeField] private bool m_destroyAfterFadeOut = false;
+        [SerializeField] private bool m_fadeInAudioOnStart = false;
+        [SerializeField] private float m_startFadeInTime = 1f;
+
+        private void Start()
+        {
+            if (m_fadeInAudioOnStart) FadeInAudio(m_startFadeInTime);
+        }
         public void FadeOutAudio(float time)
         {
             if (m_audioSource is null)
@@ -21,14 +28,14 @@ namespace NorthStar
                 return;
             }
             _ = m_audioSource.DOFade(0f, time);
-            m_audioSource.DOFade(0f, time);
+            _ = m_audioSource.DOFade(0f, time);
             if (m_destroyAfterFadeOut)
             {
-                StartCoroutine(DestroyAfterWait(time));
+                _ = StartCoroutine(DestroyAfterWait(time));
             }
         }
 
-        IEnumerator DestroyAfterWait(float time)
+        private IEnumerator DestroyAfterWait(float time)
         {
             yield return new WaitForSeconds(time);
             Destroy(gameObject);
@@ -41,6 +48,7 @@ namespace NorthStar
                 Debug.Log("There is no audiosource specified, please add one to " + gameObject);
                 return;
             }
+            m_audioSource.volume = 0f;
             _ = m_audioSource.DOFade(m_volumeOnFadeIn, time);
         }
 
@@ -50,7 +58,7 @@ namespace NorthStar
             FadeOutAudio(1f);
             if (m_destroyAfterFadeOut)
             {
-                StartCoroutine(DestroyAfterWait(1f));
+                _ = StartCoroutine(DestroyAfterWait(1f));
             }
         }
     }

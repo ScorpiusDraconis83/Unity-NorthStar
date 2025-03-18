@@ -21,21 +21,25 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_Terrain_02
-  m_Shader: {fileID: -6465566751694194690, guid: db850ae27352aea4c9be90d10cd3ad78,
+  m_Shader: {fileID: -6465566751694194690, guid: 096616554ccd66b4bb8989c4c7babe35,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _RECEIVE_SHADOWS_OFF
   m_InvalidKeywords:
   - _METALLICSPECGLOSSMAP
   - _NORMALMAP
+  - _SURFACE_TYPE_OPAQUE
   - _USEDEFAULTNORMALTEXTURE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
+  m_CustomRenderQueue: 2000
+  stringTagMap:
+    RenderType: Opaque
+  disabledShaderPasses:
+  - SHADOWCASTER
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -116,6 +120,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Parallax_Texture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_44a105a80ee243ba9fe5649083c6bc03_Texture_1_Texture2D:
         m_Texture: {fileID: 2800000, guid: b371e11b301690d48ac2a14535c97d41, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -169,7 +177,7 @@ Material:
     - _BlendModePreserveSpecular: 1
     - _BlendOp: 0
     - _BumpScale: 1
-    - _CastShadows: 1
+    - _CastShadows: 0
     - _ClearCoat: 0
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 1
@@ -187,6 +195,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _Is_Standard_Normal_Texture: 0
     - _Main_Light_Color_Influence: 1
     - _Metallic: 0
     - _MetallicValue: 0
@@ -195,12 +204,13 @@ Material:
     - _OcclusionStrength: 1
     - _OpacityValue: 1
     - _Parallax: 0.005
+    - _Parallax_Amplitude: 1
     - _Parallax_Strength: 0.05
     - _Pulse_Opacity: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _RENDERINGMODE: 0
-    - _ReceiveShadows: 1
+    - _ReceiveShadows: 0
     - _SPECULAR_FILTERING: 0
     - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
@@ -223,6 +233,7 @@ Material:
     - _UseMetallicMap: 0
     - _UseOpacityMap: 0
     - _UseSmoothnessMap: 0
+    - _Use_Parallax: 0
     - _WaterHeight: 1
     - _Wet_Spec_Power_Boost: 0
     - _WetnessSmoothingFactor: 1
@@ -240,6 +251,7 @@ Material:
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 0}
     - _FresnelColor: {r: 1, g: 0.5803921, b: 0, a: 1}
     - _NormalValue: {r: 0, g: 0, b: 1, a: 0}
+    - _Offset: {r: 0, g: 0, b: 0, a: 0}
     - _Pulse_Tint: {r: 4, g: 1.381703, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _Spec_Color: {r: 0.3301887, g: 0.3301887, b: 0.3301887, a: 1}

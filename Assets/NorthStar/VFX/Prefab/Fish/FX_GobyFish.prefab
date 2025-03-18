@@ -44,24 +44,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1df28f8d1f5497843990e78154e447b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnArea: {x: 1, y: 1, z: 1}
-  traversalArea: {x: 3, y: 0.5, z: 3}
-  minMaxSpeed: {x: 1, y: 1.5}
-  variationSpeed: 0.3
-  variationMagnitude: 2
-  minMaxRotationSpeed: {x: 4, y: 6}
-  flockAroundOrigin: 0
-  directionChangeFrequency: 150
-  groupingDistance: 2
-  avoidanceDistance: 0.6
-  prefabGroups:
+  SpawnArea: {x: 1, y: 1, z: 1}
+  TraversalArea: {x: 3, y: 0.5, z: 3}
+  MinMaxSpeed: {x: 1, y: 1.5}
+  VariationSpeed: 0.3
+  VariationMagnitude: 2
+  MinMaxRotationSpeed: {x: 4, y: 6}
+  FlockAroundOrigin: 0
+  DirectionChangeFrequency: 150
+  GroupingDistance: 2
+  AvoidanceDistance: 0.6
+  PrefabGroups:
   - m_prefabName: GobyFish
     m_prefab: {fileID: 919132149155446097, guid: 81511fccb34da4e4684b9091826f1785,
       type: 3}
     m_count: 8
     m_scale: {x: 0.5, y: 1}
     m_material: {fileID: 0}
-  animationSpeed: 6
-  visualiseSpawnArea: 0
-  visualiseTraversalArea: 1
-  visualiseWaypoint: 0
+  AnimationSpeed: 6
+  VisualiseSpawnArea: 0
+  VisualiseTraversalArea: 1
+  VisualiseWaypoint: 0

@@ -5,10 +5,10 @@ namespace NorthStar
 {
     public class PoolTest : MonoBehaviour
     {
-        public EffectAsset effectAsset;
+        public EffectAsset EffectAsset;
         private void Update()
         {
-            effectAsset.Play(transform.position, transform.rotation);
+            EffectAsset.Play(transform.position, transform.rotation);
         }
     }
 }

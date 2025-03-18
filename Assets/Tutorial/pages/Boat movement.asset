@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4510294d23d964fe59443526f1ca7c4b, type: 3}
+  m_Name: Boat movement
+  m_EditorClassIdentifier: 
+  m_displayName: Boat Movement
+  m_hierarchyName: Boat Movement
+  m_context: {fileID: 11400000, guid: 2b06e806aa39fba45b1e3375fc6cd3e0, type: 2}
+  m_markdownFile: {fileID: 0}
+  m_priority: 1008
+  m_overrideMarkdownText: "# Boat Movement \n\n## Overview\n\nThe boat in North Star
+    is a core element, requiring smooth movement, turning, and ocean interaction
+    while allowing the player to move freely onboard. Several approaches were explored
+    to achieve this. \n\n## Movement Approaches\n\n### True Movement \n\nThe boat
+    was initially implemented as a kinematic rigid body moving via scripting, with
+    all objects physically on top of it. However, this caused issues with hand tracking
+    and physics constraints, leading us to abandon this approach. \n\n### Move the
+    World \n\nAnother idea was to move the environment around the boat instead of
+    the boat itself. However, this led to complications with persistent objects outside
+    the boat, so it was not pursued. \n\n### Fake Movement\n\nThe final approach
+    that we stuck with used a \u201Cfake movement\u201D system, where the boat\u2019s
+    visual position is updated just before rendering and reset afterward. This prevents
+    physics issues, avoids dragging objects along with the boat, and removes the
+    need to move the world around the boat (ocean, islands, sky, reflections, etc.).
+    Several helper functions were also developed for transforming between world space
+    and \u201Cboat space.\u201D \n\n#### Relevant File\n- [Fake Movement](../Assets/NorthStar/Scripts/Ship/FakeMovement.cs)\n\n##
+    Rocking and Bobbing \n\nTo simulate ocean movement, a procedural noise system
+    was implemented to make the boat rock and bob. The effect scales with boat speed,
+    which is influenced by wind direction and sail angle. A more physically realistic
+    wave-height and momentum-based system was tested but was ultimately replaced
+    for better player comfort and direct movement control. \n\n## Reaction Movement
+    \n\nSpecific scripted boat movements were implemented using the timeline for
+    special events, such as waves hitting the boat or attacks from creatures like
+    the Kraken. \n\n### Relevant Files\n- [BoatMovementAsset](../Assets/NorthStar/Scripts/Wave/BoatMovementAsset.cs)\n-
+    [BoatMovementBehaviour](../Assets/NorthStar/Scripts/Wave/BoatMovementBehaviour.cs)\n-
+    [BoatMovementMixerBehaviour](../Assets/NorthStar/Scripts/Wave/BoatMovementMixerBehaviour.cs)\n-
+    [BoatMovementTrack](../Assets/NorthStar/Scripts/Wave/BoatMovementTrack.cs)\n-
+    [WaveControlAsset](../Assets/NorthStar/Scripts/Wave/WaveControlAsset.cs)\n- [WaveControlBehaviour](../Assets/NorthStar/Scripts/Wave/WaveControlBehaviour.cs)\n-
+    [WaveControlTrack](../Assets/NorthStar/Scripts/Wave/WaveControlTrack.cs)\n\n\n![](./Images/BoatMovement/Fig0.png)\n\n##
+    Comfort Settings \n\nTo ensure player comfort, procedural motion is controlled
+    directly, allowing the magnitude to be adjusted. An additional comfort option
+    locks the horizon angle in place, keeping the player upright as if they had perfect
+    \u201Csea legs.\u201D This prevents motion sickness by stabilizing the horizon.\n\n```cs\nvar
+    boatRotation = BoatController.Instance.MovementSource.CurrentRotation;\nCameraRig.rotation
+    = Quaternion.Slerp(Quaternion.identity, Quaternion.Inverse(boatRotation), GlobalSettings.PlayerSettings.ReorientStrength)
+    * CameraRig.parent.localRotation;\n```\n*(from [BodyPositions.cs](../Assets/NorthStar/Scripts/Player/BodyPositions.cs#L241-L242))*\n\n![](./Images/BoatMovement/Fig1.png)\n"
+  m_overrideMarkdownRoot: .\Documentation/

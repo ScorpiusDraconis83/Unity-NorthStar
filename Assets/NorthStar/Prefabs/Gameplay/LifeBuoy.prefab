@@ -42109,6 +42109,10 @@ MonoBehaviour:
   m_moveStrengthModifier: -0.435
   m_rotationStrengthModifier: -0.662
   m_softGrabTime: 0.25
+  m_bonusBreakTimer: 0
+  m_toggleIntertiaTensorOnGrab: 0
+  m_throwVelocityPercent: 0
+  m_velocityHistoryCapacity: 20
 --- !u!114 &6484901656413753358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42124,6 +42128,7 @@ MonoBehaviour:
   OnPlaySound:
     m_PersistentCalls:
       m_Calls: []
+  m_collsionDelayTime: 0
 --- !u!114 &6494064072909059768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42161,6 +42166,7 @@ MonoBehaviour:
   m_originalPositionMarker: {fileID: 0}
   m_minimumYDistance: -1.2
   m_floorTimeout: 4
+  m_setKinematicOnReset: 0
 --- !u!4 &4040221652080725646 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: eb3c5f61704d1524dae1b752e5789416,

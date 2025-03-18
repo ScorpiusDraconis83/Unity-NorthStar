@@ -1,0 +1,196 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4510294d23d964fe59443526f1ca7c4b, type: 3}
+  m_Name: Ocean and Environment
+  m_EditorClassIdentifier: 
+  m_displayName: Ocean and Environment
+  m_hierarchyName: Ocean and Environment
+  m_context: {fileID: 11400000, guid: 621dae04c7b446848b2db1c19788c9f3, type: 2}
+  m_markdownFile: {fileID: 0}
+  m_priority: 1002
+  m_overrideMarkdownText: "# Ocean Design and Implementation\n\nThe ocean system
+    is built around an inverse Fast Fourier Transform (iFFT) to simulate realistic
+    wave motion across a large number of waves (128\xB2 = 16,384 waves at default
+    resolution). This approach allows for detailed, dynamic ocean visuals while maintaining
+    performance.\n\n![](./Images/OceanSystem/Fig0.png) \n\n## Choosing iFFT Over
+    Gerstner Waves \n\nEarly tests with summing Gerstner waves in the vertex shader
+    proved inefficient for realistic ocean simulation. While viable for stylized
+    games, Gerstner waves require individual control over direction, amplitude, and
+    wavelength, making them difficult to manage and computationally expensive at
+    high wave counts. iFFT, by contrast, generates a frequency spectrum of waves,
+    offering greater realism and easier control. \n\nAlthough iFFT can be computationally
+    expensive, optimizations ensured it remained a viable solution. A key decision
+    was whether to run the simulation on the CPU or GPU. While the GPU is well-suited
+    for parallel processing, the project required high frame rates and high-resolution
+    rendering, making additional GPU load undesirable. Furthermore, ocean height
+    queries for floating objects and ship physics would require costly GPU-to-CPU
+    data transfers. To address these concerns, the simulation runs on the CPU, leveraging
+    Unity\u2019s job system and Burst compiler for parallelized, optimized calculations.
+    Certain iFFT components are updated only when parameters change, further reducing
+    CPU load. \n\n## Environment Profile & Ocean Settings\n\n![](./Images/OceanSystem/Fig1.png)
+    \n\n1. **Wind Yaw/Pitch**\n  \n    This controls the direction of the wind, and
+    consequently, the ocean waves themselves. \n\n    Instead of exposing a full
+    XYZ rotation, pitch and yaw were sufficient to control the wind direction. These
+    are converted to a vector via spherical coordinate transform. (EnvironmentSystem.WindVector)
+    \n\n    The ocean does not react to up/down wind, however some other effects
+    such as the sails do. The total projected length of the wind vector along the
+    ocean plane is used as the final wind speed/direction for the ocean simulation
+    \n\n    Wind speed itself is set specifically for the ocean, independent of other
+    systems to allow for more control \n\n2. **Wind Speed**\n\n    Controls the general
+    strength, speed and height of the waves. Higher speeds cause larger, choppier
+    waves, and small speeds produce gentle waves. \n\n3. **Directionality**\n\n   
+    This controls how much waves are aligned with the wind direction. 0 gives a very
+    random, choppy look with no apparent direction, whereas 1 will strongly align
+    most waves with the wind. In practice, only very low or high values are the most
+    useful to either provide very random or windy scenarios, inbewtween values tend
+    to give the ocean a fairly non-specific look. \n\n4. **Choppyness**\n\n    This
+    controls how much the waves displace horizontally. Simple up/down movement is
+    not enough for a convincing ocean, so an extra horizontal displacement is also
+    calculated/applied to the vertices. In practice, this value generally always
+    looks best at 1, however it was included for flexibility/interest. \n\n5. **Patch
+    Size**\n\n    This is the world-space size that the ocean simulation covers.
+    Since simulating an infinite ocean is not feasible, a small patch can be simulated
+    and then repeated over the ocean surface. \n\n    Smaller values concentrate
+    detail in a smaller area, however tiling may be more noticable. Consequently,
+    this also limits the maximum size of the waves, since a larger wave can not be
+    fully simulated in a small area. Increasing this value will reduce repetition
+    and allow for larger, more varied and interesting waves, especially with higher
+    wind speeds. A downside is the loss of fine detail, since the simulation resolution
+    is being spread out. \n\n    The shader has a detail normal map which can be
+    used to restore some of this fine detail \n\n    Since repetition can become
+    quite noticable depending on patch size and wind speed, the shader uses a scrolling
+    noise texture to modulate the displacement, which can help break up the tiling.
+    \n\n6. **MinWaveSize**\n\n    This is a fine control filter which can be used
+    to smoothly fade out very small waves that would otherwise be generated by the
+    simulation. One reason is that at lower resolutions and patch sizes, very small
+    wavelengths can begin to alias, causing a faceted or flickering look. Another
+    use case can be for a more stylised look, removing finer/smaller detailed waves,
+    leaving only larger rolling waves.reason can be stylistic, allowing for large
+    rolling waves without smaller waves breaking them up. \n\n7. **(Advanced) Gravity**\n\n   
+    The earths gravity in meters per second. This controls the relation between the
+    size of the wave and the speed it moves. Generally this should not be adjusted
+    as it can make waves that look oddly fast or slow, and don't quite match what
+    would be expected, but has been included incase it may be useful in special cases.
+    \n\n8. **(Advanced) SequenceLength**\n\n    The seqeuence gets repeated after
+    a certain time period to avoid accumulating floating point errors in the simulation,
+    however this can be shortened to produce a looping sequence, eg a 10 second loop
+    could be created and baked into a series of displacement/normal maps to avoid
+    computing the simulation at runtime. Larger waves will not progress across the
+    ocean surface correctly at short time sequences though. For most cases, it's
+    fine to set this to a high value such as 200 seconds to reduce errors, but not
+    have any noticable repetition. \n\n9. **(Advanced) TimeScale**\n\n    This scales
+    the speed at which the simulation progresses. In most cases this should be left
+    at 1, but could be used to slow down or speed up the simulation, or possibly
+    even achieve certain ocean states/looks that aren't possible with the regular
+    controls. However the other controls should be used instead wherever possible,
+    as most uses of this parameter will produce unrealistic results. \n\n## Ocean
+    Simulation & Material \n\nThis is the material the ocean uses for rendering.
+    It can be different per environment profile, and the system will attempt to smoothly
+    lerp between different materials/parameters when transitioning profiles. Some
+    care must be taken as texture properties can't be interpolated, and certain parameters
+    such as changing timescales, rotations of texture scaling/offsets can cause very
+    large changes during transitions. More details can be found in the Ocean Shader
+    section. \n\n## Ocean Simulation\n\nThis component handles the updating of the
+    ocean simulation itself, such as setting up data for the burst jobs and dispatching
+    them, as well as updating the final texture contents.\n\nIt first dispatches
+    a job to fill the ocean spectrum data, this only needs to be done when the ocean
+    properties have changed such as wind speed, direction, etc. This fills an n*n
+    resolution array with float4's containing two complex numbers. This essentially
+    contains the initial properties of each wave, such as it's amplitude and frequency,
+    represented in a special way. It also fills a dispersion table buffer with some
+    initial time-related properties.  \n\nEach frame then starts with a dispersion
+    job update which initializes a complex number array for the height component,
+    and two additional arrays for X and Z displacement components. This is the input
+    into the iFFT jobs which are processed in groups that each target an entire row,
+    and then an entire column of the texture.   \n\nThe final result is written to
+    the displacement texture, using GetRawTextureData to write directly to the pixel
+    data without requiring copies/conversions etc. This is an RGBA 16-bit float texture,
+    however the alpha channel is unused, since there is no signed float texture format
+    with only RGB channels. (An unsigned texture could be used with a  bias, however
+    it is important to maintain precision close to zero) \n\nA second pass is also
+    used to generate a normal/foam/smoothness map, based on the displacement data.
+    The normals are computed via central difference of 4 neighbouring displacement
+    samples. A value for displaying foam at wave peaks is also calculated by using
+    the jacobian of the displacement. The final value for this is further processed
+    in the shader according to foam threshold and strength parameters. \n\nThe alpha
+    channel is used to store a filtered smoothness value. This helps with consistent
+    highlights and environment reflections in the distance, and is calculated by
+    calculating the average normal length, and mapping this to a roughness value,
+    which is calculated via analytical importance sampling of a GGX distribution.
+    \n   \n**Normal Map Baker**\nThere is a function implemented as a context menu
+    option (By right clicking on the OceanSimulation component) which can bake the
+    current ocean's normal map into a texture. This can then be used as a detail
+    normal map in the ocean material, or for other reasons. For this purpose, it
+    may be desirable to increase the simulation resolution and adjust the simulation
+    properties to get as much detail in the normal map as possible. It's good to
+    try and capture smaller scale details (Such as smaller waves) in the normal map,
+    while leaving the ocean simulation to calculate the larger scale details and
+    displacement. \n\n![](./Images/OceanSystem/Fig2.png) \n   \n## Quadtree Renderer\n\nThe
+    ocean is rendered using a Quadtree system, instead of a single mesh such as a
+    plane. This is so that a balance between vertex density and draw distance can
+    be found. It also moves with the camera, so that there will always be an ocean
+    regardless of where the camera moves. \n\n![](./Images/OceanSystem/Fig3.png)
+    \n\nEach frame, the quadtree is \"snapped\" to the current camera position based
+    on a grid size, which is set to the vertex spacing of the largest subdivision
+    level. This is to avoid constant sliding of the mesh which can cause sliding/shimmering
+    artifacts as the camera moves. The highest level of the quadtree is checked against
+    the camera view frustum, and if it is visible, it is checked to see if it should
+    subdivide. Subdivision is based on distance to the camera, multiplied by the
+    radius of the current quadtree level. If it is below a threshold, it will subdivide,
+    and each child patch will then be checked against the view frustum, and if visible,
+    also tested for subdivision. \n\nIf a patch is visible, but not close enough
+    for further subdividing, or the max subdivision level has been reached, it will
+    be added to a list of patches rendering. \n\nThe list of patches is grouped into
+    different draw calls based on whether the patch and it's neighbours have different
+    subdivision levels. If all neighbours are the same, a simple tessellated quad
+    can be used. Otherwise, an index buffer with edge-stitching must be used to avoid
+    seams/cracks between meshes. These all use the same vertex buffer for performance,
+    but different index buffers. \n\nThe final lists of draw calls are rendered using
+    Graphics.DrawMeshInstanced.  \n\nSome work into using displacement map lods to
+    smooth the transition between lods was investigated, but unfortunately we didn't
+    have time to fully implement this and fix the issues it caused related to cracks
+    between patches, and performance concerns due to additional data processing.
+    \n\nIt is controlled by a few parameters: \n\n- **Size:** This is the total size
+    of the patch. Generally this should be large enough to extend to the far plane
+    in all directions. However there is a tradeoff between how much processing is
+    required, and how much detail is possible up close, so this number shouldn't
+    be larger than necessary. (Other techniques such as fog can be used to hide the
+    ocean disappearing at a distance) \n- **Vertex Count:** This is the number of
+    vertices along one side of a patch. Eg a value of 8 will produce an 8*8=64 vertex
+    patch. (The actual count is N+1, to produce a quad with N*N patches) \n- **LOD
+    levels:** The max number of subdivisions that can be applied to the grid. Subdivision
+    level depends on camera distance, with higher levels producing more detail up
+    close, but requires more processing. \n- **Max Height:** This should correspond
+    to how high the waves can get in world space, and is used for culling patches
+    that may be below the camera.  \n- **Culling Bounds Scale:** Each patch is culled
+    based on a bounding box. Since the ocean can have horizontal, as well as vertical
+    displacement, high wind speeds could cause patches to disappear while they are
+    still visible.  \n- **LOD threshold:** When a patch is closer to the camera than
+    it's radius, multiplied by this threshold, it will subdivide into smaller patches.
+    Increasing this value will make patches subdivide without being as close to the
+    camera, reducing flickering/popping as the camera moves, however it will increase
+    the number of vertices being processed on the GPU. \n- **Skirting Size:** Beyond
+    the ocean distance, a simple \"skirting mesh\" can be used to render more of
+    the mesh with simplified geometry. However there is no lod-stiching so minor
+    cracks may be visible. This is best used if the performance of rendering the
+    ocean up to the far plane is too high. \n\n## Conclusion \n\nBy leveraging iFFT,
+    CPU-side processing, and a dynamic quadtree renderer, the ocean system achieves
+    high visual fidelity while maintaining performance. Future improvements could
+    include smoother LOD transitions and optimizations for GPU-based displacement
+    rendering. \n\n### Relevant Files\n- [OceanSimulation.cs](../Packages/com.meta.utilities.environment/Runtime/Scripts/Water/OceanSimulation.cs)\n-
+    [OceanSpectrumJob.cs](../Packages/com.meta.utilities.environment/Runtime/Scripts/Water/OceanSpectrumJob.cs)\n-
+    [OceanDispersionJob.cs](../Packages/com.meta.utilities.environment/Runtime/Scripts/Water/OceanDispersionJob.cs)\n-
+    [OceanFFTRowJob.cs](../Packages/com.meta.utilities.environment/Runtime/Scripts/Water/OceanFFTRowJob.cs)\n-
+    [OceanFFTColumnJob.cs](../Packages/com.meta.utilities.environment/Runtime/Scripts/Water/OceanFFTColumnJob.cs)\n-
+    [OceanFFTFinalJob.cs](../Packages/com.meta.utilities.environment/Runtime/Scripts/Water/OceanFFTFinalJob.cs)\n-
+    [QuadtreeRenderer.cs](../Packages/com.meta.utilities.environment/Runtime/Scripts/Water/QuadtreeRenderer.cs)\n"
+  m_overrideMarkdownRoot: .\Documentation/

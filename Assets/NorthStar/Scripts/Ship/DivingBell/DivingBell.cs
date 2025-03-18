@@ -1,5 +1,6 @@
 // Copyright (c) Meta Platforms, Inc. and affiliates.
 using Meta.Utilities;
+using Meta.Utilities.Environment;
 using UnityEngine;
 
 namespace NorthStar

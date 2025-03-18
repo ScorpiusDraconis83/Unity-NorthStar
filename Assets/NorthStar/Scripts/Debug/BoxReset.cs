@@ -11,7 +11,7 @@ namespace NorthStar
         private Material m_material;
         private Collider m_collider;
 
-        public float dissolveTime = .5f;
+        public float DissolveTime = .5f;
 
         private void Awake()
         {
@@ -31,9 +31,9 @@ namespace NorthStar
         private IEnumerator Run()
         {
             var time = 0f;
-            while (time < dissolveTime)
+            while (time < DissolveTime)
             {
-                m_material.SetFloat("_Dissolve", 1 - time / dissolveTime);
+                m_material.SetFloat("_Dissolve", 1 - time / DissolveTime);
                 time += Time.deltaTime;
                 yield return null;
             }

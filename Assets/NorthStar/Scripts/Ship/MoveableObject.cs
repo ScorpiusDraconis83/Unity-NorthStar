@@ -1,5 +1,6 @@
 // Copyright (c) Meta Platforms, Inc. and affiliates.
 using UnityEngine;
+
 namespace NorthStar
 {
     /// <summary>
@@ -16,7 +17,7 @@ namespace NorthStar
             Manual,
             Disabled
         }
-        public UpdateMode updateMode;
+        [SerializeField] protected UpdateMode m_updateMode;
         public enum ParentMethod
         {
             TrackTransform,
@@ -27,7 +28,7 @@ namespace NorthStar
             Parent,
             Joint
         }
-        public ParentMethod parentMethod;
+        [SerializeField] protected ParentMethod m_parentMethod;
         [HideInInspector] public Rigidbody Body;
         public bool Registered = false;
         [HideInInspector] public ParentedTransform RegisteredTo = null;
@@ -38,7 +39,7 @@ namespace NorthStar
         private void OnValidate()
         {
             Body = GetComponent<Rigidbody>();
-            if (Body == null && (parentMethod == ParentMethod.TrackRigidBodyMove || parentMethod == ParentMethod.Joint))
+            if (Body == null && (m_parentMethod == ParentMethod.TrackRigidBodyMove || m_parentMethod == ParentMethod.Joint))
             {
                 Debug.LogError("Missing RigidBody on tracked physics object");
             }

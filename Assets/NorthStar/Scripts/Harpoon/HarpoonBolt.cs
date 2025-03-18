@@ -1,5 +1,6 @@
 // Copyright (c) Meta Platforms, Inc. and affiliates.
 using System.Collections.Generic;
+using Meta.Utilities.Environment;
 using UnityEngine;
 
 namespace NorthStar
@@ -9,10 +10,9 @@ namespace NorthStar
     /// </summary>
     public class HarpoonBolt : MonoBehaviour
     {
-        [SerializeField] public Rigidbody m_rigidbody;
+        [SerializeField] private Rigidbody m_rigidbody;
         [SerializeField] private LineRenderer m_lineRenderer;
         [SerializeField] private float m_maxAirTime = 20;
-        [SerializeField] private float m_airSpeed = 5;
         [SerializeField] private float m_colliderDelay = 0.2f;
         [SerializeField] private Collider m_collider;
         public bool UseVisualOffset;
@@ -23,12 +23,15 @@ namespace NorthStar
         [SerializeField] private AnimationCurve m_distanceOffsetCurve;
         [SerializeField] private LayerMask m_layerMask = int.MaxValue;
         [SerializeField] private EffectAsset m_hitParticles;
+        [SerializeField] private ParticleSystem m_trailParticle;
 
         private List<Vector3> m_points = new();
 
         private Vector3 m_firedPosition;
         private Vector3 m_landedPosition;
-
+        private Vector3 m_visualDirection;
+        private float m_timeOfLaunch;
+        private float m_hitTime;
 
         private bool m_airborne = true;
         public bool IsAirborne => m_airborne;
@@ -36,6 +39,21 @@ namespace NorthStar
         private float m_colliderDelayTimeRemaining;
 
         private HarpoonTarget m_hitTarget;
+
+        public void Fire(Vector3 actualDir, Vector3 intendedDir, float force, float estimatedHitTime)
+        {
+            m_rigidbody.AddForce(actualDir * force, ForceMode.VelocityChange);
+            m_visualDirection = intendedDir * force;
+            m_timeOfLaunch = Time.time;
+            m_hitTime = estimatedHitTime;
+        }
+
+        private Vector3 GetVisualPosition()
+        {
+            var dt = Time.time - m_timeOfLaunch;
+            var offset = m_visualDirection * dt + .5f * Physics.gravity * dt * dt;
+            return m_firedPosition + offset;
+        }
 
         private void Start()
         {
@@ -45,11 +63,19 @@ namespace NorthStar
             m_colliderDelayTimeRemaining = m_colliderDelay;
             m_airborne = true;
             m_rigidbody.isKinematic = false;
+            if (m_trailParticle != null)
+            {
+                var main = m_trailParticle.main;
+                main.customSimulationSpace = BoatController.Instance.transform;
+            }
             if (m_collider) m_collider.enabled = false;
         }
 
         private void Update()
         {
+            var dt = Time.time - m_timeOfLaunch;
+            var t = dt / m_hitTime;
+            m_visual.transform.position = Vector3.Lerp(GetVisualPosition(), transform.position, t);
             if (m_airborne)
             {
                 m_points.Add(transform.position);
@@ -181,8 +207,12 @@ namespace NorthStar
 
                 if (m_hideOnHit)
                 {
-                    gameObject.SetActive(false);
+                    m_visual.GetComponent<Renderer>().enabled = false;
+
+                    //gameObject.SetActive(false);
                 }
+                if (m_visual.TryGetComponent(out HarpoonTrail trail))
+                    trail.RecordPositions = false;
             }
         }
     }

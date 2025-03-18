@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4510294d23d964fe59443526f1ca7c4b, type: 3}
+  m_Name: Time of day
+  m_EditorClassIdentifier: 
+  m_displayName: Time of Day
+  m_hierarchyName: Time of Day
+  m_context: {fileID: 11400000, guid: 86372eb5997265f48b723b8de177d32f, type: 2}
+  m_markdownFile: {fileID: 0}
+  m_priority: 1003
+  m_overrideMarkdownText: "# Time of Day System \n\n![](./Images/TimeOfDay/Fig0.gif)
+    \n\nThe Time of Day System in NorthStar is controlled by an environment profile,
+    which centralizes various settings to streamline scene management and real-time
+    adjustments. The system supports real-time previews and transitions, even in
+    scene mode, to support faster iteration and development. \n\nTo achieve smooth
+    transitions, the system primarily relies on lerping between floats, vectors,
+    and colors. Where possible, values are precomputed to minimize GPU overhead.
+    The system is designed to directly control environment parameters, avoiding computationally
+    expensive techniques such as full atmospheric scattering and complex cloud lighting.
+    \n\n## Environment System\n\n![](./Images/TimeOfDay/Fig1.png)  \n\nThe Environment
+    System serves as the core of the Time of Day System. It: \n- Manages references
+    to scene objects. \n- Stores global and default values. \n- Handles transitions
+    between different environment profiles. \n- Integrates rendering logic with the
+    current render pipeline via RenderPipelineManager callbacks.\n\n**Custom Rendering
+    Logic**\n\nThis system also manages key rendering tasks, including: \n- Updating
+    ocean simulations.\n- Rendering the ocean quadtree.\n- Rendering the sun and
+    moon discs.\n- Setting global shader properties. \n\n## Skybox Updater \n\nThe
+    Skybox Updater manages environmental lighting by dynamically adjusting: \n- Skybox
+    reflection probes.\n- Ambient lighting.\n- Fog settings.\n- Directional light
+    angles and colors. \n\nThese updates ensure accurate lighting and atmospheric
+    transitions throughout different times of the day. \n\n## Sun Disk Renderer \n\nRather
+    than embedding additional logic within the skybox shader, the Sun Disk Renderer
+    renders the sun and moon as simple quads with a custom shader. \n\n**Key Features:**
+    \n- Basic color and texture functionality.\n- Ability to simulate distant light
+    source illumination (e.g., moon shading using a normal map).\n- Cloud, fog, and
+    atmospheric occlusion, ensuring the sun and moon integrate naturally with skybox
+    colors. \n\nSince these materials inherit from the base skybox materials, they
+    maintain proper cloud occlusion and sky color blending. \n\n# Environment Profiles
+    \n\nThe Time of Day System relies on scriptable objects to define environment
+    profiles. Each profile contains nested classes grouping relevant settings. Below
+    is an overview of the main configurable elements: \n\n![](./Images/TimeOfDay/Fig2.png) 
+    \n\n**Post Process Profile**\n\n- Allows for custom post-processing settings
+    per environment.\n- Supports smooth transitions between profiles.\n- Uses a default
+    profile if none is assigned. \n\n**Ocean Settings** \n\n- Defines the current
+    ocean state.\n- Uses a specific ocean material with the Ocean Shader (refer to
+    the Ocean System documentation for details). \n\n**Skybox Material**\n\n- Defines
+    the skybox shader used to render the sky.\n\n## Sun and Celestial Object Settings\n\n**Sun
+    Settings** \n\n- Intensity \u2013 Controls directional light strength.\n- Filter
+    \u2013 Adjusts directional light color.\n- Rotation \u2013 Controls sun orientation
+    (X and Y components have a noticeable effect).\n- Sun Disk Material \u2013 Must
+    use a skybox shader with Is Celestial Object enabled.\n- Angular Diameter \u2013
+    Controls the sun's apparent size (real-world value ~0.52, but can be adjusted
+    for visuals). \n\n**Moon/Secondary Celestial Object** \n\n- Render Secondary
+    Celestial Object \u2013 Enables rendering of a secondary disk (e.g., the moon).\n-
+    Secondary Object Rotation \u2013 Similar to the sun, but controls the secondary
+    celestial body's orientation.\n- Secondary Object Material \u2013 Configured
+    similarly to the sun.\n- Angular Diameter \u2013 Adjusts the moon\u2019s apparent
+    size (real-world value ~0.5 degrees, but can be tweaked for aesthetics).\n\n##
+    Fog and Wind Settings \n\n**Fog Settings** \n\n- Fog Color \u2013 Defines the
+    full-density fog color.\n- Density \u2013 Controls fog thickness via an exponential
+    density function.\n- Underwater Fog Color \u2013 Specific to underwater environments
+    (used in Beat 7).\n- Underwater Tint & Distance \u2013 Controls underwater color
+    blending and fade distance. \n\n**Wind Settings** \n\n- Wind Yaw (Horizontal
+    Angle) \u2013 Affects ocean movement and sail interactions.\n- Wind Pitch (Vertical
+    Angle) \u2013 Influences sail behavior and ocean wind speed calculations.\n\n##
+    Gradient Ambient & Precomputed Lighting \n\n**Gradient Ambient Settings** \n\n-
+    Used alongside the Environment System to apply ambient lighting based on a gradient
+    rather than the skybox. \n\n**Environment Data Optimization** \n\n- Stores precomputed
+    ambient lighting from the skybox to reduce runtime calculations, optimizing performance.
+    \n\n## Conclusion \n\nThe Time of Day System in NorthStar provides a highly optimized
+    and flexible tool for dynamic environment control in mobile VR. By focusing on
+    direct parameter manipulation, precomputed values, and scriptable environment
+    profiles, the system achieves realistic time-based transitions while minimizing
+    GPU load. \n\nThis structured approach ensures a high degree of customization,
+    allowing for seamless environmental shifts and efficient real-time iteration
+    during development. \n\n### Relevant Files\n- [EnvironmentSystem.cs](../Packages/com.meta.utilities.environment/Runtime/Scripts/Environment/EnvironmentSystem.cs)\n-
+    [SkyboxUpdater.cs](../Packages/com.meta.utilities.environment/Runtime/Scripts/Environment/SkyboxUpdater.cs)\n-
+    [SunDiskRenderer.cs](../Packages/com.meta.utilities.environment/Runtime/Scripts/Environment/SunDiskRenderer.cs)\n-
+    [EnvironmentProfile.cs](../Packages/com.meta.utilities.environment/Runtime/Scripts/Water/EnvironmentProfile.cs)\n-
+    [RainController.cs](../Packages/com.meta.utilities.environment/Runtime/Scripts/Environment/RainSystem/RainController.cs)\n-
+    [RainData.cs](../Packages/com.meta.utilities.environment/Runtime/Scripts/Environment/RainSystem/RainData.cs)\n-
+    [UnderwaterEnvironmentController.cs](../Packages/com.meta.utilities.environment/Runtime/Scripts/Environment/UnderwaterSystem/UnderwaterEnvironmentController.cs)\n-
+    [UnderwaterEnvironmentData.cs](../Packages/com.meta.utilities.environment/Runtime/Scripts/Environment/UnderwaterSystem/UnderwaterEnvironmentData.cs)\n-
+    [WindController.cs](../Packages/com.meta.utilities.environment/Runtime/Scripts/Environment/WindSystem/WindController.cs)\n-
+    [WindData.cs](../Packages/com.meta.utilities.environment/Runtime/Scripts/Environment/WindSystem/WindData.cs)\n"
+  m_overrideMarkdownRoot: .\Documentation/

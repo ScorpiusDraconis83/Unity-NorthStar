@@ -1,0 +1,289 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee262462c8042e840a3146c602914c9a, type: 3}
+  m_Name: TutorialReferencesScenes
+  m_EditorClassIdentifier: 
+  m_title: Scene Walkthrough
+  m_priority: 1101
+  m_tutorialConfig: {fileID: 11400000, guid: b356a0b1f496b4b4eb15067276f6d495, type: 2}
+  m_showBanner: 0
+  m_references:
+  - Header: Launch Scene
+    Description: This scene loads on game launch and loads PSOs required for the
+      North Star experience generated from Unity's internal cache (this removes hitching
+      caused by runtime generation on all shader variants).
+    Reference:
+      m_referenceType: 0
+      m_obj: {fileID: 102900000, guid: 296af425155007f4aa00795226aa9323, type: 3}
+      m_classType: 
+      m_scene: {fileID: 102900000, guid: 296af425155007f4aa00795226aa9323, type: 3}
+      m_name: Game Flow
+      m_path: 
+      m_guid: 
+      m_instanceID: 0
+  - Header: Beat 1
+    Description: 'A scene that handles all game logic for Beat 1.
+
+
+      Beat 1
+      commences with the player adrift, castaway in the middle of the ocean on a
+      piece of debris. They can ring the bell to start the adventure, and use the
+      available Spyglass to pierce the surrounding fog and witness an approaching
+      vessel.
+
+
+      The Polaris emerges from the fog, her crew spotting the player
+      and rescuing them from their peril.'
+    Reference:
+      m_referenceType: 0
+      m_obj: {fileID: 102900000, guid: 4253da1135ef5c94e829156efbf3bc49, type: 3}
+      m_classType: 
+      m_scene: {fileID: 102900000, guid: 4253da1135ef5c94e829156efbf3bc49, type: 3}
+      m_name: Beat 1
+      m_path: 
+      m_guid: 
+      m_instanceID: 0
+  - Header: Beat 1 Game Flow Manager
+    Description: Automatically progresses the narrative based on where it is in larger
+      flow.
+    Reference:
+      m_referenceType: 5
+      m_obj: {fileID: 0}
+      m_classType: 
+      m_scene: {fileID: 102900000, guid: 4253da1135ef5c94e829156efbf3bc49, type: 3}
+      m_name: Game Flow
+      m_path: 
+      m_guid: 
+      m_instanceID: 0
+  - Header: Beat 1 Environment Manager
+    Description: Where the environment and ocean logic is driven.
+    Reference:
+      m_referenceType: 5
+      m_obj: {fileID: 0}
+      m_classType: 
+      m_scene: {fileID: 102900000, guid: 4253da1135ef5c94e829156efbf3bc49, type: 3}
+      m_name: Environment
+      m_path: 
+      m_guid: 
+      m_instanceID: 0
+  - Header: Beat 2
+    Description: "A scene that handles all game logic for Beat 2.\n\nBeat 2 starts
+      with the player awakening in the Captain's Cabin onboard the Polaris. They
+      learn to teleport and are able to pick up and interact with items on the table
+      as the Captain, Bessie, enters and greets the player. Following her out onto
+      the main deck, it's revealed the crew have arrived at an island and are currently
+      docked. \r\n\r\nThe player is offered to join as the ship's new deckhand and
+      is put through a series of tests to prove they can join the crew. Along the
+      way they meet Audrey (ship Engineer) and Thomas (Navigator). They learn how
+      to set sail and take the helm to commence the adventure."
+    Reference:
+      m_referenceType: 0
+      m_obj: {fileID: 102900000, guid: a57d475038ada9f479b1217d29533883, type: 3}
+      m_classType: 
+      m_scene: {fileID: 102900000, guid: a57d475038ada9f479b1217d29533883, type: 3}
+      m_name: Beat 2
+      m_path: 
+      m_guid: 
+      m_instanceID: 0
+  - Header: Beat 2 Game Flow Manager
+    Description: Automatically progresses the narrative based on where it is in larger
+      flow.
+    Reference:
+      m_referenceType: 5
+      m_obj: {fileID: 0}
+      m_classType: 
+      m_scene: {fileID: 102900000, guid: a57d475038ada9f479b1217d29533883, type: 3}
+      m_name: Game Flow
+      m_path: 
+      m_guid: 
+      m_instanceID: 0
+  - Header: Beat 2 Environment Manager
+    Description: Where the environment and ocean logic is driven.
+    Reference:
+      m_referenceType: 5
+      m_obj: {fileID: 0}
+      m_classType: 
+      m_scene: {fileID: 102900000, guid: a57d475038ada9f479b1217d29533883, type: 3}
+      m_name: Environment
+      m_path: 
+      m_guid: 
+      m_instanceID: 0
+  - Header: Beat 3 and Beat 4
+    Description: "A scene that handles all game logic for Beats 3 and 4. \n\nTo manage
+      performance overhead, and given both Beats take place in a similar environment,
+      Beat 3 and Beat 4 were combined into a single scene.\n\nDuring Beat 3 the Polaris
+      is out in open ocean once again. The player learns to re-angle the sails while
+      getting to know their fellow crew members. A large wave knocks cargo overboard,
+      and Audrey teaches the player how to use the Harpoon to retrieve crates from
+      the ocean.\n\nTo start Beat 4, looking through the spyglass reveals an approaching
+      storm. The player helps tie down and secure the cargo before the storm hits!
+      The player is assailed by beating rain, heavy waves and flashing lightning
+      as they retreat to the safty of the cabin.\r"
+    Reference:
+      m_referenceType: 0
+      m_obj: {fileID: 102900000, guid: 2dcf87d114aaed54792cd4ec343e2aa9, type: 3}
+      m_classType: 
+      m_scene: {fileID: 102900000, guid: 2dcf87d114aaed54792cd4ec343e2aa9, type: 3}
+      m_name: Beat 3
+      m_path: 
+      m_guid: 
+      m_instanceID: 0
+  - Header: Beat 3 and 4 Game Flow Manager
+    Description: Automatically progresses the narrative based on where it is in larger
+      flow.
+    Reference:
+      m_referenceType: 5
+      m_obj: {fileID: 0}
+      m_classType: 
+      m_scene: {fileID: 102900000, guid: 2dcf87d114aaed54792cd4ec343e2aa9, type: 3}
+      m_name: Game Flow
+      m_path: 
+      m_guid: 
+      m_instanceID: 0
+  - Header: Beat 3 and 4 Environment Manager
+    Description: Where the environment and ocean logic is driven.
+    Reference:
+      m_referenceType: 5
+      m_obj: {fileID: 0}
+      m_classType: 
+      m_scene: {fileID: 102900000, guid: 2dcf87d114aaed54792cd4ec343e2aa9, type: 3}
+      m_name: Environment
+      m_path: 
+      m_guid: 
+      m_instanceID: 0
+  - Header: Beat 5
+    Description: "A scene that handles all game logic for Beat 5. \n\nWhen the storm
+      eases, the crew leave the cabin to inspect the damage to the Polaris. The ship
+      is knocked and Thomas is thrown overboard. When the player throws him a life
+      buoy, a giant tentacle hoists him in the air. The Kraken has emerged. The player
+      must use the harpoon to defend the ship from the tentacles, before working
+      with Audrey to reveal the beast's head and finally drive him off.\r"
+    Reference:
+      m_referenceType: 0
+      m_obj: {fileID: 102900000, guid: 90272b03ea5f6cd46b3a114b02465794, type: 3}
+      m_classType: 
+      m_scene: {fileID: 102900000, guid: 90272b03ea5f6cd46b3a114b02465794, type: 3}
+      m_name: Beat 5
+      m_path: 
+      m_guid: 
+      m_instanceID: 0
+  - Header: Beat 5 Game Flow Manager
+    Description: Automatically progresses the narrative based on where it is in larger
+      flow.
+    Reference:
+      m_referenceType: 5
+      m_obj: {fileID: 0}
+      m_classType: 
+      m_scene: {fileID: 102900000, guid: 90272b03ea5f6cd46b3a114b02465794, type: 3}
+      m_name: Game Flow
+      m_path: 
+      m_guid: 
+      m_instanceID: 0
+  - Header: Beat 5 Environment Manager
+    Description: Where the environment and ocean logic is driven.
+    Reference:
+      m_referenceType: 5
+      m_obj: {fileID: 0}
+      m_classType: 
+      m_scene: {fileID: 102900000, guid: 90272b03ea5f6cd46b3a114b02465794, type: 3}
+      m_name: Environment
+      m_path: 
+      m_guid: 
+      m_instanceID: 0
+  - Header: Beat 6
+    Description: "A scene that handles all game logic for Beat 6.\n\nThomas scrambles
+      back onboard safely. Bessie reveals that they have arrived at their destination,
+      based on the player's hand turning completely silver. Togehter with Audrey
+      they turn two cranks to lift a heavy diving bell onto the deck. The player
+      enters and is dropped into the ocean to seek the treasure below.\r"
+    Reference:
+      m_referenceType: 0
+      m_obj: {fileID: 102900000, guid: 7afc5ac21c11b3948a47f3eb1f4b9f33, type: 3}
+      m_classType: 
+      m_scene: {fileID: 102900000, guid: 7afc5ac21c11b3948a47f3eb1f4b9f33, type: 3}
+      m_name: Beat 6
+      m_path: 
+      m_guid: 
+      m_instanceID: 0
+  - Header: Beat 6 Game Flow Manager
+    Description: Automatically progresses the narrative based on where it is in larger
+      flow.
+    Reference:
+      m_referenceType: 5
+      m_obj: {fileID: 0}
+      m_classType: 
+      m_scene: {fileID: 102900000, guid: 7afc5ac21c11b3948a47f3eb1f4b9f33, type: 3}
+      m_name: Game Flow
+      m_path: 
+      m_guid: 
+      m_instanceID: 0
+  - Header: Beat 6 Environment Manager
+    Description: Where the environment and ocean logic is driven.
+    Reference:
+      m_referenceType: 5
+      m_obj: {fileID: 0}
+      m_classType: 
+      m_scene: {fileID: 102900000, guid: 7afc5ac21c11b3948a47f3eb1f4b9f33, type: 3}
+      m_name: Environment
+      m_path: 
+      m_guid: 
+      m_instanceID: 0
+  - Header: Beat 7
+    Description: "A scene that handles all game logic for Beat 7.\n\nThe player pulls
+      the lever to descend through the depths of the ocean in the diving bell, witnessing
+      the marvels that lay in wait. When they step out of the diving bell, they can
+      use their hands to gesture towards the waiting shimmering orb, drawing it towards
+      them, and witness the conclusion of the adventure.\r"
+    Reference:
+      m_referenceType: 0
+      m_obj: {fileID: 102900000, guid: 0535de9e9d0c6044c883aeb804c4723a, type: 3}
+      m_classType: 
+      m_scene: {fileID: 102900000, guid: 0535de9e9d0c6044c883aeb804c4723a, type: 3}
+      m_name: Beat 7
+      m_path: 
+      m_guid: 
+      m_instanceID: 0
+  - Header: Beat 7 Game Flow Manager
+    Description: Automatically progresses the narrative based on where it is in larger
+      flow.
+    Reference:
+      m_referenceType: 5
+      m_obj: {fileID: 0}
+      m_classType: 
+      m_scene: {fileID: 102900000, guid: 0535de9e9d0c6044c883aeb804c4723a, type: 3}
+      m_name: Game Flow
+      m_path: 
+      m_guid: 
+      m_instanceID: 0
+  - Header: Beat 7 Environment Manager
+    Description: Where the environment and ocean logic is driven.
+    Reference:
+      m_referenceType: 5
+      m_obj: {fileID: 0}
+      m_classType: 
+      m_scene: {fileID: 102900000, guid: 0535de9e9d0c6044c883aeb804c4723a, type: 3}
+      m_name: Environment
+      m_path: 
+      m_guid: 
+      m_instanceID: 0
+  - Header: Free Sailing Scene
+    Description: A scene to freeplay with the sailing mechanics (accessibile in-game
+      from the pause menu).
+    Reference:
+      m_referenceType: 5
+      m_obj: {fileID: 0}
+      m_classType: 
+      m_scene: {fileID: 102900000, guid: f9b9f89e73ffd6e4f8cd3566cd336d81, type: 3}
+      m_name: Environment
+      m_path: 
+      m_guid: 
+      m_instanceID: 0

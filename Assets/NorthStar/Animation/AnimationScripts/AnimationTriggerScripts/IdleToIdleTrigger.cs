@@ -9,51 +9,51 @@ public class IdleToIdleTrigger : MonoBehaviour
     [Header("into a new idle animation. Optionally transition back to original idle after time")]
     [Space(25)]
     //DEBUG
-    public bool showDebug = false;
-    public TextMesh debugText;
+    public bool ShowDebug = false;
+    public TextMesh DebugText;
 
     //---------
 
     //Angle and Distance checking variables
-    private NPC_IKController NPCController;
+    [System.NonSerialized] public NPC_IKController NPCController;
 
     private enum AnimState { InactiveIdle, Transitioning, TransitionEnded, ActiveIdle }
 
-    private AnimState animState = AnimState.InactiveIdle;
+    private AnimState m_animState = AnimState.InactiveIdle;
 
     [Tooltip("Use distance from NPC to trigger")]
-    public float triggerDistance = 5f;
+    public float TriggerDistance = 5f;
     [Tooltip("Use cone of vision angle from NPC to trigger")]
-    public float triggerAngle = 60f;
+    public float TriggerAngle = 60f;
 
     [Tooltip("Does this use a transition animation between the two Idles")]
-    public bool useTransitionAnimation = true;
+    public bool UseTransitionAnimation = true;
 
     [Tooltip("Does the active animation have a time limit before it returns to idle? Negative is never returns")]
-    public float activeIdlePlayTime = 15;
-    private float activeIdleCounter = 0;
+    public float ActiveIdlePlayTime = 15;
+    private float m_activeIdleCounter = 0;
 
     [Tooltip("Does the active animation reset to idle when you leave the trigger area")]
-    public bool useExitTriggerToReset = true;
+    public bool UseExitTriggerToReset = true;
 
 
     [Tooltip("Can the animation be triggered more than once?")]
-    public bool canTriggerMultiple = false;
-    private bool isTriggerValid = true;
+    public bool CanTriggerMultiple = false;
+    private bool m_isTriggerValid = true;
 
     private void Start()
     {
         NPCController = GetComponent<NPC_IKController>();
 
-        if (debugText != null)
+        if (DebugText != null)
         {
-            debugText.gameObject.SetActive(showDebug);
+            DebugText.gameObject.SetActive(ShowDebug);
         }
     }
 
     private void SwitchAnimState(AnimState nextState)
     {
-        if (showDebug) Debug.Log("Entered state: " + nextState + " from: " + animState);
+        if (ShowDebug) Debug.Log("Entered state: " + nextState + " from: " + m_animState);
 
         switch (nextState)
         {
@@ -73,15 +73,15 @@ public class IdleToIdleTrigger : MonoBehaviour
                 GetComponent<Animator>().ResetTrigger("TriggerInactiveIdle");
                 GetComponent<Animator>().ResetTrigger("TriggerTransition");
                 GetComponent<Animator>().SetTrigger("SetActiveIdle");
-                activeIdleCounter = 0;
+                m_activeIdleCounter = 0;
                 break;
         }
-        animState = nextState;
+        m_animState = nextState;
     }
 
     private void Update()
     {
-        switch (animState)
+        switch (m_animState)
         {
             case AnimState.InactiveIdle:
                 break;
@@ -90,33 +90,33 @@ public class IdleToIdleTrigger : MonoBehaviour
                 break;
 
             case AnimState.ActiveIdle:
-                if (activeIdlePlayTime > 0) //if using timer to return to start, then count down
+                if (ActiveIdlePlayTime > 0) //if using timer to return to start, then count down
                     ActiveIdleCounter();
                 break;
         }
 
-        if (isTriggerValid)
+        if (m_isTriggerValid)
             CheckForTrigger();
-        else if (!isTriggerValid && canTriggerMultiple)
+        else if (!m_isTriggerValid && CanTriggerMultiple)
             CheckForTriggerReset(); //Check to see if you have exited the trigger area before trying to trigger the animation again
 
         //Debug---
-        if (showDebug && debugText != null)
+        if (ShowDebug && DebugText != null)
         {
-            var debugIsInRange = NPCController.IsWithinDistance(triggerDistance) && NPCController.IsWithinAngle(triggerAngle);
-            debugText.text = animState.ToString() + "\n" + activeIdleCounter.ToString(activeIdleCounter % 1 == 0 ? "0" : "0.0" + "/" + activeIdlePlayTime + "\n Is in Range: " + debugIsInRange);
+            var debugIsInRange = NPCController.IsWithinDistance(TriggerDistance) && NPCController.IsWithinAngle(TriggerAngle);
+            DebugText.text = m_animState.ToString() + "\n" + m_activeIdleCounter.ToString(m_activeIdleCounter % 1 == 0 ? "0" : "0.0" + "/" + ActiveIdlePlayTime + "\n Is in Range: " + debugIsInRange);
         }
         //--------
     }
 
     private void CheckForTrigger()
     {
-        if (NPCController.IsWithinDistance(triggerDistance) && NPCController.IsWithinAngle(triggerAngle)) //if within trigger
+        if (NPCController.IsWithinDistance(TriggerDistance) && NPCController.IsWithinAngle(TriggerAngle)) //if within trigger
         {
-            if (showDebug) Debug.Log("Trigger zone entered");
+            if (ShowDebug) Debug.Log("Trigger zone entered");
 
-            isTriggerValid = false; //Set this false to prevent animation triggering immediately after ending
-            if (useTransitionAnimation) //trigger the transition animation
+            m_isTriggerValid = false; //Set this false to prevent animation triggering immediately after ending
+            if (UseTransitionAnimation) //trigger the transition animation
             {
                 SwitchAnimState(AnimState.Transitioning);
             }
@@ -129,12 +129,12 @@ public class IdleToIdleTrigger : MonoBehaviour
 
     private void CheckForTriggerReset()
     {
-        if (!NPCController.IsWithinDistance(triggerDistance) || !NPCController.IsWithinAngle(triggerAngle)) //if not in trigger zone
+        if (!NPCController.IsWithinDistance(TriggerDistance) || !NPCController.IsWithinAngle(TriggerAngle)) //if not in trigger zone
         {
-            if (showDebug) Debug.Log("Trigger Zone Exited");
-            if (useExitTriggerToReset)
+            if (ShowDebug) Debug.Log("Trigger Zone Exited");
+            if (UseExitTriggerToReset)
             {
-                isTriggerValid = true;
+                m_isTriggerValid = true;
                 SwitchAnimState(AnimState.InactiveIdle);
             }
         }
@@ -142,8 +142,8 @@ public class IdleToIdleTrigger : MonoBehaviour
 
     private void ActiveIdleCounter()
     {
-        if (activeIdleCounter < activeIdlePlayTime)
-            activeIdleCounter += Time.deltaTime;
+        if (m_activeIdleCounter < ActiveIdlePlayTime)
+            m_activeIdleCounter += Time.deltaTime;
         else
         {
             SwitchAnimState(AnimState.InactiveIdle);
@@ -152,7 +152,7 @@ public class IdleToIdleTrigger : MonoBehaviour
 
     public void TransitionEnded() //Called by the Transition state in the Animation State machine
     {
-        if (showDebug) Debug.Log("State Machine : TransitionStateEnded");
+        if (ShowDebug) Debug.Log("State Machine : TransitionStateEnded");
         SwitchAnimState(AnimState.ActiveIdle);
     }
 }

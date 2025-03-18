@@ -8,7 +8,7 @@ namespace NorthStar
     {
         //This script just changes a lights color to a new random color
         //nothing much exposed right now since it's just for some quick testing
-        public bool randomlyChange = true;
+        public bool RandomlyChange = true;
 
         private Light m_thisLight;
 
@@ -20,7 +20,7 @@ namespace NorthStar
 
         private void InvokeNextChange()
         {
-            if (randomlyChange)
+            if (RandomlyChange)
             {
                 Invoke(nameof(SetRandomLightColor), Random.Range(1f, 10f));
             }

@@ -1,6 +1,7 @@
 // Copyright (c) Meta Platforms, Inc. and affiliates.
 using System.Collections.Generic;
 using Meta.Utilities;
+using Meta.Utilities.Environment;
 using Oculus.Interaction;
 using Oculus.Interaction.HandGrab;
 using UnityEngine;
@@ -22,7 +23,7 @@ namespace NorthStar
         [SerializeField] private Transform m_head, m_leftAnchor, m_rightAnchor;
         [SerializeField] private Transform m_leftEye, m_rightEye;
 
-        [SerializeField, FormerlySerializedAs("m_lastTeleport")] public TeleportWaypoint LastTeleport;
+        [SerializeField] public TeleportWaypoint LastTeleport;
         [SerializeField, AutoSet] private BodyPositions m_bodyPositions;
         [SerializeField, AutoSet] private ControllerMappings m_controllerMappings;
         [SerializeField] private LineRenderer m_lineRenderer;
@@ -32,6 +33,7 @@ namespace NorthStar
         [SerializeField] private ScreenFader m_screenFader;
         [SerializeField] private SoundPlayer m_teleportSound;
         [SerializeField] private SphereMaskRenderer m_sphereMaskRenderer;
+
         [SerializeField] private float m_criticalDistanceMin = 2f, m_criticalDistanceMax = 3f;
 
         private float m_warpTimer;
@@ -220,14 +222,14 @@ namespace NorthStar
 
         private void Update()
         {
-#if !UNITY_EDITOR   // This makes the simulator more difficult to use - disabled in editor
             if (m_sphereMaskRenderer != null)
             {
                 var distance = Vector3.Scale(m_head.position - LastTeleport.transform.position, new(1f, 0f, 1f)).magnitude;
                 var targetIntensity = Mathf.InverseLerp(m_criticalDistanceMin, m_criticalDistanceMax, distance);
+#if !UNITY_EDITOR   // This makes the simulator more difficult to use - disabled in editor
                 m_sphereMaskRenderer.Intensity = targetIntensity;
-            }
 #endif
+            }
 
             var playerSettings = GlobalSettings.PlayerSettings;
             m_lineRenderer.enabled = m_state is State.aiming or State.locked && m_hasTarget;

@@ -5,14 +5,13 @@ namespace NorthStar
 {
     public class DebugMaterialOptions : MonoBehaviour
     {
-        public GameObject waterGameObject;
-        public Material complexSkybox;
-        public Material simpleSkybox;
-        public Renderer shipRenderer;
+        [SerializeField] private GameObject m_waterGameObject;
+        [SerializeField] private Material m_complexSkybox;
+        [SerializeField] private Material m_simpleSkybox;
+        [SerializeField] private Renderer m_shipRenderer;
         [Header("Use Context Menu to fetch reference setup from Ship Model")]
-        public Material[] referenceShipMaterials;
-        public Material[] customShipMaterials;
-        public Material[] standardShipMaterials;
+        [SerializeField] private Material[] m_customShipMaterials;
+        [SerializeField] private Material[] m_standardShipMaterials;
 
         private const string MATERIALS_CATEGORY = "MATERIAL COMPLEXITY SETTINGS";
 
@@ -46,17 +45,17 @@ namespace NorthStar
             });
             var shipRendererActive = DebugSystem.Instance.AddBool(MATERIALS_CATEGORY, "Ship Renderer Enabled", true, false, (value) =>
             {
-                RendererActive(shipRenderer, value);
+                RendererActive(m_shipRenderer, value);
             });
         }
 
         public void WaterEnabled(bool value)
         {
-            if (waterGameObject == null)
+            if (m_waterGameObject == null)
             {
                 return;
             }
-            waterGameObject.SetActive(value);
+            m_waterGameObject.SetActive(value);
         }
 
         public void RendererActive(Renderer renderer, bool value)
@@ -67,51 +66,41 @@ namespace NorthStar
         [ContextMenu("Complex Skybox")]
         public void ComplexSkybox()
         {
-            if (complexSkybox == null)
+            if (m_complexSkybox == null)
             {
                 return;
             }
-            RenderSettings.skybox = complexSkybox;
+            RenderSettings.skybox = m_complexSkybox;
         }
 
         [ContextMenu("Simple Skybox")]
         public void SimpleSkybox()
         {
-            if (simpleSkybox == null)
+            if (m_simpleSkybox == null)
             {
                 return;
             }
-            RenderSettings.skybox = simpleSkybox;
-        }
-
-        [ContextMenu("Fetch Reference Ship Materials")]
-        public void FetchShipMaterials()
-        {
-            if (shipRenderer == null)
-            {
-                return;
-            }
-            referenceShipMaterials = shipRenderer.sharedMaterials;
+            RenderSettings.skybox = m_simpleSkybox;
         }
 
         [ContextMenu("Use Custom Ship Materials")]
         public void CustomShipMaterials()
         {
-            if (shipRenderer == null)
+            if (m_shipRenderer == null)
             {
                 return;
             }
-            shipRenderer.materials = customShipMaterials;
+            m_shipRenderer.materials = m_customShipMaterials;
         }
 
         [ContextMenu("Use Standard Ship Materials")]
         public void StandardShipMaterials()
         {
-            if (shipRenderer == null)
+            if (m_shipRenderer == null)
             {
                 return;
             }
-            shipRenderer.materials = standardShipMaterials;
+            m_shipRenderer.materials = m_standardShipMaterials;
         }
     }
 }

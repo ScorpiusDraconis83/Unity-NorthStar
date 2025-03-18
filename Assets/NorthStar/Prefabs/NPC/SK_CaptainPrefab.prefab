@@ -931,13 +931,13 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9081608989214833710}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 0.13759243, y: 0.9334845, z: 0.066306174}
-  m_Size: 2.1302495
+  m_LocalReferencePoint: {x: 0.058605373, y: 0.019386142, z: 0.0000014305115}
+  m_Size: 2.1648726
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.6
+  - screenRelativeHeight: 0.25
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 2850095295945677490}
@@ -3992,6 +3992,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8330710309625443809}
+    - targetCorrespondingSourceObject: {fileID: -6576428253001003219, guid: 67b4f452b71361e4aac78553be020e61,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7932922485698647473}
+    - targetCorrespondingSourceObject: {fileID: -6561084389503836285, guid: 67b4f452b71361e4aac78553be020e61,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7354933939395916750}
   m_SourcePrefab: {fileID: 100100000, guid: 67b4f452b71361e4aac78553be020e61, type: 3}
 --- !u!137 &131418406683970698 stripped
 SkinnedMeshRenderer:
@@ -4198,6 +4206,44 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 7921522834302011665}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5268296283893061266 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6561084389503836285, guid: 67b4f452b71361e4aac78553be020e61,
+    type: 3}
+  m_PrefabInstance: {fileID: 7921522834302011665}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7354933939395916750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5268296283893061266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1582623e9ecdef48b74707a6d74bf47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetTransform: {fileID: 6259688015700146417}
+--- !u!1 &5284185077700347452 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6576428253001003219, guid: 67b4f452b71361e4aac78553be020e61,
+    type: 3}
+  m_PrefabInstance: {fileID: 7921522834302011665}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7932922485698647473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5284185077700347452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1582623e9ecdef48b74707a6d74bf47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetTransform: {fileID: 6593193751110806928}
 --- !u!4 &5516420880411089839 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2405103192997417662, guid: 67b4f452b71361e4aac78553be020e61,
@@ -4228,9 +4274,21 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7921522834302011665}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &6259688015700146417 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4958456481027182112, guid: 67b4f452b71361e4aac78553be020e61,
+    type: 3}
+  m_PrefabInstance: {fileID: 7921522834302011665}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6332073105342153430 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4183542774706916295, guid: 67b4f452b71361e4aac78553be020e61,
+    type: 3}
+  m_PrefabInstance: {fileID: 7921522834302011665}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6593193751110806928 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -5291344986678270847, guid: 67b4f452b71361e4aac78553be020e61,
     type: 3}
   m_PrefabInstance: {fileID: 7921522834302011665}
   m_PrefabAsset: {fileID: 0}
@@ -4346,7 +4404,7 @@ LODGroup:
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.6
+  - screenRelativeHeight: 0.35
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 2850095295945677490}
@@ -4814,7 +4872,6 @@ MonoBehaviour:
   m_rightLegRig: {fileID: 0}
   m_targetTransform: {fileID: 3980367603853116894}
   m_spineLookLerpSpeed: 5
-  m_armLookLerpSpeed: 5
   m_headLookLerpSpeed: 5
   m_eyeLookLerpSpeed: 100
   m_trackTargetLerpSpeed: 5
@@ -4847,7 +4904,7 @@ MonoBehaviour:
   - m_rigName: Hat 01
     RootBone: {fileID: 2494421383771315737}
     m_ignoredBones: []
-    useCollision: 0
+    UseCollision: 0
     CollisionRadius: 0
     CollisionObjects: []
     GravityMultiplier: 0
@@ -4859,7 +4916,7 @@ MonoBehaviour:
   - m_rigName: Hat 02
     RootBone: {fileID: 5776624389590685032}
     m_ignoredBones: []
-    useCollision: 0
+    UseCollision: 0
     CollisionRadius: 0
     CollisionObjects: []
     GravityMultiplier: 0
@@ -4871,7 +4928,7 @@ MonoBehaviour:
   - m_rigName: Hat 03
     RootBone: {fileID: 7154005537297114636}
     m_ignoredBones: []
-    useCollision: 0
+    UseCollision: 0
     CollisionRadius: 0
     CollisionObjects: []
     GravityMultiplier: 0
@@ -4883,7 +4940,7 @@ MonoBehaviour:
   - m_rigName: Hat 04
     RootBone: {fileID: 510129463728890400}
     m_ignoredBones: []
-    useCollision: 0
+    UseCollision: 0
     CollisionRadius: 0
     CollisionObjects: []
     GravityMultiplier: 0
@@ -4895,7 +4952,7 @@ MonoBehaviour:
   - m_rigName: Hat 05
     RootBone: {fileID: 581623927954398335}
     m_ignoredBones: []
-    useCollision: 0
+    UseCollision: 0
     CollisionRadius: 0
     CollisionObjects: []
     GravityMultiplier: 0
@@ -4907,7 +4964,7 @@ MonoBehaviour:
   - m_rigName: Hat 06
     RootBone: {fileID: 6954236415290112112}
     m_ignoredBones: []
-    useCollision: 0
+    UseCollision: 0
     CollisionRadius: 0
     CollisionObjects: []
     GravityMultiplier: 0
@@ -4919,7 +4976,7 @@ MonoBehaviour:
   - m_rigName: Hat 07
     RootBone: {fileID: 2697208169592043499}
     m_ignoredBones: []
-    useCollision: 0
+    UseCollision: 0
     CollisionRadius: 0
     CollisionObjects: []
     GravityMultiplier: 0
@@ -4931,7 +4988,7 @@ MonoBehaviour:
   - m_rigName: Hat 08
     RootBone: {fileID: 3399451805661566384}
     m_ignoredBones: []
-    useCollision: 0
+    UseCollision: 0
     CollisionRadius: 0
     CollisionObjects: []
     GravityMultiplier: 0
@@ -4943,7 +5000,7 @@ MonoBehaviour:
   - m_rigName: Feather
     RootBone: {fileID: 1058059117837967678}
     m_ignoredBones: []
-    useCollision: 0
+    UseCollision: 0
     CollisionRadius: 0
     CollisionObjects: []
     GravityMultiplier: 0
@@ -4955,7 +5012,7 @@ MonoBehaviour:
   - m_rigName: Hair L 01
     RootBone: {fileID: 3887904578417380138}
     m_ignoredBones: []
-    useCollision: 0
+    UseCollision: 0
     CollisionRadius: 0
     CollisionObjects: []
     GravityMultiplier: 0.5
@@ -4967,7 +5024,7 @@ MonoBehaviour:
   - m_rigName: Hair L 02
     RootBone: {fileID: 4232614720594799889}
     m_ignoredBones: []
-    useCollision: 0
+    UseCollision: 0
     CollisionRadius: 0
     CollisionObjects: []
     GravityMultiplier: 0.5
@@ -4979,7 +5036,7 @@ MonoBehaviour:
   - m_rigName: Hair L 03
     RootBone: {fileID: 740467651933783911}
     m_ignoredBones: []
-    useCollision: 0
+    UseCollision: 0
     CollisionRadius: 0
     CollisionObjects: []
     GravityMultiplier: 0.5
@@ -4991,7 +5048,7 @@ MonoBehaviour:
   - m_rigName: Hair R 01
     RootBone: {fileID: 7518438207828537560}
     m_ignoredBones: []
-    useCollision: 0
+    UseCollision: 0
     CollisionRadius: 0
     CollisionObjects: []
     GravityMultiplier: 0.5
@@ -5003,7 +5060,7 @@ MonoBehaviour:
   - m_rigName: Hair R 02
     RootBone: {fileID: 1179866069162183513}
     m_ignoredBones: []
-    useCollision: 0
+    UseCollision: 0
     CollisionRadius: 0
     CollisionObjects: []
     GravityMultiplier: 0.5
@@ -5015,7 +5072,7 @@ MonoBehaviour:
   - m_rigName: Hair L Front
     RootBone: {fileID: 3567759747066160091}
     m_ignoredBones: []
-    useCollision: 0
+    UseCollision: 0
     CollisionRadius: 0
     CollisionObjects: []
     GravityMultiplier: 0.5
@@ -5027,7 +5084,7 @@ MonoBehaviour:
   - m_rigName: Hair R Front
     RootBone: {fileID: 190808938436751617}
     m_ignoredBones: []
-    useCollision: 0
+    UseCollision: 0
     CollisionRadius: 0
     CollisionObjects: []
     GravityMultiplier: 0.5

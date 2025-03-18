@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4510294d23d964fe59443526f1ca7c4b, type: 3}
+  m_Name: Ocean shader_Foam
+  m_EditorClassIdentifier: 
+  m_displayName: Foam
+  m_hierarchyName: Ocean Shader/Foam
+  m_context: {fileID: 11400000, guid: 95a8f8372a6947e40ad18fcd4817087a, type: 2}
+  m_markdownFile: {fileID: 0}
+  m_priority: 1004
+  m_overrideMarkdownText: "# Foam\n\n![](./Images/OceanShader/Fig4.gif)    \n\nA
+    value for computing foam coverage is packed into the blue channel of the normal
+    map. This is then converted into a foam mask with a configurable threshold using
+    the formula `saturate(foamStrength * (threshold \u2013 normalMap.b))`. This allows
+    foam amount to easily vary across ocean profiles. This is then multiplied with
+    a detail foam texture. The final result is then used to lerp between the ocean\u2019s
+    blue albedo color, and a configurable foam color. (In practice, the color is
+    often best left at white, however in some scenarios a slight tint can be used
+    to provide certain effects). \n\nA shore foam functionality was also implemented,
+    and involved sampling the depth buffer, and using the depth difference produce
+    foam along the edges of objects that intersected the water. However for optimisation
+    reasons, this is not currently used, as it also depends on the scene depth texture,
+    and copying this can have a notable performance cost. \n\nThe total foam amount
+    is used to mask out underwater effects such as subsurface, as heavy layers of
+    foam should block out strong amounts of light coming from underwater. \n\n"
+  m_overrideMarkdownRoot: .\Documentation/

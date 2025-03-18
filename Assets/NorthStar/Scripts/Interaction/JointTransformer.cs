@@ -100,10 +100,10 @@ namespace NorthStar
 
         private void Update()
         {
-            foreach(var hand in m_joints.Keys)
+            foreach (var hand in m_joints.Keys)
             {
                 var joint = m_joints[hand];
-                if(joint.currentForce.magnitude > m_maxJointForce || joint.currentTorque.magnitude > m_maxJointTorque)
+                if (joint.currentForce.magnitude > m_maxJointForce || joint.currentTorque.magnitude > m_maxJointTorque)
                 {
                     RemoveInteractor(hand);
                 }

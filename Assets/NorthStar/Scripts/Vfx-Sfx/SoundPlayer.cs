@@ -12,11 +12,12 @@ namespace NorthStar
     public class SoundPlayer : MonoBehaviour
     {
         [SerializeField, AutoSet] private AudioSource m_source;
-        [SerializeField, FormerlySerializedAs("m_clips")] public List<AudioClip> Clips;
+        [SerializeField] public List<AudioClip> Clips;
         [SerializeField] private float m_pitchRange = 0, m_volumeRange;
         [SerializeField] private bool m_playOnAwake = false;
         [SerializeField] private bool m_oneShotMode = false;
         [HideInInspector] public float BaseVolume;
+        [SerializeField] private bool m_allowOverlap = false;
 
         private bool m_isPlaying;
         private float m_defaultPitch;
@@ -64,16 +65,16 @@ namespace NorthStar
 
         public void Play()
         {
-            if (m_isPlaying) return;
+            if (m_isPlaying && !m_allowOverlap) return;
             if (Clips.Count == 0) return;
             enabled = true;
             m_isPlaying = true;
             var index = Random.Range(0, Clips.Count);
             m_source.clip = Clips[index];
-            m_source.pitch = m_defaultPitch + Random.Range(-1f, 1f) * m_pitchRange;
-            m_source.volume = BaseVolume + Random.Range(-1f, 1f) * m_volumeRange;
+            m_source.pitch = Mathf.Max(m_defaultPitch + Random.Range(-1f, 1f) * m_pitchRange, 0.0f);
+            m_source.volume = Mathf.Max(BaseVolume + Random.Range(-1f, 1f) * m_volumeRange, 0.0f);
             if (m_oneShotMode)
-                m_source.PlayOneShot(Clips[index], BaseVolume + Random.Range(-1f, 1f) * m_volumeRange);
+                m_source.PlayOneShot(Clips[index], Mathf.Max(BaseVolume + Random.Range(-1f, 1f) * m_volumeRange, 0.0f));
             else
                 m_source.Play();
         }

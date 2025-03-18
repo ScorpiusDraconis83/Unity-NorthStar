@@ -1,0 +1,178 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4510294d23d964fe59443526f1ca7c4b, type: 3}
+  m_Name: Introduction
+  m_EditorClassIdentifier: 
+  m_displayName: Introduction
+  m_hierarchyName: Introduction
+  m_context: {fileID: 11400000, guid: 7df254ea3e7f1c04389ded60bacc434e, type: 2}
+  m_markdownFile: {fileID: 0}
+  m_priority: 1001
+  m_overrideMarkdownText: '
+
+
+    North Star is a groundbreaking visual showcase
+    for Meta Quest, pushing the limits of what''s possible on standalone VR. With
+    cutting-edge rendering techniques and dynamic visual systems, it demonstrates
+    the full potential of what Quest devices are capable of. This immersive experience
+    lets you explore a fantastical world inspired by the age of sail and exploration,
+    where you become the new deckhand aboard the _Polaris_, a vessel with a stalwart
+    crew on a daring quest to uncover a mythical and mysterious sunken treasure at
+    Ocean Deep.
+
+
+    Built to demonstrate the power of hand interactions, North
+    Star delivers seamless and intuitive experiences made possible by the latest
+    advancements in VR technology. With stunning visuals that elevate the Quest''s
+    graphical capabilities, this demo is a true showcase of how far the platform
+    can go in delivering an immersive, engaging experience.
+
+
+    All files default
+    to the <a href="./LICENSE">Oculus SDK License</a>, but everything under the <a
+    href="./Assets/NorthStar/">NorthStar</a> directory is under <a href="./Packages/com.meta.utilities/LICENSE">MIT
+    License</a>. Files from <a href="http://www.unity3d.com/legal/licenses/Unity_Companion_License">Text
+    Mesh Pro</a>, <a href="http://dotween.demigiant.com/license.php">DOTween</a>,
+    <a href="./Packages/com.unity.render-pipelines.universal/LICENSE.md">Unity URP</a>,
+    and any other third party files are licensed under their respective licensing
+    terms.
+
+
+    See the <a href="./CONTRIBUTING.md">CONTRIBUTING</a> file for how
+    to help out.
+
+
+    This showcase is also available to play for free on the <a
+    href="https://www.meta.com/experiences/north-star/28679538058299918/">Horizon
+    Store</a>.
+
+
+
+    ## Project Description
+
+
+    North Star is an application for
+    the Meta Quest devices that showcases dynamic hand gestures and full-body tracking
+    in a fantastical world. It demonstrates how to integrate intuitive hand interactions,
+    immersive environments, and engaging gameplay mechanics to create a truly unique
+    VR experience.
+
+
+    The project features:
+
+
+    - Dynamic hand gestures for
+    interacting with the environment
+
+    - Full-body tracking for immersive gameplay
+
+    -
+    Stunning visuals that push the boundaries of the Quest''s graphical capabilities
+
+
+
+    ##
+    Dependencies
+
+
+    This project makes use of the following plugins and software:
+
+
+    -
+    <a href="https://unity.com/download">Unity</a> 2022.3.34f1 or newer
+
+    - Meta
+    <a href="https://developer.oculus.com/downloads/package/unity-integration">Core
+    XR SDK</a>, <a href="https://github.com/oculus-samples/Unity-Movement">Movement
+    SDK</a>, <a href="https://developer.oculus.com/documentation/unity/unity-isdk-interaction-sdk-overview/">Interaction
+    SDK</a>, <a href="./">Audio SDK</a>, and <a href="https://developers.meta.com/horizon/documentation/unity/xrsim-intro/">XR
+    Simulator</a> (all released under the *<a href="https://developers.meta.com/horizon/licenses/oculussdk/">Oculus
+    SDK License Agreement</a>*).
+
+    - <a href="https://developer.oculus.com/documentation/unity/unity-asw/#how-to-enable-appsw-in-app">Unity
+    Universal Render Pipeline (Meta ASW fork)</a>
+
+    - <a href="https://github.com/hecomi/uLipSync#upm">uLipSync</a>
+
+    -
+    <a href="https://github.com/naelstrof/UnityJigglePhysics#upm">UnityJigglePhysics</a>
+
+    -
+    <a href="https://github.com/vvrvvd/Unity-Spline-Editor#upm">Unity Spline Editor</a>
+
+
+    The
+    following is required to test this project within Unity:
+
+
+    - <a href="https://www.oculus.com/setup/">Meta
+    Quest Link</a>
+
+
+
+    ## Project Documentation
+
+
+    Documentation from the project
+    team on the various systems and techniques of interest that were used in North
+    Star:
+
+    - <a href="./Documentation/OceanSystemDesignAndImplementation.md">Ocean
+    and Environment System</a>
+
+    - <a href="./Documentation/TimeOfDay.md">Time
+    of Day System</a>
+
+    - <a href="./Documentation/OceanShader.md">Ocean Shader</a>
+
+    -
+    <a href="./Documentation/EnvironmentSystemDesign.md">Environment System Design</a>
+
+    -
+    <a href="./Documentation/WeatherEffects.md">Weather</a>
+
+    - <a href="./Documentation/Shaders.md">Shaders</a>
+
+    -
+    <a href="./Documentation/BoatMovement.md">Boat Movement</a>
+
+    - <a href="./Documentation/FullBodyTracking.md">Full
+    Body Tracking</a>
+
+    - <a href="./Documentation/RopeSystem.md">Rope System</a>
+
+    -
+    <a href="./Documentation/NarrativeSystem.md">Narrative System</a>
+
+    - <a href="./Documentation/LipSync.md">Lip
+    Sync</a>
+
+    - <a href="./Documentation/URPModifications.md">URP Modifications</a>
+
+    -
+    <a href="./Documentation/Spyglass.md">Spyglass</a>
+
+    - <a href="./Documentation/ShadowImportanceVolumes.md">Shadow
+    Importance Volumes</a>
+
+    - <a href="./Documentation/VisibilitySetSystem.md">Visibility
+    Set System</a>
+
+    - <a href="./Documentation/OptimisingFramerate.md">Optimization</a>
+
+    -
+    <a href="./Documentation/MetaSdk.md">Meta SDK Use</a>
+
+    - <a href="./Documentation/BuildInstructions.md">Build</a>
+
+'
+  m_overrideMarkdownRoot: ./

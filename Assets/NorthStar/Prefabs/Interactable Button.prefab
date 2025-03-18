@@ -320,9 +320,21 @@ MonoBehaviour:
   m_onValueChange:
     m_PersistentCalls:
       m_Calls: []
+  m_onGrabChange:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onReleased:
+    m_PersistentCalls:
+      m_Calls: []
   m_joint: {fileID: 9036223567575728239}
   m_jointRigidbody: {fileID: 3073514583434217000}
   m_clampValues: 0
+  m_grabbable: {fileID: 0}
+  m_grabbables: []
+  m_requireGrabbing: 0
   m_buttonHeight: 0.05
 --- !u!114 &999578996528381145
 MonoBehaviour:
@@ -345,6 +357,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_jointInteractable: {fileID: 1384252625071211972}
+  m_useAbsValue: 0
 --- !u!1 &8369802056433874672
 GameObject:
   m_ObjectHideFlags: 0

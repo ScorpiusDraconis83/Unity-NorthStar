@@ -12,25 +12,22 @@ namespace NorthStar
     public class Subtitle : MonoBehaviour
     {
         [CharacterDropdown] public string Id;
-        [SerializeField, HideInInspector] private CharacterManager m_characterManager;
         [SerializeField, HideInInspector] private TextMeshProUGUI m_text;
         [SerializeField, AutoSet] private CanvasGroup m_canvasGroup;
         [SerializeField, AutoSet] private FloatingText m_floatingText;
         private float m_timeLastDisplayed;
         private bool m_shown;
-        private void OnValidate()
-        {
-            m_characterManager = FindAnyObjectByType<CharacterManager>();
-            m_text = GetComponentInChildren<TextMeshProUGUI>();
-        }
+
+        private CharacterManager CharacterManager => CharacterManager.Instance;
+
         private void OnEnable()
         {
-            m_characterManager.RegisterSubtitleObject(this);
+            CharacterManager.RegisterSubtitleObject(this);
             m_canvasGroup.alpha = 0;
         }
         private void OnDisable()
         {
-            m_characterManager.DeRegisterSubtitleObject(this);
+            CharacterManager.DeRegisterSubtitleObject(this);
         }
 
         private void Update()

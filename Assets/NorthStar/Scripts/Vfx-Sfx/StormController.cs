@@ -1,5 +1,6 @@
 // Copyright (c) Meta Platforms, Inc. and affiliates.
 using System.Collections;
+using Meta.Utilities.Environment;
 using UnityEngine;
 
 namespace NorthStar
@@ -61,34 +62,34 @@ namespace NorthStar
         {
             m_lightningStrikeInProgress = true;
             //Start environment transition
-            m_environmentSystem.SetOneOffTransitionTime(lfso.strikeWarmupTime);
-            m_environmentSystem.SetProfile(lfso.strikeEnvironmentProfile);
+            m_environmentSystem.SetOneOffTransitionTime(lfso.StrikeWarmupTime);
+            m_environmentSystem.SetProfile(lfso.StrikeEnvironmentProfile);
             //Go through all the blended reflection probes and look for reflections in the scriptable object that apply to that probe location
             for (var i = 0; i < m_reflectionSources.Length; i++)
             {
-                if (m_reflectionSources[i].blendedReflectionProbe is not null)
+                if (m_reflectionSources[i].BlendedReflectionProbe is not null)
                 {
-                    var refTextures = lfso.GetTextures(m_reflectionSources[i].reflectionLocation);
+                    var refTextures = lfso.GetTextures(m_reflectionSources[i].ReflectionLocation);
                     if (refTextures is not null)
                     {
-                        UpdateBlendedReflectionProbe(m_reflectionSources[i].blendedReflectionProbe, refTextures.noFlashTexture, refTextures.flashTexture, lfso.strikeWarmupTime);
+                        UpdateBlendedReflectionProbe(m_reflectionSources[i].BlendedReflectionProbe, refTextures.NoFlashTexture, refTextures.FlashTexture, lfso.StrikeWarmupTime);
                     }
                 }
             }
-            yield return new WaitForSeconds(lfso.strikeWarmupTime);
+            yield return new WaitForSeconds(lfso.StrikeWarmupTime);
             //move the lightning strike particle effect
-            var lightningStrikeDir = Quaternion.AngleAxis(lfso.strikeDirection, Vector3.up) * Vector3.forward;
-            var lightningStrikePos = new Vector3();
+            var lightningStrikeDir = Quaternion.AngleAxis(lfso.StrikeDirection, Vector3.up) * Vector3.forward;
+            Vector3 lightningStrikePos;
             if (m_strikePositionsRelativeToBoat && m_boatTrackerTransform is not null)
             {
                 //Don't want to rotate the lightning strikes relative to boat at this time as it will break the light direction in the environment profile so this line is disabled at this time
                 //lightningStrikeDir = Quaternion.AngleAxis(lfso.strikeDirection, Vector3.up) * BoatController.Instance.MovementSource.CurrentRotation * Vector3.forward;
-                lightningStrikePos = m_boatTrackerTransform.position + (lightningStrikeDir * lfso.strikeDistance * m_strikeDistanceMultiplier);
+                lightningStrikePos = m_boatTrackerTransform.position + lightningStrikeDir * lfso.StrikeDistance * m_strikeDistanceMultiplier;
                 lightningStrikePos.y = 0f;
             }
             else
             {
-                lightningStrikePos = lightningStrikeDir * lfso.strikeDistance;
+                lightningStrikePos = lightningStrikeDir * lfso.StrikeDistance;
             }
             var lightningEffect = m_lightningEffectsPool[m_nextEffectIndex];
             m_nextEffectIndex++;
@@ -105,24 +106,24 @@ namespace NorthStar
                 m_nextEffectIndex = 0;
             }
             lightningAudioSource.transform.position = lightningStrikePos;
-            _ = StartCoroutine(PlayAudioDelayed(lightningAudioSource, lfso.strikeDistance * m_strikeDistanceMultiplier / m_speedOfSound, lfso.strikeAudioClips[Random.Range(0, lfso.strikeAudioClips.Length)]));
-            yield return new WaitForSeconds(lfso.strikeDuration);
+            _ = StartCoroutine(PlayAudioDelayed(lightningAudioSource, lfso.StrikeDistance * m_strikeDistanceMultiplier / m_speedOfSound, lfso.StrikeAudioClips[Random.Range(0, lfso.StrikeAudioClips.Length)]));
+            yield return new WaitForSeconds(lfso.StrikeDuration);
             //start environment transition
-            m_environmentSystem.SetOneOffTransitionTime(lfso.strikeCooldownTime);
-            m_environmentSystem.SetProfile(lfso.postStrikeEnvironmentProfile);
+            m_environmentSystem.SetOneOffTransitionTime(lfso.StrikeCooldownTime);
+            m_environmentSystem.SetProfile(lfso.PostStrikeEnvironmentProfile);
             //update reflections
             for (var i = 0; i < m_reflectionSources.Length; i++)
             {
-                if (m_reflectionSources[i].blendedReflectionProbe is not null)
+                if (m_reflectionSources[i].BlendedReflectionProbe is not null)
                 {
-                    var refTextures = lfso.GetTextures(m_reflectionSources[i].reflectionLocation);
+                    var refTextures = lfso.GetTextures(m_reflectionSources[i].ReflectionLocation);
                     if (refTextures is not null)
                     {
-                        UpdateBlendedReflectionProbe(m_reflectionSources[i].blendedReflectionProbe, refTextures.flashTexture, refTextures.noFlashTexture, lfso.strikeCooldownTime);
+                        UpdateBlendedReflectionProbe(m_reflectionSources[i].BlendedReflectionProbe, refTextures.FlashTexture, refTextures.NoFlashTexture, lfso.StrikeCooldownTime);
                     }
                 }
             }
-            yield return new WaitForSeconds(lfso.strikeCooldownTime + m_minTimeBetweenStrikes);
+            yield return new WaitForSeconds(lfso.StrikeCooldownTime + m_minTimeBetweenStrikes);
             m_lightningStrikeInProgress = false;
         }
 
@@ -143,8 +144,8 @@ namespace NorthStar
     [System.Serializable]
     public class ReflectionSources
     {
-        [SerializeField] public ReflectionLocation reflectionLocation;
-        [SerializeField] public BlendedReflectionProbe blendedReflectionProbe;
+        [SerializeField] public ReflectionLocation ReflectionLocation;
+        [SerializeField] public BlendedReflectionProbe BlendedReflectionProbe;
     }
 
     public enum ReflectionLocation

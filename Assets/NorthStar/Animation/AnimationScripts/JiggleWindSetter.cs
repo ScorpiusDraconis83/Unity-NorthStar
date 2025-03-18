@@ -8,14 +8,14 @@ namespace NorthStar
     {
         [Header("Test Script - Overwrites Jiggle Rig wind setting with a force over sine(time)")]
         [Space]
-        public Vector3 windVector = Vector3.zero;
-        public float magnitude = 1;
-        public float frequency = 1;
+        public Vector3 WindVector = Vector3.zero;
+        public float Magnitude = 1;
+        public float Frequency = 1;
 
         private void Update()
         {
-            var turbulance = Mathf.Sin(Time.time * frequency) * magnitude;
-            var updatedWind = windVector * turbulance;
+            var turbulance = Mathf.Sin(Time.time * Frequency) * Magnitude;
+            var updatedWind = WindVector * turbulance;
             GetComponent<JigglePhysics.JiggleRigBuilder>().wind = updatedWind;
         }
     }

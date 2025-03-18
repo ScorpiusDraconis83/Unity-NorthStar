@@ -1,15 +1,13 @@
 // Copyright (c) Meta Platforms, Inc. and affiliates.
 
 using System;
-using System.Collections.Generic;
-using System.Reflection;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.Rendering.Universal.Internal;
 
-namespace NorthStar
+namespace Meta.Utilities.ViewportRenderer
 {
     /// <summary>
     /// Renders the forward passes to a smaller viewport covering both eyes and with a tilted and adjusted projection matrix for use with telescope rendering
@@ -17,10 +15,10 @@ namespace NorthStar
     [ExecuteAlways]
     public class ViewportRenderer : MonoBehaviour
     {
-        public const int StencilBit = 1;
+        public const int STENCIL_BIT = 1;
 
-        private bool prewarm = false;
-        private bool isRegistered = false;
+        private bool m_prewarm = false;
+        private bool m_isRegistered = false;
 
         public class ViewportRenderPass : DrawObjectsPass
         {
@@ -41,27 +39,27 @@ namespace NorthStar
                 {
                     ref var cameraData = ref renderingData.cameraData;
                     var mainCamera = cameraData.camera;
-                    var lensCamera = ViewportRenderer.lensCamera;
+                    var lensCamera = ViewportRenderer.m_lensCamera;
                     var scaleFactor = new Vector2(ScalableBufferManager.widthScaleFactor, ScalableBufferManager.heightScaleFactor);
 
                     // Cannot render without a lens camera
                     if (lensCamera == null) return;
 
                     // A lens mesh is required for sizing and stenciling
-                    if (ViewportRenderer.lensMesh == null) return;
+                    if (ViewportRenderer.m_lensMesh == null) return;
 
                     // Lens mesh handles writing stencil bits
-                    cmd.DrawRenderer(ViewportRenderer.lensMesh, ViewportRenderer.lensMesh.sharedMaterial);
+                    cmd.DrawRenderer(ViewportRenderer.m_lensMesh, ViewportRenderer.m_lensMesh.sharedMaterial);
 
                     // Determine the pixel rect for each eye
-                    var mesh = ViewportRenderer.lensMesh.GetComponent<MeshFilter>().sharedMesh;
-                    var meshTransform = ViewportRenderer.lensMesh.transform.localToWorldMatrix;
-                    Vector2 min = Vector2.positiveInfinity;
-                    Vector2 max = Vector2.negativeInfinity;
+                    var mesh = ViewportRenderer.m_lensMesh.GetComponent<MeshFilter>().sharedMesh;
+                    var meshTransform = ViewportRenderer.m_lensMesh.transform.localToWorldMatrix;
+                    var min = Vector2.positiveInfinity;
+                    var max = Vector2.negativeInfinity;
                     Span<Rect> eyeRects = stackalloc Rect[2];
                     var cameraTarget = cameraData.cameraTargetDescriptor;
                     var screenSize = new Vector3(cameraTarget.width * scaleFactor.x, cameraTarget.height * scaleFactor.y);
-                    for (int i = 0; i < 2; i++)
+                    for (var i = 0; i < 2; i++)
                     {
                         var eyeRect = GetBoundsRect(meshTransform, mesh.bounds, cameraData.GetProjectionMatrix(i) * cameraData.GetViewMatrix(i));
                         if (eyeRect.xMin >= 1f || eyeRect.yMin >= 1f || eyeRect.xMax <= -1f || eyeRect.yMax <= -1f) continue;
@@ -81,7 +79,7 @@ namespace NorthStar
                     // Dont render if nothing is visible
                     if (clippedRect.width <= 1f || clippedRect.height <= 1f)
                     {
-                        if (ViewportRenderer.prewarm)
+                        if (ViewportRenderer.m_prewarm)
                         {
                             // Force render so that shaders are loaded
                             clippedRect = new Rect(0, 0, 1, 1);
@@ -95,8 +93,8 @@ namespace NorthStar
                     // Adjust fog density
                     var fogParams = Shader.GetGlobalVector(s_fogParams);
                     cmd.SetGlobalVector(s_fogParams, new(
-                        fogParams.x * ViewportRenderer.fogDensityFactor,
-                        fogParams.y * ViewportRenderer.fogDensityFactor,
+                        fogParams.x * ViewportRenderer.m_fogDensityFactor,
+                        fogParams.y * ViewportRenderer.m_fogDensityFactor,
                         fogParams.z, fogParams.w));
                     cmd.SetViewport(clippedRect);
 
@@ -116,15 +114,15 @@ namespace NorthStar
                         projection.m12 += 2f * (clippedRect.center.y - eyeRect.center.y) / clippedRect.height;
                         projection.m00 *= eyeRect.height / clippedRect.width;
                         projection.m11 *= eyeRect.height / clippedRect.height;
-                        projection.m02 += projection.m00 * localFacing.x * ViewportRenderer.trackingFactor;
-                        projection.m12 += projection.m11 * localFacing.y * ViewportRenderer.trackingFactor;
+                        projection.m02 += projection.m00 * localFacing.x * ViewportRenderer.m_trackingFactor;
+                        projection.m12 += projection.m11 * localFacing.y * ViewportRenderer.m_trackingFactor;
                         return projection;
                     }
 
                     // Apply camera matrices
                     if (cameraData.xr.enabled && cameraData.xr.singlePassEnabled)
                     {
-                        for (int i = 0; i < 2; i++)
+                        for (var i = 0; i < 2; i++)
                         {
                             var eyeProj = AdjustProjection(projection, eyeRects[i]);
                             XRBuiltinShaderConstants.UpdateBuiltinShaderConstants(view, eyeProj, true, i, false, Matrix4x4.identity);
@@ -158,12 +156,12 @@ namespace NorthStar
                     }
 
                     // Draw the shiny overlay mesh
-                    if (ViewportRenderer.lensOverlay != null)
+                    if (ViewportRenderer.m_lensOverlay != null)
                     {
-                        cmd.DrawRenderer(ViewportRenderer.lensOverlay, ViewportRenderer.lensOverlay.sharedMaterial);
+                        cmd.DrawRenderer(ViewportRenderer.m_lensOverlay, ViewportRenderer.m_lensOverlay.sharedMaterial);
                     }
 
-                    if (ViewportRenderer.prewarm)
+                    if (ViewportRenderer.m_prewarm)
                     {
                         ViewportRenderer.CancelPrewarm();
                     }
@@ -176,9 +174,9 @@ namespace NorthStar
 
             private Rect GetBoundsRect(Matrix4x4 worldMatrix, Bounds bounds, Matrix4x4 viewProj)
             {
-                Vector3 min = Vector3.positiveInfinity;
-                Vector3 max = Vector3.negativeInfinity;
-                for (int i = 0; i < 8; i++)
+                var min = Vector3.positiveInfinity;
+                var max = Vector3.negativeInfinity;
+                for (var i = 0; i < 8; i++)
                 {
                     var corner = bounds.min + Vector3.Scale(bounds.size, new Vector3(i & 1, (i >> 1) & 1, (i >> 2) & 1));
                     corner = worldMatrix.MultiplyPoint3x4(corner);
@@ -193,17 +191,17 @@ namespace NorthStar
         }
 
         [SerializeField, Tooltip("Camera used for telescope viewport properties")]
-        private Camera lensCamera;
+        private Camera m_lensCamera;
         [SerializeField, Tooltip("Rendered before the telescope viewport to setup stenciling")]
-        private MeshRenderer lensMesh;
+        private MeshRenderer m_lensMesh;
         [SerializeField, Tooltip("Rendered after the telescope viewport as an overlay")]
-        private MeshRenderer lensOverlay;
+        private MeshRenderer m_lensOverlay;
         [SerializeField, Tooltip("Multiplied into the fog density when rendering the telescope viewport")]
-        private float fogDensityFactor = 1f;
+        private float m_fogDensityFactor = 1f;
         [SerializeField, Tooltip("How much the telescope should be fixed to its forward direction")]
-        private float trackingFactor = 0.75f;
+        private float m_trackingFactor = 0.75f;
 
-        private ViewportRenderPass renderPass;
+        private ViewportRenderPass m_renderPass;
 
         protected void OnEnable()
         {
@@ -216,22 +214,22 @@ namespace NorthStar
 
         public void MarkForPrewarm()
         {
-            prewarm = true;
+            m_prewarm = true;
             UpdateRegistered();
         }
         public void CancelPrewarm()
         {
-            prewarm = false;
+            m_prewarm = false;
             UpdateRegistered();
         }
 
         private void UpdateRegistered()
         {
-            var register = enabled || prewarm;
-            if (isRegistered == register) return;
-            isRegistered = register;
+            var register = enabled || m_prewarm;
+            if (m_isRegistered == register) return;
+            m_isRegistered = register;
 
-            if (isRegistered)
+            if (m_isRegistered)
             {
                 RenderPipelineManager.beginCameraRendering += OnBeginCamera;
 
@@ -239,9 +237,9 @@ namespace NorthStar
                 stencilState.SetCompareFunction(CompareFunction.Equal);
                 stencilState.SetPassOperation(StencilOp.Keep);
                 stencilState.readMask = 1;
-                var tags = new ShaderTagId[] { new ShaderTagId("SRPDefaultUnlit"), new ShaderTagId("UniversalForward"), new ShaderTagId("UniversalForwardOnly") };
-                renderPass = new("Viewport Renderer", tags, false, RenderPassEvent.AfterRenderingTransparents,
-                    RenderQueueRange.all, lensCamera.cullingMask, stencilState, StencilBit)
+                var tags = new ShaderTagId[] { new("SRPDefaultUnlit"), new("UniversalForward"), new("UniversalForwardOnly") };
+                m_renderPass = new("Viewport Renderer", tags, false, RenderPassEvent.AfterRenderingTransparents,
+                    RenderQueueRange.all, m_lensCamera.cullingMask, stencilState, STENCIL_BIT)
                 {
                     ViewportRenderer = this,
                 };
@@ -255,7 +253,7 @@ namespace NorthStar
         private void OnBeginCamera(ScriptableRenderContext context, Camera cam)
         {
             cam.GetUniversalAdditionalCameraData()
-                .scriptableRenderer.EnqueuePass(renderPass);
+                .scriptableRenderer.EnqueuePass(m_renderPass);
         }
 
     }

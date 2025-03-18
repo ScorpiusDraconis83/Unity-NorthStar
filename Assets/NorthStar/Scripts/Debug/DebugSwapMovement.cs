@@ -5,23 +5,23 @@ namespace NorthStar
 {
     public class DebugSwapMovement : MonoBehaviour
     {
-        public GrabMovement grabMovement;
-        public LeverInteractable interactable;
+        public GrabMovement GrabMovement;
+        public LeverInteractable Interactable;
 
         private bool m_triggered;
 
         public void Update()
         {
-            var lVal = interactable.Value;
+            var lVal = Interactable.Value;
             if (lVal > .9f && !m_triggered)
             {
-                if (grabMovement.MoveMode == GrabMovement.MoveModes.Linear)
+                if (GrabMovement.MoveMode == GrabMovement.MoveModes.Linear)
                 {
-                    grabMovement.MoveMode = GrabMovement.MoveModes.Snap;
+                    GrabMovement.MoveMode = GrabMovement.MoveModes.Snap;
                 }
-                else if (grabMovement.MoveMode == GrabMovement.MoveModes.Snap)
+                else if (GrabMovement.MoveMode == GrabMovement.MoveModes.Snap)
                 {
-                    grabMovement.MoveMode = GrabMovement.MoveModes.Linear;
+                    GrabMovement.MoveMode = GrabMovement.MoveModes.Linear;
                 }
                 m_triggered = true;
             }

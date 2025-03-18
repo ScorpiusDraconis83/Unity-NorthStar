@@ -12,10 +12,8 @@ namespace NorthStar
     {
         [SerializeField] private float m_hoverScale = 1f;
         [SerializeField] private float m_hoverTweenTime = .1f;
-        [SerializeField] private float m_selectScale = 1f;
         [SerializeField] private SoundPlayer m_enterSounds;
         [SerializeField] private SoundPlayer m_exitSounds;
-        [SerializeField] private SoundPlayer m_selectSounds;
         [SerializeField] private Ease m_ease;
         private void TweenScale(float scale, float time)
         {

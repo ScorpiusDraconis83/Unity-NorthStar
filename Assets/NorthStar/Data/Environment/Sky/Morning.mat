@@ -22,12 +22,13 @@ Material:
     RenderType: Opaque
   disabledShaderPasses:
   - SHADOWCASTER
+  - DepthOnly
   m_LockedProperties: _Back_Scatter_Power _Cloud_Ambient _Cloud_Back_Color _Cloud_Blend_Offset
     _Cloud_Blend_Power _Cloud_Direction _Cloud_Normal _Cloud_Offset _Cloud_Opacity_Offset
     _Cloud_Opacity_Scale _Cloud_Scale _Cloud_Speed _Cloud_Sun_Color _Cloud_Texture
-    _Fog_Offset _Fog_Power _Front_Scatter_Power _Ground_Color _Scatter_Blend _Sky_Blend_Offset
-    _Sky_Blend_Power _Sky_Horizon_Color _Sky_Zenith_Color _Star_Color _Star_Power
-    _Star_Scale _Star_Texture
+    _ENABLESTARS _Fog_Offset _Fog_Power _Front_Scatter_Power _Ground_Color _Scatter_Blend
+    _Sky_Blend_Offset _Sky_Blend_Power _Sky_Horizon_Color _Sky_Zenith_Color _Star_Color
+    _Star_Power _Star_Scale _Star_Texture
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs: []
@@ -40,11 +41,11 @@ Material:
     - _Cloud_Scale: 1.36
     - _Sky_Blend_Offset: -0.38
     m_Colors:
-    - _Cloud_Ambient: {r: 0.62419903, g: 0.6657087, b: 0.7830189, a: 1}
-    - _Cloud_Back_Color: {r: 0.9528302, g: 0.91237986, b: 0.91237986, a: 1}
-    - _Cloud_Sun_Color: {r: 0.990566, g: 0.6879614, b: 0.6681648, a: 1}
-    - _Sky_Horizon_Color: {r: 1, g: 0.6379259, b: 0.624, a: 1}
-    - _Sky_Zenith_Color: {r: 0.40970984, g: 0.6076064, b: 0.9339623, a: 1}
+    - _Cloud_Ambient: {r: 0.11320752, g: 0.07956566, b: 0.07956566, a: 1}
+    - _Cloud_Back_Color: {r: 0.5943396, g: 0.2943663, b: 0.2943663, a: 1}
+    - _Cloud_Sun_Color: {r: 1, g: 0.2500255, b: 0.08018869, a: 1}
+    - _Sky_Horizon_Color: {r: 0.6792453, g: 0.30169013, b: 0.28515485, a: 1}
+    - _Sky_Zenith_Color: {r: 0.2912513, g: 0.4855977, b: 0.8018868, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &1130983063974069177
 MonoBehaviour:

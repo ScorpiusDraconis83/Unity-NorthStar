@@ -27,11 +27,11 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _ALPHATEST_ON
-  - _IS_STANDARD_NORMAL_TEXTURE
-  - _USE_FAKE_SUBSURFACESCATTERING
   - _USE_WIND
   m_InvalidKeywords:
+  - _IS_STANDARD_NORMAL_TEXTURE
   - _SURFACE_TYPE_OPAQUE
+  - _USE_FAKE_SUBSURFACESCATTERING
   - _USE_SSS
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -134,6 +134,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _Normal_Map:
         m_Texture: {fileID: 2800000, guid: 73e3072951f97e84faac13f521b36da8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NorthStarDefaultShader_f2f82c625d7b48f8ba88ed1c4f3b41e9_DetailMask_2422358792_Texture2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NorthStarDefaultShader_f2f82c625d7b48f8ba88ed1c4f3b41e9_ParallaxTexture_2611314226_Texture2D:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -293,7 +301,10 @@ Material:
     - _Hotspot: 1
     - _IS_STANDARD_NORMAL_TEXTURE: 1
     - _Individual_Leaf_Offset: 0
+    - _Is_Standard_Normal_Texture: 1
     - _Lead_Amount: 1
+    - _LightTintFactor: 1.7
+    - _LightTintOffset: 0.28
     - _LightmapBias: 0
     - _LightmapMaskMax: 1
     - _LightmapMaskMin: 0
@@ -386,6 +397,7 @@ Material:
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
+    - _BackFaceTint: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0, g: 0, b: 0, a: 1}
     - _DarkColor: {r: 1, g: 1, b: 1, a: 0}
@@ -394,8 +406,10 @@ Material:
     - _FresnelColor: {r: 1, g: 0.5803921, b: 0, a: 1}
     - _HighlightColor: {r: 1, g: 1, b: 1, a: 0}
     - _LightColor: {r: 0, g: 0, b: 0, a: 0}
+    - _MaxLightTint: {r: 0.74901956, g: 0.74901956, b: 0.74901956, a: 0}
     - _MeshDirection: {r: 1, g: 1, b: 0, a: 0}
     - _MetallicBoost: {r: 0.32075468, g: 0.32075468, b: 0.32075468, a: 0}
+    - _MinLightTint: {r: 4.5412054, g: 4.5412054, b: 4.5412054, a: 0}
     - _OceanAlbedoColor: {r: 0, g: 0, b: 0, a: 0}
     - _PatternDirection: {r: -1, g: -0.5, b: 0, a: 0}
     - _RimLightDistortionDirection: {r: -1, g: -1, b: 0, a: 0}

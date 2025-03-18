@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4510294d23d964fe59443526f1ca7c4b, type: 3}
+  m_Name: Ocean shader_Refraction and underwater tint (Not used)
+  m_EditorClassIdentifier: 
+  m_displayName: Refraction and underwater tint (Not used)
+  m_hierarchyName: Ocean Shader/Refraction and underwater tint (Not used)
+  m_context: {fileID: 11400000, guid: 95a8f8372a6947e40ad18fcd4817087a, type: 2}
+  m_markdownFile: {fileID: 0}
+  m_priority: 1004
+  m_overrideMarkdownText: "# Refraction and Underwater Tint (Not used) \n\nAn additional
+    effect to sample the scene color behind the water surface with a fake refraction
+    effect was also included, however due to performance costs from copying the scene
+    texture, we decided not to use this. The effect is mostly only noticeable in
+    shallow waters such as the docks scene, so for this project it was an acceptable
+    compromise to maintain performance goals. The effect involves multiplying the
+    world space normal XZ components by a small factor, and using that to offset
+    a screenspace UV, which is then used to sample the scene color texture. \n\nThe
+    depth texture is also sampled at this location, and the scene color is tinted
+    based on a simple exponential fog formula: `sceneColor *= exp(-depthDifference
+    * extinction))`. Extinction is calculated using the \u201CColor at Distance to
+    Extinction\u201D function, which calculates the extinction coefficient required
+    to achieve a specific tint color at a specific distance, which can be more intuitive
+    than working with an extinction coefficient directly.  \n\nThe water albedo also
+    needs to be modified by the inverse of this amount, so that shallow areas of
+    water do not contain more scattering/fog than they should, due to their shallow
+    depth.  \n\n"
+  m_overrideMarkdownRoot: .\Documentation/

@@ -121,3 +121,25 @@ This project makes use of the following plugins and software:
 The following is required to test this project within Unity:
 
 - [Meta Quest Link](https://www.oculus.com/setup/)
+
+## Project Documentation
+
+Documentation from the project team on the various systems and techniques of interest that were used in North Star:
+- [Ocean and Environment System](./Documentation/OceanSystemDesignAndImplementation.md)
+- [Time of Day System](./Documentation/TimeOfDay.md)
+- [Ocean Shader](./Documentation/OceanShader.md)
+- [Environment System Design](./Documentation/EnvironmentSystemDesign.md)
+- [Weather](./Documentation/WeatherEffects.md)
+- [Shaders](./Documentation/Shaders.md)
+- [Boat Movement](./Documentation/BoatMovement.md)
+- [Full Body Tracking](./Documentation/FullBodyTracking.md)
+- [Rope System](./Documentation/RopeSystem.md)
+- [Narrative System](./Documentation/NarrativeSystem.md)
+- [Lip Sync](./Documentation/LipSync.md)
+- [URP Modifications](./Documentation/URPModifications.md)
+- [Spyglass](./Documentation/Spyglass.md)
+- [Shadow Importance Volumes](./Documentation/ShadowImportanceVolumes.md)
+- [Visibility Set System](./Documentation/VisibilitySetSystem.md)
+- [Optimization](./Documentation/OptimisingFramerate.md)
+- [Meta SDK Use](./Documentation/MetaSdk.md)
+- [Build](./Documentation/BuildInstructions.md)

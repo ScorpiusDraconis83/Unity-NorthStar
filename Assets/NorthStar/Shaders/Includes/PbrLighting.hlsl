@@ -11,14 +11,14 @@
     #define _ADDITIONAL_LIGHTS
 #endif
 
-float3 CustomLightHandling(float3 lightColor, float3 L, float3 N, float3 albedo, float3 V, float roughness, float3 f0) 
+half3 CustomLightHandling(half3 lightColor, half3 L, half3 N, half3 albedo, half3 V, half roughness, half3 f0)
 {
-    float roughness2 = max(roughness * roughness, HALF_MIN);
-    float normalizationTerm = roughness * 4.0h + 2.0h;
+    half roughness2 = max(roughness * roughness, HALF_MIN);
+    half normalizationTerm = roughness * 4.0h + 2.0h;
     
-    float3 halfDir = normalize(L + V);
+    half3 halfDir = normalize(L + V);
 
-    float NoH = saturate(dot(N, halfDir));
+    half NoH = saturate(dot(N, halfDir));
     half LoH = saturate(dot(L, halfDir));
 
     // GGX Distribution multiplied by combined approximation of Visibility and Fresnel
@@ -31,7 +31,7 @@ float3 CustomLightHandling(float3 lightColor, float3 L, float3 N, float3 albedo,
     // Final BRDFspec = roughness^2 / ( NoH^2 * (roughness^2 - 1) + 1 )^2 * (LoH^2 * (roughness + 0.5) * 4.0)
     // We further optimize a few light invariant terms
     // brdfData.normalizationTerm = (roughness + 0.5) * 4.0 rewritten as roughness * 4.0 + 2.0 to a fit a MAD.
-    float d = NoH * NoH * (roughness2 - 1) + 1.00001f;
+    half d = NoH * NoH * (roughness2 - 1) + 1.00001f;
 
     half LoH2 = LoH * LoH;
     half specularTerm = roughness2 / ((d * d) * max(0.1h, LoH2) * normalizationTerm);
@@ -50,24 +50,30 @@ float3 CustomLightHandling(float3 lightColor, float3 L, float3 N, float3 albedo,
 
 //#define LIGHTMAP_SHADOW_MIXING
 
-void PbrLighting_float(float3 Position, float3 Normal, float3 ViewDirection, float3 Albedo, float Smoothness, float Metallic, float3 BakedGI, out float3 Color)
+void PbrLighting_float(float3 Position, half3 Normal, half3 ViewDirection, half3 Albedo, half Smoothness, half Metallic, half3 BakedGI, out half3 Color)
 {
 #ifdef SHADERGRAPH_PREVIEW
     Color = 1;
 #else
+
+    half perceptualRoughness = 1.0 - Smoothness;
+    half roughness = max(perceptualRoughness * perceptualRoughness, HALF_MIN_SQRT);
+    half3 specularColor = lerp(0.04, Albedo, Metallic);
     
-#ifdef _MAIN_LIGHT_SHADOWS_CASCADE
-	half cascadeIndex = ComputeCascadeIndex(Position);
-#else
-    half cascadeIndex = 0;
-#endif
-    float3 shadowCoord = mul(_MainLightWorldToShadow[cascadeIndex], float4(Position, 1.0)).xyz;
-    Light mainLight = GetMainLight(float4(shadowCoord, 1), Position, 0.0);
+    #if defined(LIGHTMAP_ON)
+        Color = 0;
+    #else
     
-    float perceptualRoughness = 1.0 - Smoothness;
-    float roughness = max(perceptualRoughness * perceptualRoughness, HALF_MIN_SQRT);
-    float3 specularColor = lerp(0.04, Albedo, Metallic);
-    Color = CustomLightHandling(mainLight.color * mainLight.shadowAttenuation, mainLight.direction, Normal, Albedo, ViewDirection, roughness, specularColor);
+        #ifdef _MAIN_LIGHT_SHADOWS_CASCADE
+	        half cascadeIndex = ComputeCascadeIndex(Position);
+        #else
+            half cascadeIndex = 0;
+        #endif
+        float3 shadowCoord = mul(_MainLightWorldToShadow[cascadeIndex], float4(Position, 1.0)).xyz;
+        Light mainLight = GetMainLight(float4(shadowCoord, 1), Position, 0.0);
+    
+        Color = CustomLightHandling(mainLight.color * mainLight.shadowAttenuation, mainLight.direction, Normal, Albedo, ViewDirection, roughness, specularColor);
+    #endif
     
     #ifdef _ADDITIONAL_LIGHTS
         // Shade additional lights if enabled
@@ -78,6 +84,7 @@ void PbrLighting_float(float3 Position, float3 Normal, float3 ViewDirection, flo
             Color += CustomLightHandling(light.color * light.distanceAttenuation * light.shadowAttenuation, light.direction, Normal, Albedo, ViewDirection, roughness, specularColor);
         }
     #endif
+
 #endif
     
 }

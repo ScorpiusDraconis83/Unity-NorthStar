@@ -15,9 +15,9 @@ namespace NorthStar
     /// </summary>
     public class PrewarmGame : MonoBehaviour
     {
-        [SerializeField] private ShaderVariantCollection m_shaders;
-        [SerializeField] private ShaderVariantCollectionSO m_shaderVariants;
-        [SerializeField, AutoSet(typeof(GameFlowController))] public GameFlowController m_gameFlow;
+        [SerializeField] private QualityData m_qualityData;
+
+        [SerializeField, AutoSet(typeof(GameFlowController))] private GameFlowController m_gameFlow;
         [SerializeField] private ReflectionProbe m_reflectionProbe;
         [SerializeField] private Light m_pointLight;
         [SerializeField] private Light m_directionalLight;
@@ -66,9 +66,10 @@ namespace NorthStar
             // Tell unity to prewarm shaders
             IEnumerator<float> WarmUpShaders()
             {
-                while (!m_shaders.WarmUpProgressively(100))
+                var shaders = m_qualityData.CurrentPreset.ShaderVariants;
+                while (!shaders.WarmUpProgressively(100))
                 {
-                    yield return (float)m_shaders.warmedUpVariantCount / m_shaders.variantCount;
+                    yield return (float)shaders.warmedUpVariantCount / shaders.variantCount;
                 }
             }
             // Force render the scene in several permutations to generate PSOs
@@ -211,8 +212,10 @@ namespace NorthStar
 
                     cmd.SetViewport(new Rect(0, 0, 1, 1));
 
-                    var shaderFrom = Mathf.RoundToInt(m_drawRangeFrom * PrewarmGame.m_shaderVariants.Shaders.Count);
-                    var shaderTo = Mathf.RoundToInt(m_drawRangeTo * PrewarmGame.m_shaderVariants.Shaders.Count);
+                    var shaderCount = PrewarmGame.m_qualityData.CurrentPreset.ShaderVariantsSO.Shaders.Count;
+
+                    var shaderFrom = Mathf.RoundToInt(m_drawRangeFrom * shaderCount);
+                    var shaderTo = Mathf.RoundToInt(m_drawRangeTo * shaderCount);
                     RenderVariants(cmd, shaderFrom, shaderTo, ref renderingData);
                 }
 
@@ -232,9 +235,11 @@ namespace NorthStar
 
             protected virtual void RenderVariants(CommandBuffer cmd, int shaderFrom, int shaderTo, ref RenderingData renderingData)
             {
+                var shaderVariants = PrewarmGame.m_qualityData.CurrentPreset.ShaderVariantsSO;
+
                 for (var i = shaderFrom; i < shaderTo; i++)
                 {
-                    var variant = PrewarmGame.m_shaderVariants.Shaders[i];
+                    var variant = shaderVariants.Shaders[i];
                     if (!IncludeInPass(variant)) continue;
 
                     var material = variant.Material;
@@ -245,7 +250,7 @@ namespace NorthStar
                     var pass = variant.PassIndex;
                     if (pass == -1) continue;
 
-                    var attrSets = PrewarmGame.m_shaderVariants.GetAttributeSetsForShader(material.shader);
+                    var attrSets = shaderVariants.GetAttributeSetsForShader(material.shader);
                     if (attrSets != null)
                     {
                         // If we have tracked the usages of this shader in-world, prewarm those mesh types
@@ -273,12 +278,14 @@ namespace NorthStar
             }
             public override void OnCameraSetup(CommandBuffer cmd, ref RenderingData renderingData)
             {
+#pragma warning disable CS0618
                 ref var cameraData = ref renderingData.cameraData;
                 var motionVecHandle = new RenderTargetHandle(cameraData.xr.motionVectorRenderTarget);
                 var rtMotionId = motionVecHandle.Identifier();
                 rtMotionId = new RenderTargetIdentifier(rtMotionId, 0, CubemapFace.Unknown, -1);
                 ConfigureTarget(rtMotionId, rtMotionId);
                 base.OnCameraSetup(cmd, ref renderingData);
+#pragma warning restore CS0618
             }
 
             protected override bool IncludeInPass(ShaderVariantCollectionSO.ShaderData shaderData)

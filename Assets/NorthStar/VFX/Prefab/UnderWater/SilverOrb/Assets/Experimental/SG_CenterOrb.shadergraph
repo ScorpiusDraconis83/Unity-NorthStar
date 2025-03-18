@@ -2566,6 +2566,21 @@
 {
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "28b45fe2730849639810dde9697e2955",
+    "m_Id": 2,
+    "m_DisplayName": "NoiseMask",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "NoiseMask",
+    "m_StageCapability": 3,
+    "m_Value": 0.0,
+    "m_DefaultValue": 0.0,
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "29d6e8d665414222a16d2aa5ab1d35c5",
     "m_Id": 0,
     "m_DisplayName": "DistortionIntensity",
@@ -4107,7 +4122,7 @@
     "m_Group": {
         "m_Id": "6790a40329234f1ba0c7ca115f451cfd"
     },
-    "m_Name": "SF_MulAddFloat",
+    "m_Name": "MulAddFloat",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
@@ -5225,7 +5240,7 @@
     "m_Group": {
         "m_Id": ""
     },
-    "m_Name": "SF_MulAddFloat",
+    "m_Name": "MulAddFloat",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
@@ -5685,7 +5700,7 @@
     "m_Group": {
         "m_Id": ""
     },
-    "m_Name": "SF_MeshDistortion",
+    "m_Name": "MeshDistortion",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
@@ -5714,6 +5729,9 @@
         },
         {
             "m_Id": "314523ff507646bd84f3ab2ea8455495"
+        },
+        {
+            "m_Id": "28b45fe2730849639810dde9697e2955"
         }
     ],
     "synonyms": [],
@@ -6143,7 +6161,7 @@
     "m_Group": {
         "m_Id": ""
     },
-    "m_Name": "SF_TransformUV",
+    "m_Name": "TransformUV",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
@@ -6223,7 +6241,7 @@
     "m_Group": {
         "m_Id": ""
     },
-    "m_Name": "SF_MulAddFloat",
+    "m_Name": "MulAddFloat",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
@@ -6493,7 +6511,7 @@
     "m_Group": {
         "m_Id": ""
     },
-    "m_Name": "SF_OffsetSmoothStep",
+    "m_Name": "OffsetSmoothStep",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
@@ -6506,13 +6524,13 @@
     },
     "m_Slots": [
         {
+            "m_Id": "b8a30d3df7f34ce095f813b8cf6b62fa"
+        },
+        {
             "m_Id": "2407bcee4dfc4e6bb2404ce5c38c69a4"
         },
         {
             "m_Id": "481fc429df70464aad36eea68a094f83"
-        },
-        {
-            "m_Id": "b8a30d3df7f34ce095f813b8cf6b62fa"
         },
         {
             "m_Id": "12af0ee6f7764b4cbb82e93e0433b23d"
@@ -6599,7 +6617,7 @@
     "m_Group": {
         "m_Id": "6790a40329234f1ba0c7ca115f451cfd"
     },
-    "m_Name": "SF_MulAddFloat",
+    "m_Name": "MulAddFloat",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
@@ -6961,7 +6979,7 @@
     "m_Group": {
         "m_Id": ""
     },
-    "m_Name": "SF_TransformUV",
+    "m_Name": "TransformUV",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
@@ -7116,7 +7134,7 @@
     "m_Group": {
         "m_Id": ""
     },
-    "m_Name": "SF_MulAddFloat",
+    "m_Name": "MulAddFloat",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
@@ -7644,7 +7662,7 @@
     "m_ZTestMode": 4,
     "m_ZWriteControl": 0,
     "m_AlphaMode": 0,
-    "m_RenderFace": 2,
+    "m_RenderFace": 0,
     "m_AlphaClip": false,
     "m_CastShadows": false,
     "m_ReceiveShadows": true,
@@ -7745,7 +7763,7 @@
     "m_Group": {
         "m_Id": ""
     },
-    "m_Name": "SF_MulAddVec4",
+    "m_Name": "MulAddVec4",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
@@ -8151,7 +8169,7 @@
     "m_Group": {
         "m_Id": "6790a40329234f1ba0c7ca115f451cfd"
     },
-    "m_Name": "SF_MulAddFloat",
+    "m_Name": "MulAddFloat",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {

@@ -17,8 +17,6 @@ namespace NorthStar
         [SerializeField] private bool m_boundToParent;
         [SerializeField] private Rigidbody m_parent;
         private Vector3 m_lastBodyPosition;
-        private JointDrive m_positionDrive = new();
-        private JointDrive m_angularDrive = new();
         [SerializeField, Interface(typeof(IHand))] private Object m_handObject;
         private IHand m_hand;
 
@@ -35,7 +33,7 @@ namespace NorthStar
         [SerializeField] private Vector3 m_jointAnchor;
         public Vector3 JointAnchorRotation => m_jointAnchorRotation;
         [SerializeField] private Vector3 m_jointAnchorRotation;
-        [SerializeField, FormerlySerializedAs("m_interactior")] private HandGrabInteractor m_interactor;
+        [SerializeField] private HandGrabInteractor m_interactor;
         public Rigidbody Rigidbody { get; private set; }
         public Rigidbody WristBody { get; private set; }
         private float m_breakTimer;

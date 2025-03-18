@@ -9,15 +9,15 @@ namespace NorthStar
     /// </summary>
     public class TriggerVolume : MonoBehaviour
     {
-        public GameObject triggeringObject;
-        public UnityEvent onTriggerEnterEvents;
+        public GameObject TriggeringObject;
+        public UnityEvent OnTriggerEnterEvents;
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject == triggeringObject)
+            if (other.gameObject == TriggeringObject)
             {
-                Debug.Log("Object " + triggeringObject.name + " has entered trigger " + this.gameObject.name + " firing OnTriggerEvent events");
-                onTriggerEnterEvents.Invoke();
+                Debug.Log("Object " + TriggeringObject.name + " has entered trigger " + gameObject.name + " firing OnTriggerEvent events");
+                OnTriggerEnterEvents.Invoke();
             }
         }
     }

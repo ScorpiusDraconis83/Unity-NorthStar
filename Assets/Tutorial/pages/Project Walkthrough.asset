@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 645f4231a451006409b7afbabdd9f82d, type: 3}
+  m_Name: Project Walkthrough
+  m_EditorClassIdentifier: 
+  m_displayName: Project Walkthrough
+  m_hierarchyName: 
+  m_context: {fileID: 11400000, guid: 4dc212cd06f83ca4baa3478d4819f567, type: 2}
+  m_markdownFile: {fileID: 0}
+  m_priority: 0
+  <References>k__BackingField:
+  - Header: Task Manager
+    Description: "Each gameplay beat is broken up into a series of objects called
+      Task Sequences, which act as chapters of the game. Each Task Sequence consists
+      of one or more Task Definitions. A sequence is complete when all tasks within
+      it are marked as done. The Task Manager handles the progression, starting the
+      next sequence upon completion of the previous one.\r"
+    Reference:
+      m_referenceType: 0
+      m_obj: {fileID: 11400000, guid: 57fad0abf2d8aae458a37580a5c44e51, type: 2}
+      m_classType: 
+      m_scene: {fileID: 102900000, guid: 4253da1135ef5c94e829156efbf3bc49, type: 3}
+      m_name: Beat 1
+      m_path: 
+      m_guid: 84286
+      m_instanceID: 0
+  - Header: Game Flow Prefab
+    Description: Each gameplay beat requires a Game Flow Controller to link the narrative
+      between scenes. set the First Task to the earliest sequence in that scene.
+    Reference:
+      m_referenceType: 2
+      m_obj: {fileID: 1457212719209491442, guid: d7870b5efb411ff44891569bc5bfcc7e,
+        type: 3}
+      m_classType: 
+      m_scene: {fileID: 102900000, guid: 4253da1135ef5c94e829156efbf3bc49, type: 3}
+      m_name: Beat 1
+      m_path: Assets/NorthStar/Prefabs/Gameplay/Narrative/Game Flow.prefab
+      m_guid: 
+      m_instanceID: 0
+  - Header: Environment Prefab
+    Description: "The Environment prefab controls the weather, time of day and ocean
+      states for each beat. This prefab is included in each scene that requires weather
+      and ocean. \n\nAdjust the Profiles for both the Environment and Ocean to adjust
+      the weather and ocean conditions. \nSet Target Profile in the Environment System
+      to define the starting Environment Profile for a scene. \nUse Event Receivers
+      to call weather transitions from the narrative via Task Sequencers."
+    Reference:
+      m_referenceType: 2
+      m_obj: {fileID: 7551464548422377616, guid: 7a7ec62ce47343c4daecd7f32bc164c9,
+        type: 3}
+      m_classType: 
+      m_scene: {fileID: 102900000, guid: 4253da1135ef5c94e829156efbf3bc49, type: 3}
+      m_name: Beat 1
+      m_path: Packages\com.meta.utilities.environment\Runtime\Scripts\Environment\Environment.prefab
+      m_guid: 
+      m_instanceID: 0
+  - Header: Player Prefab
+    Description: 'This prefab holds all logic for player interactions in North Star,
+      it is required in every scene to play the experience. This showcases how the
+      Meta Interaction SDK can be used for a variety of interactions, such as rope
+      manipulation, and built upon, such as the grab teleport interaction.
+
+
+      The
+      Player prefab also drives the inside-out body tracking, hand-tracking and height
+      scaling logic.'
+    Reference:
+      m_referenceType: 4
+      m_obj: {fileID: 3520892789675948800, guid: 09b0bd0363debca41b94ef460a882c06,
+        type: 3}
+      m_classType: 
+      m_scene: {fileID: 102900000, guid: f9b9f89e73ffd6e4f8cd3566cd336d81, type: 3}
+      m_name: Environment
+      m_path: 
+      m_guid: 
+      m_instanceID: 51674
+  - Header: Gameplay Beats
+    Description: North Star presents its narrative in a series of gameplay "beats",
+      which each feature unique locations, time of day and weather effects. These
+      beats are broken into scenes so they could be worked on in parallel and manage
+      performance overhead.
+    Reference:
+      m_referenceType: 2
+      m_obj: {fileID: 102900000, guid: dbe76fac2f21e014a99f2539eaa8c172, type: 3}
+      m_classType: 
+      m_scene: {fileID: 102900000, guid: 2dcf87d114aaed54792cd4ec343e2aa9, type: 3}
+      m_name: Game Flow
+      m_path: Assets\NorthStar\Scenes\#GameplayBeats
+      m_guid: 
+      m_instanceID: 0

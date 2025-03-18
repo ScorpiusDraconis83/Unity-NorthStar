@@ -392,7 +392,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 662695903
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 1
@@ -492,11 +492,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b59b60a7e2744d342b0541ba1c1b95ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lensCamera: {fileID: 5377457822927278750}
-  lensMesh: {fileID: 2158432842959617495}
-  lensOverlay: {fileID: 1266194795871041282}
-  fogDensityFactor: 0.2
-  trackingFactor: 0.75
+  m_lensCamera: {fileID: 5377457822927278750}
+  m_lensMesh: {fileID: 2158432842959617495}
+  m_lensOverlay: {fileID: 1266194795871041282}
+  m_fogDensityFactor: 0.2
+  m_trackingFactor: 0.75
 --- !u!1 &1189048033089290494
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,6 +817,8 @@ MonoBehaviour:
   m_softGrabTime: 0.2
   m_bonusBreakTimer: 0
   m_toggleIntertiaTensorOnGrab: 0
+  m_throwVelocityPercent: 0
+  m_velocityHistoryCapacity: 20
 --- !u!114 &3640715289460082021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -829,8 +831,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6455c8d138b1c8f4298efb6ea8bc02e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: {x: 0, y: 0, z: -0.02}
-  b: {x: 0, y: 0, z: 0.08}
+  m_a: {x: 0, y: 0, z: -0.02}
+  m_b: {x: 0, y: 0, z: 0.08}
 --- !u!114 &5050897019418475476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -843,8 +845,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6455c8d138b1c8f4298efb6ea8bc02e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: {x: 0, y: 0, z: 0}
-  b: {x: 0, y: 0, z: 0}
+  m_a: {x: 0, y: 0, z: 0}
+  m_b: {x: 0, y: 0, z: 0}
 --- !u!114 &1034118362324299944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4780,6 +4782,8 @@ MonoBehaviour:
   m_softGrabTime: 0.2
   m_bonusBreakTimer: 0
   m_toggleIntertiaTensorOnGrab: 0
+  m_throwVelocityPercent: 0
+  m_velocityHistoryCapacity: 20
 --- !u!114 &5757453124802976256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4792,8 +4796,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6455c8d138b1c8f4298efb6ea8bc02e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: {x: 0, y: 0, z: -0.09}
-  b: {x: 0, y: 0, z: 0.09}
+  m_a: {x: 0, y: 0, z: -0.09}
+  m_b: {x: 0, y: 0, z: 0.09}
 --- !u!114 &4929722010585086083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5658,7 +5662,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   AngularDampiningReadout: {fileID: 0}
   LinearDampiningReadout: {fileID: 0}
-  m_ForceRender: 0
+  m_forceRender: 0
 --- !u!1 &9051482809776048545
 GameObject:
   m_ObjectHideFlags: 0

@@ -249,8 +249,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4b07bfefe5d4d047a0fd2e7ba10cb61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactable: {fileID: 9041060794048600526}
-  text: {fileID: 2723842353199090219}
+  Interactable: {fileID: 0}
+  Text: {fileID: 0}
 --- !u!1 &3268201661254297998
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,8 +366,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4b07bfefe5d4d047a0fd2e7ba10cb61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactable: {fileID: 4959126790771301931}
-  text: {fileID: 4551882817546672040}
+  Interactable: {fileID: 0}
+  Text: {fileID: 0}
 --- !u!1 &5319035106631344239
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,8 +617,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4b07bfefe5d4d047a0fd2e7ba10cb61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactable: {fileID: 4014545577812867961}
-  text: {fileID: 1643037533493441513}
+  Interactable: {fileID: 0}
+  Text: {fileID: 0}
 --- !u!1 &9170196941050216261
 GameObject:
   m_ObjectHideFlags: 0
@@ -1210,7 +1210,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7995122885833473463}
-        m_TargetAssemblyTypeName: NorthStar.TestHarpoon, Assembly-CSharp
+        m_TargetAssemblyTypeName: NorthStar.Harpoon, Assembly-CSharp
         m_MethodName: FireInput
         m_Mode: 1
         m_Arguments:
@@ -1221,11 +1221,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  m_onGrabChange:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onReleased:
+    m_PersistentCalls:
+      m_Calls: []
   m_joint: {fileID: 6335883129952275275}
   m_jointRigidbody: {fileID: 4277554580729380882}
-  m_jointKinematicLocker: {fileID: 3826428349456364561}
+  m_clampValues: 0
+  m_grabbable: {fileID: 0}
+  m_grabbables: []
+  m_requireGrabbing: 0
   m_minOutput: 0
   m_maxOutput: 1
+  m_ratchet: 0
+  m_step: 15
 --- !u!65 &226525921587174055
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1410,7 +1424,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7995122885833473463}
-        m_TargetAssemblyTypeName: NorthStar.TestHarpoon, Assembly-CSharp
+        m_TargetAssemblyTypeName: NorthStar.Harpoon, Assembly-CSharp
         m_MethodName: ReloadInput
         m_Mode: 1
         m_Arguments:
@@ -1421,11 +1435,40 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  m_onGrabChange:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onReleased:
+    m_PersistentCalls:
+      m_Calls: []
   m_joint: {fileID: 2250517303968458207}
   m_jointRigidbody: {fileID: 4076088672421686916}
-  m_jointKinematicLocker: {fileID: 8287142632103675365}
+  m_clampValues: 0
+  m_grabbable: {fileID: 0}
+  m_grabbables: []
+  m_requireGrabbing: 0
   m_minOutput: 0
   m_maxOutput: 1
+  m_rotationsTillMax: 5
+  m_crankEventDegreesPerSecondThreshold: 15
+  m_clockwise: 1
+  m_resetValueOnLock: 1
+  m_startAtHalfway: 0
+  m_ratchet: 0
+  m_step: 15
+  m_clapRotations: 0
+  m_onRatchet:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onCrankStart:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onCrankStop:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &3278483690950669475
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1631,7 +1674,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7995122885833473463}
-        m_TargetAssemblyTypeName: NorthStar.TestHarpoon, Assembly-CSharp
+        m_TargetAssemblyTypeName: NorthStar.Harpoon, Assembly-CSharp
         m_MethodName: RearmInput
         m_Mode: 1
         m_Arguments:
@@ -1642,11 +1685,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  m_onGrabChange:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onReleased:
+    m_PersistentCalls:
+      m_Calls: []
   m_joint: {fileID: 8400358152432979574}
   m_jointRigidbody: {fileID: 6893047976931023684}
-  m_jointKinematicLocker: {fileID: 709462492666752036}
+  m_clampValues: 0
+  m_grabbable: {fileID: 0}
+  m_grabbables: []
+  m_requireGrabbing: 0
   m_minOutput: 0
   m_maxOutput: 1
+  m_snapToStart: 0.05
+  m_snapToEnd: 0.95
+  m_ratchet: 0
+  m_step: 0.15
+  StepOut: 0
 --- !u!65 &5861090722589938199
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2038,13 +2098,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_reloadInteractable: {fileID: 4959126790771301931}
+  m_reloadThreshold: 1
+  OnReload:
+    m_PersistentCalls:
+      m_Calls: []
   m_rearmInteractable: {fileID: 4014545577812867961}
-  m_fireInteractable: {fileID: 9041060794048600526}
-  m_harpoonBolt: {fileID: 3152475911496825519}
-  m_loaded: 1
-  m_locked: 0
+  m_rearmThreshold: 1
+  OnRearm:
+    m_PersistentCalls:
+      m_Calls: []
+  m_fireButton: {fileID: 0}
+  OnFire:
+    m_PersistentCalls:
+      m_Calls: []
+  m_jointTransformer: {fileID: 0}
+  OnGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
+  m_lockingTransform: {fileID: 3152475911496825519}
+  m_stringBone: {fileID: 0}
+  m_harpoonPrefab: {fileID: 0}
+  BoltSpawnPoint: {fileID: 0}
+  m_baseRigidbody: {fileID: 0}
+  m_state: 1
   m_harpoonModelDisarmedPos: {x: 0, y: -0.1194262, z: -1.72}
   m_harpoonModelArmedPos: {x: 0, y: -0.1194262, z: -0.7009653}
+  m_stringBoneArmedPos: 0
+  m_stringBoneDisarmedPos: 0
+  m_firingForce: 2500
+  m_lineRenderer: {fileID: 0}
+  m_showLineRenderer: 0
+  m_simulationTime: 10
+  m_ropeWheel: {fileID: 0}
+  m_reelRope: {fileID: 0}
+  m_fakeArrowBinder: {fileID: 0}
+  m_baseNodeDistance: 0.05
+  m_ropeWheelRotationDegreesPerSecond: -720
+  m_skipReload: 0
+  m_useAimAssist: 0
+  m_minAimAsstDirectionValue: 0.75
 --- !u!1 &8436125126277468006 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1609300875862538221, guid: e7307524838d38d478b7a8d984535787,

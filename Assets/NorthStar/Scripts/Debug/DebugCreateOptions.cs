@@ -1,5 +1,7 @@
 // Copyright (c) Meta Platforms, Inc. and affiliates.
 using System;
+using Meta.Utilities.Environment;
+using Meta.Utilities.Narrative;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

@@ -1,4 +1,5 @@
 // Copyright (c) Meta Platforms, Inc. and affiliates.
+using Meta.Utilities.Environment;
 using Oculus.Interaction;
 using UnityEngine;
 
@@ -14,7 +15,7 @@ namespace NorthStar.DebugUtilities
         {
             if (m_sail != null)
             {
-                m_sail.furlInput = args.NewState == InteractableState.Select ? -1 : 0;
+                m_sail.FurlInput = args.NewState == InteractableState.Select ? -1 : 0;
             }
         }
 
@@ -22,7 +23,7 @@ namespace NorthStar.DebugUtilities
         {
             if (m_sail != null)
             {
-                m_sail.furlInput = args.NewState == InteractableState.Select ? 1 : 0;
+                m_sail.FurlInput = args.NewState == InteractableState.Select ? 1 : 0;
             }
         }
     }

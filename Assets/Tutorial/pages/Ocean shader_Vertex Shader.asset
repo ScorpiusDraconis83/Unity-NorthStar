@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4510294d23d964fe59443526f1ca7c4b, type: 3}
+  m_Name: Ocean shader_Vertex Shader
+  m_EditorClassIdentifier: 
+  m_displayName: Vertex Shader
+  m_hierarchyName: Ocean Shader/Vertex Shader
+  m_context: {fileID: 11400000, guid: 95a8f8372a6947e40ad18fcd4817087a, type: 2}
+  m_markdownFile: {fileID: 0}
+  m_priority: 1004
+  m_overrideMarkdownText: "# Vertex Shader \n\nThe ocean shader begins by sampling
+    the displacement map in the vertex shader. The Uvs for this are calculated based
+    on the world position of the vertices, divided by the total scale of the ocean. 
+    \n\nA Displacement Noise texture is then sampled with a scaling independent of
+    the ocean scale. This noise is used to control the strength of the displacement.
+    It's intended use is to vary the displacement effect across the surface of the
+    ocean to reduce noticeable tiling/repetition. Careful choice of noise texture
+    and scaling is required however, to ensure the displacement is not reduced too
+    much across the entire ocean.  \n\nThe total length of the horizontal displacement,
+    multiplied by the displacement noise strength is passed to the fragment shader,
+    where it can be used for fake subsurface scattering. \n\nAdditionally there is
+    also a \u201CGiant Wave\u201D functionality. This is used in a few cutscenes
+    to produce a single, very large wave that travels towards the boat. It uses a
+    single gerstner wave, with a masking function to restrict the effect to a single
+    wave, and a specified width. Due to time constraints, this was implemented in
+    HLSL via a custom function node, instead of shadergraph. There is a fade-in which
+    causes the wave to gradually rise out of the ocean, and then quickly fade out
+    after hitting the boat. Several parameters are passed through from C# code, so
+    that the wave is always moving towards the boat as it moves through the world.
+    The output is an additional displacement, partial derivatives, both of which
+    are combined with the existing ocean displacement/normals. \n\n![](./Images/OceanShader/Fig1.png)
+    \n\nThe giant wave has a few fudge factors in the function to make the wave line
+    up and hit the ship and then fade, however getting it right for all situations
+    was tricky, so some parameters are additionally controlled through Timeline curves
+    for an additional level of control. Some of the equations could potentially be
+    improved to reduce the need for manual tweaking. \n\n"
+  m_overrideMarkdownRoot: .\Documentation/

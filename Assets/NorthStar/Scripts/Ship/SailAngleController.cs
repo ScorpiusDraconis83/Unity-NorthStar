@@ -1,4 +1,6 @@
 // Copyright (c) Meta Platforms, Inc. and affiliates.
+using Meta.Utilities;
+using Meta.Utilities.Environment;
 using UnityEngine;
 
 namespace NorthStar
@@ -17,7 +19,6 @@ namespace NorthStar
         [SerializeField] private bool m_invertDirection;
         [SerializeField] private bool m_boomMode = false;
         [SerializeField] private AnimationCurve m_boomHeightEasing;
-        [SerializeField] private string m_sailHeightKey = "SailProgress";
         [SerializeField, Range(0, 1)] private float m_sailProgress = 0;
         [Range(0, 1)] public float RopeTightPercentage = 0;
         [Range(0, 1)] public float BoomSwingPoint = 0.1f;

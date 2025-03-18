@@ -13,6 +13,7 @@ Material:
   m_Parent: {fileID: 2100000, guid: 907cd1c9d82c10a4c83184fc49699705, type: 2}
   m_ModifiedSerializedProperties: 16
   m_ValidKeywords:
+  - _ENABLESTARS
   - _IS_CELESTIAL_OBJECT
   - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords: []
@@ -27,9 +28,9 @@ Material:
   - DepthOnly
   m_LockedProperties: _Back_Scatter_Power _Cloud_Ambient _Cloud_Back_Color _Cloud_Blend_Offset
     _Cloud_Blend_Power _Cloud_Direction _Cloud_Offset _Cloud_Opacity_Offset _Cloud_Opacity_Scale
-    _Cloud_Scale _Cloud_Speed _Cloud_Sun_Color _Fog_Offset _Fog_Power _Front_Scatter_Power
-    _Ground_Color _Scatter_Blend _Sky_Blend_Offset _Sky_Blend_Power _Sky_Horizon_Color
-    _Sky_Zenith_Color _Star_Color _Star_Power _Star_Scale
+    _Cloud_Scale _Cloud_Speed _Cloud_Sun_Color _ENABLESTARS _Fog_Offset _Fog_Power
+    _Front_Scatter_Power _Ground_Color _Scatter_Blend _Sky_Blend_Offset _Sky_Blend_Power
+    _Sky_Horizon_Color _Sky_Zenith_Color _Star_Color _Star_Power _Star_Scale
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -52,8 +53,8 @@ Material:
     - _Back_Scatter_Power: 0.478
     - _CastShadows: 1
     - _Celestial_Edge_Fade: 0.05
-    - _Celestial_Light_Pitch: 83.9
-    - _Celestial_Light_Yaw: 129
+    - _Celestial_Light_Pitch: 96.8
+    - _Celestial_Light_Yaw: 348
     - _Cloud_Blend_Offset: 1.64
     - _Cloud_Blend_Power: 2.02
     - _Cloud_Direction: 0.247
@@ -63,6 +64,7 @@ Material:
     - _Cloud_Scale: 1.82
     - _Cloud_Speed: 0.001
     - _DstBlend: 10
+    - _ENABLESTARS: 1
     - _Fog_Power: 15
     - _Front_Scatter_Power: 0.747
     - _IS_CELESTIAL_OBJECT: 1
@@ -86,7 +88,7 @@ Material:
     - _Surface: 1
     - _ZWrite: 0
     m_Colors:
-    - _Celestial_Color: {r: 0.1981132, g: 0.15232289, b: 0.15232289, a: 1}
+    - _Celestial_Color: {r: 2.7308679, g: 0.966109, b: 0.966109, a: 1}
     - _Celestial_Light_Color: {r: 0.6698113, g: 0.24959949, b: 0.35417214, a: 1}
     - _Cloud_Ambient: {r: 0.16104484, g: 0.23804975, b: 0.4433962, a: 1}
     - _Cloud_Back_Color: {r: 0.34901962, g: 0.13241954, b: 0.06274509, a: 1}

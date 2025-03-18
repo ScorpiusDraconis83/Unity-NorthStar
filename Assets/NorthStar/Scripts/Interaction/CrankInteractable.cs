@@ -1,5 +1,6 @@
 // Copyright (c) Meta Platforms, Inc. and affiliates.
 using System;
+using Meta.Utilities;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -39,9 +40,9 @@ namespace NorthStar
 
         [SerializeField] private bool m_clapRotations = false;
 
-        public UnityEvent m_onRatchet;
-        public UnityEvent m_onCrankStart;
-        public UnityEvent m_onCrankStop;
+        [SerializeField] private UnityEvent m_onRatchet;
+        [SerializeField] private UnityEvent m_onCrankStart;
+        [SerializeField] private UnityEvent m_onCrankStop;
 
         private MathUtils.RollingAverage m_averageDegreesPerSecond = new();
 

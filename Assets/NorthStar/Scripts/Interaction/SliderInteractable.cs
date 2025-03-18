@@ -1,4 +1,5 @@
 // Copyright (c) Meta Platforms, Inc. and affiliates.
+using Meta.Utilities;
 using UnityEngine;
 
 namespace NorthStar
@@ -21,7 +22,7 @@ namespace NorthStar
         private bool m_ratchet;
         [SerializeField, Tooltip("Defines how many units between ratchet steps")]
         private float m_step = 0.15f;
-        public float stepOut;
+        public float StepOut;
 
         protected override void Update()
         {
@@ -36,8 +37,8 @@ namespace NorthStar
                 if (m_ratchet)
                 {
                     //Set joint's drive/target rotation to apply forces along the interactable's path at every set of degrees, set by m_Step
-                    stepOut = Mathf.Round(currentValue / m_step) * m_step;
-                    m_joint.targetPosition = stepOut * Vector3.right + m_joint.connectedBody.transform.localPosition.z * Vector3.right; //Vector3.right is used because configurable joint is set to be in local axis, where the x component is the primary axis
+                    StepOut = Mathf.Round(currentValue / m_step) * m_step;
+                    m_joint.targetPosition = StepOut * Vector3.right + m_joint.connectedBody.transform.localPosition.z * Vector3.right; //Vector3.right is used because configurable joint is set to be in local axis, where the x component is the primary axis
                 }
 
                 currentValue = currentValue.Map(-m_joint.linearLimit.limit, m_joint.linearLimit.limit, m_minOutput, m_maxOutput);

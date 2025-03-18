@@ -247,9 +247,8 @@ namespace NorthStar
             var reorientStrength = GlobalSettings.PlayerSettings.ReorientStrength;
             if (reorientStrength > 0)
             {
-                var forward = CameraRig.parent.forward;
-                forward = new Vector3(forward.x, 0, forward.z).normalized;
-                CameraRig.rotation = Quaternion.LookRotation(forward, Vector3.up);
+                var boatRotation = BoatController.Instance.MovementSource.CurrentRotation;
+                CameraRig.rotation = Quaternion.Slerp(Quaternion.identity, Quaternion.Inverse(boatRotation), GlobalSettings.PlayerSettings.ReorientStrength) * CameraRig.parent.localRotation;
             }
             else
             {

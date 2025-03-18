@@ -10,8 +10,15 @@ namespace NorthStar
     public class CollisionSound : MonoBehaviour
     {
         public UnityEvent OnPlaySound;
+        [SerializeField] private float m_collsionDelayTime = 0f;
+        private float m_lastCollisionTime;
         private void OnCollisionEnter(Collision collision)
         {
+            if (Time.time < m_lastCollisionTime + m_collsionDelayTime)
+            {
+                m_lastCollisionTime = Time.time;
+                return;
+            }
             var contact = collision.GetContact(0);
             var effectAsset = CollisionMaterialPairs.GetEffect(contact.thisCollider.sharedMaterial, contact.otherCollider.sharedMaterial, out var curve);
             var intensity = curve.Evaluate(collision.relativeVelocity.magnitude);

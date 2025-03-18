@@ -1,4 +1,5 @@
 // Copyright (c) Meta Platforms, Inc. and affiliates.
+using System.Collections;
 using UnityEngine;
 
 namespace NorthStar
@@ -12,6 +13,8 @@ namespace NorthStar
         [SerializeField] private float m_minimumYDistance, m_floorTimeout;
         private float m_onFloorTimer;
 
+        [SerializeField] private bool m_setKinematicOnReset;
+
         private void Update()
         {
             var toCurrentPosition = transform.position - m_originalPositionMarker.position;
@@ -22,10 +25,12 @@ namespace NorthStar
                 {
                     transform.position = m_originalPositionMarker.position;
                     transform.rotation = m_originalPositionMarker.rotation;
-                    if (TryGetComponent(out Rigidbody rb))
+                    if (m_setKinematicOnReset && TryGetComponent(out Rigidbody rb))
                     {
                         rb.velocity = Vector3.zero;
                         rb.angularVelocity = Vector3.zero;
+                        rb.isKinematic = true;
+                        _ = StartCoroutine(DisableKinematic());
                     }
                     m_onFloorTimer = 0;
                 }
@@ -33,6 +38,16 @@ namespace NorthStar
             else
             {
                 m_onFloorTimer = 0;
+            }
+        }
+
+        private IEnumerator DisableKinematic()
+        {
+            yield return null;
+            yield return null;
+            if (TryGetComponent(out Rigidbody rb))
+            {
+                rb.isKinematic = false;
             }
         }
 

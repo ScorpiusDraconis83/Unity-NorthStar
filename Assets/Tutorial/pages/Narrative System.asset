@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4510294d23d964fe59443526f1ca7c4b, type: 3}
+  m_Name: Narrative System
+  m_EditorClassIdentifier: 
+  m_displayName: Narrative System
+  m_hierarchyName: Narrative System
+  m_context: {fileID: 11400000, guid: 595542ba9daac2f4195206f36831feb0, type: 2}
+  m_markdownFile: {fileID: 0}
+  m_priority: 1011
+  m_overrideMarkdownText: "# Narrative Sequencing\n\n## Introduction\n\nNorthStar\u2019s
+    Narrative Sequencing System is a custom, lightweight framework that allows designers
+    to script game events efficiently. While primarily used in a linear structure,
+    it also supports branching narratives and multiple task options. \n\n## Structure\n\nThe
+    system operates using Task Sequences, which act as chapters of the game. Each
+    Task Sequence consists of one or more Task Definitions. A sequence is complete
+    when all tasks within it are marked as done. The Task Manager handles the progression,
+    starting the next sequence upon completion of the previous one. \n\nTask sequences
+    are managed via the **Task Manager object**: ..Assets/Resources/NarrativeSequence/Task
+    Manager.asset \n\n## Tasks\n\nNorthStar conventionally assigns a new Task Sequence
+    per teleport point, with actions at that location divided into Task Definitions.
+    \n\nFor example, in the B2_S4 Task Sequence, where the player helps Audrey and
+    Bessie move barrels, tasks are sequentially triggered based on starting prerequisites.
+    However, multiple tasks can be active simultaneously, enabling player choice-driven
+    events. \n\n**Task Handler Component**\n\nA Task Handler must exist in the scene
+    for each potential active task. It includes the following properties: \n- **Task
+    ID** \u2013 The specific task this handler manages.\n- **Player Transform** \u2013
+    Tracks player position (typically PlayerV2).\n- **Player Gaze Camera** \u2013
+    Used for look direction checks.\n- **Complete When** \u2013 Determines if the
+    task completes when all or any conditions are met. \n\n**Completion Conditions**\n\nA
+    task is marked complete when at least one condition is met. If no condition is
+    set, it completes instantly. Conditions include: \n- **Hit Targets** \u2013 Requires
+    hitting listed harpoon targets (e.g., Kraken fight).\n- **Reeled Targets** \u2013
+    Used for retrieving harpoon-hooked objects.\n- **Wait for Event Broadcast** \u2013
+    Triggers upon receiving a specified event.\n- **Rope Is Spooled** \u2013 Checks
+    rope length between Min/Max values.\n- **Rope Is Tied** \u2013 Completes when
+    rope is secured.\n- **Proximity** \u2013 Player reaches a set distance from the
+    target.\n- **Look at Target** \u2013 Player faces the target within a set angle.\n-
+    **Time Delay** \u2013 Completes after a specified duration.\n- **Wait for Event**
+    \u2013 Triggered by a Unity Event on a referenced object.\n- **Wait for Animation**
+    \u2013 Completes when an animation finishes.\n- **Wait for Playable** \u2013
+    Completes when a timeline ends. \n\n**Event Tiggers**\n\nTasks can trigger events
+    at different stages: \n- **On Task Started** \u2013 Fires when the task begins.\n-
+    **On Task Completed** \u2013 Fires upon completion.\n- **On Reminder** \u2013
+    Fires at intervals while active. \n\n**Reminder Interval:** If set, triggers
+    On Reminder actions every X seconds. (Set to 0 to disable.) \n\n**Scripted Narrative
+    Sequences**\n\nMost narrative events in NorthStar are driven by Timelines using
+    Playable Directors and Timeline Signals. Each Task Manager typically has: \n-
+    **Playable Director** \u2013 Plays Timeline assets.\n- **Dialogue Player** \u2013
+    Controls voice-over sequences. \n\nWhen a task starts, its Dialogue Player begins
+    playback, triggering the Playable Director. Even non-dialogue sequences follow
+    this structure for consistency. \n\n**Best Practice:** Set Playable Director
+    Update Method to DSP Clock to prevent audio desynchronization. \n\n## Creating
+    New Tasks\n\n**To add a new Task Sequence:**\n1. Duplicate an existing sequence
+    (..Assets/NorthStar/Data/Task Sequences) or create one via Create > Data > Narrative
+    Sequencing > Task Sequence.\n2. Add Task Definitions inside the sequence.\n3.
+    Register the sequence in the Task Manager:\n     - Open the Task Manager object.\n    
+    - Add the new Task Sequence to the Sequences list (in order).\n     - Refresh
+    the Task Manager from the context menu. \n\n**Setting Task Prerequisites** \n-
+    Use the dropdown menu to set a prerequisite or click Add Preceding Task ID for
+    automatic ordering.\n- Leave at least one task with no prerequisite to prevent
+    game progression from stalling.\n- If you see an Undefined ID error, ensure the
+    Task Sequence is registered in the Task Manager. \n\n**Adding Tasks to a Scene**\n1.
+    Place a GameObject with a Task Handler component.\n2. Assign the Task ID and
+    required settings.\n3. Ensure a Game Flow Controller is in the scene (see Game
+    Flow prefab).\n4. If using multi-scene sequences, set the First Task to the earliest
+    sequence in that scene. \n\n**Testing & Debugging** \n\nFor quick narrative testing:
+    \n- **Before Play Mode**: Set First Task to the desired sequence.\n- **During
+    Play Mode**: Select a Task Handler and click \"Start narrative from this sequence\"
+    to skip forward. \n\n**Note:** Some sequences rely on prior events. Skipping
+    ahead may cause characters/objects to remain incorrectly active or disabled.
+    \n"
+  m_overrideMarkdownRoot: .\Documentation/

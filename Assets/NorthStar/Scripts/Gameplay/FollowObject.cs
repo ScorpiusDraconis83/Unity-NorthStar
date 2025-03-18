@@ -8,7 +8,7 @@ namespace NorthStar
     /// </summary>
     public class FollowObject : MonoBehaviour
     {
-        public Transform followTarget;
+        public Transform FollowTarget;
 
         private bool m_followActive = true;
 
@@ -16,8 +16,8 @@ namespace NorthStar
         {
             if (m_followActive)
             {
-                transform.position = followTarget.position;
-                transform.rotation = followTarget.rotation;
+                transform.position = FollowTarget.position;
+                transform.rotation = FollowTarget.rotation;
             }
         }
     }

@@ -3,12 +3,12 @@
 using System;
 using System.Collections.Generic;
 using JigglePhysics;
+using Meta.Utilities.Environment;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-// This script is a variation created from the Kraken Rig Builder intended for use on character accesories such as straps and hair.
-// Changes from the original script are preceeded by "CHANGE FOR DYNAMIC RIGS" for visibility.
+// This script is a variation created from the Kraken Rig Builder intended for use on character accessories such as straps and hair.
+// Changes from the original script are preceded by "CHANGE FOR DYNAMIC RIGS" for visibility.
 
 namespace NorthStar
 {
@@ -53,7 +53,6 @@ namespace NorthStar
         public LevelOfDetailValues LevelOfDetailSettings;
         private bool m_debugDraw;
 
-
         // LOD values dropdown
         [Serializable]
         public class LevelOfDetailValues
@@ -92,6 +91,7 @@ namespace NorthStar
                 {
                     return false;
                 }
+
                 if (UseViewBased)
                 {
                     if (CheckOnScreen(position))
@@ -99,6 +99,7 @@ namespace NorthStar
                         return !UseDistanceBased || Vector3.Distance(camera.transform.position, position) < Distance;
                     }
                 }
+
                 return !UseDistanceBased || Vector3.Distance(camera.transform.position, position) < Distance;
             }
 
@@ -114,17 +115,21 @@ namespace NorthStar
             {
                 if (!TryGetCamera(out var camera))
                 {
-                    if (UseLODS == true) ;
+                    if (UseLODS)
                     {
                         if (CheckActive(position))
                         {
-                            var newBlend = (Vector3.Distance(camera.transform.position, position) - Distance + LODBlend) / LODBlend;
+                            var newBlend =
+                                (Vector3.Distance(camera.transform.position, position) - Distance + LODBlend) /
+                                LODBlend;
                             newBlend = Mathf.Clamp01(1f - newBlend);
                             return newBlend;
                         }
+
                         return 0f;
                     }
                 }
+
                 return dynamicBlend;
             }
         }
@@ -135,25 +140,24 @@ namespace NorthStar
         {
             // CHANGE FOR DYNAMIC RIGS
             // Rig Naming for better organisation, replaces the default "Element #" in the script component.
-            public string RigName { get { return m_rigName; } }
+            public string RigName => m_rigName;
             // User defined
-            [SerializeField]
-            public string m_rigName;
+            [SerializeField] private string m_rigName;
             [Tooltip("The root bone from which an individual Dynamic Rig will be constructed. The rig encompasses all m_children of the specified root.")]
-            [FormerlySerializedAs("target")]
             public Transform RootBone;
             [SerializeField]
             [Tooltip("The list of bones to ignore during the simulation. Each bone listed will also ignore all the m_children of the specified bone.")]
             private List<Transform> m_ignoredBones;
             // CHANGE FOR DYNAMIC RIGS
             // Added Toggle for Collison to disable collision without needing to set up objects again if it needs to be re-enabled.
-            public bool useCollision = false;
+            public bool UseCollision = false;
             // Collision Radius was previously radiusMultiplier
             public float CollisionRadius = 0.08f;
             public List<Collider> CollisionObjects;
 
             // CHANGE FOR DYNAMIC RIGS
-            // Moved force variables to be per rig for better control over different physics effects depending on the simulated asset (Helps define different feels for hair and leather for example).
+            // Moved force variables to be per rig for better control over different physics effects depending on the
+            // simulated asset (Helps define different feels for hair and leather for example).
             [SerializeField]
             [Range(0f, 2f)]
             [Tooltip("An air force that is applied to the entire rig, this is useful to plug in some Wind volumes from external sources.")]
@@ -171,18 +175,18 @@ namespace NorthStar
 
             public Transform GetRootTransform() => RootBone;
             public DynamicRig(Transform rootTransform,
-                ICollection<Transform> m_ignoredBones,
-                ICollection<Collider> CollisionObjects)
+                ICollection<Transform> ignoredBones,
+                ICollection<Collider> collisionObjects)
             {
                 RootBone = rootTransform;
-                this.m_ignoredBones = new List<Transform>(m_ignoredBones);
-                this.CollisionObjects = new List<Collider>(CollisionObjects);
+                m_ignoredBones = new List<Transform>(ignoredBones);
+                CollisionObjects = new List<Collider>(collisionObjects);
                 Initialize();
             }
 
             // Private
             private bool m_initialized;
-            private bool NeedsCollisions => CollisionObjects.Count != 0 && useCollision;
+            private bool NeedsCollisions => CollisionObjects.Count != 0 && UseCollision;
 
             [HideInInspector]
             protected List<DynamicBone> m_dynmBones;
@@ -221,35 +225,43 @@ namespace NorthStar
                 m_initialized = true;
             }
 
-            protected virtual void CreateSimulatedPoints(ICollection<DynamicBone> outputPoints, ICollection<Transform> ignoredTransforms, Transform currentTransform, DynamicBone ParentDynamicBone)
+            protected virtual void CreateSimulatedPoints(ICollection<DynamicBone> outputPoints,
+                ICollection<Transform> ignoredTransforms, Transform currentTransform, DynamicBone parentDynamicBone)
             {
-                var newDynamicBone = new DynamicBone(currentTransform, ParentDynamicBone);
+
+                var childCount = currentTransform.childCount;
+                // Avoid unnecessary allocations
+                if (ignoredTransforms.Contains(currentTransform)) return;
+
+                var newDynamicBone = new DynamicBone(currentTransform, parentDynamicBone);
                 outputPoints.Add(newDynamicBone);
-                // Create an extra purely virtual point if we have no children.
-                if (currentTransform.childCount == 0)
+                // Avoid creating unnecessary virtual points
+                if (childCount == 0)
                 {
-                    if (newDynamicBone.Parent == null)
+                    if (newDynamicBone.Parent == null && newDynamicBone.Transform.parent == null)
                     {
-                        if (newDynamicBone.Transform.parent == null)
-                        {
-                            throw new UnityException("Can't have a singular Dynamic bone with no Parents. That doesn't even make sense!");
-                        }
-                        else
-                        {
-                            outputPoints.Add(new DynamicBone(null, newDynamicBone));
-                            return;
-                        }
+                        throw new UnityException("Can't have a singular Dynamic bone with no Parents.");
                     }
-                    outputPoints.Add(new DynamicBone(null, newDynamicBone));
+                    // Prevent redundant object creation
+                    if (newDynamicBone.Parent != null)
+                    {
+                        outputPoints.Add(new DynamicBone(null, newDynamicBone));
+                    }
                     return;
                 }
-                for (var i = 0; i < currentTransform.childCount; i++)
+
+                var childTransforms = new List<Transform>(childCount);
+                for (var i = 0; i < childCount; i++)
                 {
-                    if (ignoredTransforms.Contains(currentTransform.GetChild(i)))
+                    childTransforms.Add(currentTransform.GetChild(i));
+                }
+
+                foreach (var child in childTransforms)
+                {
+                    if (!ignoredTransforms.Contains(child))
                     {
-                        continue;
+                        CreateSimulatedPoints(outputPoints, ignoredTransforms, child, newDynamicBone);
                     }
-                    CreateSimulatedPoints(outputPoints, ignoredTransforms, currentTransform.GetChild(i), newDynamicBone);
                 }
             }
 
@@ -289,7 +301,8 @@ namespace NorthStar
             }
 
 
-            public void Update(Vector3 wind, float elasticitySoften, AnimationCurve radiusCurve, double time, bool windVariation, float windVariationSpeed, float windRandom, bool positionDelay)
+            public void Update(Vector3 wind, float elasticitySoften, AnimationCurve radiusCurve, double time,
+                bool windVariation, float windVariationSpeed, float windRandom, bool positionDelay)
             {
                 if (windVariation)
                 {
@@ -302,7 +315,9 @@ namespace NorthStar
 
                 foreach (var bone in m_dynmBones)
                 {
-                    bone.VerletPass(wind, GravityMultiplier, Friction, AirDrag, time, windVariation, windRandom, windVariationSpeed, positionDelay);
+                    bone.VerletPass(
+                        wind, GravityMultiplier, Friction, AirDrag, time, windVariation, windRandom, windVariationSpeed,
+                        positionDelay);
                 }
 
                 if (NeedsCollisions)
@@ -384,48 +399,47 @@ namespace NorthStar
             private Vector3? m_preTeleportPosition;
             private Vector3 m_extrapolatedPosition;
 
-            private Vector3 m_cachedStartPosition = Vector3.zero;
-            private Quaternion m_cachedStartRotation = Quaternion.identity;
+            private Vector3 m_cachedProjectedPosition;
+            private Transform m_cachedParentTransform;
+            private Transform m_cachedParentParentTransform;
 
             private float GetLengthToParent()
             {
-                return Parent == null ? 0.1f : Vector3.Distance(m_currentFixedAnimatedBonePosition, Parent.m_currentFixedAnimatedBonePosition);
-            }
-
-            public void CacheStartPosition()
-            {
-                m_cachedStartPosition = Transform.localPosition;
-                m_cachedStartRotation = Transform.localRotation;
+                return Parent == null ?
+                    0.1f :
+                    Vector3.Distance(m_currentFixedAnimatedBonePosition, Parent.m_currentFixedAnimatedBonePosition);
             }
 
             public DynamicBone(Transform transform, DynamicBone parent, float projectionAmount = 1f)
             {
+                // Cache Transform values to avoid redundant Unity API calls
                 Transform = transform;
                 Parent = parent;
                 m_projectionAmount = projectionAmount;
-
-                Vector3 position;
-                if (Transform != null)
+                m_hasTransform = Transform != null;
+                var position = m_hasTransform ? Transform.position : Vector3.zero;
+                if (m_hasTransform)
                 {
-                    m_lastValidPoseBoneRotation = Transform.localRotation;
-                    m_lastValidPoseBoneLocalPosition = Transform.localPosition;
-                    position = Transform.position;
-                    CacheStartPosition();
+                    var localRotation = Transform.localRotation;
+                    var localPosition = Transform.localPosition;
+                    m_lastValidPoseBoneRotation = localRotation;
+                    m_lastValidPoseBoneLocalPosition = localPosition;
                 }
-                else
+                else if (Parent != null)  // Only call `GetProjectedPosition()` if a parent exists
                 {
                     position = GetProjectedPosition();
                 }
-
-                m_targetAnimatedBoneSignal = new PositionSignal(position, Time.timeAsDouble);
-                m_particleSignal = new PositionSignal(position, Time.timeAsDouble);
-
-                m_hasTransform = Transform != null;
-                if (Parent == null)
+                // Delay PositionSignal creation until needed
+                if (position != Vector3.zero)
                 {
-                    return;
+                    var currentTime = Time.timeAsDouble;
+                    m_targetAnimatedBoneSignal = new PositionSignal(position, currentTime);
+                    m_particleSignal = new PositionSignal(position, currentTime);
                 }
-                Parent.m_child = this;
+                if (Parent != null)
+                {
+                    Parent.m_child = this;
+                }
             }
 
             public void CalculateNormalizedIndex()
@@ -451,12 +465,14 @@ namespace NorthStar
                 m_normalizedIndex = frac;
             }
 
-            public void VerletPass(Vector3 wind, float gravityMultiplier, float friction, float airDrag, double time, bool windVariation, float windRandom, float windVariationSpeed, bool positionDelay)
+            public void VerletPass(Vector3 wind, float gravityMultiplier, float friction, float airDrag, double time,
+                bool windVariation, float windRandom, float windVariationSpeed, bool positionDelay)
             {
                 if (windVariation && positionDelay)
                 {
                     var offset = Vector3.Dot(m_particleSignal.GetCurrent(), wind);
-                    var strength = Mathf.PerlinNoise(windRandom + offset * 100 + windVariationSpeed * Time.time, windRandom);
+                    var strength = Mathf.PerlinNoise(
+                        windRandom + offset * 100 + windVariationSpeed * Time.time, windRandom);
                     wind *= strength;
                 }
 
@@ -467,7 +483,9 @@ namespace NorthStar
                     m_particleSignal.SetPosition(m_workingPosition, time);
                     return;
                 }
-                var localSpaceVelocity = m_particleSignal.GetCurrent() - m_particleSignal.GetPrevious() - (Parent.m_particleSignal.GetCurrent() - Parent.m_particleSignal.GetPrevious());
+
+                var localSpaceVelocity = m_particleSignal.GetCurrent() - m_particleSignal.GetPrevious() -
+                                         (Parent.m_particleSignal.GetCurrent() - Parent.m_particleSignal.GetPrevious());
                 m_workingPosition = NextPhysicsPosition(
                     m_particleSignal.GetCurrent(), m_particleSignal.GetPrevious(), localSpaceVelocity, VERLET_TIME_STEP,
                     gravityMultiplier,
@@ -488,7 +506,9 @@ namespace NorthStar
                 {
                     return;
                 }
-                m_workingPosition = ConstrainAngle(m_workingPosition, angleElasticity * angleElasticity, elasticitySoften);
+
+                m_workingPosition = ConstrainAngle(
+                    m_workingPosition, angleElasticity * angleElasticity, elasticitySoften);
                 m_workingPosition = ConstrainLength(m_workingPosition, lengthElasticity * lengthElasticity);
             }
 
@@ -503,6 +523,7 @@ namespace NorthStar
                 {
                     return;
                 }
+
                 foreach (var collider in colliders)
                 {
                     sphereCollider.radius = radiusMultiplier * radiusCurve.Evaluate(m_normalizedIndex);
@@ -511,7 +532,8 @@ namespace NorthStar
                         continue;
                     }
 
-                    if (Physics.ComputePenetration(sphereCollider, m_workingPosition, Quaternion.identity,
+                    if (Physics.ComputePenetration(
+                            sphereCollider, m_workingPosition, Quaternion.identity,
                             collider, collider.transform.position, collider.transform.rotation,
                             out var dir, out var dist))
                     {
@@ -520,17 +542,17 @@ namespace NorthStar
                 }
             }
 
-
             public void SignalWritePosition(double time)
             {
                 m_particleSignal.SetPosition(m_workingPosition, time);
             }
 
-
+            //TODO: Optimise the GetProjectedPosition() function without randomness in hair movement.
             private Vector3 GetProjectedPosition()
             {
                 var parentTransformPosition = Parent.Transform.position;
-                return Parent.Transform.TransformPoint(Parent.GetParentTransform().InverseTransformPoint(parentTransformPosition) * m_projectionAmount);
+                return Parent.Transform.TransformPoint(
+                    Parent.GetParentTransform().InverseTransformPoint(parentTransformPosition) * m_projectionAmount);
             }
 
             private Vector3 GetTransformPosition()
@@ -592,7 +614,9 @@ namespace NorthStar
             }
 
             /// <summary>
-            /// Physically accurate teleportation, maintains the existing signals of motion and keeps their trajectories through a teleport. First call PrepareTeleport(), then move the character, then call FinishTeleport().
+            /// Physically accurate teleportation, maintains the existing signals of motion and keeps their
+            /// trajectories through a teleport. First call PrepareTeleport(), then move the character, then call
+            /// FinishTeleport().
             /// Use MatchAnimationInstantly() instead if you don't want Dynamic Rigs to be maintained through a teleport.
             /// </summary>
             public void PrepareTeleport()
@@ -601,7 +625,8 @@ namespace NorthStar
             }
 
             /// <summary>
-            /// The companion function to PrepareTeleport, it discards all the movement that has happened since the call to PrepareTeleport, assuming that they've both been called on the same frame.
+            /// The companion function to PrepareTeleport, it discards all the movement that has happened since the
+            /// call to PrepareTeleport, assuming that they've both been called on the same frame.
             /// </summary>
             public void FinishTeleport()
             {
@@ -624,7 +649,9 @@ namespace NorthStar
                 {
                     return newPosition;
                 }
-                var cToDTargetPose = m_child.m_child.m_currentFixedAnimatedBonePosition - m_child.m_currentFixedAnimatedBonePosition;
+
+                var cToDTargetPose = m_child.m_child.m_currentFixedAnimatedBonePosition -
+                                     m_child.m_currentFixedAnimatedBonePosition;
                 var cToD = m_child.m_child.m_workingPosition - m_child.m_workingPosition;
                 var neededRotation = Quaternion.FromToRotation(cToDTargetPose, cToD);
                 var cToB = newPosition - m_child.m_workingPosition;
@@ -644,11 +671,13 @@ namespace NorthStar
                 {
                     return newPosition;
                 }
+
                 Vector3 parentParentPosition;
                 Vector3 poseParentParent;
                 if (Parent.Parent == null)
                 {
-                    poseParentParent = Parent.m_currentFixedAnimatedBonePosition + (Parent.m_currentFixedAnimatedBonePosition - m_currentFixedAnimatedBonePosition);
+                    poseParentParent = Parent.m_currentFixedAnimatedBonePosition +
+                                       (Parent.m_currentFixedAnimatedBonePosition - m_currentFixedAnimatedBonePosition);
                     parentParentPosition = poseParentParent;
                 }
                 else
@@ -656,6 +685,7 @@ namespace NorthStar
                     parentParentPosition = Parent.Parent.m_workingPosition;
                     poseParentParent = Parent.Parent.m_currentFixedAnimatedBonePosition;
                 }
+
                 var parentAimTargetPose = Parent.m_currentFixedAnimatedBonePosition - poseParentParent;
                 var parentAim = Parent.m_workingPosition - parentParentPosition;
                 var targetPoseToPose = Quaternion.FromToRotation(parentAimTargetPose, parentAim);
@@ -668,11 +698,13 @@ namespace NorthStar
                 return Vector3.Lerp(newPosition, parentParentPosition + constraintTarget, elasticity * error);
             }
 
-            public static Vector3 NextPhysicsPosition(Vector3 newPosition, Vector3 previousPosition, Vector3 localSpaceVelocity, float deltaTime, float gravityMultiplier, float friction, float airFriction)
+            public static Vector3 NextPhysicsPosition(Vector3 newPosition, Vector3 previousPosition,
+                Vector3 localSpaceVelocity, float deltaTime, float gravityMultiplier, float friction, float airFriction)
             {
                 var squaredDeltaTime = deltaTime * deltaTime;
                 var vel = newPosition - previousPosition - localSpaceVelocity;
-                return newPosition + vel * (1f - airFriction) + localSpaceVelocity * (1f - friction) + Physics.gravity * (gravityMultiplier * squaredDeltaTime);
+                return newPosition + vel * (1f - airFriction) + localSpaceVelocity * (1f - friction) +
+                       Physics.gravity * (gravityMultiplier * squaredDeltaTime);
             }
 
             public void DebugDraw(Color simulateColor, Color targetColor, bool interpolated)
@@ -686,8 +718,12 @@ namespace NorthStar
                 {
                     Debug.DrawLine(m_workingPosition, Parent.m_workingPosition, simulateColor, 0, false);
                 }
-                Debug.DrawLine(m_currentFixedAnimatedBonePosition, Parent.m_currentFixedAnimatedBonePosition, targetColor, 0, false);
+
+                Debug.DrawLine(
+                    m_currentFixedAnimatedBonePosition, Parent.m_currentFixedAnimatedBonePosition, targetColor, 0,
+                    false);
             }
+
             public Vector3 DeriveFinalSolvePosition(Vector3 offset)
             {
                 m_extrapolatedPosition = offset + m_particleSignal.SamplePosition(Time.timeAsDouble);
@@ -698,59 +734,93 @@ namespace NorthStar
 
             public void PrepareBone()
             {
-                // If bone is not animated, return to last unadulterated pose
-                if (m_hasTransform)
+                if (!m_hasTransform)
+                    return;
+                var currentRotation = Transform.localRotation;
+                var currentPosition = Transform.localPosition;
+
+                if (m_boneRotationChangeCheck == currentRotation)
                 {
-                    if (m_boneRotationChangeCheck == Transform.localRotation)
-                    {
-                        Transform.localRotation = m_lastValidPoseBoneRotation;
-                    }
-                    if (m_bonePositionChangeCheck == Transform.localPosition)
-                    {
-                        Transform.localPosition = m_lastValidPoseBoneLocalPosition;
-                    }
+                    Transform.localRotation = m_lastValidPoseBoneRotation;
+                }
+                if (m_bonePositionChangeCheck == currentPosition)
+                {
+                    Transform.localPosition = m_lastValidPoseBoneLocalPosition;
                 }
                 CacheAnimationPosition();
             }
 
-            public void OnDrawGizmos(float radiusMultiplier, AnimationCurve radiusCurve)
+            public void OnDrawGizmos(float radiusMultiplier,
+                AnimationCurve radiusCurve)
             {
                 var pos = m_particleSignal.SamplePosition(Time.timeAsDouble);
                 if (m_child != null)
                 {
-                    Gizmos.DrawLine(pos, m_child.m_particleSignal.SamplePosition(Time.timeAsDouble));
+                    Gizmos.DrawLine(
+                        pos,
+                        m_child.m_particleSignal.SamplePosition(
+                            Time.timeAsDouble));
                 }
-                var radius = radiusMultiplier * radiusCurve.Evaluate(m_normalizedIndex);
+
+                var radius = radiusMultiplier *
+                             radiusCurve.Evaluate(m_normalizedIndex);
                 Gizmos.DrawWireSphere(pos, radius);
             }
 
+
             public void PoseBone(float blend, float staticBlend)
             {
+                // Early exit for performance
+                if (m_child == null) return;
                 var poseBlend = blend;
-
-
-
-                if (m_child != null)
+                // Cache Transform position & rotation to avoid redundant Unity API calls
+                var currentPosition = Transform.position;
+                var currentRotation = Transform.rotation;
+                // Cache precomputed values before calculations
+                var sampledPosition =
+                    m_targetAnimatedBoneSignal.SamplePosition(
+                        Time.timeAsDouble);
+                var positionBlend = Vector3.Lerp(
+                    sampledPosition, m_extrapolatedPosition, poseBlend);
+                var childSampledPosition =
+                    m_child.m_targetAnimatedBoneSignal.SamplePosition(
+                        Time.timeAsDouble);
+                var childPositionBlend = Vector3.Lerp(
+                    childSampledPosition, m_child.m_extrapolatedPosition,
+                    poseBlend);
+                // Only update Transform if necessary
+                if (Parent != null && positionBlend != currentPosition)
                 {
-                    var positionBlend = Vector3.Lerp(m_targetAnimatedBoneSignal.SamplePosition(Time.timeAsDouble), m_extrapolatedPosition, poseBlend);
-                    var childPositionBlend = Vector3.Lerp(m_child.m_targetAnimatedBoneSignal.SamplePosition(Time.timeAsDouble), m_child.m_extrapolatedPosition, poseBlend);
-
-                    if (Parent != null)
-                    {
-                        Transform.position = positionBlend;
-                    }
-                    var childPosition = m_child.GetTransformPosition();
-                    var cachedAnimatedVector = childPosition - Transform.position;
-                    var simulatedVector = childPositionBlend - positionBlend;
-                    var animPoseToPhysicsPose = Quaternion.FromToRotation(cachedAnimatedVector, simulatedVector);
-                    Transform.rotation = animPoseToPhysicsPose * Transform.rotation;
+                    Transform.position = positionBlend;
                 }
+
+                var childPosition = m_child.GetTransformPosition();
+                var cachedAnimatedVector = childPosition - positionBlend;
+                var simulatedVector = childPositionBlend - positionBlend;
+                // Only rotate if necessary
+                if (cachedAnimatedVector != simulatedVector)
+                {
+                    var animPoseToPhysicsPose = Quaternion.FromToRotation(
+                        cachedAnimatedVector, simulatedVector);
+                    Transform.rotation =
+                        animPoseToPhysicsPose * currentRotation;
+                }
+
                 if (m_hasTransform)
                 {
-                    m_boneRotationChangeCheck = Transform.localRotation;
-                    m_bonePositionChangeCheck = Transform.localPosition;
+                    // Store previous transform state only if changed
+                    if (Transform.localRotation != m_boneRotationChangeCheck)
+                    {
+                        m_boneRotationChangeCheck = Transform.localRotation;
+                    }
+
+                    if (Transform.localPosition != m_bonePositionChangeCheck)
+                    {
+                        m_bonePositionChangeCheck = Transform.localPosition;
+                    }
                 }
             }
+
         }
 
 
@@ -887,9 +957,12 @@ namespace NorthStar
                     collider = s_sphereCollider;
                     return true;
                 }
+
                 try
                 {
-                    var obj = new GameObject("m_dynmBonesphereCollider", typeof(SphereCollider), typeof(DestroyListener))
+                    var obj = new GameObject(
+                        "m_dynmBonesphereCollider", typeof(SphereCollider),
+                        typeof(DestroyListener))
                     {
                         hideFlags = HideFlags.HideAndDontSave
                     };
@@ -906,7 +979,8 @@ namespace NorthStar
                 }
                 catch
                 {
-                    // Something went wrong! Try to clean up and try again next frame. Better throwing an expensive exception than spawning spheres every frame.
+                    // Something went wrong! Try to clean up and try again next frame.
+                    // Better throwing an expensive exception than spawning spheres every frame.
                     if (s_sphereCollider != null)
                     {
                         if (Application.isPlaying)
@@ -918,6 +992,7 @@ namespace NorthStar
                             DestroyImmediate(s_sphereCollider.gameObject);
                         }
                     }
+
                     s_hasSphere = false;
                     collider = null;
                     throw;
@@ -949,7 +1024,9 @@ namespace NorthStar
                 }
                 else
                 {
-                    throw new UnityException(gameObject.name + " has a Dynamic Rig with no root bone! If the script is not being used disable or remove the script component.");
+                    throw new UnityException(
+                        gameObject.name +
+                        " has a Dynamic Rig with no root bone! If the script is not being used disable or remove the script component.");
                 }
             }
         }
@@ -1032,7 +1109,10 @@ namespace NorthStar
                 var time = Time.timeAsDouble - m_accumulation;
                 foreach (var rig in DynamicRigs)
                 {
-                    rig.Update(m_wind, m_elasticitySoften, m_radiusCurve, time, WindVariation, WindVariationSpeed, m_windRand, PositionBasedDelay);
+                    rig.Update(
+                        m_wind, m_elasticitySoften, m_radiusCurve, time,
+                        WindVariation, WindVariationSpeed, m_windRand,
+                        PositionBasedDelay);
                 }
             }
 
@@ -1121,9 +1201,12 @@ namespace NorthStar
         {
             if (EnvironmentSystem.Instance != null)
             {
-                m_wind = EnvironmentSystem.Instance.WindVector * (WindEffect / 100);
-                m_environmentProfile = EnvironmentSystem.Instance.CurrentProfile;
+                m_wind = EnvironmentSystem.Instance.WindVector *
+                         (WindEffect / 100);
+                m_environmentProfile =
+                    EnvironmentSystem.Instance.CurrentProfile;
             }
+
             if (EnvironmentSystem.Instance == null)
             {
                 m_wind = Vector3.zero;

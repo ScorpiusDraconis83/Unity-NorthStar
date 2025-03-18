@@ -25,9 +25,9 @@ Material:
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - _IS_STANDARD_NORMAL_TEXTURE
+  m_ValidKeywords: []
   m_InvalidKeywords:
+  - _IS_STANDARD_NORMAL_TEXTURE
   - _METALLICSPECGLOSSMAP
   - _NORMALMAP
   m_LightmapFlags: 4
@@ -116,6 +116,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Parallax_Texture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_44a105a80ee243ba9fe5649083c6bc03_Texture_1_Texture2D:
         m_Texture: {fileID: 2800000, guid: b371e11b301690d48ac2a14535c97d41, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -188,6 +192,7 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _IS_STANDARD_NORMAL_TEXTURE: 1
+    - _Is_Standard_Normal_Texture: 0
     - _Main_Light_Color_Influence: 1
     - _Metallic: 0
     - _MetallicValue: 0
@@ -196,6 +201,7 @@ Material:
     - _OcclusionStrength: 1
     - _OpacityValue: 1
     - _Parallax: 0.005
+    - _Parallax_Amplitude: 1
     - _Parallax_Strength: 0.05
     - _Pulse_Opacity: 0
     - _QueueControl: 0

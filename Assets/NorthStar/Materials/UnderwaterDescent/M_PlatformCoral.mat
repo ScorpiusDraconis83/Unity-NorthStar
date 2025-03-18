@@ -21,18 +21,18 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_PlatformCoral
-  m_Shader: {fileID: -6465566751694194690, guid: 8e4eaa24c3a9dc24c804105bc3a1d528,
+  m_Shader: {fileID: -6465566751694194690, guid: 1e4cd3f9b9fb1ea4e96593cdd4d630ad,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - _IS_STANDARD_NORMAL_TEXTURE
-  - _USE_FAKE_SUBSURFACESCATTERING
+  m_ValidKeywords: []
   m_InvalidKeywords:
   - _EMISSION
+  - _IS_STANDARD_NORMAL_TEXTURE
   - _METALLICSPECGLOSSMAP
   - _NORMALMAP
   - _SURFACE_TYPE_OPAQUE
+  - _USE_FAKE_SUBSURFACESCATTERING
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 1
@@ -128,6 +128,22 @@ Material:
         m_Texture: {fileID: 2800000, guid: 4bc91f059e906964c805357f4ab1ba54, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _NorthStarDefaultShader_2cc307ac438d4f15b8ef9251ccc2dcb6_DetailMask_2422358792_Texture2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NorthStarDefaultShader_2cc307ac438d4f15b8ef9251ccc2dcb6_ParallaxTexture_2611314226_Texture2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NorthStarDefaultShader_f2f82c625d7b48f8ba88ed1c4f3b41e9_DetailMask_2422358792_Texture2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NorthStarDefaultShader_f2f82c625d7b48f8ba88ed1c4f3b41e9_ParallaxTexture_2611314226_Texture2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -185,7 +201,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture3D_7a195b092b454093986d7e13505804d9_Texture_1_Texture3D:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 11700000, guid: 20658344b4535ea4b98752b8f6f2b81c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -285,6 +301,8 @@ Material:
     - _HAS_TRUNK: 0
     - _Hotspot: 1
     - _IS_STANDARD_NORMAL_TEXTURE: 1
+    - _Individual_Leaf_Offset: 0
+    - _Is_Standard_Normal_Texture: 0
     - _Lead_Amount: 1
     - _Lighting_Addition: 0.5
     - _Lighting_Strenght: 0.5
@@ -367,13 +385,16 @@ Material:
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
+    - _BackFaceTint: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0.34854925, g: 0.34854925, b: 0.34854925, a: 1}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 0}
     - _FresnelColor: {r: 1, g: 0.5803921, b: 0, a: 1}
     - _GlowColor: {r: 0, g: 0.14269245, b: 0.5660378, a: 0}
+    - _MaxLightTint: {r: 1, g: 1, b: 1, a: 0}
     - _Metallic_Highlights_Color: {r: 0, g: 0, b: 0, a: 0}
+    - _MinLightTint: {r: 1, g: 1, b: 1, a: 0}
     - _NormalValue: {r: 0, g: 0, b: 1, a: 0}
     - _Pulse_Tint: {r: 4, g: 1.381703, b: 0, a: 1}
     - _SSSColor: {r: 0.49260747, g: 0.3197301, b: 0.14406438, a: 0}

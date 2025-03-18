@@ -5,50 +5,50 @@ namespace NorthStar
 {
     public class HandOrbEffects : MonoBehaviour
     {
-        public ParticleSystem[] handParticleSystems;
+        public ParticleSystem[] HandParticleSystems;
 
         //This could be simplified to having fewer variables to manage by using exact values in the animation curves, rather than using them as a multiplier
         //However scaling of animation curves in Unity Editor can be quite frustrating, so individual defined values for the min and max range has been found to
         //allow easier iteration on the effects without needing to change the whole curve.
         [Tooltip("Gravity effect on bubbles is negative since they are buoyant!")]
         [Range(-0.02f, 0f)]
-        public float m_particleMinGravity = 0f;
+        [SerializeField] private float m_particleMinGravity = 0f;
         [Tooltip("Gravity effect on bubbles is negative since they are buoyant!")]
         [Range(-0.02f, 0f)]
-        public float m_particleMaxGravity = -0.01f;
-        public AnimationCurve m_particleGravityCurve;
+        [SerializeField] private float m_particleMaxGravity = -0.01f;
+        [SerializeField] private AnimationCurve m_particleGravityCurve;
         [Range(0f, 100f)]
-        public float m_particleMinRateOverTime = 0f;
+        [SerializeField] private float m_particleMinRateOverTime = 0f;
         [Range(0f, 100f)]
-        public float m_particleMaxRateOverTime = 65f;
-        public AnimationCurve m_particleRateOverTimeCurve;
+        [SerializeField] private float m_particleMaxRateOverTime = 65f;
+        [SerializeField] private AnimationCurve m_particleRateOverTimeCurve;
         [Range(0f, 0.03f)]
-        public float m_particleLowerMaxSize = 0.009f;
+        [SerializeField] private float m_particleLowerMaxSize = 0.009f;
         [Range(0f, 0.03f)]
-        public float m_particleUpperMaxSize = 0.02f;
-        public AnimationCurve m_particleMaxSizeCurve;
+        [SerializeField] private float m_particleUpperMaxSize = 0.02f;
+        [SerializeField] private AnimationCurve m_particleMaxSizeCurve;
         [Range(0f, 2f)]
-        public float m_particleMinAttractionForceMultiplier = 0f;
+        [SerializeField] private float m_particleMinAttractionForceMultiplier = 0f;
         [Range(0f, 2f)]
-        public float m_particleMaxAttractionForceMultiplier = 1f;
+        [SerializeField] private float m_particleMaxAttractionForceMultiplier = 1f;
         [Tooltip("How the orbs particle attraction force should lerp between min and max intensity, sampling curve using the orbAttraction value")]
-        public AnimationCurve m_particleAttractionForceMultiplierCurve;
+        [SerializeField] private AnimationCurve m_particleAttractionForceMultiplierCurve;
         [Tooltip("Maximum speed the hand power can go up from 0 to 1 (per second value)")]
         [Range(0f, 5f)]
-        public float m_powerWarmupRate = 2f;
+        [SerializeField] private float m_powerWarmupRate = 2f;
         [Tooltip("Maximum speed the hand power can go down from 1 to 0 (per second value)")]
         [Range(0f, 5f)]
-        public float m_powerCooldownRate = 0.5f;
+        [SerializeField] private float m_powerCooldownRate = 0.5f;
 
-        public Transform m_PalmTransformRef;
+        [SerializeField] private Transform m_palmTransformRef;
         private bool m_handOpen;
-        private bool m_handNotClosed;
         private float m_handOpenness;
         private float m_targetHandPower;
         public float HandPower { get; private set; }
+        public bool HandNotClosed { get; private set; }
 
-        public OrbAttraction m_orbAttraction;
-        public Transform m_orbTransform;
+        [SerializeField] private OrbAttraction m_orbAttraction;
+        [SerializeField] private Transform m_orbTransform;
 
         private void Start()
         {
@@ -76,11 +76,12 @@ namespace NorthStar
 
         private void UpdateParticleEffects()
         {
-            foreach (var ps in handParticleSystems)
+            foreach (var ps in HandParticleSystems)
             {
                 //how much the particles are attracted to the orb is determined by the overall hand power
-                ps.startSize = Mathf.Lerp(m_particleLowerMaxSize, m_particleUpperMaxSize, m_particleMaxSizeCurve.Evaluate(HandPower));
-                ps.gravityModifier = Mathf.Lerp(m_particleMinGravity, m_particleMaxGravity, m_particleGravityCurve.Evaluate(HandPower));
+                var main = ps.main;
+                main.startSizeMultiplier = Mathf.Lerp(m_particleLowerMaxSize, m_particleUpperMaxSize, m_particleMaxSizeCurve.Evaluate(HandPower));
+                main.gravityModifierMultiplier = Mathf.Lerp(m_particleMinGravity, m_particleMaxGravity, m_particleGravityCurve.Evaluate(HandPower));
                 var externalForces = ps.externalForces;
                 externalForces.multiplier = Mathf.Lerp(m_particleMinAttractionForceMultiplier, m_particleMaxAttractionForceMultiplier, m_particleAttractionForceMultiplierCurve.Evaluate(HandPower));
                 var emission = ps.emission;
@@ -93,8 +94,8 @@ namespace NorthStar
         {
             //Calculate the power level of the players hand calling out to the orb
             //Power is based on how open the hand is, and how much the palm points towards the orb
-            var targetDir = m_PalmTransformRef.position - m_orbTransform.position;
-            var angle = Vector3.Angle(targetDir, m_PalmTransformRef.up);
+            var targetDir = m_palmTransformRef.position - m_orbTransform.position;
+            var angle = Vector3.Angle(targetDir, m_palmTransformRef.up);
             m_targetHandPower = angle / 180;
             m_targetHandPower *= m_handOpenness;
             if (HandPower < m_targetHandPower)
@@ -134,27 +135,13 @@ namespace NorthStar
             // For now keeping it a bit more binary so we know effect feels good with controllers
             if (value)
             {
-                m_handNotClosed = true;
-                if (m_handOpen)
-                {
-                    m_handOpenness = 1;
-                }
-                else
-                {
-                    m_handOpenness = 0.5f;
-                }
+                HandNotClosed = true;
+                m_handOpenness = m_handOpen ? 1 : 0.5f;
             }
             else
             {
-                m_handNotClosed = false;
-                if (m_handOpen)
-                {
-                    m_handOpenness = 1;
-                }
-                else
-                {
-                    m_handOpenness = 0f;
-                }
+                HandNotClosed = false;
+                m_handOpenness = m_handOpen ? 1 : 0f;
             }
         }
     }

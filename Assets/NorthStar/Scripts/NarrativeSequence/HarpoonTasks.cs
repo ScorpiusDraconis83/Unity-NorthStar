@@ -1,5 +1,7 @@
 // Copyright (c) Meta Platforms, Inc. and affiliates.
 using System;
+using Meta.Utilities.Narrative;
+using Meta.Utilities.Ropes;
 using UnityEngine;
 
 namespace NorthStar
@@ -187,5 +189,12 @@ namespace NorthStar
         [SerializeField] private RopeSystem m_ropeSystem;
 
         public override bool IsComplete(TaskHandler handler) => m_ropeSystem.Tied;
+    }
+
+    public class InteractionTriggeredCondition : TaskCondition
+    {
+        [SerializeField] private InteractionTriggered m_interactionTriggered;
+
+        public override bool IsComplete(TaskHandler handler) => m_interactionTriggered.Triggered;
     }
 }

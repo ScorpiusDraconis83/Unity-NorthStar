@@ -47,6 +47,8 @@ namespace NorthStar
 
         public void Setup()
         {
+            OriginalPosition = transform.position;
+            OriginalRotation = transform.rotation;
             CurrentPosition = transform.position;
             CurrentRotation = transform.rotation;
             m_otherObjectsOriginalPositions = new Vector3[OtherObjectsToMove.Length];
@@ -56,7 +58,7 @@ namespace NorthStar
                 m_otherObjectsOriginalPositions[i] = OtherObjectsToMove[i].transform.position;
                 m_otherObjectsOriginalRotations[i] = OtherObjectsToMove[i].transform.rotation;
             }
-            Sync();
+            OnSync?.Invoke();
         }
 
         private IEnumerator EndOfFrameUpdater()

@@ -125,6 +125,7 @@ namespace UnityEngine.Rendering.Universal.Internal
                 renderingData.shadowData.mainLightShadowmapHeight >> 1 :
                 renderingData.shadowData.mainLightShadowmapHeight;
 
+            // Meta change : Pass in the camera data and allow shadow projection and distance to be modified externally per cascade
             float maxShadowDistance = 0f;
             for (int cascadeIndex = 0; cascadeIndex < m_ShadowCasterCascadesCount; ++cascadeIndex)
             {

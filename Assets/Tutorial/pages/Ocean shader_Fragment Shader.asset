@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4510294d23d964fe59443526f1ca7c4b, type: 3}
+  m_Name: Ocean shader_Fragment Shader
+  m_EditorClassIdentifier: 
+  m_displayName: Fragment Shader
+  m_hierarchyName: Ocean Shader/Fragment Shader
+  m_context: {fileID: 11400000, guid: 95a8f8372a6947e40ad18fcd4817087a, type: 2}
+  m_markdownFile: {fileID: 0}
+  m_priority: 1004
+  m_overrideMarkdownText: "# Fragment Shader \n\nThe tiling normal map is sampled
+    using the same Uvs as the displacement map. This also contains foam and smoothness
+    values in the blue/alpha channels, which will be discussed shortly. This normal
+    value contains the X and Z components, as the Y component is reconstructed using
+    a usual `NormalReconstructZ` function. (Since the ocean is a world-space grid,
+    we don't need to perform a regular tangent to world transform, we can simply
+    just swizzle the Y and Z channels).\n\nA detail normal map is then sampled with
+    a different scale/offset to the main normal map. Generally this should be smaller
+    than the primary ocean normal map. The normal maps are combined using partial
+    derivative blending, which is an accurate way to combine different normals produced
+    by heightmaps. (In contrast to a technique such as Reoriented Normal Mapping
+    (RNM) which rotates one normal map onto another) This normal map can be scaled,
+    panned and rotated over time, so when panned in a similar direction to the ocean,
+    with a slightly offset rotation and speed, it can add a convincing amount of
+    extra detail to the lower-resolution ocean simulation. \n\nWhen the giant wave
+    is enabled, the partial derivatives are combined with the ocean normal and detail
+    normal partial derivatives to produce the final world space normal. The giant
+    wave is re-evaluated in the pixel shader to obtain the normals, as passing them
+    through per-vertex often did not provide enough accuracy to avoid visual artifacts.
+    \n\n"
+  m_overrideMarkdownRoot: .\Documentation/

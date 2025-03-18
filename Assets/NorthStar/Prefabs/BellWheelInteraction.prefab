@@ -419,6 +419,7 @@ MonoBehaviour:
   m_startAtHalfway: 0
   m_ratchet: 1
   m_step: 1
+  m_clapRotations: 0
   m_onRatchet:
     m_PersistentCalls:
       m_Calls:
@@ -2016,7 +2017,7 @@ Rigidbody:
   m_ImplicitTensor: 0
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!153 &6578032179719769520
@@ -2095,7 +2096,7 @@ ConfigurableJoint:
   m_AngularXDrive:
     serializedVersion: 4
     positionSpring: 5
-    positionDamper: 0
+    positionDamper: 10
     maximumForce: 3.4028233e+38
     useAcceleration: 0
   m_AngularYZDrive:
@@ -2163,6 +2164,8 @@ MonoBehaviour:
   m_softGrabTime: 0.2
   m_bonusBreakTimer: 0
   m_toggleIntertiaTensorOnGrab: 0
+  m_throwVelocityPercent: 0
+  m_velocityHistoryCapacity: 20
 --- !u!1 &5237740339561978152
 GameObject:
   m_ObjectHideFlags: 0
@@ -3187,7 +3190,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3d85580385f41504c81deb35076213f0, type: 2}
+  - {fileID: 2100000, guid: 4ee4041ad461c084bbefeb7dc765ab75, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3440,3 +3443,4 @@ MonoBehaviour:
   m_playOnAwake: 0
   m_oneShotMode: 1
   BaseVolume: 0
+  m_allowOverlap: 0

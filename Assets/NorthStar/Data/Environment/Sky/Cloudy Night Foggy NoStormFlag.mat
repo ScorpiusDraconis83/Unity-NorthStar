@@ -22,11 +22,12 @@ Material:
     RenderType: Opaque
   disabledShaderPasses:
   - SHADOWCASTER
+  - DepthOnly
   m_LockedProperties: _Back_Scatter_Power _Cloud_Ambient _Cloud_Back_Color _Cloud_Blend_Offset
     _Cloud_Blend_Power _Cloud_Direction _Cloud_Offset _Cloud_Opacity_Offset _Cloud_Scale
-    _Cloud_Speed _Cloud_Sun_Color _Fog_Offset _Fog_Power _Front_Scatter_Power _Ground_Color
-    _Scatter_Blend _Sky_Blend_Offset _Sky_Blend_Power _Sky_Horizon_Color _Sky_Zenith_Color
-    _Star_Color _Star_Power _Star_Scale
+    _Cloud_Speed _Cloud_Sun_Color _ENABLESTARS _Fog_Offset _Fog_Power _Front_Scatter_Power
+    _Ground_Color _Scatter_Blend _Sky_Blend_Offset _Sky_Blend_Power _Sky_Horizon_Color
+    _Sky_Zenith_Color _Star_Color _Star_Power _Star_Scale
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -53,6 +54,7 @@ Material:
     - _Cloud_Opacity_Scale: 1.67
     - _Cloud_Scale: 50
     - _Cloud_Speed: 0.00004
+    - _ENABLESTARS: 0
     - _Fog_Offset: 0.01
     - _Fog_Power: 0.48
     - _Front_Scatter_Power: 0.656
@@ -73,7 +75,7 @@ Material:
     - _Sky_Blend_Offset: 0.11
     - _Sky_Blend_Power: 7.16
     - _Star_Power: 0.01
-    - _Star_Scale: 4.8
+    - _Star_Scale: 8
     - _Sun_Size: 0.004
     - _Sun_Softness: 0.99625
     m_Colors:

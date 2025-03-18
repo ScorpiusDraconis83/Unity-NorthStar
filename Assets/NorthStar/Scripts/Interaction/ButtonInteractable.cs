@@ -16,12 +16,11 @@ namespace NorthStar
             };
         }
 
-        private void Update()
+        protected override void Update()
         {
             var value = 1 - m_jointRigidbody.transform.localPosition.y / m_buttonHeight;
             if (Value != value)
                 Value = value;
         }
-
     }
 }

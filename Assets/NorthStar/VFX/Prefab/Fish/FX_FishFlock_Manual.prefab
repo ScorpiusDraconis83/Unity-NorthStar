@@ -44,13 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cf0e0eb57713e34cbdcf9e63498d3f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnArea: 1
-  minMaxSpeed: {x: 1, y: 2}
-  minMaxRotationSpeed: {x: 4, y: 6}
-  directionChangeFrequency: 15
-  groupingDistance: 2
-  avoidanceDistance: 0.2
-  manualWaypoints:
+  SpawnArea: 1
+  MinMaxSpeed: {x: 1, y: 2}
+  MinMaxRotationSpeed: {x: 4, y: 6}
+  DirectionChangeFrequency: 15
+  GroupingDistance: 2
+  AvoidanceDistance: 0.2
+  ManualWaypoints:
   - m_waypointObject: {fileID: 0}
     m_waypointPosition: {x: 2.18, y: 2.77, z: -2.14}
   - m_waypointObject: {fileID: 0}
@@ -59,7 +59,7 @@ MonoBehaviour:
     m_waypointPosition: {x: -2.1, y: -0.3, z: -2.04}
   - m_waypointObject: {fileID: 0}
     m_waypointPosition: {x: 0, y: 0, z: 0}
-  prefabGroups:
+  PrefabGroups:
   - m_prefabName: Trout
     m_prefab: {fileID: 919132149155446097, guid: 18ab5511fab461946bd7b74a712157cc,
       type: 3}
@@ -96,5 +96,5 @@ MonoBehaviour:
     m_count: 5
     m_scale: {x: 0.5, y: 1}
     m_material: {fileID: 0}
-  visualiseSpawnArea: 1
-  visualiseManualWaypoints: 1
+  VisualiseSpawnArea: 1
+  VisualiseManualWaypoints: 1

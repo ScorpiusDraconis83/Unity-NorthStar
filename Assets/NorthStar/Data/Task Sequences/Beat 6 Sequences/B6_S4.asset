@@ -16,27 +16,37 @@ MonoBehaviour:
   - ID: B6_S4
     Sequence: {fileID: 11400000}
     m_startingPrerequisites:
-    - id: B6_S3_3
+    - ID: B6_S3_3
     m_completionPrerequisites: []
   - ID: B6_S4_2
     Sequence: {fileID: 11400000}
     m_startingPrerequisites:
-    - id: B6_S4
+    - ID: B6_S4
     m_completionPrerequisites: []
-  - ID: B6_S4_3
+  - ID: B6_S4_3_InitialDrop
     Sequence: {fileID: 11400000}
     m_startingPrerequisites:
-    - id: B6_S4_2
+    - ID: B6_S4_2
+    m_completionPrerequisites: []
+  - ID: B6_S4_3_BobbingInOcean
+    Sequence: {fileID: 11400000}
+    m_startingPrerequisites:
+    - ID: B6_S4_3_InitialDrop
+    m_completionPrerequisites: []
+  - ID: B6_S4_3_OceanDescent
+    Sequence: {fileID: 11400000}
+    m_startingPrerequisites:
+    - ID: B6_S4_3_BobbingInOcean
     m_completionPrerequisites: []
   - ID: B6_S4_4
     Sequence: {fileID: 11400000}
     m_startingPrerequisites:
-    - id: B6_S4_3
+    - ID: B6_S4_3_OceanDescent
     m_completionPrerequisites: []
   - ID: B6_S4_5
     Sequence: {fileID: 11400000}
     m_startingPrerequisites:
-    - id: B6_S4_4
+    - ID: B6_S4_4
     m_completionPrerequisites: []
   NextSequence: {fileID: 11400000, guid: 7ced68a8b76bb034298913e167ceddf8, type: 2}
   Index: 47

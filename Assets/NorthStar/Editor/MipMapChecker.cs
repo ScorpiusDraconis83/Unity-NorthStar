@@ -42,7 +42,7 @@ public class TextureMipmapChecker : EditorWindow
                 var dataPath = Application.dataPath;
                 if (folder.StartsWith(dataPath))
                 {
-                    m_currentFolder = "Assets" + folder.Substring(dataPath.Length);
+                    m_currentFolder = "Assets" + folder[dataPath.Length..];
                 }
                 else
                 {

@@ -6,6 +6,8 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
+using Meta.Utilities.Environment;
+
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -44,28 +46,28 @@ namespace NorthStar
 
             CommandGUI(
                 "String Commands",
-                ProfilingSystem.s_stringCommands,
+                ProfilingSystem.StringCommands,
                 (key, value) => EditorGUILayout.TextField(key, value));
 
             GUILayout.Space(10);
 
             CommandGUI(
                 "Float Commands",
-                ProfilingSystem.s_floatCommands,
+                ProfilingSystem.FloatCommands,
                 (key, value) => EditorGUILayout.FloatField(key, value));
 
             GUILayout.Space(10);
 
             CommandGUI(
                 "Integer Commands",
-                ProfilingSystem.s_integerCommands,
+                ProfilingSystem.IntegerCommands,
                 (key, value) => EditorGUILayout.IntField(key, value));
 
             GUILayout.Space(10);
 
             CommandGUI(
                 "Boolean Commands",
-                ProfilingSystem.s_booleanCommands,
+                ProfilingSystem.BooleanCommands,
                 (key, value) => EditorGUILayout.Toggle(key, value));
         }
     }
@@ -89,6 +91,7 @@ namespace NorthStar
         {
             internal ProfilerCommandHandler() : base("com.meta.northstar.ProfileCommandInterface") { }
 
+#pragma warning disable IDE1006 // ReSharper disable InconsistentNaming
             public void setString(string key, string value)
             {
                 s_mainThreadContext.Post(_ => SetString(key, value), null);
@@ -108,6 +111,7 @@ namespace NorthStar
             {
                 s_mainThreadContext.Post(_ => SetBoolean(key, value), null);
             }
+#pragma warning restore IDE1006 // ReSharper restore InconsistentNaming
         }
 
         private const string ENABLE_PROFILING_MODE_KEY = "enable_profiling_mode";
@@ -119,10 +123,10 @@ namespace NorthStar
         private static string s_cameraName;
         private static System.Threading.SynchronizationContext s_mainThreadContext;
 
-        internal static Dictionary<string, Action<string>> s_stringCommands = new();
-        internal static Dictionary<string, Action<float>> s_floatCommands = new();
-        internal static Dictionary<string, Action<int>> s_integerCommands = new();
-        internal static Dictionary<string, Action<bool>> s_booleanCommands = new();
+        internal static Dictionary<string, Action<string>> StringCommands = new();
+        internal static Dictionary<string, Action<float>> FloatCommands = new();
+        internal static Dictionary<string, Action<int>> IntegerCommands = new();
+        internal static Dictionary<string, Action<bool>> BooleanCommands = new();
 
         public static bool Enabled
         {
@@ -244,8 +248,11 @@ namespace NorthStar
 
             if (s_enabled)
             {
-                cameraRig.leftEyeCamera.gameObject.SetActive(false);
-                cameraRig.rightEyeCamera.gameObject.SetActive(false);
+                if (cameraRig)
+                {
+                    cameraRig.leftEyeCamera.gameObject.SetActive(false);
+                    cameraRig.rightEyeCamera.gameObject.SetActive(false);
+                }
 
                 if (s_cameraName != null)
                 {
@@ -258,7 +265,7 @@ namespace NorthStar
                         pc.Camera.farClipPlane = cameraRig.leftEyeCamera.farClipPlane;
                         pc.Camera.GetUniversalAdditionalCameraData().renderPostProcessing = cameraRig.leftEyeCamera.GetUniversalAdditionalCameraData().renderPostProcessing;
 
-                        if (pc.name == CameraName && VisibilityController.Instance != null)
+                        if (pc.Name == CameraName && VisibilityController.Instance != null)
                         {
                             VisibilityController.Instance.ActiveVisibilitySet = pc.VisibilitySet;
                         }
@@ -275,8 +282,11 @@ namespace NorthStar
             }
             else
             {
-                cameraRig.leftEyeCamera.gameObject.SetActive(true);
-                cameraRig.rightEyeCamera.gameObject.SetActive(true);
+                if (cameraRig)
+                {
+                    cameraRig.leftEyeCamera.gameObject.SetActive(true);
+                    cameraRig.rightEyeCamera.gameObject.SetActive(true);
+                }
 
                 for (var i = 0; i < profilingCameras.Length; i++)
                 {
@@ -298,27 +308,27 @@ namespace NorthStar
 
         public static void AddStringCommand(string command, Action<string> callback)
         {
-            s_stringCommands.Add(command, callback);
+            StringCommands.Add(command, callback);
         }
 
         public static void AddIntegerCommand(string command, Action<int> callback)
         {
-            s_integerCommands.Add(command, callback);
+            IntegerCommands.Add(command, callback);
         }
 
         public static void AddFloatCommand(string command, Action<float> callback)
         {
-            s_floatCommands.Add(command, callback);
+            FloatCommands.Add(command, callback);
         }
 
         public static void AddBooleanCommand(string command, Action<bool> callback)
         {
-            s_booleanCommands.Add(command, callback);
+            BooleanCommands.Add(command, callback);
         }
 
         public static void SetString(string key, string value)
         {
-            if (s_stringCommands.TryGetValue(key, out var cmd))
+            if (StringCommands.TryGetValue(key, out var cmd))
             {
                 cmd.Invoke(value);
             }
@@ -326,7 +336,7 @@ namespace NorthStar
 
         public static void SetFloat(string key, float value)
         {
-            if (s_floatCommands.TryGetValue(key, out var cmd))
+            if (FloatCommands.TryGetValue(key, out var cmd))
             {
                 cmd.Invoke(value);
             }
@@ -334,7 +344,7 @@ namespace NorthStar
 
         public static void SetInteger(string key, int value)
         {
-            if (s_integerCommands.TryGetValue(key, out var cmd))
+            if (IntegerCommands.TryGetValue(key, out var cmd))
             {
                 cmd.Invoke(value);
             }
@@ -342,7 +352,7 @@ namespace NorthStar
 
         public static void SetBoolean(string key, bool value)
         {
-            if (s_booleanCommands.TryGetValue(key, out var cmd))
+            if (BooleanCommands.TryGetValue(key, out var cmd))
             {
                 cmd.Invoke(value);
             }

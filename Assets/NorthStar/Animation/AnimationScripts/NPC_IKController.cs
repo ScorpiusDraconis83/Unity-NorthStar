@@ -6,46 +6,46 @@ using UnityEngine.Animations.Rigging;
 public class NPC_IKController : MonoBehaviour
 {
     //DEBUG STUFF---------------------------
-    public bool showDebug = true;
+    public bool ShowDebug = true;
     private float[] m_targetAngles; //Store for Debug
-    public Renderer rendMesh;
+    public Renderer RendMesh;
     //---------------------------------------
 
     [Header("Constraint Parents")]
     [Tooltip("The head and spine parent rig")]
-    public Transform headLookRig;
-    public Transform eyeLookRig;
+    public Transform HeadLookRig;
+    public Transform EyeLookRig;
     //public GameObject ArmIKParent; //TODO - Need to do something with this. Currently IK Rig is set up but weight is set to 0.
 
     [Header("'Look At' settings")]
     [Tooltip("Target objects to look at. Used to calculate distance and angle from Target")]
-    public Transform[] lookAtTargets;
+    public Transform[] LookAtTargets;
     private int m_currentTargetIndex = 0; //Used to set the current target to focus on
-    public float headLookBaseWeight = 0.9f;
+    public float HeadLookBaseWeight = 0.9f;
 
     [Tooltip("How fast to blend the head and spine into the look at constraint")]
-    public float headLookLerpSpeed = 5;
+    public float HeadLookLerpSpeed = 5;
     private float m_currentHeadLookWeight = 0; //the current weight of the look at constraint - lerps towards target weight
     private float m_targetHeadLookWeight = 0; //the goal weight of the look at constraint
 
     [Tooltip("How fast to blend the eyes into the look at constraint")]
-    public float eyeLookLerpSpeed = 20; //Use a faster speed than the head to have the eyes lead the target 
+    public float EyeLookLerpSpeed = 20; //Use a faster speed than the head to have the eyes lead the target 
     private float m_currentEyeLookWeight = 0; //the current weight of the look at constraint - lerps towards target weight
     private float m_targetEyeLookWeight = 0; //the goal weight of the look at constraint
 
     [Tooltip("Distance to start looking at target, -1 for always look")]
-    public float triggerDistance = 10f;
+    public float TriggerDistance = 10f;
 
     [Tooltip("Cone angle target must be in to start looking at target")]
-    public float coneOfVisionAngle = 80f;
+    public float ConeOfVisionAngle = 80f;
 
     [Tooltip("Reduce influence by this factor (Multiply next link in chain by this amount)")]
-    public float chainInfluenceFactor = 0.5f;
+    public float ChainInfluenceFactor = 0.5f;
 
     private void Start()
     {
-        if (showDebug)
-            m_targetAngles = new float[lookAtTargets.Length];
+        if (ShowDebug)
+            m_targetAngles = new float[LookAtTargets.Length];
 
         SetInitialHeadLookInfluences(); //Sets the weights of the chain of bones in the Head Look rig
         UpdateLookAtWeights(); //Set initial weight of the parent head and eye look rigs
@@ -53,33 +53,33 @@ public class NPC_IKController : MonoBehaviour
 
     private void Update()
     {
-        if (showDebug)
+        if (ShowDebug)
         {
             for (var i = 0; i < m_targetAngles.Length; i++)
             {
-                m_targetAngles[i] = GetAngleFromTarget(lookAtTargets[i]);
+                m_targetAngles[i] = GetAngleFromTarget(LookAtTargets[i]);
             }
         }
 
         CheckTargets(); //Check to see if close enough to target and in cone of vision
-        if (lookAtTargets[m_currentTargetIndex] != null && m_currentHeadLookWeight != m_targetHeadLookWeight) //if target weight has changed, then lerp towards the new target
+        if (LookAtTargets[m_currentTargetIndex] != null && m_currentHeadLookWeight != m_targetHeadLookWeight) //if target weight has changed, then lerp towards the new target
             UpdateLookAtWeights();
     }
 
     //Head Look At
     private void SetInitialHeadLookInfluences() //Set how far each bone in the chain turns to look at the player based on the Head look weight value
     {
-        headLookRig.GetChild(headLookRig.childCount - 1).GetComponent<MultiAimConstraint>().weight = headLookBaseWeight;
+        HeadLookRig.GetChild(HeadLookRig.childCount - 1).GetComponent<MultiAimConstraint>().weight = HeadLookBaseWeight;
 
-        for (var i = 0; i < headLookRig.childCount - 1; i++)
+        for (var i = 0; i < HeadLookRig.childCount - 1; i++)
         {
-            var constraint = headLookRig.GetChild(i).GetComponent<MultiAimConstraint>();
-            constraint.weight = headLookBaseWeight * (chainInfluenceFactor / (headLookRig.childCount - 1 - i)); //reduce weights by factor
+            var constraint = HeadLookRig.GetChild(i).GetComponent<MultiAimConstraint>();
+            constraint.weight = HeadLookBaseWeight * (ChainInfluenceFactor / (HeadLookRig.childCount - 1 - i)); //reduce weights by factor
         }
 
-        for (var i = 0; i < eyeLookRig.childCount; i++)
+        for (var i = 0; i < EyeLookRig.childCount; i++)
         {
-            var constraint = eyeLookRig.GetChild(i).GetComponent<MultiAimConstraint>();
+            var constraint = EyeLookRig.GetChild(i).GetComponent<MultiAimConstraint>();
             constraint.weight = 1;
         }
     }
@@ -87,9 +87,9 @@ public class NPC_IKController : MonoBehaviour
     private void SwitchLookAtTarget(int newTargetIndex)
     {
         m_currentTargetIndex = newTargetIndex;
-        for (var i = 0; i < headLookRig.childCount; i++)
+        for (var i = 0; i < HeadLookRig.childCount; i++)
         {
-            var constraint = headLookRig.GetChild(i).GetComponent<MultiAimConstraint>();
+            var constraint = HeadLookRig.GetChild(i).GetComponent<MultiAimConstraint>();
             var sources = constraint.data.sourceObjects;
             print(sources.Count);
 
@@ -100,12 +100,12 @@ public class NPC_IKController : MonoBehaviour
             constraint.data.sourceObjects = sources;
 
             //TODO  - Set this by passing in properties from the target later
-            triggerDistance = -1;
+            TriggerDistance = -1;
         }
 
-        for (var i = 0; i < eyeLookRig.childCount; i++)
+        for (var i = 0; i < EyeLookRig.childCount; i++)
         {
-            var constraint = eyeLookRig.GetChild(i).GetComponent<MultiAimConstraint>();
+            var constraint = EyeLookRig.GetChild(i).GetComponent<MultiAimConstraint>();
             var sources = constraint.data.sourceObjects;
             print(sources.Count);
 
@@ -116,14 +116,14 @@ public class NPC_IKController : MonoBehaviour
             constraint.data.sourceObjects = sources;
 
             //TODO  - Set this by passing in properties from the target later
-            triggerDistance = -1;
+            TriggerDistance = -1;
         }
     }
 
     private void CheckTargets()
     {
-        var currentTarget = lookAtTargets[m_currentTargetIndex];
-        if (GetAngleFromTarget(currentTarget) < coneOfVisionAngle && IsTargetInRange(currentTarget))
+        var currentTarget = LookAtTargets[m_currentTargetIndex];
+        if (GetAngleFromTarget(currentTarget) < ConeOfVisionAngle && IsTargetInRange(currentTarget))
         {
             m_targetHeadLookWeight = 1;
             m_targetEyeLookWeight = 1;
@@ -134,28 +134,28 @@ public class NPC_IKController : MonoBehaviour
             m_targetEyeLookWeight = 0;
         }
 
-        if (showDebug)
+        if (ShowDebug)
         {
-            rendMesh.material.color = GetAngleFromTarget(currentTarget) < coneOfVisionAngle && IsTargetInRange(currentTarget)
+            RendMesh.material.color = GetAngleFromTarget(currentTarget) < ConeOfVisionAngle && IsTargetInRange(currentTarget)
                 ? Color.green
-                : GetAngleFromTarget(currentTarget) < coneOfVisionAngle && !IsTargetInRange(currentTarget)
+                : GetAngleFromTarget(currentTarget) < ConeOfVisionAngle && !IsTargetInRange(currentTarget)
                 ? Color.yellow
-                : GetAngleFromTarget(currentTarget) >= coneOfVisionAngle && IsTargetInRange(currentTarget) ? Color.magenta : Color.white;
+                : GetAngleFromTarget(currentTarget) >= ConeOfVisionAngle && IsTargetInRange(currentTarget) ? Color.magenta : Color.white;
         }
     }
 
     private void UpdateLookAtWeights() //set the look at strength
     {
-        m_currentHeadLookWeight = Mathf.Lerp(m_currentHeadLookWeight, m_targetHeadLookWeight, Time.deltaTime * headLookLerpSpeed);
-        headLookRig.GetComponent<Rig>().weight = m_currentHeadLookWeight;
+        m_currentHeadLookWeight = Mathf.Lerp(m_currentHeadLookWeight, m_targetHeadLookWeight, Time.deltaTime * HeadLookLerpSpeed);
+        HeadLookRig.GetComponent<Rig>().weight = m_currentHeadLookWeight;
 
-        m_currentEyeLookWeight = Mathf.Lerp(m_currentEyeLookWeight, m_targetEyeLookWeight, Time.deltaTime * eyeLookLerpSpeed);
-        eyeLookRig.GetComponent<Rig>().weight = m_currentEyeLookWeight;
+        m_currentEyeLookWeight = Mathf.Lerp(m_currentEyeLookWeight, m_targetEyeLookWeight, Time.deltaTime * EyeLookLerpSpeed);
+        EyeLookRig.GetComponent<Rig>().weight = m_currentEyeLookWeight;
     }
 
     private bool IsTargetInRange(Transform target) //Return if target is close enough and in the cone of vision
     {
-        return triggerDistance < 0 || Vector3.Distance(target.position, transform.position) < triggerDistance;
+        return TriggerDistance < 0 || Vector3.Distance(target.position, transform.position) < TriggerDistance;
     }
 
     private float GetAngleFromTarget(Transform target) //Get angle between the NPC forward and the targets position in degrees
@@ -164,14 +164,14 @@ public class NPC_IKController : MonoBehaviour
         var angle = Vector3.Angle(targetDirection, transform.forward);
 
         //Debug
-        if (showDebug)
+        if (ShowDebug)
         {
-            for (var i = 0; i < lookAtTargets.Length; i++)
+            for (var i = 0; i < LookAtTargets.Length; i++)
             {
                 var angleLineOffset = new Vector3(0, 0, 1);
                 var angleLineColor = Color.red;
-                if (m_targetAngles[i] < coneOfVisionAngle) angleLineColor = Color.green;
-                Debug.DrawLine(transform.position + angleLineOffset, lookAtTargets[i].position, angleLineColor);
+                if (m_targetAngles[i] < ConeOfVisionAngle) angleLineColor = Color.green;
+                Debug.DrawLine(transform.position + angleLineOffset, LookAtTargets[i].position, angleLineColor);
             }
         }
         return angle;
@@ -180,13 +180,13 @@ public class NPC_IKController : MonoBehaviour
     //Use to check if NPC is within a certain distance from the player
     public bool IsWithinDistance(float dist)
     {
-        var currentTarget = lookAtTargets[m_currentTargetIndex];
+        var currentTarget = LookAtTargets[m_currentTargetIndex];
         return Vector3.Distance(currentTarget.position, transform.position) < dist;
     }
     //Use to check if player is within a certain angle from the NPC's forward vector
     public bool IsWithinAngle(float targetAngle)
     {
-        var currentTarget = lookAtTargets[m_currentTargetIndex];
+        var currentTarget = LookAtTargets[m_currentTargetIndex];
         var targetDirection = currentTarget.position - transform.position;
         var angle = Vector3.Angle(targetDirection, transform.forward);
         return angle < targetAngle;
@@ -195,20 +195,20 @@ public class NPC_IKController : MonoBehaviour
     //DEBUG Stuff
     private void OnDrawGizmos()
     {
-        if (showDebug)
+        if (ShowDebug)
         {
-            for (var i = 0; i < lookAtTargets.Length; i++)
+            for (var i = 0; i < LookAtTargets.Length; i++)
             {
-                if (lookAtTargets[i] != null)
+                if (LookAtTargets[i] != null)
                 {
                     var influenceLineOffset = new Vector3(0, 0, 1.5f);
                     Gizmos.color = Color.blue;
-                    Gizmos.DrawLine(transform.position + influenceLineOffset, transform.forward * triggerDistance + influenceLineOffset);
+                    Gizmos.DrawLine(transform.position + influenceLineOffset, transform.forward * TriggerDistance + influenceLineOffset);
 
                     Gizmos.color = new Color(1, 1, 1, 0.1f);
-                    if (IsTargetInRange(lookAtTargets[i]))
+                    if (IsTargetInRange(LookAtTargets[i]))
                         Gizmos.color = new Color(0, 1, 0, 0.1f);
-                    Gizmos.DrawSphere(transform.position, triggerDistance);
+                    Gizmos.DrawSphere(transform.position, TriggerDistance);
                 }
             }
         }

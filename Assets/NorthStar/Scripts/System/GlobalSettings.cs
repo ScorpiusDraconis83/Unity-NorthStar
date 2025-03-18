@@ -1,5 +1,6 @@
 // Copyright (c) Meta Platforms, Inc. and affiliates.
 using System;
+using Meta.Utilities;
 using Oculus.Interaction.GrabAPI;
 using UnityEngine;
 using UnityEngine.Audio;

@@ -30,7 +30,7 @@ namespace UnityEngine.Rendering.Universal
     /// </summary>
     internal class PostProcessPass : ScriptableRenderPass
     {
-        // Tantalus change : Disable MSAA during all post process passes
+        // Meta change : Disable MSAA during all post process passes
         public const bool EnablePostAA = false;
 
         RenderTextureDescriptor m_Descriptor;

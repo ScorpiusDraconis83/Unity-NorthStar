@@ -201,50 +201,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caf6db77fbfa2fd489f2dea934ef48e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interpolate: 1
-  krakenRigs:
-  - rootBone: {fileID: 1474634950632065456}
-    ignoredBones: []
-    collisionObjects: []
-  forceSettings:
-    wind: {x: 0, y: 0, z: 0}
-    gravityMultiplier: 1
-    friction: 0.5
-    elasticity: 0
-    angleElasticity: 0.5
-    blend: 0.9
-    airDrag: 0.4
-    lengthElasticity: 0.6
-    elasticitySoften: 0.5
-    radiusMultiplier: 1
-    radiusCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
+  Interpolate: 1
+  KrakenRigs:
+  - RootBone: {fileID: 1474634950632065456}
+    m_ignoredBones: []
+    CollisionObjects: []
+    UseKeyedBlend: 0
   LevelOfDetailSettings:
-    useLevelOfDetail: 0
+    UseLevelOfDetail: 0
     Distance: 0
-    blend: 0
+    Blend: 0
+  Wind: {x: 0, y: 0, z: 0}
+  GravityMultiplier: 1
+  Friction: 0.5
+  Elasticity: 0
+  AngleElasticity: 0.5
+  Blend: 0.9
+  AirDrag: 0.4
+  LengthElasticity: 0.6
+  ElasticitySoften: 0.5
+  RadiusMultiplier: 1
+  RadiusCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &736665261544514953 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 78e80e392ffecb146a4dbb3026c81369,

@@ -166,7 +166,13 @@ namespace Meta.Utilities.Editor
                     if (DisplayCancelableProgressBar("Fixing incorrect asset names...", assetPath, i * 1.0f / assetPaths.Length))
                         break;
 
+                    if (!assetPath.EndsWith("asset") && !assetPath.EndsWith("prefab"))
+                        continue;
+
                     var asset = AssetDatabase.LoadMainAssetAtPath(assetPath);
+                    if (asset == null)
+                        continue;
+
                     var mainObjectName = asset.name;
                     var expectedMainObjectName = Path.GetFileNameWithoutExtension(assetPath);
 

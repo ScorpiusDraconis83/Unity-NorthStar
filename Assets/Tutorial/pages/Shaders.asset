@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4510294d23d964fe59443526f1ca7c4b, type: 3}
+  m_Name: Shaders
+  m_EditorClassIdentifier: 
+  m_displayName: Shaders
+  m_hierarchyName: Shaders
+  m_context: {fileID: 11400000, guid: 3080cc436228df445a6aee56abe1ac33, type: 2}
+  m_markdownFile: {fileID: 0}
+  m_priority: 1007
+  m_overrideMarkdownText: "# Custom Hair, Cloth and Skin Shaders \nWe implemented
+    a few shaders with custom lighting models for cases where the standard PBR diffuse/specular
+    did not provide sufficient results. These were all implemented in shadergraph,
+    using a custom node for the lighting, similar to a regular PBR master node. Initially
+    we used the Unlit shadergraph target, however this was missing some lighting,
+    shadow and lightmap shader variants, so we created a CustomLit target, which
+    has these keywords enabled. \n\n# Hair Shader \nThe hair shader is based on [Physically
+    Based Hair Shading in Unreal.](https://blog.selfshadow.com/publications/s2016-shading-course/karis/s2016_pbs_epic_hair.pdf)
+    The technique generally requires an extra texture to define the rotation of the
+    hair strands so that higlight directions are consistent. For performance reasons,
+    we achieved this by orienting the UVs so that the lengthwise direction of the
+    strands goes from left to right, which mostly achieves the same result, but at
+    a lower performance cost. \n\nWe implemented the equations for specular and environment
+    lighting from the paper, however we found the multi-scatter equation from the
+    paper did not give great results in our situation, so we opted for a simple lambert
+    diffuse which also saves performance. \n\nThe the shader is implemented in HairLighting.hlsl,
+    with most of the hair-specific logic in the \u201CCalculateLighting\u201D function.
+    We simplified some calculations of vectors such as cosThetaI/cosThetaR/cosThetaD
+    using the normal, instead of re-deriving from sinThetaI/sinThetaR. This gives
+    the same results, but only requires simple dot products instead of sqrt/trigonometric
+    instructions in most cases. \n\nThe result has several improvements over the
+    standard Lit specular equation. The primary specular highlight is stretched across
+    hair strands, so that highlights show as long bands instead of a focused circle.
+    A secondary transmitted highlight (TT) is also calculated, which allows light
+    source to shine through when behind the hair surface. A shifted, tinted reflection
+    is also calculated (TRT) which replicates the metallic/sheen highlight effect
+    that is often seen in hair. \n\nThe hair shader can be driven by regular albedo,
+    normal, roughness and occlusion maps. However in our case we found that a single
+    color and smoothness value gave us enough control, combined with a packed Normal/AO
+    map. We also included a \u201Cmicro shadow\u201D technique which uses the normal
+    and AO data to calculate direct light self-shadowing at a small scale, which
+    improves the appearance of depth within the hair. \n\n# Cloth Shader \nFor the
+    cloth shader, we replaced the specular term with a \u201CCharlie Sheen\u201D
+    distribution, combined with the Ashikmin visibility term described in [Cloth
+    Shading | Krzysztof Narkowicz.](https://knarkowicz.wordpress.com/2018/01/04/cloth-shading/)
+    This produces a more natural highlight on cloth, simulating the lighting of individual
+    fibers instead of a hard, flat, reflective surface. We also replaced the diffuse
+    lighting with a wrapped diffuse term to allow for a software falloff, and a configurable
+    subsurface color to fake some scattering in shadowed sections, as detailed in
+    section 4.12.2 of [Physically Based Rendering in Filament.](https://google.github.io/filament/Filament.md.html#materialsystem/clothmodel) 
+    \n\nThe cloth shader is still driven by regular albedo, roughness and normal
+    maps, however the roughness is interpreted as a distribution of randomly fibers,
+    and how aligned they are to the normal direction. \n\n# Skin Shader \nThe character
+    skin shader replaces the diffuse term with a subsurface scattering approximation
+    known as pre-integrated skin shading. One resource on the subject is here: [Simon's
+    Tech Blog: Pre-Integrated Skin Shading.](https://simonstechblog.blogspot.com/2015/02/pre-integrated-skin-shading.html)
+    We opted to use a lookup table instead of a function fit. This requires a \u201Ccurvature
+    map\u201D which can be baked in substance painter to control the strength of
+    the effect. The curvature and dot product between the light and normal are used
+    to index the lookup table to get the amount of scattered diffuse lighting. \n\nThe
+    specular uses a regular GGX function, as it produced results that were good enough
+    for our purpose.  \n\nWe also added a secondary \u201Cdeep scattering\u201D approximation.
+    This involves sampling the shadow map and comparing the depths with the current
+    pixel to approximate the thickness of the geometry along the light source direction.
+    This is then added to the diffuse term using a simple transmittance formula.
+    While it works well in some situations, it is sensitive to shadowmap precision
+    and flickering. URP also has a hardcoded shadow constant bias, so we have added
+    some bias and normal bias controls that are used when sampling the shadowmap
+    to reduce artifacts."
+  m_overrideMarkdownRoot: .\Documentation/

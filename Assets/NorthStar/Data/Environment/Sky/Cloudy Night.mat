@@ -12,7 +12,8 @@ Material:
     type: 3}
   m_Parent: {fileID: 2100000, guid: 907cd1c9d82c10a4c83184fc49699705, type: 2}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _ENABLESTARS
   m_InvalidKeywords:
   - _IS_STORMY_SKY
   m_LightmapFlags: 4
@@ -23,11 +24,12 @@ Material:
     RenderType: Opaque
   disabledShaderPasses:
   - SHADOWCASTER
+  - DepthOnly
   m_LockedProperties: _Back_Scatter_Power _Cloud_Ambient _Cloud_Back_Color _Cloud_Blend_Offset
     _Cloud_Blend_Power _Cloud_Direction _Cloud_Offset _Cloud_Opacity_Offset _Cloud_Scale
-    _Cloud_Speed _Cloud_Sun_Color _Fog_Offset _Fog_Power _Front_Scatter_Power _Ground_Color
-    _Scatter_Blend _Sky_Blend_Offset _Sky_Blend_Power _Sky_Horizon_Color _Sky_Zenith_Color
-    _Star_Color _Star_Power _Star_Scale
+    _Cloud_Speed _Cloud_Sun_Color _ENABLESTARS _Fog_Offset _Fog_Power _Front_Scatter_Power
+    _Ground_Color _Scatter_Blend _Sky_Blend_Offset _Sky_Blend_Power _Sky_Horizon_Color
+    _Sky_Zenith_Color _Star_Color _Star_Power _Star_Scale
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -55,8 +57,9 @@ Material:
     - _Cloud_Opacity_Scale: 0.43
     - _Cloud_Scale: 1
     - _Cloud_Speed: 0.001
-    - _Fog_Offset: 0
-    - _Fog_Power: 1.2
+    - _ENABLESTARS: 1
+    - _Fog_Offset: 0.15
+    - _Fog_Power: 0.6
     - _Front_Scatter_Power: 0.85
     - _IS_CELESTIAL_OBJECT: 0
     - _IS_STORMY_SKY: 1
@@ -73,17 +76,17 @@ Material:
     - _SkySunSize: 0.0484
     - _SkySunSmoothStep: 0.053
     - _Sky_Blend_Offset: 0.07
-    - _Sky_Blend_Power: 3.28
-    - _Star_Power: 3
+    - _Sky_Blend_Power: 2
+    - _Star_Power: 1.2
     - _Star_Scale: 8
     - _Sun_Size: 0.004
     - _Sun_Softness: 0.99625
     m_Colors:
-    - _Cloud_Ambient: {r: 0.090980396, g: 0.096709296, b: 0.15686275, a: 1}
-    - _Cloud_Back_Color: {r: 0.09411766, g: 0.10666667, b: 0.1254902, a: 1}
+    - _Cloud_Ambient: {r: 0.7306236, g: 0.7766299, b: 1.259696, a: 1}
+    - _Cloud_Back_Color: {r: 0.13310246, g: 0.15084945, b: 0.17746994, a: 1}
     - _Cloud_Speed: {r: 0.003, g: 0.00405, b: 0, a: 0}
-    - _Cloud_Sun_Color: {r: 0.09923399, g: 0.16369414, b: 0.29799998, a: 1}
-    - _Ground_Color: {r: 0.13666667, g: 0.13666667, b: 0.205, a: 1}
+    - _Cloud_Sun_Color: {r: 0.14033805, g: 0.23149848, b: 0.4214356, a: 1}
+    - _Ground_Color: {r: 0.2746084, g: 0.28358763, b: 0.4811321, a: 1}
     - _SkyBaseColor: {r: 0.16288115, g: 0.10415198, b: 0.376, a: 1}
     - _SkyCloudDarkColor: {r: 0.08816327, g: 0.097806126, b: 0.135, a: 1}
     - _SkyCloudLightColor: {r: 0.11009803, g: 0.17076229, b: 0.65926963, a: 1}
@@ -97,7 +100,7 @@ Material:
     - _SkyWindSpeed: {r: 2, g: 0.56, b: 0, a: 0}
     - _Sky_Horizon_Color: {r: 0.15537599, g: 0.1867008, b: 0.312, a: 1}
     - _Sky_Zenith_Color: {r: 0.066, g: 0.0768, b: 0.12, a: 1}
-    - _Star_Color: {r: 0.48299998, g: 0.48299998, b: 0.48299998, a: 1}
+    - _Star_Color: {r: 0.24877025, g: 0.2938702, b: 0.32355392, a: 1}
     - _Sun_Color: {r: 0.2549423, g: 0.66096157, b: 0.982, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &1130983063974069177

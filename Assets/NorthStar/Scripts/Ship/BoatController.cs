@@ -1,5 +1,6 @@
 // Copyright (c) Meta Platforms, Inc. and affiliates.
 using System;
+using DG.Tweening;
 using Meta.Utilities;
 using Oculus.Interaction;
 using UnityEngine;
@@ -11,13 +12,6 @@ namespace NorthStar
     /// </summary>
     public class BoatController : Singleton<BoatController>
     {
-        public enum Mode
-        {
-            FakeMovement,
-            PhysicsPlatform
-        }
-
-        [SerializeField, Section("Movement")] private Mode m_boatMovementMode = Mode.PhysicsPlatform;
         [SerializeField] private float m_maxSpeed = 1.0f;
         [SerializeField] private float m_pitchAngle = 15.0f;
         [SerializeField] private float m_rollAngle = 15.0f;
@@ -26,6 +20,7 @@ namespace NorthStar
         [SerializeField] private float m_bobAmount = 2.0f;
         [SerializeField] private float m_bobSpeed = 2.0f;
         [SerializeField] private float m_turnSpeed = 15.0f;
+        [SerializeField] private float m_maximumAllowedDistance = 10000f;
 
         [SerializeField, Range(0, 1), Section("Environment")] private float m_reorientGravityStrength = 1;
         [field: SerializeField, Range(0, 2)] public float SecondaryMotionStrength { get; set; } = 1;
@@ -125,7 +120,6 @@ namespace NorthStar
             m_position.y = m_originalPosition.y + Mathf.PerlinNoise1D(m_noiseOffsets.z) * (normalizedSpeed * 0.8f + 0.2f) * m_bobAmount * SecondaryMotionStrength * comfortStrength;
 
             MovementSource.CurrentPosition = m_position;
-            MovementSource.CurrentRotation = rotation;
 
             foreach (var reaction in ReactionMovement)
             {
@@ -133,9 +127,15 @@ namespace NorthStar
                 {
                     GetReactionOffsets(reaction.Value, out var reactionPos, out var reactionRot);
                     MovementSource.CurrentPosition += reactionPos * comfortStrength;
-                    MovementSource.CurrentRotation = Quaternion.Slerp(MovementSource.CurrentRotation, MovementSource.CurrentRotation * reactionRot, comfortReactionStrength);
+                    rotation *= Quaternion.Slerp(Quaternion.identity, reactionRot, comfortReactionStrength);
                 }
             }
+
+            if (MovementSource.CurrentPosition.sqrMagnitude > m_maximumAllowedDistance * m_maximumAllowedDistance)
+            {
+                ResetFakePosition();
+            }
+            MovementSource.CurrentRotation = rotation;
 
             Shader.SetGlobalVector(s_giantWaveOffset, MovementSource.CurrentPosition);
         }
@@ -150,7 +150,7 @@ namespace NorthStar
         {
             var headingRotation = m_originalRotation * Quaternion.AngleAxis(HeadingAngle, Vector3.up);
             position = headingRotation * reaction.Position;
-            rotation = headingRotation * reaction.Rotation;
+            rotation = reaction.Rotation;
         }
 
         public void ApplyReactionMovement(TransformOffset reaction)
@@ -183,6 +183,18 @@ namespace NorthStar
         {
             transform.position = m_originalPosition;
             transform.rotation = m_originalRotation;
+        }
+
+        public void ResetFakePosition()
+        {
+            _ = DOTween.Sequence()
+                .Append(ScreenFader.Instance.DoFadeOut(.25f))
+                .AppendCallback(() =>
+                {
+                    MovementSource.CurrentPosition = Vector3.zero;
+                    m_position = Vector3.zero;
+                })
+                .Append(ScreenFader.Instance.DoFadeOut(.25f, 0));
         }
 
         public static Vector3 WorldToBoatSpace(Vector3 point)

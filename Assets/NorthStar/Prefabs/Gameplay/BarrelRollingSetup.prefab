@@ -181,12 +181,16 @@ MonoBehaviour:
   m_barrelGizmoMesh: {fileID: 4490888668531840061, guid: 0f236c1b959a32645a8a701ff13246ce,
     type: 3}
   m_useFinishEvent: 0
-  onFinishEvent:
+  OnFinishEvent:
     m_PersistentCalls:
       m_Calls: []
   m_debugMinForce: 2
   m_rotateOtherObjectsToMatch: 1
   m_objectsToRotate: []
+  m_interactionSuccessfulDistance: 0.65
+  m_onInteractionSuccessfulEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8059906116749321059
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,6 +502,7 @@ MonoBehaviour:
   m_playOnAwake: 0
   m_oneShotMode: 0
   BaseVolume: 0
+  m_allowOverlap: 0
 --- !u!82 &7720632244589913285
 AudioSource:
   m_ObjectHideFlags: 0

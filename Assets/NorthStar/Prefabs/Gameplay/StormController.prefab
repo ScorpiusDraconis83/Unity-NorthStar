@@ -108,16 +108,16 @@ MonoBehaviour:
   - {fileID: 531575242080523241}
   - {fileID: 8766307225723782312}
   m_reflectionSources:
-  - reflectionLocation: 0
-    blendedReflectionProbe: {fileID: 0}
-  - reflectionLocation: 1
-    blendedReflectionProbe: {fileID: 0}
-  - reflectionLocation: 2
-    blendedReflectionProbe: {fileID: 0}
-  - reflectionLocation: 3
-    blendedReflectionProbe: {fileID: 0}
-  - reflectionLocation: 4
-    blendedReflectionProbe: {fileID: 0}
+  - ReflectionLocation: 0
+    BlendedReflectionProbe: {fileID: 0}
+  - ReflectionLocation: 1
+    BlendedReflectionProbe: {fileID: 0}
+  - ReflectionLocation: 2
+    BlendedReflectionProbe: {fileID: 0}
+  - ReflectionLocation: 3
+    BlendedReflectionProbe: {fileID: 0}
+  - ReflectionLocation: 4
+    BlendedReflectionProbe: {fileID: 0}
   m_speedOfSound: 343
   m_allowConcurrentStrikes: 0
   m_minTimeBetweenStrikes: 0.1
@@ -438,6 +438,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 999715821996835827, guid: 90f95b1206f518c4aadda2434c634a55,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486684140085579781, guid: 90f95b1206f518c4aadda2434c634a55,
+        type: 3}
+      propertyPath: Spatialize
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1486684140085579781, guid: 90f95b1206f518c4aadda2434c634a55,
         type: 3}
       propertyPath: MaxDistance
@@ -615,6 +625,16 @@ PrefabInstance:
     - target: {fileID: 245164195977339478, guid: 90f95b1206f518c4aadda2434c634a55,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 999715821996835827, guid: 90f95b1206f518c4aadda2434c634a55,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486684140085579781, guid: 90f95b1206f518c4aadda2434c634a55,
+        type: 3}
+      propertyPath: Spatialize
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1486684140085579781, guid: 90f95b1206f518c4aadda2434c634a55,
@@ -870,6 +890,16 @@ PrefabInstance:
     - target: {fileID: 245164195977339478, guid: 90f95b1206f518c4aadda2434c634a55,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 999715821996835827, guid: 90f95b1206f518c4aadda2434c634a55,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486684140085579781, guid: 90f95b1206f518c4aadda2434c634a55,
+        type: 3}
+      propertyPath: Spatialize
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1486684140085579781, guid: 90f95b1206f518c4aadda2434c634a55,

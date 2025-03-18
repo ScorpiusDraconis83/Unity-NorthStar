@@ -11,7 +11,7 @@ namespace NorthStar
     [ExecuteInEditMode]
     public class PassTransitionVariableToMaterial : MonoBehaviour
     {
-        public bool isDecal = false;
+        public bool IsDecal = false;
 
         [Tooltip("Transition 1 is effect full on, transition 0 is effect off. (Defaulting to 1 so effect can be seen during setup)")]
         [Range(0.0f, 1.0f)]
@@ -46,7 +46,7 @@ namespace NorthStar
 
         private void RunSetup()
         {
-            if (isDecal)
+            if (IsDecal)
             {
                 var decal = GetComponent<DecalProjector>();
                 if (decal != null)

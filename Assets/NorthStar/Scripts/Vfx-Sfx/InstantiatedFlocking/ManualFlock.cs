@@ -5,29 +5,29 @@ using UnityEngine;
 public class FlockingSystem_Manual : MonoBehaviour
 {
     [Header("Basic Settings")]
-    public float spawnArea = 1f;
+    public float SpawnArea = 1f;
 
     [Header("Behaviour Settings")]
-    public Vector2 minMaxSpeed = new(1, 2);
-    public Vector2 minMaxRotationSpeed = new(4.0f, 6.0f);
+    public Vector2 MinMaxSpeed = new(1, 2);
+    public Vector2 MinMaxRotationSpeed = new(4.0f, 6.0f);
     [Tooltip("This controls the chance that the system will change direction. It defines the chance in 1000 that this occurs each fixed frame, for example 100 would set a 100 in 1000 chance of changing.")]
     [Range(1, 150)]
-    public int directionChangeFrequency = 40;
+    public int DirectionChangeFrequency = 40;
     [Tooltip("How close do the agents have to be to start moving in a group.")]
-    public float groupingDistance = 2.0f;
+    public float GroupingDistance = 2.0f;
     [Tooltip("How close a neighbour has to be for them to start avoiding eachother.")]
-    public float avoidanceDistance = 0.2f;
+    public float AvoidanceDistance = 0.2f;
 
     [Header("Waypoints")]
     [SerializeField]
-    public Waypoint[] manualWaypoints = new Waypoint[1];
+    public Waypoint[] ManualWaypoints = new Waypoint[1];
 
     [Header("Agent Types")]
-    public ObjectPrefab[] prefabGroups = new ObjectPrefab[1];
+    public ObjectPrefab[] PrefabGroups = new ObjectPrefab[1];
 
     [Header("Debugging")]
-    public bool visualiseSpawnArea = false;
-    public bool visualiseManualWaypoints = false;
+    public bool VisualiseSpawnArea = false;
+    public bool VisualiseManualWaypoints = false;
 
     //Private variables for storing info
     private GameObject[] m_agents;
@@ -57,7 +57,7 @@ public class FlockingSystem_Manual : MonoBehaviour
     {
         if (m_prefabCheck)
         {
-            if (Random.Range(0, 10000) < directionChangeFrequency)
+            if (Random.Range(0, 10000) < DirectionChangeFrequency)
             {
                 UpdateTargetPosition();
             }
@@ -69,7 +69,7 @@ public class FlockingSystem_Manual : MonoBehaviour
 
             for (var i = 0; i < m_agents.Length; i++)
             {
-                m_agents[i].transform.Translate(0, 0, Time.deltaTime * Random.Range(minMaxSpeed.x, minMaxSpeed.y));
+                m_agents[i].transform.Translate(0, 0, Time.deltaTime * Random.Range(MinMaxSpeed.x, MinMaxSpeed.y));
             }
         }
     }
@@ -78,11 +78,11 @@ public class FlockingSystem_Manual : MonoBehaviour
     {
         var totalAgents = 0;
 
-        foreach (var prefab in prefabGroups)
+        foreach (var prefab in PrefabGroups)
         {
-            if (prefab.prefab != null)
+            if (prefab.Prefab != null)
             {
-                totalAgents += prefab.spawnCount;
+                totalAgents += prefab.SpawnCount;
             }
         }
 
@@ -91,25 +91,25 @@ public class FlockingSystem_Manual : MonoBehaviour
 
         var agentIndex = 0;
 
-        for (var i = 0; i < prefabGroups.Length; ++i)
+        for (var i = 0; i < PrefabGroups.Length; ++i)
         {
-            if (prefabGroups[i].prefab != null)
+            if (PrefabGroups[i].Prefab != null)
             {
-                for (var j = 0; j < prefabGroups[i].spawnCount; ++j)
+                for (var j = 0; j < PrefabGroups[i].SpawnCount; ++j)
                 {
                     var spawnPoint = new Vector3(
-                        Random.Range(-spawnArea, spawnArea),
-                        Random.Range(-spawnArea, spawnArea),
-                        Random.Range(-spawnArea, spawnArea));
+                        Random.Range(-SpawnArea, SpawnArea),
+                        Random.Range(-SpawnArea, SpawnArea),
+                        Random.Range(-SpawnArea, SpawnArea));
 
-                    var randomScale = Random.Range(prefabGroups[i].minMaxScale.x, prefabGroups[i].minMaxScale.y);
+                    var randomScale = Random.Range(PrefabGroups[i].MinMaxScale.x, PrefabGroups[i].MinMaxScale.y);
 
-                    m_agents[agentIndex] = Instantiate(prefabGroups[i].prefab, transform.position + spawnPoint, Quaternion.identity);
-                    m_agents[agentIndex].transform.name = prefabGroups[i].prefabName + "_" + (agentIndex + 1).ToString();
+                    m_agents[agentIndex] = Instantiate(PrefabGroups[i].Prefab, transform.position + spawnPoint, Quaternion.identity);
+                    m_agents[agentIndex].transform.name = PrefabGroups[i].PrefabName + "_" + (agentIndex + 1).ToString();
                     m_agents[agentIndex].transform.parent = transform;
                     m_agents[agentIndex].transform.localScale = new Vector3(randomScale, randomScale, randomScale);
 
-                    m_rotationSpeeds[agentIndex] = Random.Range(minMaxRotationSpeed.x, minMaxRotationSpeed.y);
+                    m_rotationSpeeds[agentIndex] = Random.Range(MinMaxRotationSpeed.x, MinMaxRotationSpeed.y);
 
                     SetMaterials(i, agentIndex);
 
@@ -134,7 +134,7 @@ public class FlockingSystem_Manual : MonoBehaviour
                 if (obj != m_agents[i])
                 {
                     var dist = Vector3.Distance(obj.transform.position, m_agents[i].transform.position);
-                    if (dist < groupingDistance)
+                    if (dist < GroupingDistance)
                     {
                         centre += obj.transform.position;
                         groupSize++;
@@ -168,23 +168,23 @@ public class FlockingSystem_Manual : MonoBehaviour
 
     private void UpdateTargetPosition()
     {
-        m_waypoint = manualWaypoints[m_waypointIndex].GetWaypoint(m_systemStartPos);
+        m_waypoint = ManualWaypoints[m_waypointIndex].GetWaypoint(m_systemStartPos);
 
-        m_waypointIndex = Random.Range(0, manualWaypoints.Length);
+        m_waypointIndex = Random.Range(0, ManualWaypoints.Length);
     }
 
     private bool CheckPrefabExistance()
     {
-        if (prefabGroups == null)
+        if (PrefabGroups == null)
         {
             return false;
         }
 
         var definedPrefabs = 0;
 
-        for (var i = 0; i < prefabGroups.Length; i++)
+        for (var i = 0; i < PrefabGroups.Length; i++)
         {
-            if (prefabGroups[i].prefab != null)
+            if (PrefabGroups[i].Prefab != null)
             {
                 definedPrefabs += 1;
             }
@@ -198,9 +198,9 @@ public class FlockingSystem_Manual : MonoBehaviour
         var rend = m_agents[agentIndex].GetComponent<Renderer>();
         var mat = rend.material;
 
-        if (prefabGroups[prefabIndex].material != null)
+        if (PrefabGroups[prefabIndex].Material != null)
         {
-            rend.material = prefabGroups[prefabIndex].material;
+            rend.material = PrefabGroups[prefabIndex].Material;
             mat = rend.material;
         }
 
@@ -209,27 +209,27 @@ public class FlockingSystem_Manual : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (visualiseSpawnArea)
+        if (VisualiseSpawnArea)
         {
             Gizmos.color = Color.white * 0.6f;
-            Gizmos.DrawWireCube(transform.position, new Vector3(spawnArea * 2, spawnArea * 2, spawnArea * 2));
+            Gizmos.DrawWireCube(transform.position, new Vector3(SpawnArea * 2, SpawnArea * 2, SpawnArea * 2));
         }
-        if (visualiseManualWaypoints)
+        if (VisualiseManualWaypoints)
         {
             Gizmos.color = Color.cyan * 0.6f;
-            for (var i = 0; i < manualWaypoints.Length; i++)
+            for (var i = 0; i < ManualWaypoints.Length; i++)
             {
-                var pos = manualWaypoints[i].GetWaypoint(transform.position);
+                var pos = ManualWaypoints[i].GetWaypoint(transform.position);
 
                 if (pos == m_waypoint)
                 {
                     Gizmos.color = Color.red * 0.6f;
-                    Gizmos.DrawWireSphere(manualWaypoints[i].GetWaypoint(transform.position), 1f);
+                    Gizmos.DrawWireSphere(ManualWaypoints[i].GetWaypoint(transform.position), 1f);
                 }
                 else
                 {
                     Gizmos.color = Color.cyan * 0.6f;
-                    Gizmos.DrawWireSphere(manualWaypoints[i].GetWaypoint(transform.position), 1f);
+                    Gizmos.DrawWireSphere(ManualWaypoints[i].GetWaypoint(transform.position), 1f);
                 }
             }
         }

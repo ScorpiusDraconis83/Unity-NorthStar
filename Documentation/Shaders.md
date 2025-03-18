@@ -1,0 +1,25 @@
+# Custom Hair, Cloth and Skin Shaders 
+We implemented a few shaders with custom lighting models for cases where the standard PBR diffuse/specular did not provide sufficient results. These were all implemented in shadergraph, using a custom node for the lighting, similar to a regular PBR master node. Initially we used the Unlit shadergraph target, however this was missing some lighting, shadow and lightmap shader variants, so we created a CustomLit target, which has these keywords enabled. 
+
+# Hair Shader 
+The hair shader is based on [Physically Based Hair Shading in Unreal.](https://blog.selfshadow.com/publications/s2016-shading-course/karis/s2016_pbs_epic_hair.pdf) The technique generally requires an extra texture to define the rotation of the hair strands so that higlight directions are consistent. For performance reasons, we achieved this by orienting the UVs so that the lengthwise direction of the strands goes from left to right, which mostly achieves the same result, but at a lower performance cost. 
+
+We implemented the equations for specular and environment lighting from the paper, however we found the multi-scatter equation from the paper did not give great results in our situation, so we opted for a simple lambert diffuse which also saves performance. 
+
+The the shader is implemented in HairLighting.hlsl, with most of the hair-specific logic in the “CalculateLighting” function. We simplified some calculations of vectors such as cosThetaI/cosThetaR/cosThetaD using the normal, instead of re-deriving from sinThetaI/sinThetaR. This gives the same results, but only requires simple dot products instead of sqrt/trigonometric instructions in most cases. 
+
+The result has several improvements over the standard Lit specular equation. The primary specular highlight is stretched across hair strands, so that highlights show as long bands instead of a focused circle. A secondary transmitted highlight (TT) is also calculated, which allows light source to shine through when behind the hair surface. A shifted, tinted reflection is also calculated (TRT) which replicates the metallic/sheen highlight effect that is often seen in hair. 
+
+The hair shader can be driven by regular albedo, normal, roughness and occlusion maps. However in our case we found that a single color and smoothness value gave us enough control, combined with a packed Normal/AO map. We also included a “micro shadow” technique which uses the normal and AO data to calculate direct light self-shadowing at a small scale, which improves the appearance of depth within the hair. 
+
+# Cloth Shader 
+For the cloth shader, we replaced the specular term with a “Charlie Sheen” distribution, combined with the Ashikmin visibility term described in [Cloth Shading | Krzysztof Narkowicz.](https://knarkowicz.wordpress.com/2018/01/04/cloth-shading/) This produces a more natural highlight on cloth, simulating the lighting of individual fibers instead of a hard, flat, reflective surface. We also replaced the diffuse lighting with a wrapped diffuse term to allow for a software falloff, and a configurable subsurface color to fake some scattering in shadowed sections, as detailed in section 4.12.2 of [Physically Based Rendering in Filament.](https://google.github.io/filament/Filament.md.html#materialsystem/clothmodel)  
+
+The cloth shader is still driven by regular albedo, roughness and normal maps, however the roughness is interpreted as a distribution of randomly fibers, and how aligned they are to the normal direction. 
+
+# Skin Shader 
+The character skin shader replaces the diffuse term with a subsurface scattering approximation known as pre-integrated skin shading. One resource on the subject is here: [Simon's Tech Blog: Pre-Integrated Skin Shading.](https://simonstechblog.blogspot.com/2015/02/pre-integrated-skin-shading.html) We opted to use a lookup table instead of a function fit. This requires a “curvature map” which can be baked in substance painter to control the strength of the effect. The curvature and dot product between the light and normal are used to index the lookup table to get the amount of scattered diffuse lighting. 
+
+The specular uses a regular GGX function, as it produced results that were good enough for our purpose.  
+
+We also added a secondary “deep scattering” approximation. This involves sampling the shadow map and comparing the depths with the current pixel to approximate the thickness of the geometry along the light source direction. This is then added to the diffuse term using a simple transmittance formula. While it works well in some situations, it is sensitive to shadowmap precision and flickering. URP also has a hardcoded shadow constant bias, so we have added some bias and normal bias controls that are used when sampling the shadowmap to reduce artifacts.

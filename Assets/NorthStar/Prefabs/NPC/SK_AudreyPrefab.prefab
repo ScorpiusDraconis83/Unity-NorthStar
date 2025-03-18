@@ -709,13 +709,13 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3546367552808765332}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 0.006590605, y: 0.8963555, z: -0.002608329}
-  m_Size: 1.8797624
+  m_LocalReferencePoint: {x: 0.10830164, y: 0.035873532, z: 0.00000059604645}
+  m_Size: 1.9525146
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.6
+  - screenRelativeHeight: 0.2
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 4454979600648116511}
@@ -3709,6 +3709,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7935458347671473918}
+    - targetCorrespondingSourceObject: {fileID: -6576428253001003219, guid: 9678a661a5243314e9019ab2671a16ee,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8205180606877791951}
+    - targetCorrespondingSourceObject: {fileID: -6561084389503836285, guid: 9678a661a5243314e9019ab2671a16ee,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5464439493547089841}
   m_SourcePrefab: {fileID: 100100000, guid: 9678a661a5243314e9019ab2671a16ee, type: 3}
 --- !u!4 &50659872838670077 stripped
 Transform:
@@ -3807,7 +3815,7 @@ LODGroup:
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.6
+  - screenRelativeHeight: 0.35
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 4454979600648116511}
@@ -3837,6 +3845,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkinnedMeshRenderer: {fileID: 5010706145460663502}
   BlendShapeWeights:
+  - 0
+  - 0
+  - 0
+  - 0
   - 0
   - 0
   - 0
@@ -4259,7 +4271,6 @@ MonoBehaviour:
   m_rightLegRig: {fileID: 0}
   m_targetTransform: {fileID: 5249315786268889956}
   m_spineLookLerpSpeed: 5
-  m_armLookLerpSpeed: 5
   m_headLookLerpSpeed: 5
   m_eyeLookLerpSpeed: 100
   m_trackTargetLerpSpeed: 5
@@ -4292,7 +4303,7 @@ MonoBehaviour:
   - m_rigName: Helmet Side L
     RootBone: {fileID: 5847894553635915653}
     m_ignoredBones: []
-    useCollision: 0
+    UseCollision: 0
     CollisionRadius: 0
     CollisionObjects: []
     GravityMultiplier: 0.5
@@ -4304,7 +4315,7 @@ MonoBehaviour:
   - m_rigName: Helmet Side R
     RootBone: {fileID: 2973684137954592086}
     m_ignoredBones: []
-    useCollision: 0
+    UseCollision: 0
     CollisionRadius: 0
     CollisionObjects: []
     GravityMultiplier: 0.5
@@ -4316,7 +4327,7 @@ MonoBehaviour:
   - m_rigName: Helmet Strap L
     RootBone: {fileID: 2140583711390135803}
     m_ignoredBones: []
-    useCollision: 0
+    UseCollision: 0
     CollisionRadius: 0.3
     CollisionObjects: []
     GravityMultiplier: 0.5
@@ -4328,7 +4339,7 @@ MonoBehaviour:
   - m_rigName: Helmet Strap R
     RootBone: {fileID: 6855798403474790979}
     m_ignoredBones: []
-    useCollision: 0
+    UseCollision: 0
     CollisionRadius: 0.3
     CollisionObjects: []
     GravityMultiplier: 0.5
@@ -4340,7 +4351,7 @@ MonoBehaviour:
   - m_rigName: Hair 01
     RootBone: {fileID: 8745109948832893843}
     m_ignoredBones: []
-    useCollision: 0
+    UseCollision: 0
     CollisionRadius: 0.3
     CollisionObjects: []
     GravityMultiplier: 0.5
@@ -4352,7 +4363,7 @@ MonoBehaviour:
   - m_rigName: Hair 02
     RootBone: {fileID: 4952913686967125038}
     m_ignoredBones: []
-    useCollision: 0
+    UseCollision: 0
     CollisionRadius: 0.3
     CollisionObjects: []
     GravityMultiplier: 0.5
@@ -4364,7 +4375,7 @@ MonoBehaviour:
   - m_rigName: Hair 03
     RootBone: {fileID: 8499135896700041790}
     m_ignoredBones: []
-    useCollision: 0
+    UseCollision: 0
     CollisionRadius: 0.3
     CollisionObjects: []
     GravityMultiplier: 0.5
@@ -4376,7 +4387,7 @@ MonoBehaviour:
   - m_rigName: Hair 04
     RootBone: {fileID: 8701117895690742507}
     m_ignoredBones: []
-    useCollision: 0
+    UseCollision: 0
     CollisionRadius: 0.3
     CollisionObjects: []
     GravityMultiplier: 0.5
@@ -4570,6 +4581,44 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1007199923026135347}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2956633482836924080 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6561084389503836285, guid: 9678a661a5243314e9019ab2671a16ee,
+    type: 3}
+  m_PrefabInstance: {fileID: 1007199923026135347}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5464439493547089841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2956633482836924080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1582623e9ecdef48b74707a6d74bf47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetTransform: {fileID: 3948052581114329299}
+--- !u!1 &2972832767388042782 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6576428253001003219, guid: 9678a661a5243314e9019ab2671a16ee,
+    type: 3}
+  m_PrefabInstance: {fileID: 1007199923026135347}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8205180606877791951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2972832767388042782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1582623e9ecdef48b74707a6d74bf47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetTransform: {fileID: 4281541411460443570}
 --- !u!4 &2973684137954592086 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -6575555581812585371, guid: 9678a661a5243314e9019ab2671a16ee,

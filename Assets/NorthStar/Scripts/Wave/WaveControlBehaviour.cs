@@ -1,4 +1,5 @@
 // Copyright (c) Meta Platforms, Inc. and affiliates.
+using Meta.Utilities.Environment;
 using UnityEngine;
 using UnityEngine.Playables;
 
@@ -56,11 +57,14 @@ namespace NorthStar
             Shader.SetGlobalFloat(s_giantWaveDuration, duration);
             Shader.SetGlobalFloat(s_giantWaveDistance, Distance);
 
+            var angle = Angle - boatController.HeadingAngle;
+
+
             var oceanMaterial = EnvironmentSystem.Instance.CurrentProfile.OceanMaterial;
             oceanMaterial.SetFloat(s_giantWaveWidth, Width);
             oceanMaterial.SetFloat(s_giantWaveHeight, Height);
             oceanMaterial.SetFloat(s_giantWaveLength, Length);
-            oceanMaterial.SetFloat(s_giantWaveAngle, (Angle - boatController.HeadingAngle * 2) / 360);
+            oceanMaterial.SetFloat(s_giantWaveAngle, angle / 360);
             oceanMaterial.SetFloat(s_giantWaveSteepness, Steepness);
             oceanMaterial.SetFloat(s_giantWaveCurveStrength, CurveStrength);
             oceanMaterial.SetVector(s_giantWaveCenter, new Vector2(center.x, center.z));

@@ -804,13 +804,13 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4996461280835685271}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 0.8975897, z: -0.044465125}
-  m_Size: 1.8621631
+  m_LocalReferencePoint: {x: 0.122519076, y: -0.020061612, z: -0.00000011920929}
+  m_Size: 1.9462913
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.6
+  - screenRelativeHeight: 0.2
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 1818979438467707840}
@@ -2207,6 +2207,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8777664592700365467}
+    - targetCorrespondingSourceObject: {fileID: -6576428253001003219, guid: 86b67927572c89d46845154c0fb9623b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9203646285871067614}
+    - targetCorrespondingSourceObject: {fileID: -6561084389503836285, guid: 86b67927572c89d46845154c0fb9623b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8827956596122712697}
   m_SourcePrefab: {fileID: 100100000, guid: 86b67927572c89d46845154c0fb9623b, type: 3}
 --- !u!4 &15793696888837783 stripped
 Transform:
@@ -2462,7 +2470,7 @@ LODGroup:
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.6
+  - screenRelativeHeight: 0.35
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 1818979438467707840}
@@ -2938,7 +2946,6 @@ MonoBehaviour:
   m_rightLegRig: {fileID: 0}
   m_targetTransform: {fileID: 7071025062438263798}
   m_spineLookLerpSpeed: 5
-  m_armLookLerpSpeed: 5
   m_headLookLerpSpeed: 5
   m_eyeLookLerpSpeed: 100
   m_trackTargetLerpSpeed: 5
@@ -2971,7 +2978,7 @@ MonoBehaviour:
   - m_rigName: Ponytail
     RootBone: {fileID: 7628852817464069329}
     m_ignoredBones: []
-    useCollision: 1
+    UseCollision: 1
     CollisionRadius: 0.08
     CollisionObjects:
     - {fileID: 813608506899891438}
@@ -2984,7 +2991,7 @@ MonoBehaviour:
   - m_rigName: Hair L 01
     RootBone: {fileID: 6979432071848004437}
     m_ignoredBones: []
-    useCollision: 1
+    UseCollision: 1
     CollisionRadius: 0.03
     CollisionObjects:
     - {fileID: 3272182261495423246}
@@ -2997,7 +3004,7 @@ MonoBehaviour:
   - m_rigName: Hair L 02
     RootBone: {fileID: 9054872589490586959}
     m_ignoredBones: []
-    useCollision: 1
+    UseCollision: 1
     CollisionRadius: 0.03
     CollisionObjects:
     - {fileID: 3272182261495423246}
@@ -3010,7 +3017,7 @@ MonoBehaviour:
   - m_rigName: Hair R 01
     RootBone: {fileID: 1107409715920262143}
     m_ignoredBones: []
-    useCollision: 1
+    UseCollision: 1
     CollisionRadius: 0.03
     CollisionObjects:
     - {fileID: 3272182261495423246}
@@ -3023,7 +3030,7 @@ MonoBehaviour:
   - m_rigName: Hair R 02
     RootBone: {fileID: 4143736013834969305}
     m_ignoredBones: []
-    useCollision: 1
+    UseCollision: 1
     CollisionRadius: 0.03
     CollisionObjects:
     - {fileID: 3272182261495423246}
@@ -3182,12 +3189,50 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1277929147923605950}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3821243342114711187 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6576428253001003219, guid: 86b67927572c89d46845154c0fb9623b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1277929147923605950}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9203646285871067614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3821243342114711187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1582623e9ecdef48b74707a6d74bf47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetTransform: {fileID: 2822982974514253119}
 --- !u!4 &3825944489994316665 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2640342983192593095, guid: 86b67927572c89d46845154c0fb9623b,
     type: 3}
   m_PrefabInstance: {fileID: 1277929147923605950}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3841083710021170749 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6561084389503836285, guid: 86b67927572c89d46845154c0fb9623b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1277929147923605950}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8827956596122712697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3841083710021170749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1582623e9ecdef48b74707a6d74bf47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetTransform: {fileID: 3065856043415148638}
 --- !u!4 &3874553968172677038 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2628188500752178704, guid: 86b67927572c89d46845154c0fb9623b,

@@ -11,21 +11,21 @@ namespace NorthStar
     /// </summary>
     public class OnGrabEvents : MonoBehaviour
     {
-        [SerializeField, AutoSet] private PhysicsTransformer physicsTransformer;
+        [SerializeField, AutoSet] private PhysicsTransformer m_physicsTransformer;
 
         public UnityEvent OnGrab = new();
         public UnityEvent OnRelease = new();
 
         private void OnEnable()
         {
-            physicsTransformer.OnInteraction += Grab;
-            physicsTransformer.OnEndInteraction += EndGrab;
+            m_physicsTransformer.OnInteraction += Grab;
+            m_physicsTransformer.OnEndInteraction += EndGrab;
         }
 
         private void OnDisable()
         {
-            physicsTransformer.OnInteraction -= Grab;
-            physicsTransformer.OnEndInteraction -= EndGrab;
+            m_physicsTransformer.OnInteraction -= Grab;
+            m_physicsTransformer.OnEndInteraction -= EndGrab;
         }
 
         private void EndGrab(HandGrabInteractor interactor)

@@ -27,11 +27,11 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _DISABLENORMALTEXTURE
-  - _USE_FAKE_SUBSURFACESCATTERING
   - _USE_WIND
   m_InvalidKeywords:
   - _SURFACE_TYPE_OPAQUE
   - _USEWIND
+  - _USE_FAKE_SUBSURFACESCATTERING
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 1
@@ -97,6 +97,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _Normal_Map:
         m_Texture: {fileID: 2800000, guid: 8a97a76894319194bad21aa0318759ee, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NorthStarDefaultShader_f2f82c625d7b48f8ba88ed1c4f3b41e9_DetailMask_2422358792_Texture2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NorthStarDefaultShader_f2f82c625d7b48f8ba88ed1c4f3b41e9_ParallaxTexture_2611314226_Texture2D:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -174,7 +182,7 @@ Material:
     - _CastShadows: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _Color_Variation: 0.2
+    - _Color_Variation: 0
     - _Cull: 0
     - _Cutoff: 0.5
     - _DISABLENORMALTEXTURE: 1
@@ -194,7 +202,10 @@ Material:
     - _Hotspot: 0.2
     - _IS_STANDARD_NORMAL_TEXTURE: 0
     - _Individual_Leaf_Offset: 0
+    - _Is_Standard_Normal_Texture: 0
     - _Lead_Amount: 0.7
+    - _LightTintFactor: 0.8
+    - _LightTintOffset: 0.1
     - _LightmapBias: 0
     - _LightmapMaskMax: 1
     - _LightmapMaskMin: 0
@@ -263,10 +274,13 @@ Material:
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
+    - _BackFaceTint: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 0}
+    - _MaxLightTint: {r: 0.99999994, g: 0.99999994, b: 0.99999994, a: 0}
+    - _MinLightTint: {r: 4, g: 4, b: 4, a: 0}
     - _NormalValue: {r: 0, g: 0, b: 1, a: 0}
     - _Pulse_Tint: {r: 4, g: 1.381703, b: 0, a: 1}
     - _SSSColor: {r: 0.35751328, g: 0.5, b: 0.18160376, a: 1}

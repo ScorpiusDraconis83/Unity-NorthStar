@@ -279,7 +279,7 @@ namespace NorthStar
         }
 
         [SerializeReference] public List<DebugValueBase> Properties = new();
-        [SerializeField] private List<Category> DefaultCategories = new();
+        public List<Category> DefaultCategories = new();
 
 
         public List<Category> Categories = new();

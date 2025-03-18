@@ -39,7 +39,7 @@ namespace NorthStar
                     return pair.Effect;
                 }
             }
-            Debug.LogWarning("Missing pair");
+
             curve = m_velocityInstensityCurve;
             return m_defaultEffect;
         }

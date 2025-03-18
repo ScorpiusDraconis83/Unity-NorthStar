@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
 namespace NorthStar
@@ -30,9 +31,14 @@ namespace NorthStar
             public bool UseDynamicFoveatedRendering;
             public OVRPlugin.FoveatedRenderingLevel FoveatedRenderingLevel;
             public TargetFramerate TargetFramerate;
+            public OVRPlugin.ProcessorPerformanceLevel CPUPerformanceLevel;
+            public OVRPlugin.ProcessorPerformanceLevel GPUPerformanceLevel;
+
+            public ShaderVariantCollection ShaderVariants;
+            public ShaderVariantCollectionSO ShaderVariantsSO;
         }
 
-        [field: SerializeField] public List<QualityPreset> Presets { get; private set; }
+        [field: SerializeField] public QualityData QualityData { get; private set; }
 
         private QualityPreset m_currentPreset;
 
@@ -72,28 +78,22 @@ namespace NorthStar
 
         private void SwitchQualityLevel()
         {
-            var headsetType = OVRPlugin.GetSystemHeadsetType();
-            foreach (var preset in Presets)
-            {
-                foreach (var targetHeadset in preset.Headsets)
-                {
-                    if (targetHeadset == headsetType)
-                    {
-                        SetQualityPreset(preset);
-                        return;
-                    }
-                }
-            }
+            SetQualityPreset(QualityData.CurrentPreset);
         }
 
         private void SetQualityPreset(QualityPreset preset)
         {
             m_currentPreset = preset;
             QualitySettings.SetQualityLevel(preset.QualityIndex);
+            Shader.SetKeyword(GlobalKeyword.Create("_LOWQUALITYSHADER"), preset.QualityIndex == 0);
+            Shader.SetKeyword(GlobalKeyword.Create("_MEDIUMQUALITYSHADER"), preset.QualityIndex == 1);
+            Shader.SetKeyword(GlobalKeyword.Create("_HIGHQUALITYSHADER"), preset.QualityIndex == 2);
             OVRPlugin.systemDisplayFrequency = (float)preset.TargetFramerate;
             OVRManager.SetSpaceWarp(preset.UseASW);
             OVRPlugin.useDynamicFoveatedRendering = preset.UseDynamicFoveatedRendering;
             OVRPlugin.foveatedRenderingLevel = preset.FoveatedRenderingLevel;
+            OVRPlugin.suggestedCpuPerfLevel = preset.CPUPerformanceLevel;
+            OVRPlugin.suggestedGpuPerfLevel = preset.GPUPerformanceLevel;
         }
 
         /// <summary>

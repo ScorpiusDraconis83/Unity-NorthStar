@@ -8,11 +8,11 @@ using UnityEngine;
 [System.Serializable]
 public class ObjectPrefab
 {
-    public string prefabName { get { return m_prefabName; } }
-    public GameObject prefab { get { return m_prefab; } }
-    public int spawnCount { get { return m_count; } }
-    public Vector2 minMaxScale { get { return m_scale; } }
-    public Material material { get { return m_material; } }
+    public string PrefabName => m_prefabName;
+    public GameObject Prefab => m_prefab;
+    public int SpawnCount => m_count;
+    public Vector2 MinMaxScale => m_scale;
+    public Material Material => m_material;
 
     [SerializeField]
     [Tooltip("The name that the agents of this system will be labelled as in the outliner. This can remain empty but it can help distinguishing different prefabs.")]
@@ -40,10 +40,10 @@ public class ObjectPrefab
 public class Waypoint
 {
     [Tooltip("A GameObject that exists in the scene for the agents to target. If this is empty this waypoint will use the vector below instead.")]
-    public Transform m_waypointObject;
+    [SerializeField] private Transform m_waypointObject;
 
     [Tooltip("A vector realative to the flocking system for the agents to target.")]
-    public Vector3 m_waypointPosition;
+    [SerializeField] private Vector3 m_waypointPosition;
 
     public Vector3 GetWaypoint(Vector3 systemPosition)
     {

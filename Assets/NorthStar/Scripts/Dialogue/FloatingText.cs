@@ -94,7 +94,7 @@ namespace NorthStar
             var marginMin = GlobalSettings.ScreenSettings.ScreenMinBounds - (Vector2)bl;
             var marginMax = GlobalSettings.ScreenSettings.ScreenMaxBounds - (Vector2)tr;
             camSpacePoint.x = Mathf.Clamp(camSpacePoint.x, marginMin.x, marginMax.x);
-            camSpacePoint.y = Mathf.Clamp(camSpacePoint.y, marginMin.y, marginMax.y);
+            camSpacePoint.y = Mathf.Clamp(camSpacePoint.y, marginMin.y, camSpacePoint.y);
 
             var newPos = m_camera.ViewportToWorldPoint(camSpacePoint);
             var dir = newPos - m_camera.transform.position;

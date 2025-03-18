@@ -5,18 +5,18 @@ namespace NorthStar
 {
     public class DebugBoxDeleter : MonoBehaviour
     {
-        public float minDist;
-        public Transform platform;
-        public Vector3 relativePos;
+        public float MinDist;
+        public Transform Platform;
+        public Vector3 RelativePos;
 
         private void Awake()
         {
-            relativePos = transform.position - platform.position;
+            RelativePos = transform.position - Platform.position;
         }
 
         private void LateUpdate()
         {
-            if (Vector3.Distance(relativePos, transform.position - platform.position) > minDist)
+            if (Vector3.Distance(RelativePos, transform.position - Platform.position) > MinDist)
             {
                 gameObject.SetActive(false);
             }

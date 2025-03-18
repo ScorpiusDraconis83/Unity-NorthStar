@@ -90,6 +90,15 @@ namespace NorthStar
                 set => _customHandRotationOffset = value;
             }
 
+            [SerializeField]
+            private Vector3 _customHandPositionOffset;
+
+            public Vector3 CustomHandPositionOffset
+            {
+                get => _customHandPositionOffset;
+                set => _customHandPositionOffset = value;
+            }
+
             /// <summary>
             /// If true, use the secondary bone position before solving for the target position.
             /// </summary>
@@ -346,9 +355,10 @@ namespace NorthStar
                     handBone.position = _originalHandPosition;
                 }
 
+                // Reset hand bone local position to account for twist bone offset
+                _armBones[0].localPosition = CustomHandPositionOffset;
 
                 var handRotation = UseCustomHandTargetRotation ? (CustomHandTargetRotation ?? Quaternion.identity) * Quaternion.Euler(_customHandRotationOffset) : handBone.rotation;
-
                 var targetPosition = Vector3.Lerp(handBone.position, targetHandPosition, handIKWeight);
                 var solvedIK = false;
                 if (handIKWeight > 0.0f)
@@ -371,8 +381,21 @@ namespace NorthStar
                     }
                 }
 
-                handBone.position = Vector3.MoveTowards(
-                    handBone.position, targetPosition, parentProcessor.MaxHandStretch);
+                // Correct elbow and twist bone (not handled correctly by IK)
+
+                var handBonePosition = handBone.position; // Remember hand bone position as it will change when adjusting elbow and twist bones
+                var arm = _armBones[^2];
+                var elbow = _armBones[1];
+                var elbowTwist = elbow.GetChild(0);
+                var left = this == parentProcessor.LeftHandProcessor;
+                var elbowCorrectionQuaternion = Quaternion.Euler(-90, left ? 90 : -90, 0);
+                var elbowToWrist = (elbow.position - handBonePosition).normalized;
+
+                // Distribute wrist rotation along elbow and twist bones
+                elbow.rotation = Quaternion.LookRotation(elbowToWrist, arm.forward) * elbowCorrectionQuaternion;
+                elbowTwist.rotation = Quaternion.LookRotation(elbowToWrist, Vector3.Lerp(arm.forward, handRotation * Vector3.forward, 0.5f)) * elbowCorrectionQuaternion;
+
+                handBone.position = Vector3.MoveTowards(handBonePosition, targetPosition, parentProcessor.MaxHandStretch);
                 handBone.rotation = handRotation;
 
                 if (!solvedIK && parentProcessor.MaxShoulderStretch > 0.0f)
@@ -897,12 +920,12 @@ namespace NorthStar
                 UpdateTargetHandData(retargetingLayer,
                     ref leftTargetPosition, ref rightTargetPosition,
                     ref leftTargetRotation, ref rightTargetRotation);
-                if (syncOption == SyncOvrOption.Rotations || syncOption == SyncOvrOption.PositionsAndRotations)
+                if (syncOption is SyncOvrOption.Rotations or SyncOvrOption.PositionsAndRotations)
                 {
                     _leftHandProcessor.HandBone.rotation = leftTargetRotation;
                     _rightHandProcessor.HandBone.rotation = rightTargetRotation;
                 }
-                if (syncOption == SyncOvrOption.Positions || syncOption == SyncOvrOption.PositionsAndRotations)
+                if (syncOption is SyncOvrOption.Positions or SyncOvrOption.PositionsAndRotations)
                 {
                     leftHandTargetPosition = leftTargetPosition;
                     rightHandTargetPosition = rightTargetPosition;

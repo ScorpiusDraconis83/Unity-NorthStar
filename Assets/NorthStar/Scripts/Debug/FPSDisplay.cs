@@ -8,14 +8,15 @@ namespace NorthStar.DebugUtilities
     public class FPSDisplay : MonoBehaviour
     {
         [SerializeField]
-        private TMP_Text m_Text;
+        private TMP_Text m_text;
 
         private int m_fpsAccumulator;
         private float m_fpsNextPeriod;
         private int m_currentFps;
+        private int m_lastDisplayedFps = -1;
 
         private const float FPS_MEASURE_PERIOD = 0.5f;
-        private const string DISPLAY = "{0} FPS";
+        private const int FPS_UPDATE_MULTIPLIER = (int)(1.0 / FPS_MEASURE_PERIOD);
 
         private void Start()
         {
@@ -26,12 +27,18 @@ namespace NorthStar.DebugUtilities
         {
             // measure average frames per second
             m_fpsAccumulator++;
-            if (Time.realtimeSinceStartup > m_fpsNextPeriod)
+            var currentTime = Time.realtimeSinceStartup;
+            if (currentTime > m_fpsNextPeriod)
             {
-                m_currentFps = (int)(m_fpsAccumulator / FPS_MEASURE_PERIOD);
+                m_currentFps = m_fpsAccumulator * FPS_UPDATE_MULTIPLIER;
                 m_fpsAccumulator = 0;
-                m_fpsNextPeriod += FPS_MEASURE_PERIOD;
-                m_Text.text = string.Format(DISPLAY, m_currentFps);
+                m_fpsNextPeriod = currentTime + FPS_MEASURE_PERIOD;
+
+                if (m_currentFps != m_lastDisplayedFps)
+                {
+                    m_lastDisplayedFps = m_currentFps;
+                    m_text.text = m_currentFps + " FPS";
+                }
             }
         }
     }

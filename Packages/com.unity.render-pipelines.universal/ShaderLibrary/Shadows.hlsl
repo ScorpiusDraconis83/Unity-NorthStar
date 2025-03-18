@@ -156,7 +156,7 @@ ShadowSamplingData GetAdditionalLightShadowSamplingData(int index)
 // y: 1.0 if shadow is soft, 0.0 otherwise
 half4 GetMainLightShadowParams()
 {
-    // Tantalus edit: Force to 1 to avoid a lot of runtime dynamic branching in Shadow sampling
+    // Meta edit: Force to 1 to avoid a lot of runtime dynamic branching in Shadow sampling
     return 1.0;
     
     return _MainLightShadowParams;
@@ -202,7 +202,7 @@ real SampleShadowmapFiltered(TEXTURE2D_SHADOW_PARAM(ShadowMap, sampler_ShadowMap
 {
     real attenuation = real(1.0);
 
-    // Tantalus edit: Forcing shadow quality to low to avoid a lot of dynamic branching and register usage
+    // Meta edit: Forcing shadow quality to low to avoid a lot of dynamic branching and register usage
     //if (samplingData.softShadowQuality == SOFT_SHADOW_QUALITY_LOW)
     if (true)
     {
@@ -266,7 +266,7 @@ real SampleShadowmap(TEXTURE2D_SHADOW_PARAM(ShadowMap, sampler_ShadowMap), float
     real shadowStrength = shadowParams.x;
 
 #if (_SHADOWS_SOFT)
-    // Tantalus: Skipping pointless if check since soft shadows already on
+    // Meta: Skipping pointless if check since soft shadows already on
     //if(shadowParams.y > SOFT_SHADOW_QUALITY_OFF)
     {
         attenuation = SampleShadowmapFiltered(TEXTURE2D_SHADOW_ARGS(ShadowMap, sampler_ShadowMap), shadowCoord, samplingData);
@@ -279,7 +279,7 @@ real SampleShadowmap(TEXTURE2D_SHADOW_PARAM(ShadowMap, sampler_ShadowMap), float
     }
 #endif
 
-    // Tantalus edit: Skip shadow strength which is always 1, and shadow near/far checks
+    // Meta edit: Skip shadow strength which is always 1, and shadow near/far checks
     return attenuation;
 
     attenuation = LerpWhiteTo(attenuation, shadowStrength);
@@ -323,6 +323,7 @@ half MainLightRealtimeShadow(float4 shadowCoord)
     #elif defined(_MAIN_LIGHT_SHADOWS_SCREEN) && !defined(_SURFACE_TYPE_TRANSPARENT)
         return SampleScreenSpaceShadowmap(shadowCoord);
     #else
+        // Meta change : Avoid sampling outside of the shadowmap
         if(shadowCoord.z > 1.0 || any(saturate(shadowCoord.xy) != shadowCoord.xy))
             return 1.0h;
     
@@ -336,7 +337,7 @@ half MainLightRealtimeShadow(float4 shadowCoord)
 // returns 1.0 if position is in light
 half AdditionalLightRealtimeShadow(int lightIndex, float3 positionWS, half3 lightDirection)
 {
-    // Tantalus edit: Hardcoded this for now since URP's code still adds a bunch of branches/register pressure even with additional light shadows disabled
+    // Meta edit: Hardcoded this for now since URP's code still adds a bunch of branches/register pressure even with additional light shadows disabled
     return 1.0h;
     
     #if defined(ADDITIONAL_LIGHT_CALCULATE_SHADOWS)

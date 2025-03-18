@@ -44,21 +44,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1df28f8d1f5497843990e78154e447b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnArea: {x: 10, y: 5, z: 10}
-  traversalArea: {x: 20, y: 10, z: 20}
-  minMaxSpeed: {x: 4, y: 6}
-  minMaxRotationSpeed: {x: 0.5, y: 1}
-  flockAroundOrigin: 0
-  directionChangeFrequency: 50
-  groupingDistance: 0.75
-  avoidanceDistance: 0.4
-  prefabGroups:
+  SpawnArea: {x: 10, y: 5, z: 10}
+  TraversalArea: {x: 20, y: 10, z: 20}
+  MinMaxSpeed: {x: 4, y: 6}
+  VariationSpeed: 0.1
+  VariationMagnitude: 1
+  MinMaxRotationSpeed: {x: 0.5, y: 1}
+  FlockAroundOrigin: 0
+  DirectionChangeFrequency: 50
+  GroupingDistance: 0.6
+  AvoidanceDistance: 0.4
+  PrefabGroups:
   - m_prefabName: Bird
     m_prefab: {fileID: 919132149155446097, guid: 6f3ddf5fa993b2c48aaaa957e3a09ee5,
       type: 3}
     m_count: 10
-    m_scale: {x: 1, y: 2}
-    m_material: {fileID: 0}
-  visualiseSpawnArea: 0
-  visualiseTraversalArea: 1
-  visualiseWaypoint: 0
+    m_scale: {x: 1.2, y: 2.4}
+    m_material: {fileID: 2100000, guid: c440e2ccde0e9354780d982231111f0d, type: 2}
+  AnimationSpeed: 6
+  VisualiseSpawnArea: 0
+  VisualiseTraversalArea: 1
+  VisualiseWaypoint: 0

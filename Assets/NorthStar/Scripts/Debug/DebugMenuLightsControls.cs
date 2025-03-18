@@ -5,16 +5,16 @@ namespace NorthStar
 {
     public class TestLightsDebugControls : MonoBehaviour
     {
-        public GameObject directionalLight;
-        public bool pointLightsOffByDefault = false;
+        public GameObject DirectionalLight;
+        public bool PointLightsOffByDefault = false;
         [Header("Point lights to control can be manually added, or populated in Context Menu")]
-        public Light[] childLights;
+        public Light[] ChildLights;
         private const string LIGHTS_CATEGORY = "Lights Stress Test";
         [Header("These can be applied in Context Menu")]
         [Range(0f, 20f)]
-        public float lightIntensity = 6f;
+        public float LightIntensity = 6f;
         [Range(0.25f, 20f)]
-        public float lightRange = 2.1f;
+        public float LightRange = 2.1f;
 
 
         private void Start()
@@ -23,9 +23,9 @@ namespace NorthStar
             {
                 RandomizeLightColors();
             });
-            if (childLights.Length > 0)
+            if (ChildLights.Length > 0)
             {
-                var numberOfLightsActive = DebugSystem.Instance.AddInt(LIGHTS_CATEGORY, "Number Of Point Lights Active", 0, childLights.Length, childLights.Length, false, (value) =>
+                var numberOfLightsActive = DebugSystem.Instance.AddInt(LIGHTS_CATEGORY, "Number Of Point Lights Active", 0, ChildLights.Length, ChildLights.Length, false, (value) =>
                 {
                     EnableSomeLights(value);
                 });
@@ -34,56 +34,56 @@ namespace NorthStar
             {
                 DirectionalLightEnabled(value);
             });
-            var lightsIntensityValue = DebugSystem.Instance.AddFloat(LIGHTS_CATEGORY, "Light Intensity", 0f, 20f, lightIntensity, false, (value) =>
+            var lightsIntensityValue = DebugSystem.Instance.AddFloat(LIGHTS_CATEGORY, "Light Intensity", 0f, 20f, LightIntensity, false, (value) =>
             {
-                lightIntensity = value;
+                LightIntensity = value;
                 UpdateLightIntensity();
             });
-            var lightsRangeValue = DebugSystem.Instance.AddFloat(LIGHTS_CATEGORY, "Light Range", 0.25f, 20f, lightRange, false, (value) =>
+            var lightsRangeValue = DebugSystem.Instance.AddFloat(LIGHTS_CATEGORY, "Light Range", 0.25f, 20f, LightRange, false, (value) =>
             {
-                lightRange = value;
+                LightRange = value;
                 UpdateLightRanges();
             });
-            if (pointLightsOffByDefault)
+            if (PointLightsOffByDefault)
             {
                 DisableAllLights();
             }
         }
         public void DirectionalLightEnabled(bool value)
         {
-            if (directionalLight == null)
+            if (DirectionalLight == null)
             {
                 return;
             }
-            directionalLight.SetActive(value);
+            DirectionalLight.SetActive(value);
         }
 
         [ContextMenu("Populate Lights Array")]
         public void PopulateLightsArray()
         {
-            childLights = GetComponentsInChildren<Light>();
+            ChildLights = GetComponentsInChildren<Light>();
         }
 
         [ContextMenu("Update Light Ranges")]
         public void UpdateLightRanges()
         {
-            foreach (var light in childLights)
+            foreach (var light in ChildLights)
             {
-                light.range = lightRange;
+                light.range = LightRange;
             }
         }
         [ContextMenu("Update Light Intensity")]
         public void UpdateLightIntensity()
         {
-            foreach (var light in childLights)
+            foreach (var light in ChildLights)
             {
-                light.intensity = lightIntensity;
+                light.intensity = LightIntensity;
             }
         }
         [ContextMenu("Randomize Light Colors")]
         public void RandomizeLightColors()
         {
-            foreach (var light in childLights)
+            foreach (var light in ChildLights)
             {
                 //SendMessage is a slightly clunky way of doing this, but quick testing menu thing not intended to be exposed in final demo
                 light.gameObject.SendMessage("SetRandomLightColor");
@@ -95,13 +95,13 @@ namespace NorthStar
             DisableAllLights();
             for (var i = 0; i < value; i++)
             {
-                childLights[i].gameObject.SetActive(true);
+                ChildLights[i].gameObject.SetActive(true);
             }
         }
         [ContextMenu("Enable Point Lights")]
         public void EnableAllLights()
         {
-            foreach (var light in childLights)
+            foreach (var light in ChildLights)
             {
                 light.gameObject.SetActive(true);
             }
@@ -109,7 +109,7 @@ namespace NorthStar
         [ContextMenu("Disable Point Lights")]
         public void DisableAllLights()
         {
-            foreach (var light in childLights)
+            foreach (var light in ChildLights)
             {
                 light.gameObject.SetActive(false);
             }

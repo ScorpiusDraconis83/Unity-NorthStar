@@ -22,11 +22,13 @@ Material:
     RenderType: Opaque
   disabledShaderPasses:
   - SHADOWCASTER
+  - DepthOnly
   m_LockedProperties: _Back_Scatter_Power _Cloud_Ambient _Cloud_Back_Color _Cloud_Blend_Offset
     _Cloud_Blend_Power _Cloud_Direction _Cloud_Offset _Cloud_Opacity_Offset _Cloud_Opacity_Scale
-    _Cloud_Scale _Cloud_Speed _Cloud_Sun_Color _Fog_Offset _Fog_Power _Front_Scatter_Power
-    _Ground_Color _Scatter_Blend _SkyFogOpacity _Sky_Blend_Offset _Sky_Blend_Power
-    _Sky_Horizon_Color _Sky_Zenith_Color _Star_Color _Star_Power _Star_Scale
+    _Cloud_Scale _Cloud_Speed _Cloud_Sun_Color _ENABLESTARS _Fog_Offset _Fog_Power
+    _Front_Scatter_Power _Ground_Color _Scatter_Blend _SkyFogOpacity _Sky_Blend_Offset
+    _Sky_Blend_Power _Sky_Horizon_Color _Sky_Zenith_Color _Star_Color _Star_Power
+    _Star_Scale
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -67,7 +69,7 @@ Material:
     - _Cloud_Back_Color: {r: 0.9150943, g: 0.6643067, b: 0.55682623, a: 1}
     - _Cloud_Speed: {r: -0.002, g: 0, b: 0, a: 0}
     - _Cloud_Sun_Color: {r: 0.7310888, g: 0.4847831, b: 0.40347832, a: 1}
-    - _Ground_Color: {r: 0.16841987, g: 0.13082945, b: 0.18867922, a: 1}
+    - _Ground_Color: {r: 0.3490566, g: 0.28484336, b: 0.3198688, a: 1}
     - _SkyBaseColor: {r: 0.16941082, g: 0.4889988, b: 0.764151, a: 1}
     - _SkyCloudDarkColor: {r: 1, g: 1, b: 1, a: 1}
     - _SkyCloudLightColor: {r: 0.036311854, g: 0.052985515, b: 0.1509434, a: 1}
