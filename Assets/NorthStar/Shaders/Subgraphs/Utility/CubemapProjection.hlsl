@@ -1,3 +1,4 @@
+// Copyright (c) Meta Platforms, Inc. and affiliates.
 #ifndef DIRECTION_TO_UV_PROJECTION_UNITY
 #define DIRECTION_TO_UV_PROJECTION_UNITY
 
