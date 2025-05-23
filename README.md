@@ -33,7 +33,7 @@ git clone https://github.com/oculus-samples/Unity-NorthStar.git
 ## How to run the project in Unity
 
 1. Make sure you're using *Unity 2022.3.34f1* or newer.
-2. Load the [Assets/NorthStar/Scenes/#Staging/Launch](./Assets/NorthStar/Scenes/%23Staging/Launch.unity) scene.
+2. Load the [Assets/NorthStar/Scenes/#GameplayBeats/Launch](./Assets/NorthStar/Scenes/%23GameplayBeats/Launch.unity) scene.
 3. There are two ways of testing in the editor:
     <details>
     <summary><b>Quest Link</b></summary>
